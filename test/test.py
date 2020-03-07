@@ -226,7 +226,32 @@ from PyQt5.Qt import *
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = QWidget()
-    # window.resize(500,500)
+    window.resize(500,500)
+    # window.setFixedSize(500,500)   #该方法固定窗口大小
+    window.move(200,100)
+
+    label = QLabel(window)
+    label.setText("社会顺")
+    label.move(100,100)
+    label.setStyleSheet('background-color:cyan;')
+
+    def changeCao():
+        new_content = label.text() + '社会顺'
+        label.setText(new_content)
+        # label.resize(label.width()+100,label.height())
+        label.adjustSize()
+    btn = QPushButton(window)
+    btn.setText('增加内容')
+    btn.move(150,150)
+    btn.clicked.connect(changeCao)
+    # print(type(label.text))
+    # print(type(label.text()))
+
+
+    # window.setGeometry(0,0,150,150)
+    # print(window.x())
+    # print(window.width())
+    # print(window.geometry())
 
     # red = QWidget(window)
     # red.resize(100,100)
@@ -237,5 +262,10 @@ if __name__ == '__main__':
     # # green.resize(100,100)
     # # green.setStyleSheet('background-color:green;')
     # # green.move(300,50)
-    # window.show()
+    window.show()
+    # window.setGeometry(0,0,150,150)
+    # print('-' * 40)
+    # print(window.x())
+    # print(window.width())
+    # print(window.geometry())
     sys.exit(app.exec_())
