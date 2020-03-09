@@ -221,29 +221,30 @@
 #     window.startTimer(1000)
 #     window.show()
 #     sys.exit(app.exec_())
-import sys
-from PyQt5.Qt import *
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = QWidget()
-    window.resize(500,500)
+# import sys
+# from PyQt5.Qt import *
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+    # window.setFixedSize(500,500)
+    # window.resize(500,500)
+
     # window.setFixedSize(500,500)   #该方法固定窗口大小
-    window.move(200,100)
+    # window.move(200,100)
 
-    label = QLabel(window)
-    label.setText("社会顺")
-    label.move(100,100)
-    label.setStyleSheet('background-color:cyan;')
+    # label = QLabel(window)
+    # label.setText("社会顺")
+    # label.move(100,100)
+    # label.setStyleSheet('background-color:cyan;')
 
-    def changeCao():
-        new_content = label.text() + '社会顺'
-        label.setText(new_content)
-        # label.resize(label.width()+100,label.height())
-        label.adjustSize()
-    btn = QPushButton(window)
-    btn.setText('增加内容')
-    btn.move(150,150)
-    btn.clicked.connect(changeCao)
+    # def changeCao():
+    #     new_content = label.text() + '社会顺'
+    #     label.setText(new_content)
+    #     # label.resize(label.width()+100,label.height())
+    #     label.adjustSize()
+    # btn = QPushButton(window)
+    # btn.setText('增加内容')
+    # btn.move(150,150)
+    # btn.clicked.connect(changeCao)
     # print(type(label.text))
     # print(type(label.text()))
 
@@ -262,10 +263,167 @@ if __name__ == '__main__':
     # # green.resize(100,100)
     # # green.setStyleSheet('background-color:green;')
     # # green.move(300,50)
-    window.show()
+
+    # column_count = 4 #每行控件的个数
+    # widget_count = 100  #总的控件数量
+    # widget_width = window.width() / column_count
+    # row_count = (widget_count - 1) // column_count + 1
+    # widget_height = window.height() / row_count
+    # for i in range(0,widget_count):
+    #     w = QWidget(window)
+    #     w.resize(int(widget_width),int(widget_height))
+    #     widget_x = i % column_count * widget_width
+    #     widget_y = i // column_count * widget_height
+    #     w.move(int(widget_x),int(widget_y))
+    #     w.setStyleSheet('background-color:red;border:1px solid yellow;')
+    #     w.show()
+    # widget_width = int(window.width() / column_count) #窗口宽度/列数 求得控件的宽度
+    # row_count = int((widget_count - 1) / column_count + 1) #控件的行数
+    # widget_height = int(window.height() / row_count) #窗口高度/行数 求得控件的宽度 /表示正常除法求得的商，是float //表示正常除法求得的商，int是个整数，%表示正常除法求得的余数,是int
+    # # print(window.width(),window.height(),widget_width,row_count,widget_height)
+    # for i in range(0,row_count):
+    #     widget_y = i * widget_height + i
+    #     # print('i:',i)
+    #     for j in range(0,column_count): #for循环语句循环不到最大值,即不取column_count
+    #         w = QWidget(window)
+    #         w.resize(widget_width,widget_height)
+    #         widget_x = j * widget_width + j
+    #         w.move(widget_x,widget_y)
+    #         if i == j:
+    #             w.setStyleSheet('background-color:red;')
+    #         else:
+    #             w.setStyleSheet('background-color:cyan;')
+    #         # if j / 2 == 0:
+    #         #     w.setStyleSheet('background-color:cyan;')
+    #         # else:
+    #         #     w.setStyleSheet('background-color:red;')
+    #         w.show()
+    #         # print(widget_x,widget_y)
+    #         # print('j:',j)
+    # range(0,3)
+    # window.show()
     # window.setGeometry(0,0,150,150)
     # print('-' * 40)
     # print(window.x())
     # print(window.width())
     # print(window.geometry())
+    # window = QWidget()
+    # window.setWindowTitle('内容边距的设定')
+    # window.resize(500,500)
+    # label = QLabel(window)
+    # label.setText('社会我顺哥，人狠话不多')
+    # label.resize(300,300)
+    # label.setStyleSheet('background-color:cyan;')
+    # label.setContentsMargins(100,200,0,0)  #设置文本内容的边框间距 文本内容靠左，水平居中
+    
+    # print(label.contentsRect())
+    # print(label.getContentsMargins())
+    # window.show()
+    # sys.exit(app.exec_())
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('事件消息的学习')
+#         self.resize(500,500)
+#         self.setup_ui()
+#     def setup_ui(self):
+#         pass
+#     def showEvent(self,QShowEvent): #事件响应函数
+#         print('窗口被展示了出来')
+#     def closeEvent(self,QCloseEvent):
+#         print('窗口被关闭了')
+#     def moveEvent(self,QMoveEvent):
+#         print('窗口被移动了')
+#     def resizeEvent(self,QResizeEvent):
+#         print('窗口被改变了尺寸大小')
+#     def enterEvent(self,QEvent):
+#         print('鼠标进来了')
+#         self.setStyleSheet('background-color:red;')
+#     def leaveEvent(self,QEvent):
+#         print('鼠标移开了')
+#         self.setStyleSheet('background-color:green;')
+#     def mousePressEvent(self,QMouseEvent):
+#         print('鼠标被按下')
+#     def mouseReleaseEvent(self,QMouseEvent):
+#         print('鼠标被释放')
+#     def mouseDoubleClickEvent(self,QMouseEvent):
+#         print('鼠标双击')
+#     def mouseMoveEvent(self,QMouseEvent):
+#         print('鼠标移动了')
+#     def keyPressEvent(self,QKeyEvent):
+#         print('键盘上某个按键被按下了')
+#     def keyReleaseEvent(self,QKeyEvent): #涉及到方法的重写
+#         print('键盘上某个键被释放')
+# class Window(QWidget):
+#     def mousePressEvent(self,QMouseEvent):
+#         print('顶层窗口鼠标被按下')
+# class MidWindow(QWidget):
+#     def mousePressEvent(self,QMouseEvent):
+#         print('中间控件鼠标按下')
+# class Label(QLabel):
+#     def mousePressEvent(self,evt):
+#         print('标签控件鼠标按下')
+        # evt.accept() #标记控件事件消息已被处理，不再向上传输
+        # print(evt.isAccepted())
+        # evt.ignore()
+        # print(self.objectName())
+import sys
+from PyQt5.Qt import *
+class Window(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.resize(500,500)
+        self.move(200,200)
+        self.setWindowTitle('鼠标相关的操作')
+        self.setMouseTracking(True)
+        pixmap = QPixmap('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg').scaled(50,50)
+        cursor = QCursor(pixmap)
+        self.setCursor(cursor)
+        self.label = QLabel(self)
+        self.label.setText('社会我顺哥，人狠话不多')
+        self.label.move(100,100)
+        self.label.setStyleSheet('background-color:cyan;')
+    def mouseMoveEvent(self,evt):
+        # print('鼠标移动了',evt.localPos()) #返回鼠标的位置
+        print('鼠标移动',evt.localPos())
+        # label = self.findChild(QLabel)
+        self.label.move(evt.localPos().x(),evt.localPos().y())
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = Window()
+    
+    # window = MyWindow()
+    # window.setWindowTitle('鼠标操作')
+    # window.resize(500,500)
+    # window.setMouseTracking(True) #鼠标跟踪
+    # print(window.hasMouseTracking())
+    # pixmap = QPixmap('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg') #图片对象,图片的地址
+    # new_pixmap = pixmap.scaled(50,50) #设置鼠标图标的大小
+    # cursor = QCursor(new_pixmap,0,0) #鼠标对象 0，0对应鼠标图标的左上角,鼠标生效的点
+    # window.setCursor(cursor) #设置鼠标图标样式
+    # current_cursor = window.cursor()
+    # current_cursor.setPos(100,100)
+    # print(current_cursor.pos())
+    # window.unsetCursor()
+    # window.setCursor(Qt.ForbiddenCursor)
+    # label = QLabel(window)
+    # label.setText('社会顺哥')
+    # label.resize(100,100)
+    # label.setStyleSheet('background-color:cyan;')
+    # label.setCursor(Qt.ForbiddenCursor)
+    # mid_window = MidWindow(window)
+    # mid_window.resize(300,300)
+    # mid_window.setAttribute(Qt.WA_StyledBackground,True) #生效中间控件的样式
+    # mid_window.setStyleSheet('background-color:yellow;')
+    # label = Label(mid_window)
+    # # label = QLabel(mid_window)
+    # label.setText('这是一个标签')
+    # label.setStyleSheet('background-color:red;')
+    # label.move(100,100)
+    # # label.setObjectName('test')
+    # btn = QPushButton(mid_window)
+    # btn.setText('我是按钮')
+    # btn.move(50,50)
+    window.show()
     sys.exit(app.exec_())
