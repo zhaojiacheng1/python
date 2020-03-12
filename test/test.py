@@ -367,63 +367,223 @@
         # print(evt.isAccepted())
         # evt.ignore()
         # print(self.objectName())
+# import sys
+# from PyQt5.Qt import *
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.resize(500,500)
+#         self.move(200,200)
+#         self.setWindowTitle('鼠标相关的操作')
+#         self.setMouseTracking(True)
+#         pixmap = QPixmap('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg').scaled(50,50)
+#         cursor = QCursor(pixmap)
+#         self.setCursor(cursor)
+#         self.label = QLabel(self)
+#         self.label.setText('社会我顺哥，人狠话不多')
+#         self.label.move(100,100)
+#         self.label.setStyleSheet('background-color:cyan;')
+#     def mouseMoveEvent(self,evt):
+#         # print('鼠标移动了',evt.localPos()) #返回鼠标的位置
+#         print('鼠标移动',evt.localPos())
+#         # label = self.findChild(QLabel)
+#         self.label.move(evt.localPos().x(),evt.localPos().y())
+
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+    
+#     # window = MyWindow()
+#     # window.setWindowTitle('鼠标操作')
+#     # window.resize(500,500)
+#     # window.setMouseTracking(True) #鼠标跟踪
+#     # print(window.hasMouseTracking())
+#     # pixmap = QPixmap('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg') #图片对象,图片的地址
+#     # new_pixmap = pixmap.scaled(50,50) #设置鼠标图标的大小
+#     # cursor = QCursor(new_pixmap,0,0) #鼠标对象 0，0对应鼠标图标的左上角,鼠标生效的点
+#     # window.setCursor(cursor) #设置鼠标图标样式
+#     # current_cursor = window.cursor()
+#     # current_cursor.setPos(100,100)
+#     # print(current_cursor.pos())
+#     # window.unsetCursor()
+#     # window.setCursor(Qt.ForbiddenCursor)
+#     # label = QLabel(window)
+#     # label.setText('社会顺哥')
+#     # label.resize(100,100)
+#     # label.setStyleSheet('background-color:cyan;')
+#     # label.setCursor(Qt.ForbiddenCursor)
+#     # mid_window = MidWindow(window)
+#     # mid_window.resize(300,300)
+#     # mid_window.setAttribute(Qt.WA_StyledBackground,True) #生效中间控件的样式
+#     # mid_window.setStyleSheet('background-color:yellow;')
+#     # label = Label(mid_window)
+#     # # label = QLabel(mid_window)
+#     # label.setText('这是一个标签')
+#     # label.setStyleSheet('background-color:red;')
+#     # label.move(100,100)
+#     # # label.setObjectName('test')
+#     # btn = QPushButton(mid_window)
+#     # btn.setText('我是按钮')
+#     # btn.move(50,50)
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# class MyLabel(QLabel):
+#     def enterEvent(self,*args,**kwargs):
+#         print('鼠标进入')
+#         self.setText('欢迎光临')
+#     def leaveEvent(self,*args,**kwargs):
+#         print('鼠标离开')
+#         self.setText('谢谢惠顾')
+#     def keyPressEvent(self,evt): #QKeyEvent
+#         print('xx')
+#         if evt.key() == Qt.Key_Tab: #获取按键值 普通键、修饰键
+#             print('用户按下了Tab键')
+#         if evt.modifiers() == Qt.ControlModifier | Qt.ShiftModifier and evt.key() == Qt.Key_A: #修饰键Ctrl,Shift
+#             print('Ctrl+Shift+A 被按下')
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = QWidget()
+#     window.setWindowTitle('鼠标操作')
+#     window.resize(500,500)
+
+#     label = MyLabel(window)
+#     label.resize(200,200)
+#     label.move(100,100)
+#     label.setStyleSheet('background:cyan;')
+#     label.grabKeyboard() #打开捕获键盘数值
+
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.move_flag = False #针对鼠标跟踪
+#         self.setWindowTitle('窗口移动的学习')
+#         self.resize(500,500)
+#         self.setup_ui()
+#     def setup_ui(self):
+#         pass
+#     def mousePressEvent(self,evt):
+#         if evt.button() == Qt.LeftButton: #针对鼠标右键不能移动窗口
+#             self.move_flag = True
+#             print('鼠标按下')
+#             self.mouse_x = evt.globalX() # 确定两个点，鼠标第一次按下的点。窗口当前的位置
+#             self.mouse_y = evt.globalY()
+#             print(self.mouse_x,self.mouse_y)
+#             self.origin_x = self.x()
+#             self.origin_y = self.y()
+#     def mouseMoveEvent(self,evt):
+#         print('鼠标移动')
+#         print(evt.globalX(),evt.globalY())
+#         if self.move_flag:
+#             move_x = evt.globalX() - self.mouse_x #获取坐标的变化
+#             move_y = evt.globalY() - self.mouse_y
+#             dest_x = self.origin_x + move_x
+#             dest_y = self.origin_y + move_y
+#             self.move(dest_x,dest_y)
+#     def mouseReleaseEvent(self,evt):
+#         self.move_flag = False
+#         print('鼠标释放')
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = Window()
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = QWidget()
+#     window.setWindowTitle('父子关系的学习')
+#     window.resize(500,500)
+
+#     label1 = QLabel(window)
+#     label1.setText('标签1')
+#     label2 = QLabel(window)
+#     label2.setText('标签2')
+#     label2.move(50,50)
+#     label3 = QLabel(window)
+#     label3.setText('标签3')
+#     label3.move(100,100)
+    
+#     # print(window.childAt(250,250))
+#     # print(label2.parentWidget())
+#     print(window.childrenRect())
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# # class MyLabel(QLabel):
+# #     def mousePressEvent(self,evt):
+# #         self.setStyleSheet('background-color:red;')
+# class Window(QWidget):
+#     def mousePressEvent(self,evt):
+#         local_x = evt.x()
+#         local_y = evt.y()
+#         sub_widget = self.childAt(local_x,local_y)
+#         if sub_widget is not None: #容错，通过子控件是否存在
+#             sub_widget.setStyleSheet('background-color:red;')
+#             print('被点击了',local_x,local_y)
+
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = Window()
+#     window.setWindowTitle('父子关系案例')
+#     window.resize(500,500)
+#     for i in range(1,11):
+#         label = QLabel(window)
+#         label.setText('标签' + str(i))
+#         label.move(40*i,40*i)
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = QWidget()
+#     window.setWindowTitle('层级关系调整')
+#     window.resize(500,500)
+
+#     label1 = QLabel(window)
+#     label1.setText('标签1')
+#     label1.resize(200,200)
+#     label1.setStyleSheet('background-color:red;')
+
+#     label2 = QLabel(window)
+#     label2.setText('标签2')
+#     label2.resize(200,200)
+#     label2.setStyleSheet('background-color:green;')
+#     label2.move(100,100)
+#     label1.raise_() #层级提高至最上层
+#     # label2.lower() #层级降低至最底层
+#     window.show()
+#     sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
-class Window(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.resize(500,500)
-        self.move(200,200)
-        self.setWindowTitle('鼠标相关的操作')
-        self.setMouseTracking(True)
-        pixmap = QPixmap('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg').scaled(50,50)
-        cursor = QCursor(pixmap)
-        self.setCursor(cursor)
-        self.label = QLabel(self)
-        self.label.setText('社会我顺哥，人狠话不多')
-        self.label.move(100,100)
-        self.label.setStyleSheet('background-color:cyan;')
-    def mouseMoveEvent(self,evt):
-        # print('鼠标移动了',evt.localPos()) #返回鼠标的位置
-        print('鼠标移动',evt.localPos())
-        # label = self.findChild(QLabel)
-        self.label.move(evt.localPos().x(),evt.localPos().y())
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = Window()
-    
-    # window = MyWindow()
-    # window.setWindowTitle('鼠标操作')
-    # window.resize(500,500)
-    # window.setMouseTracking(True) #鼠标跟踪
-    # print(window.hasMouseTracking())
-    # pixmap = QPixmap('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg') #图片对象,图片的地址
-    # new_pixmap = pixmap.scaled(50,50) #设置鼠标图标的大小
-    # cursor = QCursor(new_pixmap,0,0) #鼠标对象 0，0对应鼠标图标的左上角,鼠标生效的点
-    # window.setCursor(cursor) #设置鼠标图标样式
-    # current_cursor = window.cursor()
-    # current_cursor.setPos(100,100)
-    # print(current_cursor.pos())
-    # window.unsetCursor()
-    # window.setCursor(Qt.ForbiddenCursor)
-    # label = QLabel(window)
-    # label.setText('社会顺哥')
-    # label.resize(100,100)
-    # label.setStyleSheet('background-color:cyan;')
-    # label.setCursor(Qt.ForbiddenCursor)
-    # mid_window = MidWindow(window)
-    # mid_window.resize(300,300)
-    # mid_window.setAttribute(Qt.WA_StyledBackground,True) #生效中间控件的样式
-    # mid_window.setStyleSheet('background-color:yellow;')
-    # label = Label(mid_window)
-    # # label = QLabel(mid_window)
-    # label.setText('这是一个标签')
-    # label.setStyleSheet('background-color:red;')
-    # label.move(100,100)
-    # # label.setObjectName('test')
-    # btn = QPushButton(mid_window)
-    # btn.setText('我是按钮')
-    # btn.move(50,50)
+    window = QWidget()
+    # window.setWindowTitle('')
+    window.resize(500,500)
+    # icon = QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg') #图标的路径
+    # window.setWindowIcon(icon) #设置图标
+    # window.setWindowTitle('icon')
+    # window.setWindowOpacity(0.5) #设置窗口的透明度 1.0不透明，0.0 透明
+    # print(window.windowOpacity())
+    # print(window.windowState() == Qt.WindowNoState)  #窗口状态获取
+    # window.setWindowState(Qt.WindowFullScreen) #全屏显示
+    # window.setWindowState(Qt.WindowMaximized)   #最大化显示
+    # window.setWindowState(Qt.WindowMinimized)   #窗口最小化
+    # w2 = QWidget(window)
+    # w2.setWindowTitle('w2')
+    # w2.show()
     window.show()
+    # window.showMaximized() #最大化展示
+    # w2.setWindowState(Qt.WindowActive)
+    # print(window.windowIcon())
     sys.exit(app.exec_())
