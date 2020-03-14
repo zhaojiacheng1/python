@@ -563,27 +563,339 @@
 #     # label2.lower() #层级降低至最底层
 #     window.show()
 #     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = QWidget()
+#     # window.setWindowTitle('')
+#     window.resize(500,500)
+#     # icon = QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg') #图标的路径
+#     # window.setWindowIcon(icon) #设置图标
+#     # window.setWindowTitle('icon')
+#     # window.setWindowOpacity(0.5) #设置窗口的透明度 1.0不透明，0.0 透明
+#     # print(window.windowOpacity())
+#     # print(window.windowState() == Qt.WindowNoState)  #窗口状态获取
+#     # window.setWindowState(Qt.WindowFullScreen) #全屏显示
+#     # window.setWindowState(Qt.WindowMaximized)   #最大化显示
+#     # window.setWindowState(Qt.WindowMinimized)   #窗口最小化
+#     # w2 = QWidget(window)
+#     # w2.setWindowTitle('w2')
+#     # w2.show()
+#     window.show()
+#     # window.showMaximized() #最大化展示
+#     # w2.setWindowState(Qt.WindowActive)
+#     # print(window.windowIcon())
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# class Window(QWidget):
+#     def __init__(self,*args,**kwargs):
+#         super().__init__(*args,**kwargs)
+#         self.setWindowFlags(Qt.FramelessWindowHint)
+#         self.setWindowOpacity(1)
+#         self.setWindowTitle('顶层窗口操作')
+#         self.resize(500,500)
+#         self.setup_ui()
+#     def setup_ui(self):
+#         #公共数据
+#         self.top_margin = 10
+#         self.btn_w = 80
+#         self.btn_h = 40
+#         #添加三个子控件按钮-窗口右上角
+#         self.close_btn = QPushButton(self)
+#         self.close_btn.setText('关闭')
+#         self.close_btn.resize(self.btn_w,self.btn_h)
+        
+#         self.max_btn = QPushButton(self)
+#         self.max_btn.setText('最大化')
+#         self.max_btn.resize(self.btn_w,self.btn_h)
+        
+#         self.mini_btn = QPushButton(self)
+#         self.mini_btn.setText('最小化')
+#         self.mini_btn.resize(self.btn_w,self.btn_h)
+        
+#         # def close():
+#         #     window.close()
+#         self.close_btn.pressed.connect(self.close)
+#         def max_normal():
+#             if self.isMaximized(): #判断窗口是否最大化
+#                 self.showNormal()
+#                 self.max_btn.setText('最大化')
+#             else:
+#                 self.showMaximized()
+#                 self.max_btn.setText('恢复')
+#         self.max_btn.pressed.connect(max_normal)
+#         self.mini_btn.pressed.connect(self.showMinimized)
+#     def resizeEvent(self,QResizeEvent): #窗口大小发生变化的事件
+#         print('窗口大小发生了改变')
+#         close_btn_w = self.close_btn.width()
+#         window_w = self.width()
+#         close_btn_x = window_w - close_btn_w
+#         close_btn_y = self.top_margin
+#         self.close_btn.move(close_btn_x,close_btn_y)
+
+#         max_btn_x = close_btn_x - self.max_btn.width()
+#         max_btn_y = self.top_margin
+#         self.max_btn.move(max_btn_x,max_btn_y)
+
+#         mini_btn_x = max_btn_x - self.btn_w
+#         mini_btn_y = self.top_margin
+#         self.mini_btn.move(mini_btn_x,mini_btn_y)
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     # window = QWidget(flags=Qt.FramelessWindowHint)
+#     window = Window()
+    
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# class Window(QWidget):
+#     def paintEvent(self,evt):
+#         print('窗口被绘制了')
+#         return super().paintEvent(evt)
+# class Btn(QPushButton):
+#     def paintEvent(self,evt):
+#         print('按钮被绘制了')
+#         return super().paintEvent(evt)
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = Window()
+#     window.setWindowTitle('[*]交互状态')
+#     window.setWindowModified(True)
+#     window.resize(500,500)
+#     # btn = Btn(window)
+#     # btn.setText('按钮')
+#     # btn.pressed.connect(lambda : print('按钮被点击')) 
+#     # btn.setEnabled(False)
+#     # print(btn.isEnabled())
+#     w2 = QWidget()
+#     w2.show()
+#     window.show()
+#     print(w2.isActiveWindow())
+#     # window.setVisible(True)
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('交互状态')
+#         self.resize(500,500)
+#         self.setup_ui()
+#     def setup_ui(self):
+#         label = QLabel(self) #标签
+#         label.setText('标签')
+#         label.move(100,50)
+#         label.hide()
+#         le = QLineEdit(self)
+#         # le.setText('文本框')
+#         le.move(100,100)
+#         btn = QPushButton(self)
+#         btn.setText('登录')
+#         btn.move(100,150)
+#         btn.setEnabled(False)
+#         def text_cao(text):
+#             print('文本内容发生了改变',text)
+#             # if len(text) > 0:
+#             #     btn.setEnabled(True)
+#             # else:
+#             #     btn.setEnabled(False)
+#             btn.setEnabled(len(text) > 0)
+#         le.textChanged.connect(text_cao)
+#         def check():
+#             print('按钮被点击了')
+#             content = le.text()
+#             if content == 'Sz':
+#                 label.setText('登录成功')
+#             else:
+#                 label.setText('登录失败')
+#             label.show()
+#             label.adjustSize()
+#         btn.pressed.connect(check)
+
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = Window()
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = QMainWindow() #组合控件 懒加载，用到的时候才会创建
+#     # window.setWindowFlags(Qt.WindowContextHelpButtonHint | Qt.WindowCloseButtonHint | Qt.WindowMaximizeButtonHint)
+#     window.statusBar() #状态栏
+#     window.resize(500,500)
+#     window.setWindowTitle('信息提示')
+#     window.setStatusTip('这是一个窗口') 
+#     print(window.statusTip())
+#     label = QLabel(window)
+#     label.setText('社会我顺哥')
+#     label.setStatusTip('这是标签') #状态栏提示
+#     label.setToolTip('这是一个提示标签') #工具提示  悬浮在控件附近
+#     label.setToolTipDuration(2000) #设置工具提示2S
+#     label.setWhatsThis('这是啥？这是标签') #设置点击帮助提示
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# class Window(QWidget):
+#     def mousePressEvent(self,evt):
+#         print(self.focusWidget())
+#         # self.focusNextChild()
+#         # self.focusPreviousChild()
+#         self.focusNextPrevChild(True)
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = Window()
+#     window.setWindowTitle('焦点控制')
+#     window.resize(500,500)
+#     le1 = QLineEdit(window)
+#     le1.move(50,50)
+#     le2 = QLineEdit(window)
+#     le2.move(100,100)
+#     le3 = QLineEdit(window)
+#     le3.move(150,150)
+#     print(le1,le2,le3)
+#     QWidget.setTabOrder(le1,le3)  #焦点le1后是le3
+#     QWidget.setTabOrder(le3,le2)
+#     # le2.setFocus() #设置焦点
+#     # le2.setFocusPolicy(Qt.TabFocus)
+#     # le2.setFocusPolicy(Qt.ClickFocus)
+#     # le2.setFocusPolicy(Qt.StrongFocus)
+#     print(window.focusWidget())
+#     window.show()
+#     le2.setFocus()
+#     # le1.clearFocus()
+
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# class Btn(QAbstractButton):  #抽象类子类化，不然不能使用
+#     def paintEvent(self,evt): #绘制事件，抽象子类化必须自定义该函数
+#         print('绘制按钮')
+#         #绘制界面
+#         painter = QPainter(self) #画家,绘制者，self是画纸，即画的位置
+#         pen = QPen(QColor(11,200,20),5) #设置颜色和线条的宽度
+#         painter.setPen(pen) #给画家一个笔
+#         painter.drawText(50,50,self.text()) #绘制简单文本
+#         painter.drawEllipse(0,0,100,100) #绘制内切椭圆
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = QWidget()
+#     window.setWindowTitle('QAbstractButton')
+#     window.resize(500,500)
+#     btn = Btn(window)
+#     btn.setText('xxx')
+#     btn.resize(100,100)
+#     window.show()
+    
+#     sys.exit(app.exec_())
 import sys
+import  math
 from PyQt5.Qt import *
+class Btn(QPushButton):
+    def hitButton(self,point):  #
+        # print(point)
+        # # return True #返回有效,然后信号有效可以运行对应的槽函数
+        # if point.x() > self.width()/2:
+        #     return True
+        # else:
+        #     return False
+        center_x = self.width()/2 #计算圆心点
+        center_y = self.height()/2
+        hit_x = point.x() #获取点击点的相对x
+        hit_y = point.y() #获取点击点的相对y
+        distance = math.sqrt(pow(hit_x - center_x,2) + pow(hit_y-center_y,2))
+        print(distance)
+        if distance < self.width()/2:
+            return True
+        return False
+    def paintEvent(self,evt):
+        super().paintEvent(evt) #调用父类的绘制函数
+        painter = QPainter(self) #创建画家 参数是画布
+        painter.setPen(QPen(QColor(100,150,200),5))
+        painter.drawEllipse(self.rect()) #绘制椭圆，参数为矩形范围
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = QWidget()
-    # window.setWindowTitle('')
+    window.setWindowTitle('按钮功能测试')
     window.resize(500,500)
-    # icon = QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg') #图标的路径
-    # window.setWindowIcon(icon) #设置图标
-    # window.setWindowTitle('icon')
-    # window.setWindowOpacity(0.5) #设置窗口的透明度 1.0不透明，0.0 透明
-    # print(window.windowOpacity())
-    # print(window.windowState() == Qt.WindowNoState)  #窗口状态获取
-    # window.setWindowState(Qt.WindowFullScreen) #全屏显示
-    # window.setWindowState(Qt.WindowMaximized)   #最大化显示
-    # window.setWindowState(Qt.WindowMinimized)   #窗口最小化
-    # w2 = QWidget(window)
-    # w2.setWindowTitle('w2')
-    # w2.show()
+    btn = Btn(window)
+    btn.setText('点击')
+    btn.move(100,100)
+    btn.resize(200,200)
+    btn.pressed.connect(lambda : print('按钮被点击了'))
+    # for i in range(0,3):
+    #     btnx = QPushButton(window)
+    #     btnx.setText('btnx' + str(i))
+    #     btnx.move(50*i,50*i)
+    #     btnx.setAutoExclusive(True)
+    #     print(btnx.autoExclusive()) #排他性 同级排他
+    #     btnx.setCheckable(True)
+    # btnx = QPushButton(window)
+    # btnx.setText('btn3')
+    # btnx.move(250,250)
+    # btnx.setCheckable(True)
+    # btn = QPushButton(window)
+    # btn.setText('1')
+    # def plus_one():
+    #     print('+1')
+    #     num = int(btn.text()) + 1
+    #     btn.setText(str(num))
+    #     # push_button.animateClick(2000) #点击按钮，维持点击状态2s
+    # btn.pressed.connect(plus_one)
+    # btn.released.connect(lambda : print('按键被释放了'))
+    # btn.clicked.connect(lambda : print('按钮被点击')) #鼠标点击事件，指在控件范围内按下鼠标，并且在控件范围内松开鼠标
+    # btn.setCheckable(True)
+    # btn.toggled.connect(lambda value: print('按钮选中状态发生了改变',value)) #value为信号值，
+    # icon = QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg') #创建图标类
+    # btn.setIcon(icon) #设置图标
+    # size = QSize(50,50) #参数为宽高
+    # btn.setIconSize(size) #设置图标的大小
+    # print(btn.icon())
+    # print(btn.iconSize())
+    # btn.pressed.connect(lambda : print('按钮被点击了'))
+    # # btn.setText('a&bc')   #添加快捷键alt + b
+    # btn.setShortcut('Alt+a') #设置快捷键Alt+a
+    # btn.setAutoRepeat(True) #设置自动重复
+    # btn.setAutoRepeatDelay(2000) #设置自动重复2s 即长按后2s才触发自动重复
+    # btn.setAutoRepeatInterval(1000) #每隔1s检测一次
+    # print(btn.autoRepeat())
+    # print(btn.autoRepeatInterval())
+    # print(btn.autoRepeatDelay())
+    # push_button = QPushButton(window) #普通按钮
+    # push_button.setText('这是QPushButton')
+    # push_button.move(100,100)
+    # radio_button = QRadioButton(window) #单选按钮
+    # radio_button.setText('这是一个radio')
+    # radio_button.move(100,150)
+    # checkbox = QCheckBox(window) #多选按钮
+    # checkbox.setText('这是一个checkbox')
+    # checkbox.move(100,200)
+    # push_button.setStyleSheet('QPushButton:pressed{background-color:red;}') #QPushButton按下是的样式
+    # print(push_button.isCheckable()) #判断是否可以被选中
+    # print(radio_button.isCheckable())
+    # print(checkbox.isCheckable())
+    # radio_button.setChecked(True) #设置处于被选中状态
+    # def cao():
+    #     # push_button.toggle() #切换未选中与选中状态
+    #     # radio_button.toggle()
+    #     # checkbox.toggle()
+    #     push_button.setChecked(not push_button.isChecked())
+    #     print('cao')
+    # btn.pressed.connect(cao)
+    # # push_button.setDown(True) #设置为按下，选中状态
+    # push_button.setCheckable(True) #设置push_button为可以选中
+    # # print(push_button.isCheckable())
     window.show()
-    # window.showMaximized() #最大化展示
-    # w2.setWindowState(Qt.WindowActive)
-    # print(window.windowIcon())
     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+    
+#     sys.exit(app.exec_())
