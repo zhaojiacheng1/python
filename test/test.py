@@ -794,108 +794,269 @@
 #     window.show()
     
 #     sys.exit(app.exec_())
-import sys
-import  math
-from PyQt5.Qt import *
-class Btn(QPushButton):
-    def hitButton(self,point):  #
-        # print(point)
-        # # return True #返回有效,然后信号有效可以运行对应的槽函数
-        # if point.x() > self.width()/2:
-        #     return True
-        # else:
-        #     return False
-        center_x = self.width()/2 #计算圆心点
-        center_y = self.height()/2
-        hit_x = point.x() #获取点击点的相对x
-        hit_y = point.y() #获取点击点的相对y
-        distance = math.sqrt(pow(hit_x - center_x,2) + pow(hit_y-center_y,2))
-        print(distance)
-        if distance < self.width()/2:
-            return True
-        return False
-    def paintEvent(self,evt):
-        super().paintEvent(evt) #调用父类的绘制函数
-        painter = QPainter(self) #创建画家 参数是画布
-        painter.setPen(QPen(QColor(100,150,200),5))
-        painter.drawEllipse(self.rect()) #绘制椭圆，参数为矩形范围
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = QWidget()
-    window.setWindowTitle('按钮功能测试')
-    window.resize(500,500)
-    btn = Btn(window)
-    btn.setText('点击')
-    btn.move(100,100)
-    btn.resize(200,200)
-    btn.pressed.connect(lambda : print('按钮被点击了'))
-    # for i in range(0,3):
-    #     btnx = QPushButton(window)
-    #     btnx.setText('btnx' + str(i))
-    #     btnx.move(50*i,50*i)
-    #     btnx.setAutoExclusive(True)
-    #     print(btnx.autoExclusive()) #排他性 同级排他
-    #     btnx.setCheckable(True)
-    # btnx = QPushButton(window)
-    # btnx.setText('btn3')
-    # btnx.move(250,250)
-    # btnx.setCheckable(True)
-    # btn = QPushButton(window)
-    # btn.setText('1')
-    # def plus_one():
-    #     print('+1')
-    #     num = int(btn.text()) + 1
-    #     btn.setText(str(num))
-    #     # push_button.animateClick(2000) #点击按钮，维持点击状态2s
-    # btn.pressed.connect(plus_one)
-    # btn.released.connect(lambda : print('按键被释放了'))
-    # btn.clicked.connect(lambda : print('按钮被点击')) #鼠标点击事件，指在控件范围内按下鼠标，并且在控件范围内松开鼠标
-    # btn.setCheckable(True)
-    # btn.toggled.connect(lambda value: print('按钮选中状态发生了改变',value)) #value为信号值，
-    # icon = QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg') #创建图标类
-    # btn.setIcon(icon) #设置图标
-    # size = QSize(50,50) #参数为宽高
-    # btn.setIconSize(size) #设置图标的大小
-    # print(btn.icon())
-    # print(btn.iconSize())
-    # btn.pressed.connect(lambda : print('按钮被点击了'))
-    # # btn.setText('a&bc')   #添加快捷键alt + b
-    # btn.setShortcut('Alt+a') #设置快捷键Alt+a
-    # btn.setAutoRepeat(True) #设置自动重复
-    # btn.setAutoRepeatDelay(2000) #设置自动重复2s 即长按后2s才触发自动重复
-    # btn.setAutoRepeatInterval(1000) #每隔1s检测一次
-    # print(btn.autoRepeat())
-    # print(btn.autoRepeatInterval())
-    # print(btn.autoRepeatDelay())
-    # push_button = QPushButton(window) #普通按钮
-    # push_button.setText('这是QPushButton')
-    # push_button.move(100,100)
-    # radio_button = QRadioButton(window) #单选按钮
-    # radio_button.setText('这是一个radio')
-    # radio_button.move(100,150)
-    # checkbox = QCheckBox(window) #多选按钮
-    # checkbox.setText('这是一个checkbox')
-    # checkbox.move(100,200)
-    # push_button.setStyleSheet('QPushButton:pressed{background-color:red;}') #QPushButton按下是的样式
-    # print(push_button.isCheckable()) #判断是否可以被选中
-    # print(radio_button.isCheckable())
-    # print(checkbox.isCheckable())
-    # radio_button.setChecked(True) #设置处于被选中状态
-    # def cao():
-    #     # push_button.toggle() #切换未选中与选中状态
-    #     # radio_button.toggle()
-    #     # checkbox.toggle()
-    #     push_button.setChecked(not push_button.isChecked())
-    #     print('cao')
-    # btn.pressed.connect(cao)
-    # # push_button.setDown(True) #设置为按下，选中状态
-    # push_button.setCheckable(True) #设置push_button为可以选中
-    # # print(push_button.isCheckable())
-    window.show()
-    sys.exit(app.exec_())
+# import sys
+# import  math
+# from PyQt5.Qt import *
+# class Btn(QPushButton):
+#     def hitButton(self,point):  #
+#         # print(point)
+#         # # return True #返回有效,然后信号有效可以运行对应的槽函数
+#         # if point.x() > self.width()/2:
+#         #     return True
+#         # else:
+#         #     return False
+#         center_x = self.width()/2 #计算圆心点
+#         center_y = self.height()/2
+#         hit_x = point.x() #获取点击点的相对x
+#         hit_y = point.y() #获取点击点的相对y
+#         distance = math.sqrt(pow(hit_x - center_x,2) + pow(hit_y-center_y,2))
+#         print(distance)
+#         if distance < self.width()/2:
+#             return True
+#         return False
+#     def paintEvent(self,evt):
+#         super().paintEvent(evt) #调用父类的绘制函数
+#         painter = QPainter(self) #创建画家 参数是画布
+#         painter.setPen(QPen(QColor(100,150,200),5))
+#         painter.drawEllipse(self.rect()) #绘制椭圆，参数为矩形范围
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = QWidget()
+#     window.setWindowTitle('按钮功能测试')
+#     window.resize(500,500)
+#     btn = Btn(window)
+#     btn.setText('点击')
+#     btn.move(100,100)
+#     btn.resize(200,200)
+#     btn.pressed.connect(lambda : print('按钮被点击了'))
+#     # for i in range(0,3):
+#     #     btnx = QPushButton(window)
+#     #     btnx.setText('btnx' + str(i))
+#     #     btnx.move(50*i,50*i)
+#     #     btnx.setAutoExclusive(True)
+#     #     print(btnx.autoExclusive()) #排他性 同级排他
+#     #     btnx.setCheckable(True)
+#     # btnx = QPushButton(window)
+#     # btnx.setText('btn3')
+#     # btnx.move(250,250)
+#     # btnx.setCheckable(True)
+#     # btn = QPushButton(window)
+#     # btn.setText('1')
+#     # def plus_one():
+#     #     print('+1')
+#     #     num = int(btn.text()) + 1
+#     #     btn.setText(str(num))
+#     #     # push_button.animateClick(2000) #点击按钮，维持点击状态2s
+#     # btn.pressed.connect(plus_one)
+#     # btn.released.connect(lambda : print('按键被释放了'))
+#     # btn.clicked.connect(lambda : print('按钮被点击')) #鼠标点击事件，指在控件范围内按下鼠标，并且在控件范围内松开鼠标
+#     # btn.setCheckable(True)
+#     # btn.toggled.connect(lambda value: print('按钮选中状态发生了改变',value)) #value为信号值，
+#     # icon = QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg') #创建图标类
+#     # btn.setIcon(icon) #设置图标
+#     # size = QSize(50,50) #参数为宽高
+#     # btn.setIconSize(size) #设置图标的大小
+#     # print(btn.icon())
+#     # print(btn.iconSize())
+#     # btn.pressed.connect(lambda : print('按钮被点击了'))
+#     # # btn.setText('a&bc')   #添加快捷键alt + b
+#     # btn.setShortcut('Alt+a') #设置快捷键Alt+a
+#     # btn.setAutoRepeat(True) #设置自动重复
+#     # btn.setAutoRepeatDelay(2000) #设置自动重复2s 即长按后2s才触发自动重复
+#     # btn.setAutoRepeatInterval(1000) #每隔1s检测一次
+#     # print(btn.autoRepeat())
+#     # print(btn.autoRepeatInterval())
+#     # print(btn.autoRepeatDelay())
+#     # push_button = QPushButton(window) #普通按钮
+#     # push_button.setText('这是QPushButton')
+#     # push_button.move(100,100)
+#     # radio_button = QRadioButton(window) #单选按钮
+#     # radio_button.setText('这是一个radio')
+#     # radio_button.move(100,150)
+#     # checkbox = QCheckBox(window) #多选按钮
+#     # checkbox.setText('这是一个checkbox')
+#     # checkbox.move(100,200)
+#     # push_button.setStyleSheet('QPushButton:pressed{background-color:red;}') #QPushButton按下是的样式
+#     # print(push_button.isCheckable()) #判断是否可以被选中
+#     # print(radio_button.isCheckable())
+#     # print(checkbox.isCheckable())
+#     # radio_button.setChecked(True) #设置处于被选中状态
+#     # def cao():
+#     #     # push_button.toggle() #切换未选中与选中状态
+#     #     # radio_button.toggle()
+#     #     # checkbox.toggle()
+#     #     push_button.setChecked(not push_button.isChecked())
+#     #     print('cao')
+#     # btn.pressed.connect(cao)
+#     # # push_button.setDown(True) #设置为按下，选中状态
+#     # push_button.setCheckable(True) #设置push_button为可以选中
+#     # # print(push_button.isCheckable())
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# class Window(QWidget):
+#     def contextMenuEvent(self,evt): #右键菜单设置
+#         print('展示菜单')
+#         menu = QMenu() #创建菜单
+#         open_recent_menu = QMenu(menu) #设置父对象为menu
+#         open_recent_menu.setTitle('最近打开')
+        
+#         new_cation = QAction() #创建一个动作
+#         new_cation.setText('新建')
+#         # new_cation.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg'))
+#         open_action = QAction() #创建一个动作
+#         open_action.setText('打开')
+#         exit_action = QAction() #创建一个动作
+#         exit_action.setText('退出')
+
+#         file_action = QAction('Python-GUI编程-PyQt5')
+#         open_recent_menu.addAction(file_action)
+#         menu.addAction(new_cation) #为菜单添加动作
+#         menu.addAction(open_action) #为菜单添加动作
+#         menu.addMenu(open_recent_menu)
+#         menu.addSeparator() #在open_action和exit_action之间添加分割线
+#         menu.addAction(exit_action) #为菜单添加动作
+#         new_cation.triggered.connect(lambda : print('新建文件'))
+#         open_action.triggered.connect(lambda : print('打开文件'))
+#         exit_action.triggered.connect(lambda : print('退出'))
+#         open_recent_menu.triggered.connect(lambda : print('子菜单'))
+#         # btn.setMenu(menu) #菜单为btn的菜单
+#         menu.exec_(evt.globalPos()) #展示右键菜单 参数是位置 全局位置,即鼠标的位置
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = Window()
+#     window.setWindowTitle('按钮的功能')
+#     window.resize(500,500)
+#     #使用构造函数
+#     btn = QPushButton(QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg'),'xxx',window)
+#     # btn = QPushButton(window)
+#     # btn.setText('xxx')
+#     # menu = QMenu() #创建菜单
+#     # open_recent_menu = QMenu(menu) #设置父对象为menu
+#     # open_recent_menu.setTitle('最近打开')
+    
+#     # new_cation = QAction() #创建一个动作
+#     # new_cation.setText('新建')
+#     # # new_cation.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg'))
+#     # open_action = QAction() #创建一个动作
+#     # open_action.setText('打开')
+#     # exit_action = QAction() #创建一个动作
+#     # exit_action.setText('退出')
+
+#     # file_action = QAction('Python-GUI编程-PyQt5')
+#     # open_recent_menu.addAction(file_action)
+#     # menu.addAction(new_cation) #为菜单添加动作
+#     # menu.addAction(open_action) #为菜单添加动作
+#     # menu.addMenu(open_recent_menu)
+#     # menu.addSeparator() #在open_action和exit_action之间添加分割线
+#     # menu.addAction(exit_action) #为菜单添加动作
+#     # new_cation.triggered.connect(lambda : print('新建文件'))
+#     # open_action.triggered.connect(lambda : print('打开文件'))
+#     # exit_action.triggered.connect(lambda : print('退出'))
+#     # open_recent_menu.triggered.connect(lambda : print('子菜单'))
+#     # btn.setMenu(menu) #菜单为btn的菜单
+    
+#     print(btn.menu())
+#     # btn.setFlat(True)
+#     # print(btn.isFlat()) #获取是否扁平化
+#     btn2 = QPushButton(window)
+#     btn2.setText('btn2')
+#     btn2.move(200,200)
+#     btn2.setAutoDefault(True) #点击后，设置为默认状态
+#     print(btn.autoDefault())
+#     print(btn2.autoDefault())
+#     btn2.setDefault(True) #自动设置为默认状态
+#     window.setContextMenuPolicy(Qt.CustomContextMenu) #方法为上下文菜单策略参数为自定义上下文菜单 
+#     def show_menu(point): #point为鼠标相对位置
+#         print('自定义上下文菜单',point)
+#         menu = QMenu() #创建菜单
+#         open_recent_menu = QMenu(menu) #设置父对象为menu
+#         open_recent_menu.setTitle('最近打开')
+        
+#         new_cation = QAction() #创建一个动作
+#         new_cation.setText('新建')
+#         # new_cation.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg'))
+#         open_action = QAction() #创建一个动作
+#         open_action.setText('打开')
+#         exit_action = QAction() #创建一个动作
+#         exit_action.setText('退出')
+
+#         file_action = QAction('Python-GUI编程-PyQt5')
+#         open_recent_menu.addAction(file_action)
+#         menu.addAction(new_cation) #为菜单添加动作
+#         menu.addAction(open_action) #为菜单添加动作
+#         menu.addMenu(open_recent_menu)
+#         menu.addSeparator() #在open_action和exit_action之间添加分割线
+#         menu.addAction(exit_action) #为菜单添加动作
+#         new_cation.triggered.connect(lambda : print('新建文件'))
+#         open_action.triggered.connect(lambda : print('打开文件'))
+#         exit_action.triggered.connect(lambda : print('退出'))
+#         open_recent_menu.triggered.connect(lambda : print('子菜单'))
+#         btn.setMenu(menu) #菜单为btn的菜单
+#         dest_point = window.mapToGlobal(point) #将鼠标的相对位置点映射成全局的鼠标点,参数为相对鼠标位置点
+#         menu.exec_(dest_point) #展示右键菜单 参数是位置 全局位置,即鼠标的位置
+#     window.customContextMenuRequested.connect(show_menu)
+#     window.show()
+#     sys.exit(app.exec_())
 # import sys
 # from PyQt5.Qt import *
 # if __name__ == "__main__":
 #     app = QApplication(sys.argv)
-    
+#     window = QWidget()
+#     window.setWindowTitle('QToolButton使用') #该按钮继承QAbstractButton
+#     window.resize(500,500)
+#     # btn = QCommandLinkButton('标题','描述',window) #命令链接按钮
+#     # btn.setText('标题2')
+#     # btn.setDescription('社会我顺哥')
+#     # btn.setIcon(str)
+#     tb = QToolButton(window) #工具菜单按钮
+#     tb.setText('工具')
+#     #默认只显示图标，不显示文字
+#     tb.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg'))
+#     tb.setIconSize(QSize(60,60))
+#     tb.setToolTip('这是一个新建按钮') #悬浮图标
+#     tb.setAutoRaise(True)
+#     # tb.setToolButtonStyle(Qt.ToolButtonIconOnly)
+#     tb.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+#     tb.setArrowType(Qt.UpArrow)
+#     btn = QPushButton(window)
+#     btn.setText('一般按钮')
+#     btn.move(100,100)
+#     # btn.setFlat(True) #扁平化处理，当点击时显示3D效果
+#     # menu = QMenu(btn)
+#     menu = QMenu(tb)
+#     # menu.setTitle('菜单')
+#     sub_menu = QMenu(menu)
+#     sub_menu.setTitle('子菜单')
+#     sub_menu.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg'))
+#
+#     action = QAction(QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg'),'行为',menu)
+#     action.setData([1,2,3])
+#     action.triggered.connect(lambda : print('点击了行为菜单选项'))
+#     action2 = QAction('行为2',menu)
+#     action2.setData(['name','Sz'])
+#     menu.addMenu(sub_menu)
+#     menu.addSeparator()
+#     menu.addAction(action)
+#     menu.addAction(action2)
+#     # btn.setMenu(menu)
+#     tb.setMenu(menu)
+#     tb.setPopupMode(QToolButton.MenuButtonPopup) #菜单的弹出方式 InstantPopup
+#     tb.clicked.connect(lambda : print('工具按钮被点击'))
+#     def do_action(action):
+#         print('点击了行为',action.data())
+#     tb.triggered.connect(do_action) #行为触发信号
+#
+#     window.show()
 #     sys.exit(app.exec_())
+import sys
+from PyQt5.Qt import *
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = QWidget()
+    window.setWindowTitle('QRadioButton-功能测试')
+    window.resize(500,500)
+
+    window.show()
+    sys.exit(app.exec_())
