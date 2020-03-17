@@ -163,7 +163,7 @@
 #         # win2.setWindowTitle('green')
 #         # win2.resize(500,500)
 #         # win2.show()
-        
+
 #         # win_root = QWidget()
 
 #         # label1 = QLabel()
@@ -225,101 +225,101 @@
 # from PyQt5.Qt import *
 # if __name__ == '__main__':
 #     app = QApplication(sys.argv)
-    # window.setFixedSize(500,500)
-    # window.resize(500,500)
+# window.setFixedSize(500,500)
+# window.resize(500,500)
 
-    # window.setFixedSize(500,500)   #该方法固定窗口大小
-    # window.move(200,100)
+# window.setFixedSize(500,500)   #该方法固定窗口大小
+# window.move(200,100)
 
-    # label = QLabel(window)
-    # label.setText("社会顺")
-    # label.move(100,100)
-    # label.setStyleSheet('background-color:cyan;')
+# label = QLabel(window)
+# label.setText("社会顺")
+# label.move(100,100)
+# label.setStyleSheet('background-color:cyan;')
 
-    # def changeCao():
-    #     new_content = label.text() + '社会顺'
-    #     label.setText(new_content)
-    #     # label.resize(label.width()+100,label.height())
-    #     label.adjustSize()
-    # btn = QPushButton(window)
-    # btn.setText('增加内容')
-    # btn.move(150,150)
-    # btn.clicked.connect(changeCao)
-    # print(type(label.text))
-    # print(type(label.text()))
+# def changeCao():
+#     new_content = label.text() + '社会顺'
+#     label.setText(new_content)
+#     # label.resize(label.width()+100,label.height())
+#     label.adjustSize()
+# btn = QPushButton(window)
+# btn.setText('增加内容')
+# btn.move(150,150)
+# btn.clicked.connect(changeCao)
+# print(type(label.text))
+# print(type(label.text()))
 
 
-    # window.setGeometry(0,0,150,150)
-    # print(window.x())
-    # print(window.width())
-    # print(window.geometry())
+# window.setGeometry(0,0,150,150)
+# print(window.x())
+# print(window.width())
+# print(window.geometry())
 
-    # red = QWidget(window)
-    # red.resize(100,100)
-    # red.setStyleSheet("background-color:red;")
-    # red.move(300,0)
+# red = QWidget(window)
+# red.resize(100,100)
+# red.setStyleSheet("background-color:red;")
+# red.move(300,0)
 
-    # # green = QWidget(window)
-    # # green.resize(100,100)
-    # # green.setStyleSheet('background-color:green;')
-    # # green.move(300,50)
+# # green = QWidget(window)
+# # green.resize(100,100)
+# # green.setStyleSheet('background-color:green;')
+# # green.move(300,50)
 
-    # column_count = 4 #每行控件的个数
-    # widget_count = 100  #总的控件数量
-    # widget_width = window.width() / column_count
-    # row_count = (widget_count - 1) // column_count + 1
-    # widget_height = window.height() / row_count
-    # for i in range(0,widget_count):
-    #     w = QWidget(window)
-    #     w.resize(int(widget_width),int(widget_height))
-    #     widget_x = i % column_count * widget_width
-    #     widget_y = i // column_count * widget_height
-    #     w.move(int(widget_x),int(widget_y))
-    #     w.setStyleSheet('background-color:red;border:1px solid yellow;')
-    #     w.show()
-    # widget_width = int(window.width() / column_count) #窗口宽度/列数 求得控件的宽度
-    # row_count = int((widget_count - 1) / column_count + 1) #控件的行数
-    # widget_height = int(window.height() / row_count) #窗口高度/行数 求得控件的宽度 /表示正常除法求得的商，是float //表示正常除法求得的商，int是个整数，%表示正常除法求得的余数,是int
-    # # print(window.width(),window.height(),widget_width,row_count,widget_height)
-    # for i in range(0,row_count):
-    #     widget_y = i * widget_height + i
-    #     # print('i:',i)
-    #     for j in range(0,column_count): #for循环语句循环不到最大值,即不取column_count
-    #         w = QWidget(window)
-    #         w.resize(widget_width,widget_height)
-    #         widget_x = j * widget_width + j
-    #         w.move(widget_x,widget_y)
-    #         if i == j:
-    #             w.setStyleSheet('background-color:red;')
-    #         else:
-    #             w.setStyleSheet('background-color:cyan;')
-    #         # if j / 2 == 0:
-    #         #     w.setStyleSheet('background-color:cyan;')
-    #         # else:
-    #         #     w.setStyleSheet('background-color:red;')
-    #         w.show()
-    #         # print(widget_x,widget_y)
-    #         # print('j:',j)
-    # range(0,3)
-    # window.show()
-    # window.setGeometry(0,0,150,150)
-    # print('-' * 40)
-    # print(window.x())
-    # print(window.width())
-    # print(window.geometry())
-    # window = QWidget()
-    # window.setWindowTitle('内容边距的设定')
-    # window.resize(500,500)
-    # label = QLabel(window)
-    # label.setText('社会我顺哥，人狠话不多')
-    # label.resize(300,300)
-    # label.setStyleSheet('background-color:cyan;')
-    # label.setContentsMargins(100,200,0,0)  #设置文本内容的边框间距 文本内容靠左，水平居中
-    
-    # print(label.contentsRect())
-    # print(label.getContentsMargins())
-    # window.show()
-    # sys.exit(app.exec_())
+# column_count = 4 #每行控件的个数
+# widget_count = 100  #总的控件数量
+# widget_width = window.width() / column_count
+# row_count = (widget_count - 1) // column_count + 1
+# widget_height = window.height() / row_count
+# for i in range(0,widget_count):
+#     w = QWidget(window)
+#     w.resize(int(widget_width),int(widget_height))
+#     widget_x = i % column_count * widget_width
+#     widget_y = i // column_count * widget_height
+#     w.move(int(widget_x),int(widget_y))
+#     w.setStyleSheet('background-color:red;border:1px solid yellow;')
+#     w.show()
+# widget_width = int(window.width() / column_count) #窗口宽度/列数 求得控件的宽度
+# row_count = int((widget_count - 1) / column_count + 1) #控件的行数
+# widget_height = int(window.height() / row_count) #窗口高度/行数 求得控件的宽度 /表示正常除法求得的商，是float //表示正常除法求得的商，int是个整数，%表示正常除法求得的余数,是int
+# # print(window.width(),window.height(),widget_width,row_count,widget_height)
+# for i in range(0,row_count):
+#     widget_y = i * widget_height + i
+#     # print('i:',i)
+#     for j in range(0,column_count): #for循环语句循环不到最大值,即不取column_count
+#         w = QWidget(window)
+#         w.resize(widget_width,widget_height)
+#         widget_x = j * widget_width + j
+#         w.move(widget_x,widget_y)
+#         if i == j:
+#             w.setStyleSheet('background-color:red;')
+#         else:
+#             w.setStyleSheet('background-color:cyan;')
+#         # if j / 2 == 0:
+#         #     w.setStyleSheet('background-color:cyan;')
+#         # else:
+#         #     w.setStyleSheet('background-color:red;')
+#         w.show()
+#         # print(widget_x,widget_y)
+#         # print('j:',j)
+# range(0,3)
+# window.show()
+# window.setGeometry(0,0,150,150)
+# print('-' * 40)
+# print(window.x())
+# print(window.width())
+# print(window.geometry())
+# window = QWidget()
+# window.setWindowTitle('内容边距的设定')
+# window.resize(500,500)
+# label = QLabel(window)
+# label.setText('社会我顺哥，人狠话不多')
+# label.resize(300,300)
+# label.setStyleSheet('background-color:cyan;')
+# label.setContentsMargins(100,200,0,0)  #设置文本内容的边框间距 文本内容靠左，水平居中
+
+# print(label.contentsRect())
+# print(label.getContentsMargins())
+# window.show()
+# sys.exit(app.exec_())
 # class Window(QWidget):
 #     def __init__(self):
 #         super().__init__()
@@ -363,10 +363,10 @@
 # class Label(QLabel):
 #     def mousePressEvent(self,evt):
 #         print('标签控件鼠标按下')
-        # evt.accept() #标记控件事件消息已被处理，不再向上传输
-        # print(evt.isAccepted())
-        # evt.ignore()
-        # print(self.objectName())
+# evt.accept() #标记控件事件消息已被处理，不再向上传输
+# print(evt.isAccepted())
+# evt.ignore()
+# print(self.objectName())
 # import sys
 # from PyQt5.Qt import *
 # class Window(QWidget):
@@ -392,7 +392,7 @@
 # if __name__ == '__main__':
 #     app = QApplication(sys.argv)
 #     window = Window()
-    
+
 #     # window = MyWindow()
 #     # window.setWindowTitle('鼠标操作')
 #     # window.resize(500,500)
@@ -509,7 +509,7 @@
 #     label3 = QLabel(window)
 #     label3.setText('标签3')
 #     label3.move(100,100)
-    
+
 #     # print(window.childAt(250,250))
 #     # print(label2.parentWidget())
 #     print(window.childrenRect())
@@ -606,15 +606,15 @@
 #         self.close_btn = QPushButton(self)
 #         self.close_btn.setText('关闭')
 #         self.close_btn.resize(self.btn_w,self.btn_h)
-        
+
 #         self.max_btn = QPushButton(self)
 #         self.max_btn.setText('最大化')
 #         self.max_btn.resize(self.btn_w,self.btn_h)
-        
+
 #         self.mini_btn = QPushButton(self)
 #         self.mini_btn.setText('最小化')
 #         self.mini_btn.resize(self.btn_w,self.btn_h)
-        
+
 #         # def close():
 #         #     window.close()
 #         self.close_btn.pressed.connect(self.close)
@@ -646,7 +646,7 @@
 #     app = QApplication(sys.argv)
 #     # window = QWidget(flags=Qt.FramelessWindowHint)
 #     window = Window()
-    
+
 #     window.show()
 #     sys.exit(app.exec_())
 # import sys
@@ -792,7 +792,7 @@
 #     btn.setText('xxx')
 #     btn.resize(100,100)
 #     window.show()
-    
+
 #     sys.exit(app.exec_())
 # import sys
 # import  math
@@ -901,7 +901,7 @@
 #         menu = QMenu() #创建菜单
 #         open_recent_menu = QMenu(menu) #设置父对象为menu
 #         open_recent_menu.setTitle('最近打开')
-        
+
 #         new_cation = QAction() #创建一个动作
 #         new_cation.setText('新建')
 #         # new_cation.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg'))
@@ -935,7 +935,7 @@
 #     # menu = QMenu() #创建菜单
 #     # open_recent_menu = QMenu(menu) #设置父对象为menu
 #     # open_recent_menu.setTitle('最近打开')
-    
+
 #     # new_cation = QAction() #创建一个动作
 #     # new_cation.setText('新建')
 #     # # new_cation.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg'))
@@ -956,7 +956,7 @@
 #     # exit_action.triggered.connect(lambda : print('退出'))
 #     # open_recent_menu.triggered.connect(lambda : print('子菜单'))
 #     # btn.setMenu(menu) #菜单为btn的菜单
-    
+
 #     print(btn.menu())
 #     # btn.setFlat(True)
 #     # print(btn.isFlat()) #获取是否扁平化
@@ -973,7 +973,7 @@
 #         menu = QMenu() #创建菜单
 #         open_recent_menu = QMenu(menu) #设置父对象为menu
 #         open_recent_menu.setTitle('最近打开')
-        
+
 #         new_cation = QAction() #创建一个动作
 #         new_cation.setText('新建')
 #         # new_cation.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg'))
@@ -1050,13 +1050,277 @@
 #
 #     window.show()
 #     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = QWidget()
+#     window.setWindowTitle('QRadioButton-功能测试')
+#     window.resize(500,500)
+#     red = QWidget(window)
+#     red.resize(200,200)
+#     red.setStyleSheet('background-color:red')
+#     red.move(50,50)
+#     green = QWidget(window)
+#     green.resize(200, 200)
+#     green.setStyleSheet('background-color:green')
+#     green.move(red.x()+red.width(),red.y()+red.height())
+#     rb_nan = QRadioButton('男',red)
+#     rb_nan.move(10,10)
+#     rb_nan.setChecked(True)
+#     rb_nv = QRadioButton('女',red) #单选框，具有排他性，不可取消
+#     rb_nv.move(10,50)
+#     rb_nv.setShortcut('Alt+F')  #设置快捷键
+#     # rb_nv.setIcon(str)
+#     rb_nv.toggled.connect(lambda isChecked: print(isChecked))
+#     # rb_nv.setAutoExclusive(False)
+#     rb_yes = QRadioButton('yes',green)
+#     rb_yes.move(10,10)
+#     rb_no = QRadioButton('no',green)
+#     rb_no.move(10,50) #参数时针对父控件的相对位置
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = QWidget()
+#     window.setWindowTitle('按钮组的使用')
+#     window.resize(500,500)
+#     r_male = QRadioButton('男',window)
+#     r_female = QRadioButton('女',window)
+#     r_female.setChecked(True)
+#     r_male.move(100,100)
+#     r_female.move(100,150)
+#     sex_group = QButtonGroup(window) #创建按钮组
+#     sex_group.addButton(r_male,1)
+#     sex_group.addButton(r_female,2)
+#     r_yes = QRadioButton('yes', window)
+#     r_no = QRadioButton('no', window)
+#     r_yes.move(300, 100)
+#     r_no.move(300, 150)
+#     #answer_group为组名
+#     answer_group = QButtonGroup(window) #window为父控件，但是是虚拟的组
+#     answer_group.addButton(r_yes)
+#     answer_group.addButton(r_no)
+#     answer_group.setId(r_yes,1)
+#     answer_group.setId(r_no,2)
+#     def test(val):
+#         print(val,sex_group.id(val))
+#     # sex_group.buttonClicked[int].connect(test)
+#     sex_group.buttonClicked.connect(test)
+#     print(answer_group.id(r_yes))
+#     print(answer_group.id(r_no))
+#     print(sex_group.buttons())
+#     print(sex_group.button(1))
+#     print(r_female.isChecked())
+#     r_no.setChecked(True) #设置为选中状态
+#     print(answer_group.checkedId()) #查看组中选中控件的id值，没有选中时返回值为-1
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = QWidget()
+#     window.setWindowTitle('QCheckBox功能测试')
+#     window.resize(500, 500)
+#     cb = QCheckBox('Python', window)  # 创建复选框按钮
+#     cb.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Saved Pictures\\jason-chen-22141-unsplash-1024x577.jpg'))
+#     cb.setIconSize(QSize(60, 60))
+#     cb.setTristate(True)
+#     # cb.setCheckState(Qt.Checked) #选中状态
+#     cb.setCheckState(Qt.PartiallyChecked)  # 部分选中状态
+#     # cb.stateChanged.connect(lambda state: print(state))
+#     cb.toggled.connect(lambda isChecked: print(isChecked))
+#     window.show()
+#     sys.exit(app.exec_())
+
+# import sys
+# from PyQt5.Qt import *
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = QWidget()
+#     window.setWindowTitle('QLineEdit功能测试')
+#     window.resize(500, 500)
+#     # le = QLineEdit(window)  # 创建单行输入文本框
+#     # le.setText('Sz')
+#     # le.insert('18')  # 在原有基础上插入
+#     # btn = QPushButton(window)
+#     # btn.setText('按钮')
+#     # btn.move(100, 100)
+#     # # btn.pressed.connect(lambda: le.insert('18'))
+#     # # btn.pressed.connect(lambda: print(le.text()))
+#     # btn.pressed.connect(lambda: print(le.displayText()))
+#     le_a = QLineEdit(window)
+#     le_a.move(100, 200)
+#     le_b = QLineEdit(window)
+#     le_b.move(100, 300)
+#     # le_b.setEchoMode(QLineEdit.PasswordEchoOnEdit)  # 设置输入框的输入模式，明文，密文，输入明文输入后密文 NoEcho Password
+#
+#     copy_btn = QPushButton(window)
+#     copy_btn.setText('复制')
+#     copy_btn.move(100, 400)
+#     le_a.setMaxLength(3)
+#     print(le_a.maxLength())
+#     le_a.setReadOnly(True)  # 设置只读
+#     le_a.setText('王炸，要不起')  # 可以程序设置，但不能超过字符数量限制
+#
+#
+#     def copy_cao():
+#         content = le_a.text()
+#         # le_b.setText(content)
+#         # le_b.setText('')
+#         # le_b.insert(content)
+#         print(le_b.text(), le_b.displayText())
+#
+#
+#     copy_btn.clicked.connect(copy_cao)
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class AccountTool:
+#     ACCOUNT_ERROR = 1
+#     PWD_ERROR = 2
+#     SUCCESS = 3
+#
+#     @staticmethod
+#     def check_login(account, pwd):  # 静态方法 参数不含self
+#         # 把账号和密码发送给服务器，等待服务器返回结果
+#         if account != 'sz':
+#             return AccountTool.ACCOUNT_ERROR
+#         if pwd != 'itlike':
+#             return AccountTool.PWD_ERROR
+#         return AccountTool.SUCCESS
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('登录案例')
+#         self.resize(500, 500)
+#         self.setMinimumSize(400, 400)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         self.account_le = QLineEdit(self)
+#         self.pwd_le = QLineEdit(self)
+#         self.pwd_le.setEchoMode(QLineEdit.Password)
+#         self.login_btn = QPushButton(self)
+#         self.login_btn.setText('登录')
+#         self.login_btn.clicked.connect(self.login_cao)
+#         # 占位文本的提示
+#         self.account_le.setPlaceholderText('请输入账号')
+#         self.pwd_le.setPlaceholderText('请输入密码')
+#         # 设置密码框，显示清空按钮
+#         self.pwd_le.setClearButtonEnabled(True)
+#         # 为密码文本框添加显示按钮
+#         action = QAction(self.pwd_le)
+#         action.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Camera Roll\\close.jpg'))
+#
+#         def change():
+#             print('改变明文和密文')
+#             if self.pwd_le.echoMode() == QLineEdit.Normal:
+#                 self.pwd_le.setEchoMode(QLineEdit.Password)
+#                 action.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Camera Roll\\close.jpg'))
+#             else:
+#                 self.pwd_le.setEchoMode(QLineEdit.Normal)
+#                 action.setIcon(QIcon('C:\\Users\\asus\\Pictures\\Camera Roll\\open.jpg'))
+#
+#         action.triggered.connect(change)
+#         self.pwd_le.addAction(action, QLineEdit.TrailingPosition)  # 图片显示在尾部
+#         # 为账号文本框设置自动补齐
+#         completer = QCompleter(['sz', 'shunzi', 'wangzha'], self.account_le)
+#         self.account_le.setCompleter(completer)
+#
+#     def login_cao(self):
+#         # print('xxx', self)
+#         account = self.account_le.text()
+#         pwd = self.pwd_le.text()
+#         print(account, pwd)
+#         state = AccountTool.check_login(account, pwd)
+#         if state == AccountTool.ACCOUNT_ERROR:
+#             print('账号错误')
+#             self.account_le.setText('')
+#             self.pwd_le.setText('')
+#             self.account_le.setFocus(True)
+#             return None
+#         if state == AccountTool.PWD_ERROR:
+#             print('密码错误')
+#             self.pwd_le.setText('')
+#             self.pwd_le.setFocus(True)
+#             return None
+#         if state == AccountTool.SUCCESS:
+#             print('登录成功')
+#         # if account != 'sz':
+#         #     print('账号错误')
+#         #     self.account_le.setText('')
+#         #     self.pwd_le.setText('')
+#         #     self.account_le.setFocus(True)
+#         #     return None
+#         # if pwd != 'itlike':
+#         #     print('密码错误')
+#         #     self.pwd_le.setText('')
+#         #     self.pwd_le.setFocus(True)
+#         #     return None
+#         # print('登录成功')
+#
+#     def resizeEvent(self, evt):  # 窗口尺寸改变事件
+#         widget_w = 150
+#         widget_h = 40
+#         margin = 60
+#         self.account_le.resize(widget_w, widget_h)
+#         self.pwd_le.resize(widget_w, widget_h)
+#         self.login_btn.resize(widget_w, widget_h)
+#         x = int((self.width() - widget_w) / 2)
+#         self.account_le.move(x, int(self.height() / 4))
+#         self.pwd_le.move(x, self.account_le.y() + widget_h + margin)
+#         self.login_btn.move(x, self.pwd_le.y() + widget_h + margin)
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
+
+
+class AgeVadidator(QValidator):
+    def validate(self, input_str, pos_int):
+        print(input_str, pos_int)
+        if 18 <= int(input_str) <= 180:
+            return QValidator.Acceptable, input_str, pos_int  # 返回元组 对输入文本框有影响 ,输入正确
+            # return QValidator.Acceptable, 'itlike', 1
+        else:
+            return QValidator.Invalid, input_str, pos_int  # 返回元组 对输入文本框有影响，输入错误
+
+
+class Window(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle('QLineEdit-验证器使用')
+        self.resize(500, 500)
+        self.setup_ui()
+
+    def setup_ui(self):
+        le = QLineEdit(self)
+        le.move(100, 100)
+        # 18 - 180
+        vadidator = AgeVadidator()
+        le.setValidator(vadidator)
+
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = QWidget()
-    window.setWindowTitle('QRadioButton-功能测试')
-    window.resize(500,500)
+    window = Window()
 
     window.show()
     sys.exit(app.exec_())
