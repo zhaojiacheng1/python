@@ -1,4 +1,4 @@
-#!/usr/bin/python3 
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # '''
 # class Employee:
@@ -14,7 +14,7 @@
 #         print("Total Employee",Employee.empCount)
 
 #     def displayEmployee(self):
-#         print("Name:",self.name,",Salary:",self.salary)  
+#         print("Name:",self.name,",Salary:",self.salary)
 
 # emp1 = Employee("Zara",2000)
 # emp2 = Employee("Manni",5000)
@@ -129,7 +129,7 @@
 # #         super().__init__(*args,**kwargs)
 # #         self.setText('10')
 # #         self.move(100,100)
-# #         self.setStyleSheet('font-size:22px;')       
+# #         self.setStyleSheet('font-size:22px;')
 # #     def timerEvent(self, *args, **kwargs):
 # #         # print('xxx')
 # #         current_sec = int(self.text())
@@ -667,7 +667,7 @@
 #     window.resize(500,500)
 #     # btn = Btn(window)
 #     # btn.setText('按钮')
-#     # btn.pressed.connect(lambda : print('按钮被点击')) 
+#     # btn.pressed.connect(lambda : print('按钮被点击'))
 #     # btn.setEnabled(False)
 #     # print(btn.isEnabled())
 #     w2 = QWidget()
@@ -730,7 +730,7 @@
 #     window.statusBar() #状态栏
 #     window.resize(500,500)
 #     window.setWindowTitle('信息提示')
-#     window.setStatusTip('这是一个窗口') 
+#     window.setStatusTip('这是一个窗口')
 #     print(window.statusTip())
 #     label = QLabel(window)
 #     label.setText('社会我顺哥')
@@ -967,7 +967,7 @@
 #     print(btn.autoDefault())
 #     print(btn2.autoDefault())
 #     btn2.setDefault(True) #自动设置为默认状态
-#     window.setContextMenuPolicy(Qt.CustomContextMenu) #方法为上下文菜单策略参数为自定义上下文菜单 
+#     window.setContextMenuPolicy(Qt.CustomContextMenu) #方法为上下文菜单策略参数为自定义上下文菜单
 #     def show_menu(point): #point为鼠标相对位置
 #         print('自定义上下文菜单',point)
 #         menu = QMenu() #创建菜单
