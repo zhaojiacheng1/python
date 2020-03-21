@@ -1469,6 +1469,313 @@
 #
 #     window.show()
 #     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class MyTextEdit(QTextEdit):
+#     def mousePressEvent(self, evt):
+#         print(evt.pos())  # 获取鼠标位置，相对位置
+#         link_str = self.anchorAt(evt.pos())  # 获取鼠标相对位置处的锚点
+#         if len(link_str):
+#             QDesktopServices.openUrl(QUrl(link_str))  # 通过浏览器打开超链接地址
+#         return super().mousePressEvent(evt)  # 解决鼠标不能使用的问题
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QTextEdit-功能测试')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         # self.te = QTextEdit(self)
+#         self.te = MyTextEdit(self)
+#         self.te.move(50, 50)
+#         self.te.resize(300, 300)
+#         self.te.setStyleSheet('background-color:cyan;')
+#         self.te.textChanged.connect(self.text_change)
+#         self.te.copyAvailable.connect(lambda: print('复制文本可用'))
+#         self.zhanweiText()
+#         self.textsetting()
+#         test_btn = QPushButton(self)
+#         test_btn.move(10, 10)
+#         test_btn.setText('测试按钮')
+#         test_btn.pressed.connect(self.btn_cao)
+#
+#     def text_change(self):
+#         print('文本内容发生了改变')
+#
+#     def btn_cao(self):
+#         print('按钮测试')
+#         # self.te.setText('')
+#         # self.te.clear()
+#         # print(self.te.document())
+#         # print(self.te.textCursor())
+#         # self.cursortext()
+#         # self.geshi_merge()
+#         # self.getformat()
+#         # self.text_secl()
+#         # self.text_other()
+#         # self.remove_text()
+#         # self.postionlike()
+#         # self.start_end()
+#         # self.auto_format()
+#         # self.soft_chalin()
+#         # self.overwrimode()
+#         # self.cursorseti()
+#         # self.way_format()
+#         # self.fontset()
+#         # self.colorset()
+#         # self.charset()
+#         # self.oftenaction()
+#         # self.setonlyread()
+#         # self.tab_function()
+#         self.web_superlink()
+#
+#     def web_superlink(self):
+#         self.te.insertHtml('<a href="http://www.itlike.com">撩课</a>')
+#
+#     def tab_function(self):
+#         # self.te.setTabChangesFocus(True)  # 设置tab键的功能为改变焦点
+#         print(self.te.tabStopDistance())
+#         self.te.setTabStopDistance(100)  # 设置tab键的大小为100像素
+#
+#     def setonlyread(self):
+#         self.te.setReadOnly(True)  # 设置文本编辑器为只读模式 可以通过程序写入文本
+#
+#     def oftenaction(self):
+#         # self.te.copy()
+#         # self.te.setFocus()
+#         # self.te.paste()
+#         # self.te.selectAll()
+#         # self.te.setFocus()
+#         self.te.find('xx', QTextDocument.FindBackward)  # 设置查找方向为光标向前查找
+#         self.te.setFocus()
+#
+#     def charset(self):
+#         tcf = QTextCharFormat()
+#         tcf.setFontFamily('宋体')
+#         tcf.setFontPointSize(20)
+#         tcf.setFontCapitalization(QFont.Capitalize)  # 首字母大写
+#         tcf.setForeground(QColor(100, 200, 0))  # 设置字体颜色
+#         self.te.setCurrentCharFormat(tcf)
+#         tcf2 = QTextCharFormat()
+#         tcf2.setFontOverline(True)
+#         self.te.mergeCurrentCharFormat(tcf2)
+#
+#     def colorset(self):
+#         self.te.setTextBackgroundColor(QColor(200, 10, 10))  # 设置背景颜色
+#         self.te.setTextColor(QColor(10, 10, 200))  # 设置字体颜色
+#
+#     def fontset(self):
+#         # QFontDialog.getFont()
+#         # self.te.setFontFamily('幼圆')
+#         # self.te.setFontWeight(QFont.Black)
+#         # self.te.setFontItalic(True)
+#         # self.te.setFontPointSize(30)
+#         # self.te.setFontUnderline(True)
+#         font = QFont()
+#
+#         self.te.setFont(font)
+#
+#     def way_format(self):
+#         self.te.setAlignment(Qt.AlignCenter)  # 设置当前段落的对齐方式
+#
+#     def cursorseti(self):
+#         if self.te.overwriteMode():
+#             self.te.setOverwriteMode(False)
+#             self.te.setCursorWidth(1)
+#         else:
+#             self.te.setOverwriteMode(True)
+#             self.te.setCursorWidth(10)
+#
+#     def overwrimode(self):
+#         self.te.setOverwriteMode(True)  # 设置覆盖模式 ubuntu下可以正常运行，window下不能正常运行
+#         print(self.te.overwriteMode())
+#         self.te.setFocus()
+#
+#     def soft_chalin(self):
+#         # self.te.setLineWrapMode(QTextEdit.NoWrap)  # 禁止软换行
+#         # self.te.setLineWrapMode(QTextEdit.FixedPixelWidth)  # 设置固定的像素宽度
+#         self.te.setLineWrapMode(QTextEdit.FixedColumnWidth)  # 设置固定的宽度
+#         self.te.setLineWrapColumnOrWidth(8)  # 设置软换行的列数或是像素宽度
+#         self.te.setWordWrapMode(QTextOption.WordWrap)  # 设置保持单词的完整性
+#
+#     def auto_format(self):
+#         # tc = self.te.textCursor()
+#         self.te.setAutoFormatting(QTextEdit.AutoBulletList)  # 设置自动格式化
+#
+#     def start_end(self):
+#         tc = self.te.textCursor()
+#         tc.beginEditBlock()
+#         tc.insertText('123\r\n')
+#         tc.insertText('456\r\n')
+#         tc.insertText('789\r\n')
+#         tc.endEditBlock()
+#
+#     def postionlike(self):
+#         tc = self.te.textCursor()
+#         print('是否在段落的结尾：', tc.atBlockEnd())
+#         print('是否在段落的开始：', tc.atBlockStart())
+#         print('是否在文档的结尾：', tc.atEnd())
+#         print('是否在文档的开始：', tc.atStart())
+#         print('在第几列：', tc.columnNumber())
+#         print('光标位置：', tc.position())  # 回车占用一个位置
+#         print('在文本块中的位置：', tc.positionInBlock())
+#
+#     def remove_text(self):
+#         tc = self.te.textCursor()
+#         # tc.deleteChar()  # 删除光标后的字符和选中字符串
+#         tc.deletePreviousChar()  # 删除光标前的字符和选中文本
+#         self.te.setFocus(True)
+#
+#     def text_other(self):
+#         tc = self.te.textCursor()
+#         # print(tc.selectionStart())
+#         # print(tc.selectionEnd())
+#         print(tc.hasSelection())  # 判断是否选中文本
+#         tc.removeSelectedText()  # 删除选中文本
+#         self.te.setFocus(True)
+#
+#     def get_select(self):
+#         tc = self.te.textCursor()
+#         # print(tc.selectedText())
+#         print(tc.selection())  # 返回的是对象名
+#         print(tc.selection().toPlainText())
+#
+#     def text_secl(self):
+#         tc = self.te.textCursor()
+#         # tc.setPosition(6, QTextCursor.KeepAnchor)  # 设置锚点不动，改为选中效果
+#         # tc.movePosition(QTextCursor.StartOfLine, QTextCursor.MoveAnchor, 1)  # 设置一行的开始，移动锚点
+#         # tc.movePosition(QTextCursor.Up, QTextCursor.MoveAnchor, 1)  # 向上移动一行，移动锚点
+#         # tc.select(QTextCursor.BlockUnderCursor)  # 向上选中一个段落
+#         tc.select(QTextCursor.WordUnderCursor)  # 向上选中一个词
+#         self.te.setTextCursor(tc)  # 反向设置 在界面上显示
+#         self.te.setFocus(True)
+#
+#     def getformat(self):
+#         tc = self.te.textCursor()
+#         print(tc.block().text(), tc.blockNumber(), tc.currentList())
+#
+#     def geshi_merge(self):
+#         print('块内格式设置')
+#         tc = self.te.textCursor()
+#         tcf = QTextCharFormat()
+#         tcf.setFontFamily('幼圆')
+#         tcf.setFontPointSize(30)
+#         tcf.setFontOverline(True)  # 上划线
+#         tcf.setFontUnderline(True)  # 下划线
+#         tc.setCharFormat(tcf)
+#
+#         tcf2 = QTextCharFormat()
+#         tcf2.setFontStrikeOut(True)
+#         tc.mergeCharFormat(tcf2)
+#         return None
+#         tbf = QTextBlockFormat()
+#         tbf.setAlignment(Qt.AlignCenter)
+#         # tbf.setIndent(2)
+#         tc.setBlockFormat(tbf)
+#         return None
+#         tcf = QTextCharFormat()
+#         tcf.setFontFamily('幼圆')
+#         tcf.setFontPointSize(30)
+#         tcf.setFontOverline(True)  # 上划线
+#         tcf.setFontUnderline(True)  # 下划线
+#         tc.setBlockCharFormat(tcf)
+#
+#     def cursortext(self):
+#         tc = self.te.textCursor()
+#         tff = QTextFrameFormat()  # 设置文本框格式
+#         tff.setBorder(10)
+#         tff.setBorderBrush(QColor(100, 50, 50))
+#         tff.setRightMargin(50)
+#         tc.insertFrame(tff)
+#         doc = self.te.document()
+#         print(doc.rootFrame())
+#         root_frame = doc.rootFrame()
+#         root_frame.setFrameFormat(tff)
+#         return None
+#         tc = self.te.textCursor()
+#         tbf = QTextBlockFormat()  # 段落设置
+#         tcf = QTextCharFormat()  # 字符设置
+#         tcf.setFontFamily('隶书')
+#         tcf.setFontItalic(True)  # 设置斜体
+#         tcf.setFontPointSize(16)
+#         tbf.setAlignment(Qt.AlignRight)  # 对齐方式 右对齐
+#         tbf.setRightMargin(100)  # 右边距
+#         tbf.setIndent(3)  # 缩进长度 3个tab长度
+#         tc.insertBlock(tbf, tcf)
+#         self.te.setFocus()
+#         return None
+#         tc = self.te.textCursor()
+#         # tc.insertTable(5,3)
+#         ttf = QTextTableFormat()
+#         ttf.setAlignment(Qt.AlignRight)  # 右对齐
+#         ttf.setCellPadding(6)  # 内边距
+#         ttf.setCellSpacing(3)  # 外边距
+#         ttf.setColumnWidthConstraints((QTextLength(QTextLength.PercentageLength, 50),
+#                                        QTextLength(QTextLength.PercentageLength, 40),
+#                                        QTextLength(QTextLength.PercentageLength, 10)))
+#         # print(tc.insertTable(5, 3, ttf))
+#         table = tc.insertTable(5, 3, ttf)
+#         # table.appendColumns(2)  # 追加列
+#         return None
+#         tc = self.te.textCursor()
+#         # tl = tc.insertList(QTextListFormat.ListCircle)  # 插入列表
+#         # tl = tc.insertList(QTextListFormat.ListDecimal)  # 插入带序列列表
+#         # tl = tc.createList(QTextListFormat.ListCircle)  # 创建列表
+#         tlf = QTextListFormat()
+#         tlf.setIndent(3)
+#         tlf.setNumberPrefix('<<')
+#         tlf.setNumberSuffix('>>')
+#         tlf.setStyle(QTextListFormat.ListDecimal)
+#         tl = tc.createList(tlf)  # 创建列表
+#         print(tl)
+#         return None
+#         tc = self.te.textCursor()
+#         # tdf = QTextDocumentFragment.fromHtml('<h1>xxx</h1>')  # 插入html文本块
+#         tdf = QTextDocumentFragment.fromPlainText('<h1>xxx</h1>')  # 插入普通文本块
+#         tc.insertFragment(tdf)
+#         return None
+#         tc = self.te.textCursor()
+#         tif = QTextImageFormat()
+#         tif.setName('C:\\Users\\asus\\Pictures\\Camera Roll\\open.jpg')  # 图片名称即路径
+#         tif.setWidth(100)  # 设置宽度
+#         tif.setHeight(100)  # 设置高度
+#         tc.insertImage(tif)
+#         return None
+#         tc = self.te.textCursor()  # 获取文本光标对象
+#         tcf = QTextCharFormat()
+#         tcf.setToolTip('撩课学院网址')  # 设置悬浮提示
+#         tcf.setFontFamily('隶书')  # 设置字体格式
+#         tcf.setFontPointSize(16)  # 设置字体大小
+#         tc.insertText('itlike.com', tcf)  # 插入文本
+#         tc.insertHtml('<a href="http://www.itlike.com" > 撩课 </a>')  # 添加超链接
+#
+#     def textsetting(self):
+#         # 设置普通文本内容
+#         # self.te.setPlainText('<h1>xxx</h1>')
+#         # self.te.insertPlainText('<h1>xxx</h1>')
+#         # self.te.insertPlainText('<h1>ooo</h1>')
+#         # print(self.te.toPlainText())
+#         # self.te.setHtml('<h1>xxx</h1>')
+#         # self.te.insertHtml('<h4>xxx</h4>')
+#         # print(self.te.toHtml())
+#         # self.te.setText('<h1>xxx</h1>')  # 自动判断txt和html格式
+#         # self.te.append('ooo')  # 添加，会在文本最后添加且会自动检查文本格式
+#         pass
+#
+#     def zhanweiText(self):
+#         self.te.setPlaceholderText('请输入你的个人简介：')
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#     window.show()
+#     sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
 
@@ -1476,238 +1783,84 @@ from PyQt5.Qt import *
 class Window(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('QTextEdit-功能测试')
+        self.setWindowTitle('QPlainTextEdit-学习')
         self.resize(640, 480)
         self.setup_ui()
 
     def setup_ui(self):
-        self.te = QTextEdit(self)
-        self.te.move(50, 50)
-        self.te.resize(300, 300)
-        self.te.setStyleSheet('background-color:cyan;')
-        self.zhanweiText()
-        self.textsetting()
+        pte = QPlainTextEdit(self)
+        self.pte = pte  # 将局部变量绑定到实例对象上
+        pte.resize(300, 300)
+        pte.move(100, 100)
         test_btn = QPushButton(self)
-        test_btn.move(10, 10)
         test_btn.setText('测试按钮')
-        test_btn.pressed.connect(self.btn_cao)
+        test_btn.move(20, 20)
+        test_btn.pressed.connect(self.test_cao)
+        self.place_text()
+        self.format_set()
+        self.autochangeline()
+        self.setcursorformat()
 
-    def btn_cao(self):
-        print('按钮测试')
-        # self.te.setText('')
-        # self.te.clear()
-        # print(self.te.document())
-        # print(self.te.textCursor())
-        # self.cursortext()
-        # self.geshi_merge()
-        # self.getformat()
-        # self.text_secl()
-        # self.text_other()
-        # self.remove_text()
-        # self.postionlike()
-        # self.start_end()
-        # self.auto_format()
-        # self.soft_chalin()
-        # self.overwrimode()
-        self.cursorseti()
+    def test_cao(self):
+        print('测试按钮')
+        # self.pte.setPlainText('社会我顺哥，人狠话不多')  # 将原本的老内容清楚，添加新内容
+        # # self.pte.setFocus()
+        # self.pte.insertPlainText('itlike')  # 在光标出插入文本
+        # self.pte.appendHtml('<a href="http://www.itlike.com">撩课</a>')  # 在文本最后添加文本
+        # table_str = "<table border=2>" \
+        #             "<tr><td>1</td><td>2</td><td>3</td></tr>" \
+        #             "<tr><td>4</td><td>5</td><td>6</td></tr>" \
+        #             "</table>"
+        # self.pte.appendHtml(table_str)  # 不支持富文本，即表格
+        # print(self.pte.toPlainText())
+        # self.blockaction()
+        # self.zoom_set()
+        # self.scroll_test()
+        self.cursor_action()
 
-    def cursorseti(self):
-        if self.te.overwriteMode():
-            self.te.setOverwriteMode(False)
-            self.te.setCursorWidth(1)
-        else:
-            self.te.setOverwriteMode(True)
-            self.te.setCursorWidth(10)
+    def cursor_action(self):
+        # tc = self.pte.textCursor()
+        # tc.insertImage('C:\\Users\\asus\\Pictures\\Camera Roll\\open.jpg')  # 不能插入图片
+        # tc.insertTable(5, 6)  # 不能插入表格
+        # tc = self.pte.cursorForPosition(QPoint(100, 60))  # 返回光标对象 相对光标位置，针对固定界面
+        # tc.insertText('xxx')
+        # self.pte.setCursorWidth(20)
+        self.pte.moveCursor(QTextCursor.End, QTextCursor.KeepAnchor)  # 移动光标位置，锚点不移动
+        self.pte.setFocus()
+        # print(tc)
 
-    def overwrimode(self):
-        self.te.setOverwriteMode(True)  # 设置覆盖模式
-        print(self.te.overwriteMode())
-        self.te.setFocus(True)
+    def scroll_test(self):
+        self.pte.setCenterOnScroll(True)  # 设置光标末尾可以滚到文件的中间
+        self.pte.centerCursor()  # 设置光标所在的位置为文本框的中间
+        self.pte.ensureCursorVisible()  # 保证光标可见
+        self.pte.setFocus()
 
-    def soft_chalin(self):
-        # self.te.setLineWrapMode(QTextEdit.NoWrap)  # 禁止软换行
-        # self.te.setLineWrapMode(QTextEdit.FixedPixelWidth)  # 设置固定的像素宽度
-        self.te.setLineWrapMode(QTextEdit.FixedColumnWidth)  # 设置固定的宽度
-        self.te.setLineWrapColumnOrWidth(8)  # 设置软换行的列数或是像素宽度
-        self.te.setWordWrapMode(QTextOption.WordWrap)  # 设置保持单词的完整性
+    def zoom_set(self):
+        self.pte.zoomIn(1)  # 放大、缩小操作 正数放大，负数缩小
 
-    def auto_format(self):
-        # tc = self.te.textCursor()
-        self.te.setAutoFormatting(QTextEdit.AutoBulletList)  # 设置自动格式化
+    def blockaction(self):
+        print(self.pte.blockCount())  # 返回文本块的个数，文本块以回车区分
+        self.pte.setMaximumBlockCount(3)  # 设置块的最大个数
 
-    def start_end(self):
-        tc = self.te.textCursor()
-        tc.beginEditBlock()
-        tc.insertText('123\r\n')
-        tc.insertText('456\r\n')
-        tc.insertText('789\r\n')
-        tc.endEditBlock()
+    def setcursorformat(self):
+        self.pte.setOverwriteMode(True)  # 只对英文字符有效，对中文和数字无效
 
-    def postionlike(self):
-        tc = self.te.textCursor()
-        print('是否在段落的结尾：', tc.atBlockEnd())
-        print('是否在段落的开始：', tc.atBlockStart())
-        print('是否在文档的结尾：', tc.atEnd())
-        print('是否在文档的开始：', tc.atStart())
-        print('在第几列：', tc.columnNumber())
-        print('光标位置：', tc.position())  # 回车占用一个位置
-        print('在文本块中的位置：', tc.positionInBlock())
-
-    def remove_text(self):
-        tc = self.te.textCursor()
-        # tc.deleteChar()  # 删除光标后的字符和选中字符串
-        tc.deletePreviousChar()  # 删除光标前的字符和选中文本
-        self.te.setFocus(True)
-
-    def text_other(self):
-        tc = self.te.textCursor()
-        # print(tc.selectionStart())
-        # print(tc.selectionEnd())
-        print(tc.hasSelection())  # 判断是否选中文本
-        tc.removeSelectedText()  # 删除选中文本
-        self.te.setFocus(True)
-
-    def get_select(self):
-        tc = self.te.textCursor()
-        # print(tc.selectedText())
-        print(tc.selection())  # 返回的是对象名
-        print(tc.selection().toPlainText())
-
-    def text_secl(self):
-        tc = self.te.textCursor()
-        # tc.setPosition(6, QTextCursor.KeepAnchor)  # 设置锚点不动，改为选中效果
-        # tc.movePosition(QTextCursor.StartOfLine, QTextCursor.MoveAnchor, 1)  # 设置一行的开始，移动锚点
-        # tc.movePosition(QTextCursor.Up, QTextCursor.MoveAnchor, 1)  # 向上移动一行，移动锚点
-        # tc.select(QTextCursor.BlockUnderCursor)  # 向上选中一个段落
-        tc.select(QTextCursor.WordUnderCursor)  # 向上选中一个词
-        self.te.setTextCursor(tc)  # 反向设置 在界面上显示
-        self.te.setFocus(True)
-
-    def getformat(self):
-        tc = self.te.textCursor()
-        print(tc.block().text(), tc.blockNumber(), tc.currentList())
-
-    def geshi_merge(self):
-        print('块内格式设置')
-        tc = self.te.textCursor()
+    def format_set(self):
         tcf = QTextCharFormat()
-        tcf.setFontFamily('幼圆')
-        tcf.setFontPointSize(30)
-        tcf.setFontOverline(True)  # 上划线
-        tcf.setFontUnderline(True)  # 下划线
-        tc.setCharFormat(tcf)
+        tcf.setFontUnderline(True)
+        tcf.setUnderlineColor(QColor(200, 100, 100))
+        self.pte.setCurrentCharFormat(tcf)
 
-        tcf2 = QTextCharFormat()
-        tcf2.setFontStrikeOut(True)
-        tc.mergeCharFormat(tcf2)
-        return None
-        tbf = QTextBlockFormat()
-        tbf.setAlignment(Qt.AlignCenter)
-        # tbf.setIndent(2)
-        tc.setBlockFormat(tbf)
-        return None
-        tcf = QTextCharFormat()
-        tcf.setFontFamily('幼圆')
-        tcf.setFontPointSize(30)
-        tcf.setFontOverline(True)  # 上划线
-        tcf.setFontUnderline(True)  # 下划线
-        tc.setBlockCharFormat(tcf)
+    def autochangeline(self):
+        self.pte.setLineWrapMode(QPlainTextEdit.NoWrap)  # 关闭软换行
 
-    def cursortext(self):
-        tc = self.te.textCursor()
-        tff = QTextFrameFormat()  # 设置文本框格式
-        tff.setBorder(10)
-        tff.setBorderBrush(QColor(100, 50, 50))
-        tff.setRightMargin(50)
-        tc.insertFrame(tff)
-        doc = self.te.document()
-        print(doc.rootFrame())
-        root_frame = doc.rootFrame()
-        root_frame.setFrameFormat(tff)
-        return None
-        tc = self.te.textCursor()
-        tbf = QTextBlockFormat()  # 段落设置
-        tcf = QTextCharFormat()  # 字符设置
-        tcf.setFontFamily('隶书')
-        tcf.setFontItalic(True)  # 设置斜体
-        tcf.setFontPointSize(16)
-        tbf.setAlignment(Qt.AlignRight)  # 对齐方式 右对齐
-        tbf.setRightMargin(100)  # 右边距
-        tbf.setIndent(3)  # 缩进长度 3个tab长度
-        tc.insertBlock(tbf, tcf)
-        self.te.setFocus()
-        return None
-        tc = self.te.textCursor()
-        # tc.insertTable(5,3)
-        ttf = QTextTableFormat()
-        ttf.setAlignment(Qt.AlignRight)  # 右对齐
-        ttf.setCellPadding(6)  # 内边距
-        ttf.setCellSpacing(3)  # 外边距
-        ttf.setColumnWidthConstraints((QTextLength(QTextLength.PercentageLength, 50),
-                                       QTextLength(QTextLength.PercentageLength, 40),
-                                       QTextLength(QTextLength.PercentageLength, 10)))
-        # print(tc.insertTable(5, 3, ttf))
-        table = tc.insertTable(5, 3, ttf)
-        # table.appendColumns(2)  # 追加列
-        return None
-        tc = self.te.textCursor()
-        # tl = tc.insertList(QTextListFormat.ListCircle)  # 插入列表
-        # tl = tc.insertList(QTextListFormat.ListDecimal)  # 插入带序列列表
-        # tl = tc.createList(QTextListFormat.ListCircle)  # 创建列表
-        tlf = QTextListFormat()
-        tlf.setIndent(3)
-        tlf.setNumberPrefix('<<')
-        tlf.setNumberSuffix('>>')
-        tlf.setStyle(QTextListFormat.ListDecimal)
-        tl = tc.createList(tlf)  # 创建列表
-        print(tl)
-        return None
-        tc = self.te.textCursor()
-        # tdf = QTextDocumentFragment.fromHtml('<h1>xxx</h1>')  # 插入html文本块
-        tdf = QTextDocumentFragment.fromPlainText('<h1>xxx</h1>')  # 插入普通文本块
-        tc.insertFragment(tdf)
-        return None
-        tc = self.te.textCursor()
-        tif = QTextImageFormat()
-        tif.setName('C:\\Users\\asus\\Pictures\\Camera Roll\\open.jpg')  # 图片名称即路径
-        tif.setWidth(100)  # 设置宽度
-        tif.setHeight(100)  # 设置高度
-        tc.insertImage(tif)
-        return None
-        tc = self.te.textCursor()  # 获取文本光标对象
-        tcf = QTextCharFormat()
-        tcf.setToolTip('撩课学院网址')  # 设置悬浮提示
-        tcf.setFontFamily('隶书')  # 设置字体格式
-        tcf.setFontPointSize(16)  # 设置字体大小
-        tc.insertText('itlike.com', tcf)  # 插入文本
-        tc.insertHtml('<a href="http://www.itlike.com" > 撩课 </a>')  # 添加超链接
-
-    def textsetting(self):
-        # 设置普通文本内容
-        # self.te.setPlainText('<h1>xxx</h1>')
-        # self.te.insertPlainText('<h1>xxx</h1>')
-        # self.te.insertPlainText('<h1>ooo</h1>')
-        # print(self.te.toPlainText())
-        # self.te.setHtml('<h1>xxx</h1>')
-        # self.te.insertHtml('<h4>xxx</h4>')
-        # print(self.te.toHtml())
-        # self.te.setText('<h1>xxx</h1>')  # 自动判断txt和html格式
-        # self.te.append('ooo')  # 添加，会在文本最后添加且会自动检查文本格式
-        pass
-
-    def zhanweiText(self):
-        self.te.setPlaceholderText('请输入你的个人简介：')
+    def place_text(self):
+        self.pte.setPlaceholderText('请输入你的个人信息')
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = Window()
+
     window.show()
     sys.exit(app.exec_())
-# import sys
-# from PyQt5.Qt import *
-#
-# if __name__ == '__main__':
-#     app = QApplication(sys.argv)
-#
-#     sys.exit(app.exec_())
