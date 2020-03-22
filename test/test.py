@@ -1776,86 +1776,203 @@
 #     window = Window()
 #     window.show()
 #     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QPlainTextEdit-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         pte = QPlainTextEdit(self)
+#         self.pte = pte  # 将局部变量绑定到实例对象上
+#         pte.resize(300, 300)
+#         pte.move(100, 100)
+#         line_num_parent = QWidget(self)
+#         line_num_parent.resize(30, 300)
+#         line_num_parent.move(70, 100)
+#         line_num_parent.setStyleSheet('background-color:cyan')
+#         self.line_label = QLabel(line_num_parent)
+#         self.line_label.move(0, 5)
+#         line_nums = '\n'.join([str(i) for i in range(1, 101)])
+#         self.line_label.setText(line_nums)
+#         self.line_label.adjustSize()
+#         test_btn = QPushButton(self)
+#         test_btn.setText('测试按钮')
+#         test_btn.move(20, 20)
+#         test_btn.pressed.connect(self.test_cao)
+#         self.place_text()
+#         # self.format_set()
+#         # self.autochangeline()
+#         # self.setcursorformat()
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         # self.pte.setPlainText('社会我顺哥，人狠话不多')  # 将原本的老内容清楚，添加新内容
+#         # # self.pte.setFocus()
+#         # self.pte.insertPlainText('itlike')  # 在光标出插入文本
+#         # self.pte.appendHtml('<a href="http://www.itlike.com">撩课</a>')  # 在文本最后添加文本
+#         # table_str = "<table border=2>" \
+#         #             "<tr><td>1</td><td>2</td><td>3</td></tr>" \
+#         #             "<tr><td>4</td><td>5</td><td>6</td></tr>" \
+#         #             "</table>"
+#         # self.pte.appendHtml(table_str)  # 不支持富文本，即表格
+#         # print(self.pte.toPlainText())
+#         # self.blockaction()
+#         # self.zoom_set()
+#         # self.scroll_test()
+#         # self.cursor_action()
+#         self.sign_action()
+#
+#     def sign_action(self):
+#         # self.pte.textChanged.connect(lambda: print('文本改变了'))
+#         # self.pte.cursorPositionChanged.connect(lambda: print('光标位置改变'))
+#         # self.pte.blockCountChanged.connect(lambda bc: print('块的个数发生改变', bc))
+#         # self.pte.selectionChanged.connect(lambda: print('选中内容发生改变', self.pte.textCursor().selectedText()))
+#         # self.pte.modificationChanged.connect(lambda val: print('修改状态发生改变', val))
+#         # doc = self.pte.document()
+#         # doc.setModified(False)
+#         self.pte.updateRequest.connect(lambda rect, dy: print('内容区域改变', rect, dy))  # 更新的区域和垂直方向的位移
+#         self.pte.updateRequest.connect(lambda rect, dy: self.line_label.move(self.line_label.x(), self.line_label.y() + dy))  # 实现文本框行号功能
+#
+#     def cursor_action(self):
+#         # tc = self.pte.textCursor()
+#         # tc.insertImage('C:\\Users\\asus\\Pictures\\Camera Roll\\open.jpg')  # 不能插入图片
+#         # tc.insertTable(5, 6)  # 不能插入表格
+#         # tc = self.pte.cursorForPosition(QPoint(100, 60))  # 返回光标对象 相对光标位置，针对固定界面
+#         # tc.insertText('xxx')
+#         # self.pte.setCursorWidth(20)
+#         self.pte.moveCursor(QTextCursor.End, QTextCursor.KeepAnchor)  # 移动光标位置，锚点不移动
+#         self.pte.setFocus()
+#         # print(tc)
+#
+#     def scroll_test(self):
+#         self.pte.setCenterOnScroll(True)  # 设置光标末尾可以滚到文件的中间
+#         self.pte.centerCursor()  # 设置光标所在的位置为文本框的中间
+#         self.pte.ensureCursorVisible()  # 保证光标可见
+#         self.pte.setFocus()
+#
+#     def zoom_set(self):
+#         self.pte.zoomIn(1)  # 放大、缩小操作 正数放大，负数缩小
+#
+#     def blockaction(self):
+#         print(self.pte.blockCount())  # 返回文本块的个数，文本块以回车区分
+#         self.pte.setMaximumBlockCount(3)  # 设置块的最大个数
+#
+#     def setcursorformat(self):
+#         self.pte.setOverwriteMode(True)  # 只对英文字符有效，对中文和数字无效
+#
+#     def format_set(self):
+#         tcf = QTextCharFormat()
+#         tcf.setFontUnderline(True)
+#         tcf.setUnderlineColor(QColor(200, 100, 100))
+#         self.pte.setCurrentCharFormat(tcf)
+#
+#     def autochangeline(self):
+#         self.pte.setLineWrapMode(QPlainTextEdit.NoWrap)  # 关闭软换行
+#
+#     def place_text(self):
+#         self.pte.setPlaceholderText('请输入你的个人信息')
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QKeySequenceEdit-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         kse = QKeySequenceEdit(self)  # 录制快捷键的类
+#         # ks = QKeySequence(QKeySequence.Copy)
+#         ks = QKeySequence(Qt.CTRL + Qt.Key_C, Qt.CTRL + Qt.Key_A)
+#         # ks = QKeySequence('Ctrl+c')
+#         kse.setKeySequence(ks)
+#         kse.clear()
+#         btn = QPushButton(self)
+#         btn.setText('测试按钮')
+#         btn.move(100, 100)
+#         btn.clicked.connect(lambda: print(kse.keySequence().toString(), kse.keySequence().count()))
+#         kse.editingFinished.connect(lambda: print('结束编辑'))
+#         kse.keySequenceChanged.connect(lambda key_val: print('键位序列发生改变', key_val.toString()))
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
+
+
+class MyASB(QAbstractSpinBox):
+    def __init__(self, parent=None, num='0', *args, **kwargs):  # 定义函数时，None的意思是不传值是None
+        super().__init__(parent, *args, **kwargs)  # 调用函数，参数需要传入
+        self.lineEdit().setText(num)
+
+    def stepEnabled(self):  # 属于自动调用
+        # current_num = int(self.text())
+        # if current_num == 0:
+        #     return QAbstractSpinBox.StepUpEnabled  # 仅向上有效
+        # elif current_num == 9:
+        #     return QAbstractSpinBox.StepDownEnabled  # 仅向下有效
+        # elif current_num < 0 or current_num > 9:
+        #     return QAbstractSpinBox.StepNone  # 无效
+        # else:
+        #     return QAbstractSpinBox.StepUpEnabled | QAbstractSpinBox.StepDownEnabled  # 向上、向下都有效
+        return QAbstractSpinBox.StepUpEnabled | QAbstractSpinBox.StepDownEnabled
+
+    def stepBy(self, p_int):  # 有效时才会调用该函数，属于自动调用
+        print(p_int)
+        current_num = int(self.text()) + p_int
+        self.lineEdit().setText(str(current_num))  # 首先获取单行文本控件对象
 
 
 class Window(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('QPlainTextEdit-学习')
+        self.setWindowTitle('QAbstractSpinBox-学习')
         self.resize(640, 480)
         self.setup_ui()
 
     def setup_ui(self):
-        pte = QPlainTextEdit(self)
-        self.pte = pte  # 将局部变量绑定到实例对象上
-        pte.resize(300, 300)
-        pte.move(100, 100)
+        asb = MyASB(self)  # 单位文本编辑器，右面带有调节器，是个组合控件，左边是个单行文本编辑器
+        self.asb = asb
+        asb.resize(100, 30)
+        asb.move(100, 100)
+        # asb.setAccelerated(True)  # 设置按钮使数据递增的数据速度加速
+        # print(asb.isAccelerated())
+        # asb.setReadOnly(True)
+        # print(asb.isReadOnly())  # 只读是针对按钮，不能通过键盘输入
         test_btn = QPushButton(self)
+        test_btn.move(200, 200)
         test_btn.setText('测试按钮')
-        test_btn.move(20, 20)
-        test_btn.pressed.connect(self.test_cao)
-        self.place_text()
-        self.format_set()
-        self.autochangeline()
-        self.setcursorformat()
+        test_btn.clicked.connect(self.btn_cao)
 
-    def test_cao(self):
+    def btn_cao(self):
         print('测试按钮')
-        # self.pte.setPlainText('社会我顺哥，人狠话不多')  # 将原本的老内容清楚，添加新内容
-        # # self.pte.setFocus()
-        # self.pte.insertPlainText('itlike')  # 在光标出插入文本
-        # self.pte.appendHtml('<a href="http://www.itlike.com">撩课</a>')  # 在文本最后添加文本
-        # table_str = "<table border=2>" \
-        #             "<tr><td>1</td><td>2</td><td>3</td></tr>" \
-        #             "<tr><td>4</td><td>5</td><td>6</td></tr>" \
-        #             "</table>"
-        # self.pte.appendHtml(table_str)  # 不支持富文本，即表格
-        # print(self.pte.toPlainText())
-        # self.blockaction()
-        # self.zoom_set()
-        # self.scroll_test()
-        self.cursor_action()
-
-    def cursor_action(self):
-        # tc = self.pte.textCursor()
-        # tc.insertImage('C:\\Users\\asus\\Pictures\\Camera Roll\\open.jpg')  # 不能插入图片
-        # tc.insertTable(5, 6)  # 不能插入表格
-        # tc = self.pte.cursorForPosition(QPoint(100, 60))  # 返回光标对象 相对光标位置，针对固定界面
-        # tc.insertText('xxx')
-        # self.pte.setCursorWidth(20)
-        self.pte.moveCursor(QTextCursor.End, QTextCursor.KeepAnchor)  # 移动光标位置，锚点不移动
-        self.pte.setFocus()
-        # print(tc)
-
-    def scroll_test(self):
-        self.pte.setCenterOnScroll(True)  # 设置光标末尾可以滚到文件的中间
-        self.pte.centerCursor()  # 设置光标所在的位置为文本框的中间
-        self.pte.ensureCursorVisible()  # 保证光标可见
-        self.pte.setFocus()
-
-    def zoom_set(self):
-        self.pte.zoomIn(1)  # 放大、缩小操作 正数放大，负数缩小
-
-    def blockaction(self):
-        print(self.pte.blockCount())  # 返回文本块的个数，文本块以回车区分
-        self.pte.setMaximumBlockCount(3)  # 设置块的最大个数
-
-    def setcursorformat(self):
-        self.pte.setOverwriteMode(True)  # 只对英文字符有效，对中文和数字无效
-
-    def format_set(self):
-        tcf = QTextCharFormat()
-        tcf.setFontUnderline(True)
-        tcf.setUnderlineColor(QColor(200, 100, 100))
-        self.pte.setCurrentCharFormat(tcf)
-
-    def autochangeline(self):
-        self.pte.setLineWrapMode(QPlainTextEdit.NoWrap)  # 关闭软换行
-
-    def place_text(self):
-        self.pte.setPlaceholderText('请输入你的个人信息')
+        print(self.asb.text())
+        print(self.asb.lineEdit().text())
+        print(self.asb.lineEdit().setText('88'))
+        cl = QCompleter(['sz', '123', '18'], self.asb)  # 自动匹配对象，需要输入元组
+        self.asb.lineEdit().setCompleter(cl)  # 设置自动匹配，需要自动匹配的对象
+        self.asb.lineEdit().setAlignment(Qt.AlignCenter)  # 设置自动对齐方式
 
 
 if __name__ == '__main__':
