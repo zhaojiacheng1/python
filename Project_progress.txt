@@ -24,3 +24,5 @@
 连续两天学习PyQt5教程、项目没有进展 QTextEdit、QPlainTextEdit
 2020.3.22
 学习了QAbstractSpinBox,掌握其基本用法
+2020.3.23
+学习了QSpinBox、QDoubleSpinBox，掌握其基本用法

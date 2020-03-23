@@ -1917,62 +1917,243 @@
 #
 #     window.show()
 #     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class MyASB(QAbstractSpinBox):
+#     def __init__(self, parent=None, num='0', *args, **kwargs):  # 定义函数时，None的意思是不传值是None
+#         super().__init__(parent, *args, **kwargs)  # 调用函数，参数需要传入
+#         self.lineEdit().setText(num)
+#
+#     def stepEnabled(self):  # 属于自动调用
+#         # current_num = int(self.text())
+#         # if current_num == 0:
+#         #     return QAbstractSpinBox.StepUpEnabled  # 仅向上有效
+#         # elif current_num == 9:
+#         #     return QAbstractSpinBox.StepDownEnabled  # 仅向下有效
+#         # elif current_num < 0 or current_num > 9:
+#         #     return QAbstractSpinBox.StepNone  # 无效
+#         # else:
+#         #     return QAbstractSpinBox.StepUpEnabled | QAbstractSpinBox.StepDownEnabled  # 向上、向下都有效
+#         return QAbstractSpinBox.StepUpEnabled | QAbstractSpinBox.StepDownEnabled
+#
+#     def stepBy(self, p_int):  # 有效时才会调用该函数，属于自动调用
+#         print(p_int)
+#         current_num = int(self.text()) + p_int
+#         self.lineEdit().setText(str(current_num))  # 首先获取单行文本控件对象
+#
+#     def validate(self, p_str, p_int):
+#         num = int(p_str)
+#         if num < 18:
+#             return QValidator.Intermediate, p_str, p_int
+#         elif num <= 180:
+#             return QValidator.Acceptable, p_str, p_int
+#         else:
+#             return QValidator.Invalid, p_str, p_int
+#
+#     def fixup(self, p_str):
+#         return '18'
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QAbstractSpinBox-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         asb = MyASB(self)  # 单位文本编辑器，右面带有调节器，是个组合控件，左边是个单行文本编辑器
+#         self.asb = asb
+#         asb.resize(100, 30)
+#         asb.move(100, 100)
+#         asb.editingFinished.connect(lambda: print('结束编辑'))
+#         # asb.setAccelerated(True)  # 设置按钮使数据递增的数据速度加速
+#         # print(asb.isAccelerated())
+#         # asb.setReadOnly(True)
+#         # print(asb.isReadOnly())  # 只读是针对按钮，不能通过键盘输入
+#         test_btn = QPushButton(self)
+#         test_btn.move(200, 200)
+#         test_btn.setText('测试按钮')
+#         test_btn.clicked.connect(self.btn_cao)
+#
+#     def btn_cao(self):
+#         print('测试按钮')
+#         # print(self.asb.text())
+#         # print(self.asb.lineEdit().text())
+#         # print(self.asb.lineEdit().setText('88'))
+#         # cl = QCompleter(['sz', '123', '18'], self.asb)  # 自动匹配对象，需要输入元组
+#         # self.asb.lineEdit().setCompleter(cl)  # 设置自动匹配，需要自动匹配的对象
+#         # # self.asb.lineEdit().setAlignment(Qt.AlignCenter)  # 设置自动对齐方式
+#         # self.asb.setAlignment(Qt.AlignCenter)
+#         # print(self.asb.hasFrame())
+#         # # self.asb.setFrame(False)  # 设置取消边框
+#         # self.asb.setButtonSymbols(QAbstractSpinBox.NoButtons)  # 设置右侧按键样式
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class MySb(QSpinBox):
+#     def textFromValue(self, p_int):  # 该函数可以自定义显示内容
+#         print(p_int)
+#         return str(p_int) + '*' + str(p_int)  # 本身数值没变，返回值需要显示在窗口上
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QSpinBox-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         sb = MySb(self)
+#         self.sb = sb
+#         sb.resize(100, 30)
+#         sb.move(100, 100)
+#         sb.valueChanged.connect(lambda val: print(type(val), val))  # 可以在信号添加[str]，将整型数据转化为str型
+#         btn = QPushButton(self)
+#         btn.setText('测试按钮')
+#         btn.move(150, 150)
+#         btn.clicked.connect(self.test_cao)
+#         # self.max_min()
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         self.num_xuanhuan()
+#         # self.step_log()
+#         self.pre_suff()
+#         # self.setjinzhi()
+#         self.setnum_get()
+#
+#     def setnum_get(self):
+#         # self.sb.setValue(66)  # 设置数值
+#         print(self.sb.value())  # 该获取函数不能获取前缀和后缀
+#         print(self.sb.text())  # 获取完整的内容
+#         print(self.sb.lineEdit().text())  # 获取完整的内容
+#
+#     def setjinzhi(self):
+#         self.sb.setDisplayIntegerBase(2)  # 设置显示数据的进制
+#         print(self.sb.displayIntegerBase())
+#
+#     def pre_suff(self):
+#         # self.sb.setRange(1, 12)
+#         # self.sb.setSuffix('月')  # 设置后缀
+#         self.sb.setRange(0, 6)
+#         self.sb.setPrefix('周')  # 设置前缀
+#         self.sb.setSpecialValueText('周日')  # 设置最小值为特殊显示文本
+#
+#     def step_log(self):
+#         self.sb.setSingleStep(3)  # 设置按钮按下变化的单步步长
+#
+#     def num_xuanhuan(self):
+#         print(self.sb.wrapping())
+#         self.sb.setWrapping(True)  # 设置数值循环
+#         print(self.sb.wrapping())
+#
+#     def max_min(self):
+#         # self.sb.setMaximum(180)  # 设置范围的最大值
+#         # print(self.sb.maximum())
+#         # self.sb.setMinimum(18)  # 设置范围的最小值
+#         # print(self.sb.minimum())
+#         self.sb.setRange(18, 180)  # 设置范围，最大最小都可取
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class MyDsb(QDoubleSpinBox):
+#     def textFromValue(self, p_float):
+#         print('mydsb', p_float)
+#         return str(p_float) + '*' + str(p_float)  # 文本框会显示的内容，但是不包括前后缀
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QDoubleSpinBox-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         dsb = MyDsb(self)
+#         self.dsb = dsb
+#         dsb.move(100, 100)
+#         dsb.resize(100, 30)
+#         # dsb.setRange(1.0, 2.0)
+#         # dsb.setSingleStep(0.5)
+#         # dsb.setSuffix('倍速')
+#         # dsb.setSpecialValueText('正常')  # 设置特殊字符 指的是最小值
+#         # dsb.setWrapping(True)
+#         # dsb.setDecimals(1)  # 设置保留小数，1指一位小数
+#         # dsb.setDecimals(8)  # 设置保留小数，8指八位小数
+#         # dsb.setMaximum(99.99)
+#         # dsb.setMinimum(0.00)
+#         # dsb.setSingleStep(0.01)  # 设置步长为0.01
+#         # dsb.setWrapping(True)  # 设置循环
+#         dsb.setPrefix('$')  # 设置前缀
+#         dsb.setSuffix('%')  # 设置后缀
+#         btn = QPushButton(self)
+#         btn.setText('测试按钮')
+#         btn.move(100, 200)
+#         btn.clicked.connect(self.test_cao)
+#         dsb.valueChanged.connect(lambda val: print(type(val), val))  # 有效值改变信号，返回值为float
+#         dsb.valueChanged[str].connect(lambda val: print(type(val), val))  # 有效值改变信号,返回值为str
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         self.get_value()
+#
+#     def get_value(self):
+#         # self.dsb.setValue(66.666)  # 根据设置的小数位数自动四舍五入
+#         print(type(self.dsb.value()), self.dsb.value())  # 仅仅是有效数字
+#         print(type(self.dsb.cleanText()), self.dsb.cleanText())  # 不包括前后缀,但可以显示用户自定义的内容
+#         print(type(self.dsb.text()), self.dsb.text())  # 显示什么返回什么
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
-
-
-class MyASB(QAbstractSpinBox):
-    def __init__(self, parent=None, num='0', *args, **kwargs):  # 定义函数时，None的意思是不传值是None
-        super().__init__(parent, *args, **kwargs)  # 调用函数，参数需要传入
-        self.lineEdit().setText(num)
-
-    def stepEnabled(self):  # 属于自动调用
-        # current_num = int(self.text())
-        # if current_num == 0:
-        #     return QAbstractSpinBox.StepUpEnabled  # 仅向上有效
-        # elif current_num == 9:
-        #     return QAbstractSpinBox.StepDownEnabled  # 仅向下有效
-        # elif current_num < 0 or current_num > 9:
-        #     return QAbstractSpinBox.StepNone  # 无效
-        # else:
-        #     return QAbstractSpinBox.StepUpEnabled | QAbstractSpinBox.StepDownEnabled  # 向上、向下都有效
-        return QAbstractSpinBox.StepUpEnabled | QAbstractSpinBox.StepDownEnabled
-
-    def stepBy(self, p_int):  # 有效时才会调用该函数，属于自动调用
-        print(p_int)
-        current_num = int(self.text()) + p_int
-        self.lineEdit().setText(str(current_num))  # 首先获取单行文本控件对象
 
 
 class Window(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('QAbstractSpinBox-学习')
+        # self.setWindowTitle('QDataTimeEdit-学习')
+        self.setWindowTitle('时间日期学习')
         self.resize(640, 480)
         self.setup_ui()
 
     def setup_ui(self):
-        asb = MyASB(self)  # 单位文本编辑器，右面带有调节器，是个组合控件，左边是个单行文本编辑器
-        self.asb = asb
-        asb.resize(100, 30)
-        asb.move(100, 100)
-        # asb.setAccelerated(True)  # 设置按钮使数据递增的数据速度加速
-        # print(asb.isAccelerated())
-        # asb.setReadOnly(True)
-        # print(asb.isReadOnly())  # 只读是针对按钮，不能通过键盘输入
-        test_btn = QPushButton(self)
-        test_btn.move(200, 200)
-        test_btn.setText('测试按钮')
-        test_btn.clicked.connect(self.btn_cao)
-
-    def btn_cao(self):
-        print('测试按钮')
-        print(self.asb.text())
-        print(self.asb.lineEdit().text())
-        print(self.asb.lineEdit().setText('88'))
-        cl = QCompleter(['sz', '123', '18'], self.asb)  # 自动匹配对象，需要输入元组
-        self.asb.lineEdit().setCompleter(cl)  # 设置自动匹配，需要自动匹配的对象
-        self.asb.lineEdit().setAlignment(Qt.AlignCenter)  # 设置自动对齐方式
+        # dte = QDateTimeEdit(self)  # 创建调节日期时间的控件
+        # dte.move(100, 100)
+        # dt = QDateTime(2018, 12, 12, 12, 30)
+        dt = QDateTime.currentDateTime()
+        # dt.addYears(2) #返回值是QDateTime对象
+        print(dt.offsetFromUtc())  # 与标准时间的差值
+        # print(dt)
+        QDateTimeEdit(dt, self)
 
 
 if __name__ == '__main__':
