@@ -2133,6 +2133,251 @@
 #
 #     window.show()
 #     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QDataTimeEdit-学习')
+#         # self.setWindowTitle('时间日期学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         # dte = QDateTimeEdit(QDateTime.currentDateTime(), self)  # 创建调节日期时间的控件
+#         # dte = QDateTimeEdit(QDate.currentDate(), self)  # 创建调节日期时间的控件
+#         # dte = QDateTimeEdit(QTime.currentTime(), self)  # 创建调节日期时间的控件
+#         dte = QDateTimeEdit(self)
+#         self.dte = dte
+#         dte.move(100, 100)
+#         dte.setDisplayFormat('yyyy-MM-dd $ h: m: ss: zzz')  # 年 月 日 时 分钟 秒 毫秒
+#         print(dte.displayFormat())
+#
+#         # dt = QDateTime(2018, 12, 12, 12, 30)
+#         # dt = QDateTime.currentDateTime()
+#         # dt.addYears(2) #返回值是QDateTime对象
+#         # print(dt.offsetFromUtc())  # 与标准时间的差值
+#         # print(dt)
+#         # QDateTimeEdit(dt, self)  # 显示在self对象上
+#         # time = QTime.currentTime()
+#         # time.start()
+#         btn = QPushButton(self)
+#         btn.setText('测试按钮')
+#         btn.move(200, 200)
+#         btn.clicked.connect(self.test_cao)  # 返回值是ms级
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         # if self.dte.currentSectionIndex() != 0:
+#         #     self.dte.setCurrentSectionIndex(self.dte.currentSectionIndex() - 1)
+#         # else:
+#         #     self.dte.setCurrentSectionIndex(6)
+#         # print(self.dte.currentSectionIndex())  # 获取当前索引部分
+#         # print(self.dte.sectionText(QDateTimeEdit.DaySection))  # 获取日部分
+#         # self.dte.setMaximumDateTime(QDateTime(2020, 8, 15, 12, 30))  # 设置日期的最大值
+#         # self.dte.setMinimumDateTime(QDateTime.currentDateTime())  # 设置日期的最小值
+#         # self.dte.setDateTimeRange(QDateTime.currentDateTime().addDays(-3), QDateTime.currentDateTime().addDays(3))  # 设置日期的范围
+#         # print(QDateTime.currentDateTime())
+#         self.dte.setCalendarPopup(True)  # 设置日历选择控件可以弹出
+#         print(self.dte.dateTime())  # 可以获取到修改后的日期
+#         self.dte.dateTimeChanged.connect(lambda: print(self.dte.dateTime()))
+#         self.dte.dateChanged.connect(lambda val: print('日期发生改变', val))
+#         self.dte.timeChanged.connect(lambda val: print('时间发生改变', val))
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QTimeEdit-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         # de = QDateEdit(self)
+#         # de.setDisplayFormat('yyyy-MMMM-dddd')  # 显示年 月 星期
+#         # print(de.dateTime())
+#         te = QTimeEdit(QTime.currentTime(), self)
+#         te.setDisplayFormat('hh-m-ss:zzz a')
+#         print(te.time())
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QComboBox-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         cb = QComboBox(self)  # 下拉选项列表
+#         self.cb = cb
+#         cb.resize(300, 30)
+#         # cb.addItem('xx1')  # 添加下拉列表
+#         # cb.addItem('xx2')  # 添加下拉列表
+#         # cb.addItem(QIcon('C:\\Users\\asus\\Pictures\\Camera Roll\\open.jpg'),'xx3')  # 添加下拉列表,且携带图标
+#         cb.addItems(['1', '2', '3'])  # []为列表,()为元组，都可迭代
+#         cb.addItem(QIcon('C:\\Users\\asus\\Pictures\\Camera Roll\\close.jpg'), '撩课', {'name': 'itlike'})  # 1 图标 2 名称 3 附加额外数据
+#         # cb.insertItem(1, QIcon('C:\\Users\\asus\\Pictures\\Camera Roll\\open.jpg'), 'xx')  # 1为索引值
+#         # cb.insertItems(1, ['a', 'b', 'c'])
+#         # cb.setItemIcon(2, QIcon('C:\\Users\\asus\\Pictures\\Camera Roll\\close.jpg'))  # 修改对应索引值的图标
+#         # cb.setItemText(2, 'she')  # 修改对应索引值的文字
+#         # cb.insertSeparator(2)  # 在对应的索引位置插入分割线
+#         # cb.setCurrentIndex(1)  # 设置当前选中，有索引值和文本两种
+#         # cb.setCurrentText('2')
+#         # cb.setEditable(True)  # 设置可以编辑
+#         # model = QStandardItemModel()
+#         # item1 = QStandardItem('item1')
+#         # item2 = QStandardItem('item2')
+#         # item22 = QStandardItem('item22')
+#         # item2.appendRow(item22)
+#         # model.appendRow(item1)
+#         # model.appendRow(item2)
+#         # cb.setModel(model)  # 设置模型显示
+#         # cb.setView(QTreeView(cb))  # 设置树形视图
+#         btn = QPushButton(self)
+#         btn.setText('测试按钮')
+#         btn.move(200, 200)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         # print(self.cb.count())
+#         # print(self.cb.currentIndex())
+#         # print(self.cb.currentText())
+#         # print(self.cb.currentData())
+#         # print(self.cb.itemIcon(self.cb.currentIndex()))
+#         # print(self.cb.itemText(self.cb.count() - 1))
+#         # print(self.cb.itemData(self.cb.count() - 1))
+#
+#         # self.cb.setMaxCount(6)  # 设置下拉文本框最大的下拉数量
+#         self.cb.setEditable(True)
+#         # self.cb.setMaxVisibleItems(5)  # 设置当前最大可以展示的条目个数
+#         # self.cb.setIconSize(QSize(60, 60))  # 设置图标的尺寸大小
+#         # self.cb.setSizeAdjustPolicy(QComboBox.AdjustToContents)  # 尺寸策略为参照内容
+#         # self.cb.setFrame(False)  # 取消控件黑边框
+#         # self.cb.setDuplicatesEnabled(True)  # 设置条目可以重复
+#         # self.cb.addItem('it')
+#         # self.cb.clear()  # 清空所有条目
+#         # self.cb.showPopup()  # 弹出下拉列表
+#         # self.cb.setCompleter(QCompleter(['123', '1', '2', '3']))  # 快速匹配
+#         # QValidator
+#         # self.cb.setValidator()  # 设置验证器
+#         self.cb.activated.connect(lambda val: print('条目被激活', val))  # 返回索引值，用户交互产生的信号
+#         self.cb.activated[str].connect(lambda val: print('条目被激活', val))  # 返回索引值
+#         self.cb.currentIndexChanged.connect(lambda val: print('当前索引发生改变', val))
+#         self.cb.currentIndexChanged[str].connect(lambda val: print('当前索引发生改变', val))  # 程序改变可以产生该信号
+#         self.cb.currentTextChanged.connect(lambda val: print('当前文本发生改变', val))  # 文本改变就会发送信号
+#         self.cb.editTextChanged.connect(lambda val: print('当前编辑的文本发生改变', val))
+#         self.cb.highlighted.connect(lambda val: print('高亮', val))  # 谁是高亮打印谁，返回索引值
+#         self.cb.highlighted[str].connect(lambda val: print('高亮', val))  # 谁是高亮打印谁，返回索引值
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('案例学习')
+#         self.resize(640, 480)
+#
+#         self.city_dic = {'北京': {'东城': '001', '西城': '002', '朝阳': '003', '丰台': '004'},
+#                          '上海': {'黄埔': '005', '徐汇': '006', '长宁': '007', '静安': '008', '松江': '009'},
+#                          '广东': {'广州': '010', '深圳': '011', '湛江': '012', '佛山': '013'}}
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         pro = QComboBox(self)
+#         city = QComboBox(self)
+#         self.pro = pro
+#         self.city = city
+#         pro.move(100, 100)
+#         city.move(200, 100)
+#         pro.currentIndexChanged[str].connect(self.pro_changed)
+#         # pro.setCurrentIndex(0)
+#         # self.pro_changed(pro.currentText())
+#         city.currentIndexChanged[int].connect(self.city_changed)
+#         # self.city_changed(city.currentIndex())
+#         pro.addItems(self.city_dic.keys())  # 添加条目应当放在最后
+#
+#     def pro_changed(self, pro_name):
+#         print(pro_name)
+#         citys = self.city_dic[pro_name]
+#         print(citys)
+#         self.city.clear()
+#         # self.city.addItems(citys)
+#         for key, val in citys.items():
+#             self.city.addItem(key, val)  # val为添加的额外数据
+#
+#     def city_changed(self, item_id):
+#         # print(item_id)
+#         if item_id == -1:
+#             return None
+#         print(self.city.itemData(item_id))
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QFontComboBox-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         label = QLabel(self)
+#         label.setText('社会我顺哥，人狠话不多')
+#         label.move(100, 100)
+#         fcb = QFontComboBox(self)  # 字体设置下拉选项
+#         fcb.setEditable(False)  # 设置不可编辑
+#         fcb.currentFontChanged.connect(lambda font: label.setFont(font))
+#         fcb.currentFontChanged.connect(lambda font: print(font))  # 返回值为一个对象
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
 
@@ -2140,20 +2385,27 @@ from PyQt5.Qt import *
 class Window(QWidget):
     def __init__(self):
         super().__init__()
-        # self.setWindowTitle('QDataTimeEdit-学习')
-        self.setWindowTitle('时间日期学习')
+        self.setWindowTitle('QAbstractSlider-学习')
         self.resize(640, 480)
         self.setup_ui()
 
     def setup_ui(self):
-        # dte = QDateTimeEdit(self)  # 创建调节日期时间的控件
-        # dte.move(100, 100)
-        # dt = QDateTime(2018, 12, 12, 12, 30)
-        dt = QDateTime.currentDateTime()
-        # dt.addYears(2) #返回值是QDateTime对象
-        print(dt.offsetFromUtc())  # 与标准时间的差值
-        # print(dt)
-        QDateTimeEdit(dt, self)
+        label = QLabel(self)
+        label.setText('0')
+        label.move(200, 200)
+        label.resize(100, 30)
+        sd = QSlider(self)  # 滑块控件
+        sd.move(100, 100)
+        sd.valueChanged.connect(lambda val: label.setText(str(val)))
+        sd.setMaximum(100)  # 设置最大值
+        sd.setMinimum(1)  # 设置最小值
+        sd.setValue(88)  # 设置滑块当前值
+        sd.setSingleStep(5)  # 设置步长为5,针对键盘上下键而言
+        sd.setPageStep(10)  # 设置上下翻页的步长
+        # sd.setTracking(False)  # 设置数据跟踪
+        # sd.setSliderPosition(88)  # 设置滑块位置
+        sd.setInvertedAppearance(True)  # 设置倒立外观
+        sd.setInvertedControls(True)  # 反转上下的控制
 
 
 if __name__ == '__main__':
