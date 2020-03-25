@@ -2378,6 +2378,335 @@
 #
 #     window.show()
 #     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QAbstractSlider-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         label = QLabel(self)
+#         label.setText('0')
+#         label.move(200, 200)
+#         label.resize(100, 30)
+#         sd = QSlider(self)  # 滑块控件
+#         sd.move(100, 100)
+#         sd.valueChanged.connect(lambda val: label.setText(str(val)))
+#         sd.setMaximum(100)  # 设置最大值
+#         sd.setMinimum(1)  # 设置最小值
+#         sd.setValue(88)  # 设置滑块当前值
+#         sd.setSingleStep(5)  # 设置步长为5,针对键盘上下键而言
+#         sd.setPageStep(10)  # 设置上下翻页的步长
+#         # sd.setTracking(False)  # 设置数据跟踪
+#         # sd.setSliderPosition(88)  # 设置滑块位置
+#         sd.setInvertedAppearance(True)  # 设置倒立外观
+#         sd.setInvertedControls(True)  # 反转上下的控制
+#         sd.setOrientation(Qt.Horizontal)  # 设置滑块水平
+#         # sd.sliderMoved.connect(lambda val: print(val))
+#         # sd.actionTriggered.connect(lambda val: print(val))  # 返回值为1、2、7、3
+#         sd.rangeChanged.connect(lambda min, max: print(min, max))  # 范围改变信号
+#         sd.setMaximum(200)
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Slider(QSlider):
+#     def __init__(self, parent=None, *args, **kwargs):
+#         super().__init__(parent, *args, **kwargs)
+#         self.setTickPosition(QSlider.TicksBothSides)  # 添加控件刻度线
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         self.label = QLabel(self)
+#         self.label.setText('0')
+#         self.label.setStyleSheet('background-color:red;')
+#         self.label.hide()
+#
+#     def mousePressEvent(self, evt):
+#         super().mousePressEvent(evt)  # 继续向外界发射信号，保证父类方法完整性
+#         x = (self.width() - self.label.width()) / 2
+#         y = (1 - self.value() / (self.maximum() - self.minimum())) * self.height() - self.label.height()
+#         self.label.show()
+#         self.label.move(int(x), int(y))
+#
+#     def mouseMoveEvent(self, evt):
+#         super().mouseMoveEvent(evt)
+#         self.label.setText(str(self.value()))
+#         self.label.adjustSize()
+#         x = (self.width() - self.label.width()) / 2
+#         y = (1 - self.value() / (self.maximum() - self.minimum())) * (self.height()-self.label.height())
+#         self.label.show()
+#         self.label.move(int(x), int(y))
+#
+#     def mouseReleaseEvent(self, evt):
+#         super().mouseReleaseEvent(evt)
+#         self.label.hide()
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QSlider-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         slider = Slider(self)
+#         slider.move(200, 200)
+#         slider.resize(30, 200)
+#
+#         # sd.valueChanged.connect(lambda val: print(val))
+#         # sd.setTickInterval(5)
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QScrollBar-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         sb = QScrollBar(self)  # 垂直滚动条
+#         sb.resize(30, 200)
+#         sb.move(100, 100)
+#         sb1 = QScrollBar(Qt.Horizontal, self)  # 水平滚动条
+#         sb1.resize(200, 30)
+#         sb1.move(150, 100)
+#         sb.valueChanged.connect(lambda val: print(val))
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QDial-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         label = QLabel(self)
+#         label.move(200, 200)
+#         label.setText('社会我顺哥，人狠话不多')
+#         label.setStyleSheet('font-size:30px;')
+#         dia = QDial(self)  # 滚轮控件
+#         dia.setRange(1, 100)  # 设置范围
+#         dia.setNotchesVisible(True)  # 显示刻度
+#         dia.valueChanged.connect(lambda val: print('值发生了改变', label.setStyleSheet('font-size:{}px;'.format(val)), label.adjustSize(), val))
+#         # dia.setWrapping(True)
+#         dia.setNotchTarget(2)  # 设置刻度密度
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QRubberBand-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         # rb = QRubberBand(QRubberBand.Rectangle, self)
+#         # rb.setGeometry(10, 10, 60, 60)  # 设置大小
+#         # print(rb.isVisible())
+#         # rb.show()
+#         for i in range(0, 30):
+#             cb = QCheckBox(self)
+#             cb.setText('{}'.format(i))
+#             cb.move(i % 4 * 50, i // 4 * 60)
+#         self.rb = QRubberBand(QRubberBand.Rectangle, self)
+#
+#     def mousePressEvent(self, evt):
+#         self.origin_pos = evt.pos()
+#         # self.rb = QRubberBand(QRubberBand.Rectangle, self)
+#         self.rb.setGeometry(QRect(evt.pos(), QSize()))  # 设置尺寸,点坐标，尺寸
+#         self.rb.show()
+#
+#     def mouseMoveEvent(self, evt):
+#         self.rb.setGeometry(QRect(self.origin_pos, evt.pos()).normalized())  # 将可能产生的负数矩形框改为正数
+#         self.rb.show()
+#
+#     def mouseReleaseEvent(self, evt):
+#         rect = self.rb.geometry()  # 返回控件范围
+#         for child in self.children():
+#             if rect.contains(child.geometry()) and child.inherits('QCheckBox'):  # 前 判断child是否是在rect范围内，后 判断child是否是‘参数’对象
+#                 # print(child)
+#                 child.toggle()  # 切换选中状态
+#         # self.rb.hide()
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = QWidget()
+#     window.setWindowTitle('QDialog-学习')
+#     window.resize(640, 480)
+#     d = QDialog(window)
+#     btn1 = QPushButton(d)
+#     btn1.setText('btn1')
+#     btn1.move(20, 20)
+#     btn1.clicked.connect(lambda: d.accept())  # 接收
+#     btn2 = QPushButton(d)
+#     btn2.setText('btn2')
+#     btn2.move(60, 60)
+#     btn2.clicked.connect(lambda: d.reject())  # 拒绝
+#     # btn2.clicked.connect(lambda: print(d.result()))  # 获取数值
+#     btn3 = QPushButton(d)
+#     btn3.setText('btn3')
+#     btn3.move(60, 120)
+#     btn3.clicked.connect(lambda: d.done(8))  # 处理
+#     d.accepted.connect(lambda: print('点击了接收按钮'))  # 会触发finished信号
+#     d.rejected.connect(lambda: print('点击了拒绝按钮'))  # 会触发finished信号
+#     d.finished.connect(lambda val: print('点击了完成按钮', val))
+#     # btn3.clicked.connect(lambda: d.setResult(888))  # 设置数值
+#     d.setWindowTitle('对话框')
+#     # d.setModal(True)  # 将其设置为窗口级别的模态窗口
+#     # d.setWindowModality(Qt.WindowModal)  # 设置为窗口级别的模态对话框
+#     # d.setSizeGripEnabled(True)  # 改变整个窗口的尺寸大小
+#     # d.exec()  # 应用程序级别的模态对话框
+#     # d.open()  # 窗口级别的模态对话框
+#     # d.show()  # 非模态的对话窗口
+#     result = d.exec()
+#     print(result)
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QFontDialog-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         font = QFont()
+#         font.setFamily('宋体')
+#         font.setPointSize(36)
+#         fd = QFontDialog(font, self)  # 字体设置对话框 font为默认选中字体样式
+#         fd.setCurrentFont(font)
+#         # fd.setOption(QFontDialog.NoButtons, on=True)  # True是设置选项,取消按钮，应用于实时显示对应效果
+#         fd.setOptions(QFontDialog.NoButtons | QFontDialog.MonospacedFonts)  # 取消按钮，应用于实时显示对应效果，等宽字体
+#         self.fd = fd
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(100, 100)
+#         btn.clicked.connect(self.test_cao)
+#         # fd.show()
+#         label = QLabel(self)
+#         self.label = label
+#         label.move(200, 200)
+#         label.setText('社会顺哥')
+#         fd.currentFontChanged.connect(self.font_cao)  # 当前字体改变信号
+#
+#     def font_cao(self, font):
+#         self.label.setFont(font)
+#         self.label.adjustSize()
+#
+#     def font_sel(self):
+#         font = self.fd.selectedFont()  # 返回被选中的字体样式
+#         print('字体已经被选择', font.family(), font.pointSize())
+#
+#     def test_cao(self):
+#         self.fd.open(self.font_sel)  # 窗口级别模态对话框 参数为一个槽函数
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QFontDialog-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(100, 100)
+#         btn.clicked.connect(self.font_sel)
+#         label = QLabel(self)
+#         self.label = label
+#         label.move(200, 200)
+#         label.setText('社会顺哥')
+#
+#     def font_sel(self):
+#         print('font_sel')
+#         font = QFont()
+#         font.setFamily('宋体')
+#         font.setPointSize(36)
+#         result = QFontDialog.getFont(font, self, '选择一个好看的字体')  # 调用静态方法 参数为默认选中字体，父控件，窗口标题，阻塞式调用 返回值是元组
+#         if result[1]:
+#             self.label.setFont(result[0])
+#             self.label.adjustSize()
+#         print(result)
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
 
@@ -2385,27 +2714,35 @@ from PyQt5.Qt import *
 class Window(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('QAbstractSlider-学习')
+        self.setWindowTitle('QColorDialog-学习')
         self.resize(640, 480)
         self.setup_ui()
 
     def setup_ui(self):
+        btn = QPushButton(self)
+        btn.setText('按钮')
+        btn.move(100, 100)
+        btn.clicked.connect(self.font_sel)
         label = QLabel(self)
-        label.setText('0')
+        self.label = label
         label.move(200, 200)
-        label.resize(100, 30)
-        sd = QSlider(self)  # 滑块控件
-        sd.move(100, 100)
-        sd.valueChanged.connect(lambda val: label.setText(str(val)))
-        sd.setMaximum(100)  # 设置最大值
-        sd.setMinimum(1)  # 设置最小值
-        sd.setValue(88)  # 设置滑块当前值
-        sd.setSingleStep(5)  # 设置步长为5,针对键盘上下键而言
-        sd.setPageStep(10)  # 设置上下翻页的步长
-        # sd.setTracking(False)  # 设置数据跟踪
-        # sd.setSliderPosition(88)  # 设置滑块位置
-        sd.setInvertedAppearance(True)  # 设置倒立外观
-        sd.setInvertedControls(True)  # 反转上下的控制
+        label.setText('社会顺哥')
+        cd = QColorDialog(QColor(100, 200, 150), self)
+        self.cd = cd
+        cd.setWindowTitle('选择一个好看的颜色')  # 设置窗口标题
+        cd.colorSelected.connect(self.color)
+
+    def color(self, col):
+        print(col)
+        # palette = QPalette()  # 调色板对象
+        # palette.setColor(QPalette.Background, col)  # Background失效，但是WindowText正常
+        # self.label.setPalette(palette)  # 设置颜色
+        # self.label.show()
+        self.label.setStyleSheet('background-color:rgb({},{},{})'.format(col.red(), col.green(), col.blue()))
+
+    def font_sel(self):
+        print('font_sel')
+        self.cd.open()
 
 
 if __name__ == '__main__':
