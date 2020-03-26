@@ -30,3 +30,5 @@
 学习了QDateTimeEdit、QComboBox及其子类QFontComboBox，掌握其基本用法
 2020.3.25
 学习了QAbstractSlider、QRubberBand，掌握其基本用法
+2020.3.26
+学习了QDialog对话框控件，包括QColorDialog、QFontDialog、QFileDialog、QInputDialog控件，掌握其基本用法

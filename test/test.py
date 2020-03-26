@@ -2707,6 +2707,188 @@
 #
 #     window.show()
 #     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QColorDialog-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         self.btn = btn
+#         btn.setText('按钮')
+#         btn.move(100, 100)
+#         btn.clicked.connect(self.font_sel)
+#         label = QLabel(self)
+#         self.label = label
+#         label.move(200, 200)
+#         label.setText('社会顺哥')
+#         cd = QColorDialog(QColor(100, 200, 150), self)
+#         self.cd = cd
+#         cd.setWindowTitle('选择一个好看的颜色')  # 设置窗口标题
+#         cd.colorSelected.connect(self.color)
+#         # cd.setOptions(QColorDialog.NoButtons | QColorDialog.ShowAlphaChannel)  # 设置按钮 透明度分量
+#         cd.currentColorChanged.connect(self.color)
+#
+#     def color(self, col):
+#         print(col)
+#         palette = QPalette()  # 调色板对象
+#         palette.setColor(QPalette.Background, self.cd.currentColor())  # Background失效，但是WindowText正常
+#         self.setPalette(palette)  # 设置颜色 对主控件有效但是对子控件可能无效
+#         # self.label.show()
+#         self.label.setStyleSheet('background-color:rgb({},{},{})'.format(col.red(), col.green(), col.blue()))
+#         # print(col.getRgb(), col.red(), col.green(), col.blue())
+#
+#     def font_sel(self):
+#         print('font_sel')
+#         # self.cd.open()
+#         # print(self.cd.customCount())  # 静态方法
+#         # QColorDialog.setCustomColor(0, QColor(100, 200, 50))  # 静态方法，添加自定义颜色，0是指位置，上下顺序排列
+#         # self.cd.show()
+#         # QColorDialog.setStandardColor(0, QColor(255, 0, 0))  # 设置标准颜色，0是位置，上下顺序排列
+#         # color = QColorDialog.getColor(QColor(10, 20, 100), self, '选择颜色')
+#         # palette = QPalette()  # 调色板对象
+#         # palette.setColor(QPalette.Background, color)  # Background失效，但是WindowText正常
+#         # self.setPalette(palette)  # 设置颜色 对主控件有效但是对子控件可能无效
+#         # self.label.show()
+#         # self.label.setStyleSheet('background-color:rgb({},{},{})'.format(col.red(), col.green(), col.blue()))
+#         # print(col.getRgb(), col.red(), col.green(), col.blue())
+#         cd1 = QColorDialog(self)
+#         cd1.setOption(QColorDialog.NoButtons)
+#         cd1.setWindowTitle('选择喜欢的颜色')
+#
+#         def sel_color(color):
+#             palette = QPalette()
+#             palette.setColor(QPalette.ButtonText, color)
+#             self.btn.setPalette(palette)
+#
+#         # cd1.colorSelected.connect(sel_color)
+#         cd1.currentColorChanged.connect(sel_color)
+#         cd1.show()
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QFileDialog-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(100, 100)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         # 静态方法
+#         # result = QFileDialog.getOpenFileName(self, '选择一个py文件', './', 'All(*.*);;Images(*.png *.jpg);;Python(*.py)', 'Python(*.py)')  # 打开文件 参数说明 父对象 对话框窗口标题 当前路径 文件属性筛选可选项 默认文件属性  只能单选
+#         # result = QFileDialog.getOpenFileNames(self, '选择一个py文件', './', 'All(*.*);;Images(*.png *.jpg);;Python(*.py)', 'Python(*.py)')  # 打开文件 参数说明 父对象 对话框窗口标题 当前路径 文件属性筛选可选项 默认文件属性  可以多选
+#         # result = QFileDialog.getOpenFileUrl(self, '选择一个py文件', QUrl('./'), 'All(*.*);;Images(*.png *.jpg);;Python(*.py)', 'Python(*.py)')  # 打开文件 参数说明 父对象 对话框窗口标题 当前路径 文件属性筛选可选项 默认文件属性  只能单选
+#         # result = QFileDialog.getSaveFileUrl(self, '选择一个py文件', QUrl('./'), 'All(*.*);;Images(*.png *.jpg);;Python(*.py)', 'Python(*.py)')  # 打开文件 参数说明 父对象 对话框窗口标题 当前路径 文件属性筛选可选项 默认文件属性  只能单选
+#         # result = QFileDialog.getExistingDirectory(self, '选择一个py文件', './')  # 打开文件夹 参数说明 父对象 对话框窗口标题 当前路径  只能单选
+#         # result = QFileDialog.getExistingDirectoryUrl(self, '选择一个py文件', QUrl('./'))  # 打开文件夹 参数说明 父对象 对话框窗口标题 当前路径  只能单选
+#         fd = QFileDialog(self, '选择一个文件', './', 'All(*.*);;Images(*.png *.jpg);;Python(*.py)')
+#         fd.fileSelected.connect(lambda file: print(file))  # 选中文件信号
+#         # fd.setAcceptMode(QFileDialog.AcceptSave)  # 设置为保存文件对话框
+#         # fd.setDefaultSuffix('txt')  # 设置默认的后缀名
+#         # fd.setFileMode(QFileDialog.Directory)  # 选择文件夹模式
+#         # fd.setNameFilter('IMG(*.jpg *.png *.jpeg)')  # 设置过滤器 不是追加
+#         # fd.setNameFilters(['All(*.*)', 'Images(*.png *.jpg)', 'Python(*.py)'])  # 设置过滤器 不是追加
+#         # fd.setViewMode(QFileDialog.List)  # 设置显示信息
+#         # fd.setLabelText(QFileDialog.FileName, '顺哥文件')  # 将文件名字样替换为顺哥文件字样
+#         # fd.setLabelText(QFileDialog.Accept, '顺哥文件')  # 将打开字样替换为顺哥文件字样
+#         # fd.setLabelText(QFileDialog.Reject, '顺哥文件')  # 将取消字样替换为顺哥文件字样
+#         # fd.currentChanged.connect(lambda path: print('当前路径字符串发生改变时', path))
+#         # fd.currentUrlChanged.connect(lambda url: print('当前路径Qurl发生改变时', url))  # 路径改变信号
+#         # fd.directoryEntered.connect(lambda path: print('当前路径Qurl进入时', path))  # 路径改变信号
+#         # fd.directoryUrlEntered.connect(lambda url: print('当前路径Qurl进入时', url))  # 路径改变信号
+#         # fd.filterSelected.connect(lambda url: print('当前名称过滤字符串被选中时', url))  # 过滤字符串改变信号
+#         fd.setFileMode(QFileDialog.ExistingFiles)  # 设置多个文件选择模式
+#         fd.fileSelected.connect(lambda url: print('单个文件被选中时-字符串', url))  # 文件选中信号
+#         fd.filesSelected.connect(lambda url: print('多个文件被选中时-列表[字符串]', url))  # 文件选中信号
+#         fd.urlSelected.connect(lambda url: print('单个文件被选中时-url', url))  # 文件选中信号
+#         fd.urlsSelected.connect(lambda url: print('多个文件被选中时-列表[url]', url))  # 文件选中信号
+#         result = fd.open()
+#         print(result)  # 返回值为选中文件路径 或文件夹路径
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QInputDialog-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(100, 100)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         # 静态方法
+#         # result = QInputDialog.getInt(self, 'xxx1', 'xxx2', 888, 8)  # 获取整型数据 参数列表 父控件 窗口标题 调节参数的名称(提示文本) 默认值 最小值 最大值 步长
+#         # result = QInputDialog.getInt(self, 'xxx1', 'xxx2', 888, 8)  # 获取浮点数据 参数列表 父控件 窗口标题 调节参数的名称(提示文本) 默认值 最小值 最大值 步长
+#         # result = QInputDialog.getText(self, 'xxx1', 'xxx2',echo=QLineEdit.Password)  # 获取文本数据 参数列表 父控件 窗口标题 调节参数的名称(提示文本)
+#         # result = QInputDialog.getMultiLineText(self, 'xxx1', 'xxx2','default')  # 获取多行文本数据 参数列表 父控件 窗口标题 调节参数的名称(提示文本)
+#         # result = QInputDialog.getItem(self, 'xxx1', 'xxx2', ['1', '2', '3'], 0, True)  # 获取多行文本数据 参数列表 父控件 窗口标题 调节参数的名称(提示文本) 下拉列表 默认0 可编辑
+#         # print(result)
+#         input_d = QInputDialog(self, Qt.FramelessWindowHint)  # 设置隐藏边框
+#         # input_d.setComboBoxItems(['1', '2', '3'])  # 设置下拉列表项
+#         # input_d.setOption(QInputDialog.UseListViewForComboBoxItems)  # 设置下拉选项
+#         # input_d.setLabelText('请输入你的姓名')  # 设置小标题
+#         # input_d.setOkButtonText('好的')  # 设置确认按钮文本
+#         # input_d.setCancelButtonText('我想取消')  # 设置取消按钮文本
+#         # input_d.setInputMode(QInputDialog.DoubleInput)  # 设置输入模式
+#         input_d.setInputMode(QInputDialog.TextInput)  # 设置输入模式
+#         # input_d.setDoubleRange(9.9, 19.9)  # 设置范围
+#         # input_d.setDoubleStep(2)  # 设置步长
+#         # input_d.setDoubleDecimals(3)  # 设置保留的小数点后位数
+#         input_d.setComboBoxItems(['abc', 'def', 'ccc'])
+#         # input_d.setComboBoxEditable(True)  # 设置可以编辑
+#         # input_d.intValueChanged.connect(lambda val: print('整型数据发生改变', val))
+#         # input_d.intValueSelected.connect(lambda val: print('整型数据别选中', val))
+#         # input_d.doubleValueChanged.connect(lambda val: print('浮点型数据发生改变', val))
+#         # input_d.doubleValueSelected.connect(lambda val: print('浮点型数据别选中', val))
+#         input_d.textValueChanged.connect(lambda val: print('字符串型数据发生改变', val))
+#         input_d.textValueSelected.connect(lambda val: print('字符串型数据别选中', val))
+#         input_d.open()
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
 
@@ -2714,7 +2896,7 @@ from PyQt5.Qt import *
 class Window(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('QColorDialog-学习')
+        self.setWindowTitle('QCalendarWidget-学习')
         self.resize(640, 480)
         self.setup_ui()
 
@@ -2722,27 +2904,39 @@ class Window(QWidget):
         btn = QPushButton(self)
         btn.setText('按钮')
         btn.move(100, 100)
-        btn.clicked.connect(self.font_sel)
-        label = QLabel(self)
-        self.label = label
-        label.move(200, 200)
-        label.setText('社会顺哥')
-        cd = QColorDialog(QColor(100, 200, 150), self)
-        self.cd = cd
-        cd.setWindowTitle('选择一个好看的颜色')  # 设置窗口标题
-        cd.colorSelected.connect(self.color)
+        btn.clicked.connect(self.test_cao)
 
-    def color(self, col):
-        print(col)
-        # palette = QPalette()  # 调色板对象
-        # palette.setColor(QPalette.Background, col)  # Background失效，但是WindowText正常
-        # self.label.setPalette(palette)  # 设置颜色
-        # self.label.show()
-        self.label.setStyleSheet('background-color:rgb({},{},{})'.format(col.red(), col.green(), col.blue()))
-
-    def font_sel(self):
-        print('font_sel')
-        self.cd.open()
+    def test_cao(self):
+        print('测试按钮')
+        cw = QCalendarWidget(self)  # 日历控件
+        # cw.setMinimumDate(QDate(1990, 1, 1))  # 设置最小日期
+        # cw.setMaximumDate(QDate(2022, 1, 1))  # 设置最大日期
+        cw.setDateRange(QDate(1990, 1, 1), QDate(2022, 1, 1))  # 设置日期范围
+        cw.setSelectedDate(QDate(2020, 1, 2))  # 设置默认选中日期
+        # cw.setDateEditEnabled(False)
+        # cw.setDateEditAcceptDelay(1000)  # 设置键盘直接编辑的延时时间 ms
+        # cw.monthShown()  # 展示的月
+        # cw.yearShown()  # 展示的年
+        # cw.selectedDate()  # 选中的日期
+        # cw.setNavigationBarVisible(False)  # 设置导航栏不可见
+        cw.setFirstDayOfWeek(Qt.Sunday)  # 设置第一列
+        cw.setGridVisible(True)  # 设置网格可见
+        tcf = QTextCharFormat()
+        tcf.setFontFamily('隶书')  # 设置字体
+        tcf.setFontPointSize(16)  # 设置字体大小
+        tcf.setFontUnderline(True)  # 设置下划线
+        cw.setHeaderTextFormat(tcf)  # 设置头字符格式
+        cw.setHorizontalHeaderFormat(QCalendarWidget.LongDayNames)  # 设置水平头字符格式
+        cw.setVerticalHeaderFormat(QCalendarWidget.NoVerticalHeader)  # 设置垂直头字符格式 周数
+        t_tcf = QTextCharFormat()
+        t_tcf.setFontPointSize(20)
+        t_tcf.setToolTip('这是星期二')  # 设置悬浮提示
+        # cw.setWeekdayTextFormat(Qt.Tuesday, t_tcf)  # 设置特定字符格式
+        cw.setDateTextFormat(QDate(2020, 1, 2), t_tcf)  # 设置特定日期格式
+        cw.setSelectionMode(QCalendarWidget.NoSelection)  # 设置选中模式
+        # cw.setSelectedDate()
+        cw.move(200, 200)
+        cw.show()
 
 
 if __name__ == '__main__':
