@@ -2889,6 +2889,351 @@
 #
 #     window.show()
 #     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QCalendarWidget-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(100, 100)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         cw = QCalendarWidget(self)  # 日历控件
+#         # cw.setMinimumDate(QDate(1990, 1, 1))  # 设置最小日期
+#         # cw.setMaximumDate(QDate(2022, 1, 1))  # 设置最大日期
+#         # cw.setDateRange(QDate(1990, 1, 1), QDate(2022, 1, 1))  # 设置日期范围
+#         # cw.setSelectedDate(QDate(2020, 1, 2))  # 设置默认选中日期
+#         # # cw.setDateEditEnabled(False)
+#         # # cw.setDateEditAcceptDelay(1000)  # 设置键盘直接编辑的延时时间 ms
+#         # # cw.monthShown()  # 展示的月
+#         # # cw.yearShown()  # 展示的年
+#         # # cw.selectedDate()  # 选中的日期
+#         # # cw.setNavigationBarVisible(False)  # 设置导航栏不可见
+#         # cw.setFirstDayOfWeek(Qt.Sunday)  # 设置第一列
+#         # cw.setGridVisible(True)  # 设置网格可见
+#         # tcf = QTextCharFormat()
+#         # tcf.setFontFamily('隶书')  # 设置字体
+#         # tcf.setFontPointSize(16)  # 设置字体大小
+#         # tcf.setFontUnderline(True)  # 设置下划线
+#         # cw.setHeaderTextFormat(tcf)  # 设置头字符格式
+#         # cw.setHorizontalHeaderFormat(QCalendarWidget.LongDayNames)  # 设置水平头字符格式
+#         # cw.setVerticalHeaderFormat(QCalendarWidget.NoVerticalHeader)  # 设置垂直头字符格式 周数
+#         # t_tcf = QTextCharFormat()
+#         # t_tcf.setFontPointSize(20)
+#         # t_tcf.setToolTip('这是星期二')  # 设置悬浮提示
+#         # # cw.setWeekdayTextFormat(Qt.Tuesday, t_tcf)  # 设置特定字符格式
+#         # cw.setDateTextFormat(QDate(2020, 1, 2), t_tcf)  # 设置特定日期格式
+#         # cw.setSelectionMode(QCalendarWidget.NoSelection)  # 设置选中模式
+#         # # cw.setSelectedDate()
+#         # cw.move(200, 200)
+#         cw.show()
+#         # cw.showToday()  # 设置当天
+#         # cw.showSelectedDate()  # 展示选中的一天
+#         # cw.showNextYear()  # 显示下一年
+#         # cw.showNextMonth()  # 展示下一月
+#         # cw.setCurrentPage(2008, 8)  # 设置当前页年月
+#         # cw.activated.connect(lambda date: print(date))
+#         # cw.activated.connect(lambda date: print(date))
+#         # cw.clicked.connect(lambda date: print(date))
+#         # cw.currentPageChanged.connect(lambda y, m: print(y, m))
+#         cw.selectionChanged.connect(lambda: print('选中日期', cw.selectedDate()))
+#         cw.setSelectedDate(QDate(2020, 3, 28))
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QLabel-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(100, 100)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         # label = QLabel('社会我顺哥，人狠话不多', self)
+#         # label = QLabel('账号(&s):', self)
+#         # label = QLabel('<a href="http://www.itlike.com">撩课</a>', self)
+#         label = QLabel('\n'.join('123456789'), self)
+#         label.setStyleSheet('background-color:cyan;')
+#         # label.adjustSize()
+#         label.resize(200, 200)
+#         label.move(200, 0)
+#         # label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)  # 设置右对齐 垂直居中
+#         # label.setIndent(30)  # 对齐一侧设置间距
+#         # label.setMargin(20)  # 设置边距
+#         # label.setTextFormat(Qt.PlainText)  # 设置显示普通文本解析
+#         label.show()
+#         le1 = QLineEdit(self)
+#         le1.move(250, 250)
+#         le1.show()
+#         le2 = QLineEdit(self)
+#         le2.move(250, 300)
+#         le2.show()
+#         label.setBuddy(le1)  # 设置小伙伴
+#         # label.setPixmap(QPixmap('E:\\Pictures\\李梓2.jfif'))  # 显示图片
+#         # label.adjustSize()
+#         label.setScaledContents(True)  # 使显示的图片自动适应控件的大小
+#         # label.setTextInteractionFlags(Qt.TextSelectableByMouse | Qt.TextSelectableByKeyboard | Qt.TextEditable)  # 设置鼠标和键盘可以选中文本 可编辑
+#         # label.setSelection(1, 2)  # 选中文本 1指开始位置 2指选中的字符数
+#         # label.setOpenExternalLinks(True)  # 设置可以打开外部超链接
+#         # label.setText('<img src="E:\\Pictures\\李梓2.jfif" width=60 height=60>')
+#         label.setNum(888.88)
+#         label.setWordWrap(True)  # 设置软换行
+#         # pic = QPicture()  # 图片对象
+#         # painter = QPainter(pic)  # 画家
+#         # painter.setBrush(QBrush(QColor(100, 200, 100)))  # 图刷
+#         # painter.drawEllipse(0, 0, 200, 200)
+#         # label.setPicture(pic)
+#         # movie = QMovie('C:\\Users\\asus\\Pictures\\Camera Roll\\millie.gif')  # 视频对象 gif可行 mp4不可行
+#         # print(movie)
+#         # label.setMovie(movie)  # 设置视频
+#         # movie.start()  # 设置视频播放
+#         # movie.setSpeed(100)  # 设置播放速度 100为原速 200为2倍速
+#         # label.clear()  # 设置清空
+#         # label.adjustSize()
+#         label.setText('<a href="http://www.itlike.com">撩课</a> 人狠话不多')
+#         # label.linkHovered.connect(lambda a: print(a))  # 鼠标放上超链接的信号 返回对应的超链接
+#         # label.linkActivated.connect(lambda a: print(a))  # 鼠标点击超链接信号 返回超链接
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QLCDNumber-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(50, 50)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         lcd = QLCDNumber(5, self)  # 5代表显示的内容位数
+#         lcd.show()
+#         lcd.move(100, 100)
+#         lcd.resize(300, 100)
+#         # lcd.display('osgabcdefhlpruy')
+#         # lcd.display(': \'')
+#         lcd.display(99)  # 四舍五入
+#         # print(lcd.value())  # 全部数据 十进制数据
+#         # lcd.setDigitCount(5)  # 设置显示的位数
+#         # lcd.setMode(QLCDNumber.Bin)  # 设置显示模式
+#         # print(lcd.checkOverflow(99))
+#         # print(lcd.checkOverflow(999999))
+#         # lcd.overflow.connect(lambda: print('数值溢出'))
+#         # lcd.display(888888)
+#         lcd2 = QLCDNumber(self)
+#         lcd2.show()
+#         lcd2.move(100, 200)
+#         lcd2.resize(300, 100)
+#         lcd2.display(99)  # 四舍五入
+#         lcd3 = QLCDNumber(self)
+#         lcd3.show()
+#         lcd3.move(100, 300)
+#         lcd3.resize(300, 100)
+#         lcd3.display(99)  # 四舍五入
+#         lcd.setSegmentStyle(QLCDNumber.Outline)  # 设置分段样式
+#         lcd2.setSegmentStyle(QLCDNumber.Filled)
+#         lcd3.setSegmentStyle(QLCDNumber.Flat)
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QProgressBar-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(50, 50)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         pb = QProgressBar(self)
+#         pb.show()
+#         pb.move(100, 100)
+#         pb.resize(300, 20)
+#         # pb.setMinimum(0)  # 设置最小值
+#         # pb.setMaximum(100)  # 设置最大值
+#         pb.setRange(0, 100)  # 设置范围 最小值 最大值
+#         pb.setValue(0)  # 设置当前值
+#         # pb.setFormat('当前人数{} / 总人数 %m'.format(pb.value() - pb.minimum()))  # %p显示百分比 %v当前值 %m总值
+#         # pb.reset()  # 清零 不改变区间范围 当前值置为最小值-1
+#         # print(pb.minimum())
+#         # print(pb.maximum())
+#         # pb.setAlignment(Qt.AlignVCenter)  # 设置对齐方式
+#         # pb.setTextVisible(False)  # 设置文本不可见
+#         # print(pb.text())  # 获取显示文本
+#         # pb.setOrientation(Qt.Vertical)  # 设置垂直方向
+#         # pb.setTextDirection(QProgressBar.TopToBottom)
+#         # pb.setInvertedAppearance(True)  # 反转
+#         timer = QTimer(pb)
+#
+#         def change_progress():
+#             # print(pb.value())
+#             if pb.value() == pb.maximum():
+#                 timer.stop()
+#             pb.setValue(pb.value() + 1)
+#             # print(pb.value())
+#
+#         timer.timeout.connect(change_progress)
+#         timer.start(1000)  # 1s定时器
+#         pb.valueChanged.connect(lambda val: print('当前的进度值', val))
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QErrorMessage-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(50, 50)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         em = QErrorMessage(self)
+#         em.setWindowTitle('错误提示')  # 设置窗口标题
+#         em.showMessage('社会我顺哥，人狠话不多')
+#         em.open()
+#         QErrorMessage.qtHandler()  # 输出级别信息
+#         qDebug('XXX')  # 调试错误信息
+#         qWarning('222')  # 警告信息
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QProgressDialog-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(50, 50)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         pd = QProgressDialog(self)
+#         # pd = QProgressDialog('xxx1', 'xxx2', 0, 100, self)
+#         pd.setWindowTitle('xxx')
+#         pd.setLabelText('下载进度')  # 设置提示文本
+#         pd.setCancelButtonText('取消下载')  # 设置取消按钮
+#         pd.setRange(0, 5)
+#         # pd.setAutoClose(False)  # 取消自动关闭
+#         # pd.setAutoReset(True)  # 设置自动重置
+#         # pd.setMinimumDuration(0)  # 有多长时间显示多长时间
+#         pd.show()
+#
+#         # pd.open(lambda: print('对话框被取消'))  # 关闭时才会执行print函数
+#         # pd.setValue(50)
+#         # for i in range(1, 101):
+#         #     pd.setValue(i)
+#         # def test():
+#         #     pd.setValue(pd.value() + 1)  # 到不了最大值
+#         #     print(pd.value())
+#         #     if pd.value() == - 1 or pd.wasCanceled():  # 是否取值
+#         #         timer.stop()
+#         #     # else:
+#         #     #     pd.setValue(pd.value() + 1)
+#         def test():
+#             # print(pd.value())
+#             if pd.value() + 1 == pd.maximum():  # 是否取值
+#                 timer.stop()
+#                 print(pd.autoClose())
+#             pd.setValue(pd.value() + 1)
+#             if pd.value() == 3:
+#                 pd.cancel()
+#
+#         timer = QTimer(pd)
+#         timer.timeout.connect(test)
+#         timer.start(1000)
+#         pd.canceled.connect(timer.stop)
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
 
@@ -2896,47 +3241,65 @@ from PyQt5.Qt import *
 class Window(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('QCalendarWidget-学习')
+        self.setWindowTitle('QMessageBox-学习')
         self.resize(640, 480)
         self.setup_ui()
 
     def setup_ui(self):
+        # QMessageBox.about(self, 'xx1', 'xx2')  # 帮助对话框 窗口名称 主标题
+        result = QMessageBox.question(self, 'xx1', 'xx2', QMessageBox.Ok | QMessageBox.Discard)  # 疑问对话框 窗口名称 主标题 按钮 阻塞方法 返回按下按钮宏值
+        print(result, 'xxx')
+        return None
         btn = QPushButton(self)
         btn.setText('按钮')
-        btn.move(100, 100)
+        btn.move(50, 50)
         btn.clicked.connect(self.test_cao)
 
     def test_cao(self):
         print('测试按钮')
-        cw = QCalendarWidget(self)  # 日历控件
-        # cw.setMinimumDate(QDate(1990, 1, 1))  # 设置最小日期
-        # cw.setMaximumDate(QDate(2022, 1, 1))  # 设置最大日期
-        cw.setDateRange(QDate(1990, 1, 1), QDate(2022, 1, 1))  # 设置日期范围
-        cw.setSelectedDate(QDate(2020, 1, 2))  # 设置默认选中日期
-        # cw.setDateEditEnabled(False)
-        # cw.setDateEditAcceptDelay(1000)  # 设置键盘直接编辑的延时时间 ms
-        # cw.monthShown()  # 展示的月
-        # cw.yearShown()  # 展示的年
-        # cw.selectedDate()  # 选中的日期
-        # cw.setNavigationBarVisible(False)  # 设置导航栏不可见
-        cw.setFirstDayOfWeek(Qt.Sunday)  # 设置第一列
-        cw.setGridVisible(True)  # 设置网格可见
-        tcf = QTextCharFormat()
-        tcf.setFontFamily('隶书')  # 设置字体
-        tcf.setFontPointSize(16)  # 设置字体大小
-        tcf.setFontUnderline(True)  # 设置下划线
-        cw.setHeaderTextFormat(tcf)  # 设置头字符格式
-        cw.setHorizontalHeaderFormat(QCalendarWidget.LongDayNames)  # 设置水平头字符格式
-        cw.setVerticalHeaderFormat(QCalendarWidget.NoVerticalHeader)  # 设置垂直头字符格式 周数
-        t_tcf = QTextCharFormat()
-        t_tcf.setFontPointSize(20)
-        t_tcf.setToolTip('这是星期二')  # 设置悬浮提示
-        # cw.setWeekdayTextFormat(Qt.Tuesday, t_tcf)  # 设置特定字符格式
-        cw.setDateTextFormat(QDate(2020, 1, 2), t_tcf)  # 设置特定日期格式
-        cw.setSelectionMode(QCalendarWidget.NoSelection)  # 设置选中模式
-        # cw.setSelectedDate()
-        cw.move(200, 200)
-        cw.show()
+        # mb = QMessageBox(QMessageBox.Warning, 'xx1', '<h2>xx2</h2>', QMessageBox.Ok | QMessageBox.Discard, self)  # 窗口级别的模态对话框 参数 警告图标 窗口标题 提示文本 两个按钮
+        mb = QMessageBox(self)
+        mb.setWindowTitle('消息提示')  # 设置窗口标题
+        mb.setIconPixmap(QPixmap('E:\\Pictures\\041.jpg').scaled(100, 100))  # 设置自定义图标 设置尺寸
+        # mb.setIconPixmap(QPixmap('E:\\Pictures\\041.jpg'))  # 设置自定义图标
+        # mb.setTextFormat(Qt.PlainText)  # 设置为普通文本
+        mb.setText('<h3>文件内容已经被修改</h3>')  # 设置主标题
+        mb.setInformativeText('是否直接关闭')  # 设置副标题
+        mb.setCheckBox(QCheckBox('下次不再提醒', mb))  # 设置复选框
+        mb.setDetailedText('你修改的内容是个每一行代码加一个分号')  # 添加详细内容 不支持富文本
+        # mb.setIcon(QMessageBox.Information)  # 设置图标
+        # mb.setModal(False)  # 设置取消模态
+        # mb.setWindowModality(Qt.NonModal)  # 设置取消模态
+        mb.setStandardButtons(QMessageBox.Yes | QMessageBox.No)  # 设置标准按钮
+        # mb.addButton(QPushButton('xx1', mb), QMessageBox.YesRole)
+        # mb.addButton(QPushButton('xx2', mb), QMessageBox.NoRole)  # 添加按钮
+        # btn = mb.addButton('xx1', QMessageBox.YesRole)  # 添加按钮
+        # mb.removeButton(btn)  # 移除按钮
+        # mb.setDefaultButton(btn)  # 设置默认按钮
+        # mb.setEscapeButton(btn)  # 按ESC激活的按钮
+        # print(btn)
+        yes_btn = mb.button(QMessageBox.Yes)  # 获取标准按钮
+        # print(yes_btn)
+        no_btn = mb.button(QMessageBox.No)
+        # print(no_btn)
+        mb.setTextInteractionFlags(Qt.TextEditorInteraction)  # 设置文本交互标志 控制主标题
+
+        def test(btn1):
+            print(btn1)
+            role = mb.buttonRole(btn1)
+            if role == QMessageBox.YesRole:
+                print('yes')
+            if role == QMessageBox.NoRole:
+                print('no')
+            # if btn1 == yes_btn:
+            #     print('点击了yes_btn')
+            # if btn1 == no_btn:
+            #     print('点击了no_btn')
+            # if btn1 == btn:
+            #     print('xxx')
+
+        mb.buttonClicked.connect(test)
+        mb.show()
 
 
 if __name__ == '__main__':

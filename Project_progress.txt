@@ -32,3 +32,5 @@
 学习了QAbstractSlider、QRubberBand，掌握其基本用法
 2020.3.26
 学习了QDialog对话框控件，包括QColorDialog、QFontDialog、QFileDialog、QInputDialog控件，掌握其基本用法
+2020.3.27
+学习了展示控件QLabel、QLCDNumber、QProgressBar、QErrorMessage、QProgressDialog和QMessageBox控件，掌握其基本用法
