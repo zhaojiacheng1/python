@@ -248,7 +248,6 @@
 # print(type(label.text))
 # print(type(label.text()))
 
-
 # window.setGeometry(0,0,150,150)
 # print(window.x())
 # print(window.width())
@@ -3234,6 +3233,275 @@
 #
 #     window.show()
 #     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QMessageBox-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         # QMessageBox.about(self, 'xx1', 'xx2')  # 帮助对话框 窗口名称 主标题
+#         result = QMessageBox.question(self, 'xx1', 'xx2', QMessageBox.Ok | QMessageBox.Discard)  # 疑问对话框 窗口名称 主标题 按钮 阻塞方法 返回按下按钮宏值
+#         print(result, 'xxx')
+#         return None
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(50, 50)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         mb = QMessageBox(QMessageBox.Warning, 'xx1', '<h2>xx2</h2>', QMessageBox.Ok | QMessageBox.Discard, self)  # 窗口级别的模态对话框 参数 警告图标 窗口标题 提示文本 两个按钮
+#         mb = QMessageBox(self)
+#         mb.setWindowTitle('消息提示')  # 设置窗口标题
+#         mb.setIconPixmap(QPixmap('E:\\Pictures\\041.jpg').scaled(100, 100))  # 设置自定义图标 设置尺寸
+#         # mb.setIconPixmap(QPixmap('E:\\Pictures\\041.jpg'))  # 设置自定义图标
+#         # mb.setTextFormat(Qt.PlainText)  # 设置为普通文本
+#         mb.setText('<h3>文件内容已经被修改</h3>')  # 设置主标题
+#         mb.setInformativeText('是否直接关闭')  # 设置副标题
+#         mb.setCheckBox(QCheckBox('下次不再提醒', mb))  # 设置复选框
+#         mb.setDetailedText('你修改的内容是个每一行代码加一个分号')  # 添加详细内容 不支持富文本
+#         # mb.setIcon(QMessageBox.Information)  # 设置图标
+#         # mb.setModal(False)  # 设置取消模态
+#         # mb.setWindowModality(Qt.NonModal)  # 设置取消模态
+#         mb.setStandardButtons(QMessageBox.Yes | QMessageBox.No)  # 设置标准按钮
+#         # mb.addButton(QPushButton('xx1', mb), QMessageBox.YesRole)
+#         # mb.addButton(QPushButton('xx2', mb), QMessageBox.NoRole)  # 添加按钮
+#         # btn = mb.addButton('xx1', QMessageBox.YesRole)  # 添加按钮
+#         # mb.removeButton(btn)  # 移除按钮
+#         # mb.setDefaultButton(btn)  # 设置默认按钮
+#         # mb.setEscapeButton(btn)  # 按ESC激活的按钮
+#         # print(btn)
+#         yes_btn = mb.button(QMessageBox.Yes)  # 获取标准按钮
+#         # print(yes_btn)
+#         no_btn = mb.button(QMessageBox.No)
+#         # print(no_btn)
+#         mb.setTextInteractionFlags(Qt.TextEditorInteraction)  # 设置文本交互标志 控制主标题
+#
+#         def test(btn1):
+#             print(btn1)
+#             role = mb.buttonRole(btn1)
+#             if role == QMessageBox.YesRole:
+#                 print('yes')
+#             if role == QMessageBox.NoRole:
+#                 print('no')
+#             # if btn1 == yes_btn:
+#             #     print('点击了yes_btn')
+#             # if btn1 == no_btn:
+#             #     print('点击了no_btn')
+#             # if btn1 == btn:
+#             #     print('xxx')
+#
+#         mb.buttonClicked.connect(test)
+#         mb.show()
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('布局管理-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(50, 50)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         label1 = QLabel('标签1', self)
+#         label1.show()
+#         label1.setStyleSheet('background-color:cyan;')
+#         label2 = QLabel('标签2', self)
+#         label2.show()
+#         label2.setStyleSheet('background-color:yellow;')
+#         label3 = QLabel('标签3', self)
+#         label3.show()
+#         label3.setStyleSheet('background-color:red;')
+#         # label_width = int(self.width())
+#         # label_height = int(self.height() / 3)
+#         # label1.resize(label_width, label_height)
+#         # label2.resize(label_width, label_height)
+#         # label3.resize(label_width, label_height)
+#         # label1.move(0, 0)
+#         # label2.move(0, label1.height())
+#         # label3.move(0, label2.height() + label2.y())
+#         # timer = QTimer(self)
+#         # timer.timeout.connect(lambda: label1.setText(label1.text() + 'itlike\n'))
+#         # timer.start(1000)
+#         # 布局管理器
+#         v_layout = QVBoxLayout()  # 垂直布局管理器 界面控件的定位策略
+#         v_layout.addWidget(label1)  # 添加控件
+#         v_layout.addWidget(label2)
+#         v_layout.addWidget(label3)
+#         v_layout.setContentsMargins(10, 10, 10, 10)  # 设置边距 左上右下
+#         v_layout.setSpacing(10)  # 控件间的间距
+#         self.setLayout(v_layout)  # 主控件添加布局管理器 自动添加父对象
+#         self.setLayoutDirection(Qt.RightToLeft)  # 设置布局的方向
+#         # label1.hide()
+#         # print(self.children())
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QLayout-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         btn = QPushButton(self)
+#         btn.setText('按钮')
+#         btn.move(50, 50)
+#         btn.clicked.connect(self.test_cao)
+#
+#     def test_cao(self):
+#         print('测试按钮')
+#         label1 = QLabel('标签1')
+#         # label1.show()
+#         label1.setStyleSheet('background-color:cyan;')
+#         label2 = QLabel('标签2')
+#         # label2.show()
+#         label2.setStyleSheet('background-color:yellow;')
+#         label3 = QLabel('标签3')
+#         # label3.show()
+#         label3.setStyleSheet('background-color:red;')
+#         label4 = QLabel('标签4')
+#         # label4.show()
+#         label4.setStyleSheet('background-color:orange;')
+#         layout = QBoxLayout(QBoxLayout.BottomToTop)  # 设置排列顺序
+#         self.setLayout(layout)
+#         layout.addWidget(label1)  # 添加控件
+#         layout.addWidget(label2)
+#         layout.addWidget(label3)
+#         layout.setSpacing(60)  # 设置控件之间的间距
+#         # print(layout.contentsMargins().left(), layout.contentsMargins().top())
+#         layout.setContentsMargins(11, 11, 11, 11)  # 设置文本边距
+#         # print(layout.contentsMargins().left(), layout.contentsMargins().top())
+#         # layout.replaceWidget(label2, label4)  # 替换控件 被换 换成
+#         # label2.hide()  # 被换控件需要隐藏
+#         label5 = QLabel('标签5')
+#         # label5.show()
+#         label5.setStyleSheet('background-color:pink;')
+#         label6 = QLabel('标签6')
+#         # label6.show()
+#         label6.setStyleSheet('background-color:blue;')
+#         label7 = QLabel('标签7')
+#         # label7.show()
+#         label7.setStyleSheet('background-color:cyan;')
+#         h_layout = QBoxLayout(QBoxLayout.LeftToRight)
+#         h_layout.addWidget(label5)
+#         h_layout.addWidget(label6)
+#         h_layout.addWidget(label7)
+#         layout.addLayout(h_layout)
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+# 	def __init__(self):
+# 		super().__init__()
+# 		self.setWindowTitle('QBoxLayout-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+#
+# 	def setup_ui(self):
+# 		btn = QPushButton(self)
+# 		btn.setText('按钮')
+# 		btn.move(50, 50)
+# 		btn.clicked.connect(self.test_cao)
+#
+# 	def test_cao(self):
+# 		print('测试按钮')
+# 		label1 = QLabel('标签1')
+# 		# label1.show()
+# 		label1.setStyleSheet('background-color:cyan;')
+# 		label2 = QLabel('标签2')
+# 		# label2.show()
+# 		label2.setStyleSheet('background-color:yellow;')
+# 		label3 = QLabel('标签3')
+# 		# label3.show()
+# 		label3.setStyleSheet('background-color:red;')
+# 		label4 = QLabel('标签4')
+# 		# label4.show()
+# 		label4.setStyleSheet('background-color:orange;')
+# 		layout = QBoxLayout(QBoxLayout.LeftToRight)
+# 		self.setLayout(layout)
+# 		layout.addWidget(label1, 1)
+# 		layout.addStretch(1)  # 添加空白伸缩 弹簧 1 为伸缩比例
+# 		# layout.addSpacing(100)  # 添加100间距 索引计算不包括空白区域
+# 		layout.addWidget(label2, 1)
+# 		layout.addWidget(label3, 2)
+# 		layout.setStretchFactor(label2, 1)
+# 		# layout.addWidget(label4)
+# 		# layout.insertWidget(1, label4)  # 插入控件 1 是指索引位置 插入的控件
+# 		# label5 = QLabel('标签5')
+# 		# # label5.show()
+# 		# label5.setStyleSheet('background-color:pink;')
+# 		# label6 = QLabel('标签6')
+# 		# # label6.show()
+# 		# label6.setStyleSheet('background-color:blue;')
+# 		# label7 = QLabel('标签7')
+# 		# # label7.show()
+# 		# label7.setStyleSheet('background-color:cyan;')
+# 		# h_layout = QBoxLayout(QBoxLayout.TopToBottom)
+# 		# h_layout.addWidget(label5)
+# 		# h_layout.addWidget(label6)
+# 		# h_layout.addWidget(label7)
+# 		# layout.insertLayout(2, h_layout)  # 插入布局 2 是索引位置 插入的布局
+# 		# layout.removeWidget(label1)
+# 		# label1.hide()
+# 		# timer = QTimer(self)
+# 		#
+# 		# def test():
+# 		# 	print('time')
+# 		# 	layout.setDirection((layout.direction() + 1) % 4)
+# 		#
+# 		# timer.timeout.connect(test)
+# 		# timer.start(1000)
+#
+#
+# if __name__ == '__main__':
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+#
+# 	window.show()
+# 	sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
 
@@ -3241,15 +3509,11 @@ from PyQt5.Qt import *
 class Window(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('QMessageBox-学习')
+        self.setWindowTitle('QFormLayout-学习')
         self.resize(640, 480)
         self.setup_ui()
 
     def setup_ui(self):
-        # QMessageBox.about(self, 'xx1', 'xx2')  # 帮助对话框 窗口名称 主标题
-        result = QMessageBox.question(self, 'xx1', 'xx2', QMessageBox.Ok | QMessageBox.Discard)  # 疑问对话框 窗口名称 主标题 按钮 阻塞方法 返回按下按钮宏值
-        print(result, 'xxx')
-        return None
         btn = QPushButton(self)
         btn.setText('按钮')
         btn.move(50, 50)
@@ -3257,49 +3521,19 @@ class Window(QWidget):
 
     def test_cao(self):
         print('测试按钮')
-        # mb = QMessageBox(QMessageBox.Warning, 'xx1', '<h2>xx2</h2>', QMessageBox.Ok | QMessageBox.Discard, self)  # 窗口级别的模态对话框 参数 警告图标 窗口标题 提示文本 两个按钮
-        mb = QMessageBox(self)
-        mb.setWindowTitle('消息提示')  # 设置窗口标题
-        mb.setIconPixmap(QPixmap('E:\\Pictures\\041.jpg').scaled(100, 100))  # 设置自定义图标 设置尺寸
-        # mb.setIconPixmap(QPixmap('E:\\Pictures\\041.jpg'))  # 设置自定义图标
-        # mb.setTextFormat(Qt.PlainText)  # 设置为普通文本
-        mb.setText('<h3>文件内容已经被修改</h3>')  # 设置主标题
-        mb.setInformativeText('是否直接关闭')  # 设置副标题
-        mb.setCheckBox(QCheckBox('下次不再提醒', mb))  # 设置复选框
-        mb.setDetailedText('你修改的内容是个每一行代码加一个分号')  # 添加详细内容 不支持富文本
-        # mb.setIcon(QMessageBox.Information)  # 设置图标
-        # mb.setModal(False)  # 设置取消模态
-        # mb.setWindowModality(Qt.NonModal)  # 设置取消模态
-        mb.setStandardButtons(QMessageBox.Yes | QMessageBox.No)  # 设置标准按钮
-        # mb.addButton(QPushButton('xx1', mb), QMessageBox.YesRole)
-        # mb.addButton(QPushButton('xx2', mb), QMessageBox.NoRole)  # 添加按钮
-        # btn = mb.addButton('xx1', QMessageBox.YesRole)  # 添加按钮
-        # mb.removeButton(btn)  # 移除按钮
-        # mb.setDefaultButton(btn)  # 设置默认按钮
-        # mb.setEscapeButton(btn)  # 按ESC激活的按钮
-        # print(btn)
-        yes_btn = mb.button(QMessageBox.Yes)  # 获取标准按钮
-        # print(yes_btn)
-        no_btn = mb.button(QMessageBox.No)
-        # print(no_btn)
-        mb.setTextInteractionFlags(Qt.TextEditorInteraction)  # 设置文本交互标志 控制主标题
+        name_label = QLabel('姓名：')
+        age_label = QLabel('年龄：')
+        name_le = QLineEdit()
+        age_sb = QSpinBox()
+        layout = QFormLayout()
+        self.setLayout(layout)
+        layout.addRow(name_label, name_le)
+        # layout.addWidget(name_label)
+        # layout.addWidget(name_le)
+        pass
 
-        def test(btn1):
-            print(btn1)
-            role = mb.buttonRole(btn1)
-            if role == QMessageBox.YesRole:
-                print('yes')
-            if role == QMessageBox.NoRole:
-                print('no')
-            # if btn1 == yes_btn:
-            #     print('点击了yes_btn')
-            # if btn1 == no_btn:
-            #     print('点击了no_btn')
-            # if btn1 == btn:
-            #     print('xxx')
-
-        mb.buttonClicked.connect(test)
-        mb.show()
+    def test(self):
+        pass
 
 
 if __name__ == '__main__':
