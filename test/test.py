@@ -3502,43 +3502,327 @@
 #
 # 	window.show()
 # 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget) :
+# 	def __init__(self) :
+# 		super().__init__()
+# 		self.setWindowTitle('QFormLayout-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+#
+# 	def setup_ui(self) :
+# 		btn = QPushButton(self)
+# 		btn.setText('按钮')
+# 		btn.move(400, 400)
+# 		btn.clicked.connect(self.test_cao)
+#
+# 	def test_cao(self) :
+# 		print('测试按钮')
+# 		name_label = QLabel('姓名：')
+# 		age_label = QLabel('年龄：')
+# 		submit_btn = QPushButton('提交')
+# 		name_le = QLineEdit()
+# 		age_sb = QSpinBox()
+# 		sex_label = QLabel('性别')
+# 		male_rb = QRadioButton('男')
+# 		female_rb = QRadioButton('女')
+# 		h_layout = QHBoxLayout()
+# 		h_layout.addWidget(male_rb)
+# 		h_layout.addWidget(female_rb)
+# 		layout = QFormLayout()
+# 		self.setLayout(layout)
+# 		# layout.addRow(name_label, name_le)
+# 		layout.addRow('姓名', name_le)
+# 		layout.labelForField(name_le).setText('姓名：')
+# 		# layout.setRowWrapPolicy(QFormLayout.WrapAllRows)  # 设置换行策略
+# 		print(layout.formAlignment() == Qt.AlignLeft | Qt.AlignTop)
+# 		print(layout.setFormAlignment(Qt.AlignLeft | Qt.AlignVCenter))  # 设置表单对齐方式
+# 		layout.setLabelAlignment(Qt.AlignRight)  # 设置标签对齐方式
+# 		layout.setHorizontalSpacing(20)  # 设置水平方向的间距
+# 		layout.setVerticalSpacing(30)  # 设置垂直方向的间距
+# 		layout.setFieldGrowthPolicy(QFormLayout.FieldsStayAtSizeHint)  # 设置字段增长策略
+# 		# layout.setFieldGrowthPolicy(QFormLayout.FieldGrowthPolicy)  # 设置字段增长策略
+# 		layout.addRow(sex_label, h_layout)
+# 		# layout.addWidget(name_label)
+# 		# layout.addWidget(name_le)
+# 		layout.addRow(age_label, age_sb)
+# 		layout.addRow(submit_btn)
+# 		# layout.insertRow(1, '性别:', h_layout)  # 插入行 1 为位置索引值
+# 		# print(layout.rowCount())
+# 		# print(layout.getWidgetPosition(age_sb))
+# 		# print(layout.getLayoutPosition(h_layout))
+# 		age_sb.destroyed.connect(lambda : print('年龄步长被释放'))
+# 		age_label.destroyed.connect(lambda : print('年龄标签被释放'))
+# 		# layout.removeRow(2)  # 移除行 2 为位置索引值
+# 		# layout.takeRow(2)  # 设置移除不删除
+# 		# print(dir(QFormLayout.TakeRowResult))
+# 		pass
+#
+# 	def test(self) :
+# 		pass
+#
+#
+# if __name__ == '__main__' :
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+#
+# 	window.show()
+# 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget) :
+# 	def __init__(self) :
+# 		super().__init__()
+# 		self.setWindowTitle('QGridLayout-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+#
+# 	def setup_ui(self) :
+# 		btn = QPushButton(self)
+# 		btn.setText('按钮')
+# 		btn.move(400, 400)
+# 		btn.clicked.connect(self.test_cao)
+#
+# 	def test_cao(self) :
+# 		print('测试按钮')
+# 		gl = QGridLayout()  # 创建网格布局
+# 		# self.gl = gl
+# 		self.setLayout(gl)
+# 		label1 = QLabel('标签1')
+# 		label1.setStyleSheet('background-color:cyan;')
+# 		label2 = QLabel('标签2')
+# 		label2.setStyleSheet('background-color:yellow;')
+# 		label3 = QLabel('标签3')
+# 		label3.setStyleSheet('background-color:red;')
+# 		label5 = QLabel('标签5')
+# 		label5.setStyleSheet('background-color:pink;')
+# 		label6 = QLabel('标签6')
+# 		label6.setStyleSheet('background-color:blue;')
+# 		label7 = QLabel('标签7')
+# 		label7.setStyleSheet('background-color:cyan;')
+# 		v_layout = QVBoxLayout()
+# 		# v_layout.setDirection(QVBoxLayout.RightToLeft)
+# 		v_layout.addWidget(label5)
+# 		v_layout.addWidget(label6)
+# 		v_layout.addWidget(label7)
+# 		gl.addWidget(label1, 0, 0)  # 0行0列
+# 		gl.addWidget(label2, 0, 1)  # 0行1列
+# 		gl.addWidget(label3, 1, 0, 1, 2)  # 1，0起始，跨过1行 跨过2列
+# 		gl.addLayout(v_layout, 2, 0, 1, 2)
+# 		print(gl.getItemPosition(1))  # 1为索引值返回值 0行1列 占据1行 占据1列
+# 		print(gl.itemAtPosition(0, 1).widget().text())  # 返回值为控件对象
+# 		# gl.setColumnMinimumWidth(0, 100)  # 设置列的最小宽度 0值第0列
+# 		# gl.setRowMinimumHeight(0, 100)  # 设置行的最小高度 0指第0行
+# 		# gl.setColumnStretch(0, 1)  # 设置列的拉伸系数 第0列 拉伸系数设为1
+# 		# gl.setColumnStretch(1, 1)
+# 		# gl.setRowStretch(2, 1)  # 设置行的拉伸系数 第2行 拉伸系数设为1
+# 		print(gl.spacing())  # 间距
+# 		print(gl.horizontalSpacing())  # 水平间距
+# 		print(gl.verticalSpacing())  # 垂直间距
+# 		# gl.setOriginCorner(Qt.BottomLeftCorner)  # 设置原点角
+# 		print(gl.rowCount())  # 行数
+# 		print(gl.columnCount())  # 列数
+# 		# print(gl.cellRect(0, 0))
+# 		pass
+#
+#
+# if __name__ == '__main__' :
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	# gl = window.layout()
+# 	# print(gl.cellRect(0, 0))
+# 	# print(window.layout())
+# 	window.show()
+# 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget) :
+# 	def __init__(self) :
+# 		super().__init__()
+# 		self.setWindowTitle('QStackedLayout-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+# 		pass
+#
+# 	def setup_ui(self) :
+# 		self.test_cao()
+# 		# btn = QPushButton(self)
+# 		# btn.setText('按钮')
+# 		# btn.move(400, 400)
+# 		# btn.clicked.connect(self.test_cao)
+# 		pass
+#
+# 	def test_cao(self) :
+# 		print('test')
+# 		sl = QStackedLayout()
+# 		self.setLayout(sl)  # 在添加子控件之前
+# 		label1 = QLabel('标签1')
+# 		label1.setStyleSheet('background-color:cyan;')
+# 		label2 = QLabel('标签2')
+# 		label2.setStyleSheet('background-color:yellow;')
+# 		label3 = QLabel('标签3')
+# 		label3.setStyleSheet('background-color:red;')
+# 		label4 = QLabel('标签4')
+# 		label4.setStyleSheet('background-color:green;')
+# 		label5 = QLabel('标签5')
+# 		label5.setStyleSheet('background-color:pink;')
+# 		label6 = QLabel('标签6')
+# 		label6.setStyleSheet('background-color:blue;')
+# 		label7 = QLabel('标签7')
+# 		label7.setStyleSheet('background-color:cyan;')
+# 		v_layout = QVBoxLayout()
+# 		v_layout.addWidget(label5)
+# 		v_layout.addWidget(label6)
+# 		v_layout.addWidget(label7)
+# 		sl.addWidget(label1)
+# 		sl.addWidget(label2)
+# 		sl.addWidget(label3)
+# 		sl.setStackingMode(QStackedLayout.StackAll)  # 设置堆叠模式
+# 		label1.setFixedSize(100, 100)  # 设置固定显示尺寸
+# 		label2.setFixedSize(200, 200)
+# 		# print(sl.currentIndex())
+# 		# sl.insertWidget(0, label4)
+# 		# print(sl.currentIndex())
+# 		# print(sl.widget(0).text())
+# 		# sl.setCurrentIndex(0)  # 设置当前索引值
+# 		# timer = QTimer(self)
+# 		# timer.timeout.connect(lambda : sl.setCurrentIndex((sl.currentIndex() + 1) % sl.count()))
+# 		# timer.start(1000)
+# 		# sl.setCurrentWidget(label4)
+# 		# sl.currentChanged.connect(lambda val : print(val))  # 传递索引值
+# 		pass
+#
+#
+# if __name__ == '__main__' :
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Label(QLabel) :
+# 	def minimumSizeHint(self) :  # 设置控件的最小尺寸
+# 		return QSize(200, 200)
+# 		pass
+#
+#
+# class Window(QWidget) :
+# 	def __init__(self) :
+# 		super().__init__()
+# 		self.setWindowTitle('QStackedLayout-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+# 		pass
+#
+# 	def setup_ui(self) :
+# 		self.test_cao()
+# 		# btn = QPushButton(self)
+# 		# btn.setText('按钮')
+# 		# btn.move(400, 400)
+# 		# btn.clicked.connect(self.test_cao)
+# 		pass
+#
+# 	def test_cao(self) :
+# 		print('test')
+# 		label1 = QLabel('标签1')
+# 		label1.setStyleSheet('background-color:cyan;')
+# 		label2 = QLabel('标签2')
+# 		label2.setStyleSheet('background-color:yellow;')
+# 		label3 = QLabel('标签3')
+# 		label3.setStyleSheet('background-color:red;')
+# 		label4 = QLabel('标签4')
+# 		label4.setStyleSheet('background-color:green;')
+# 		label5 = QLabel('标签5')
+# 		label5.setStyleSheet('background-color:pink;')
+# 		label6 = QLabel('标签6')
+# 		label6.setStyleSheet('background-color:blue;')
+# 		label7 = QLabel('标签7')
+# 		label7.setStyleSheet('background-color:cyan;')
+# 		layout = QVBoxLayout()
+# 		self.setLayout(layout)
+# 		layout.addWidget(label1)
+# 		layout.addWidget(label2)
+# 		layout.addWidget(label3)
+# 		# label1.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Minimum)  # 设置尺寸策略 水平策略 垂直策略
+# 		sp = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Ignored)
+# 		sp.setRetainSizeWhenHidden(True)  # 当控件隐藏时保留位置
+# 		label1.setSizePolicy(sp)  # 设置尺寸策略 水平策略 垂直策略
+# 		label1.setFixedSize(200, 200)  # 设置固定的尺寸，可以覆盖尺寸策略
+# 		# label1.hide()
+# 		# label2.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)  # 尽可能获取控件
+# 		pass
+#
+#
+# if __name__ == '__main__' :
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
+from Tool import QSSTool
 
 
 class Window(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('QFormLayout-学习')
+        self.setWindowTitle('QSS-学习')
         self.resize(640, 480)
         self.setup_ui()
-
-    def setup_ui(self):
-        btn = QPushButton(self)
-        btn.setText('按钮')
-        btn.move(50, 50)
-        btn.clicked.connect(self.test_cao)
-
-    def test_cao(self):
-        print('测试按钮')
-        name_label = QLabel('姓名：')
-        age_label = QLabel('年龄：')
-        name_le = QLineEdit()
-        age_sb = QSpinBox()
-        layout = QFormLayout()
-        self.setLayout(layout)
-        layout.addRow(name_label, name_le)
-        # layout.addWidget(name_label)
-        # layout.addWidget(name_le)
         pass
 
-    def test(self):
+    def setup_ui(self):
+        self.test_cao()
+        # btn = QPushButton(self)
+        # btn.setText('按钮')
+        # btn.move(400, 400)
+        # btn.clicked.connect(self.test_cao)
+        pass
+
+    def test_cao(self):
+        print('test')
+        box1 = QWidget(self)
+        box2 = QWidget(self)
+        # box1.setStyleSheet('QPushButton { background-color:orange; }')
+        # box2.setStyleSheet('background-color:yellow;')
+        label1 = QLabel('标签1', box1)
+        label1.setObjectName('l1')  # 设置控件名称
+        label1.move(50, 50)
+        btn1 = QPushButton('按钮1', box1)
+        btn1.move(150, 50)
+        label2 = QLabel('标签2', box2)
+        label2.move(50, 50)
+        btn2 = QPushButton('按钮2', box2)
+        btn2.setObjectName('b2')
+        btn2.move(150, 50)
+        v_layout = QVBoxLayout()
+        self.setLayout(v_layout)
+        v_layout.addWidget(box1)
+        v_layout.addWidget(box2)
+        # self.other_btn = QPushButton('按钮3')
+        # self.other_btn.show()
+        # self.setStyleSheet('QPushButton { background-color:orange; }')
         pass
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = Window()
-
     window.show()
+    QSSTool.setQssToObj('test.qss', app)
+    # app.setStyleSheet('QPushButton { background-color:orange; }')
+    # with open('test.qss', 'r') as f :
+    # 	content = f.read()
+    # 	app.setStyleSheet(content)
+    # app.setStyleSheet('QLabel#l1 { background-color:orange; } QPushButton#b2 { background-color:cyan; }')  # 针对所有对象 #号后是对象名称
+    # window.other_btn.setStyleSheet('background-color:orange;')
     sys.exit(app.exec_())
