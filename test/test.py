@@ -3767,62 +3767,125 @@
 # 	window = Window()
 # 	window.show()
 # 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# from Tool import QSSTool
+#
+#
+# class Window(QWidget) :
+# 	def __init__(self) :
+# 		super().__init__()
+# 		self.setWindowTitle('QSS-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+# 		pass
+#
+# 	def setup_ui(self) :
+# 		self.test_cao()
+# 		# btn = QPushButton(self)
+# 		# btn.setText('按钮')
+# 		# btn.move(400, 400)
+# 		# btn.clicked.connect(self.test_cao)
+# 		pass
+#
+# 	def test_cao(self) :
+# 		print('test')
+# 		box1 = QWidget(self)
+# 		box2 = QWidget(self)
+# 		box2.setObjectName('box2')
+# 		box3 = QWidget(box2)
+# 		box3.resize(150, 150)
+# 		# box3.setStyleSheet('background-color:lightgray;')
+# 		# box1.setStyleSheet('QPushButton { background-color:orange; }')
+# 		# box2.setStyleSheet('background-color:yellow;')
+# 		label1 = QLabel('标签1', box1)
+# 		label1.setObjectName('l1')  # 设置控件名称
+# 		label1.setProperty('notice_level', 'warning')  # 设置属性值
+# 		label1.resize(200, 60)
+# 		label1.move(50, 50)
+# 		btn1 = QPushButton('按钮1', box1)
+# 		btn1.setObjectName('btn1')
+# 		btn1.move(150, 50)
+# 		cb = QCheckBox('python', box1)
+# 		cb.setTristate(True)  # 设置三态
+# 		cb.move(0, 0)
+# 		cb.resize(200, 50)
+# 		label2 = QLabel('标签2', box3)
+# 		label2.setProperty('notice_level', 'error')  # 设置notice_level属性为error
+# 		# label2.notice_level = 'error'
+# 		label2.resize(100, 60)
+# 		label2.move(50, 50)
+# 		label3 = QLabel('标签3', box2)
+# 		label3.move(200, 200)
+# 		# label3.setStyleSheet('background-color:yellow;')
+# 		btn2 = QPushButton('按钮2', box2)
+# 		btn2.setObjectName('btn2')
+# 		btn2.move(150, 50)
+# 		v_layout = QVBoxLayout()
+# 		self.setLayout(v_layout)
+# 		v_layout.addWidget(box1)
+# 		v_layout.addWidget(box2)
+# 		# self.other_btn = QPushButton('按钮3')
+# 		# self.other_btn.show()
+# 		# self.setStyleSheet('QPushButton { background-color:orange; }')
+# 		pass
+#
+#
+# if __name__ == '__main__' :
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	QSSTool.setQssToObj('test.qss', app)
+# 	# app.setStyleSheet('QPushButton { background-color:orange; }')
+# 	# with open('test.qss', 'r') as f :
+# 	# 	content = f.read()
+# 	# 	app.setStyleSheet(content)
+# 	# app.setStyleSheet('QLabel#l1 { background-color:orange; } QPushButton#b2 { background-color:cyan; }')  # 针对所有对象 #号后是对象名称
+# 	# window.other_btn.setStyleSheet('background-color:orange;')
+# 	sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
 from Tool import QSSTool
 
 
-class Window(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle('QSS-学习')
-        self.resize(640, 480)
-        self.setup_ui()
-        pass
+class Window(QWidget) :
+	def __init__(self) :
+		super().__init__()
+		self.setWindowTitle('QSS-学习')
+		self.resize(640, 480)
+		self.setup_ui()
+		pass
 
-    def setup_ui(self):
-        self.test_cao()
-        # btn = QPushButton(self)
-        # btn.setText('按钮')
-        # btn.move(400, 400)
-        # btn.clicked.connect(self.test_cao)
-        pass
+	def setup_ui(self) :
+		self.test_cao()
+		pass
 
-    def test_cao(self):
-        print('test')
-        box1 = QWidget(self)
-        box2 = QWidget(self)
-        # box1.setStyleSheet('QPushButton { background-color:orange; }')
-        # box2.setStyleSheet('background-color:yellow;')
-        label1 = QLabel('标签1', box1)
-        label1.setObjectName('l1')  # 设置控件名称
-        label1.move(50, 50)
-        btn1 = QPushButton('按钮1', box1)
-        btn1.move(150, 50)
-        label2 = QLabel('标签2', box2)
-        label2.move(50, 50)
-        btn2 = QPushButton('按钮2', box2)
-        btn2.setObjectName('b2')
-        btn2.move(150, 50)
-        v_layout = QVBoxLayout()
-        self.setLayout(v_layout)
-        v_layout.addWidget(box1)
-        v_layout.addWidget(box2)
-        # self.other_btn = QPushButton('按钮3')
-        # self.other_btn.show()
-        # self.setStyleSheet('QPushButton { background-color:orange; }')
-        pass
+	def test_cao(self) :
+		print('test')
+		label = QLabel('标签测试', self)
+		label.resize(300, 300)
+		label.move(100, 100)
+		self.label_border(label)
+		pass
+
+	def label_border(self, label) :
+		label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
+			QLabel {
+				background-color: qlineargradient(x1:0,y1:0, x2:1,y2:1, stop:0 red, stop:0.4 gray, stop:1 green);  /* 设置背景颜色 渐变色 */
+				border-width: 26px;  /* 设置边框宽度 单个参数同时设置四条线，两个参数代表上下，左右，四个参数代表上右下左*/
+				border-style: dotted dashed solid double;    /* 设置边框样式 单个参数同时设置四条线 四个参数为上右下左 点虚线 长虚线 实线 双线 */
+				border-top-style: groove;   /* 单独设置上边框 3D效果 类似实线 */
+				border-color: red;  /* 设置边框颜色 单个参数同时设置四条线，两个参数代表上下，左右，三个参数代表上右下，四个参数代表上右下左*/
+				border-left-color: rgb(255, 0, 255);
+				border-right-color: #00ff00;
+			}
+		""")
+		pass
 
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = Window()
-    window.show()
-    QSSTool.setQssToObj('test.qss', app)
-    # app.setStyleSheet('QPushButton { background-color:orange; }')
-    # with open('test.qss', 'r') as f :
-    # 	content = f.read()
-    # 	app.setStyleSheet(content)
-    # app.setStyleSheet('QLabel#l1 { background-color:orange; } QPushButton#b2 { background-color:cyan; }')  # 针对所有对象 #号后是对象名称
-    # window.other_btn.setStyleSheet('background-color:orange;')
-    sys.exit(app.exec_())
+if __name__ == '__main__' :
+	app = QApplication(sys.argv)
+	window = Window()
+	window.show()
+	# QSSTool.setQssToObj('test.qss', app)
+	sys.exit(app.exec_())

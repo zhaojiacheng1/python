@@ -1,6 +1,60 @@
-QLabel#l1 {
-    background-color: orange;
+QWidget:focus { /* 伪状态 焦点 加!取反*/
+    background-color:green;
 }
-QPushButton#b2 {
+QWidget:disabled { /* 伪状态 禁止 */
+    font-size: 26px;
+    background-color:green;
+}
+QWidget:enabled { /* 伪状态 允许 : 连用表示并且 , 隔开表示或者*/
+    font-size: 16px;
+    background-color:lightgray;
+}
+QLabel#l1 { /* id选择器 */
+    background-color: pink;
+}
+.QPushButton { /* 类选择器 前面加.表示不包括子类   */
+    background-color:cyan;
+    /*border: 6px dotted yellow;*/
+}
+QPushButton:pressed { /* pressed必须在hover之前   */
+    border: 2px solid red;
+}
+QPushButton:hover {
+    border: 2px solid orange;
+}
+#btn1,#btn2 { /*  优先级更高  */
+    background-color:pink;
+}
+.QLabel[notice_level] { /* 类选择器 */
     background-color: cyan;
 }
+.QLabel[notice_level='error'] { /* 类选择器 + 属性选择 []内表示属性值 */
+    border:3px solid red; /*  边框 3像素 实线 红色  */
+}
+.QLabel[notice_level='warning'] { /* 类选择器 + 属性选择 []内表示属性值 */
+    border:3px solid yellow; /*  边框 3像素 实线 黄色  */
+}
+QWidget#box2 > QLabel { /* 仅包括直接包含的子控件 */
+    background-color:pink;
+}
+QCheckBox::indicator { /*  父控件::子控件 */
+    width: 100px;
+    height: 100px;
+    /*background-color:red;*/
+}
+QCheckBox::indicator:checked { /*  父控件::子控件:伪状态 点击*/
+    image: url(E:/Pictures/041.jpg); /*  文件路径只能使用/,不能使用\\   */
+    /*background-color:red;*/
+}
+QCheckBox::indicator:indeterminate { /*  父控件::子控件:伪状态 三态*/
+    image: url(E:/Pictures/沐若昕1.jpg); /*  文件路径只能使用/,不能使用\\   */
+    /*background-color:red;*/
+}
+QCheckBox::indicator:unchecked { /*  父控件::子控件 松开*/
+    image: url(E:/Pictures/015.jpg); /*  文件路径只能使用/,不能使用\\   */
+    /*background-color:red;*/
+}
+
+/* QWidget#box2 QLabel { /* 包括所有子控件 */
+/*    background-color:pink;
+/*}
