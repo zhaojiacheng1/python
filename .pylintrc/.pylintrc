@@ -1,2 +1,0 @@
-extension-pkg-whitelist=PyQt5 
-//解决pylint报错问题

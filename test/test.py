@@ -3843,9 +3843,181 @@
 # 	# app.setStyleSheet('QLabel#l1 { background-color:orange; } QPushButton#b2 { background-color:cyan; }')  # 针对所有对象 #号后是对象名称
 # 	# window.other_btn.setStyleSheet('background-color:orange;')
 # 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# from Tool import QSSTool
+#
+#
+# class Window(QWidget) :
+# 	def __init__(self) :
+# 		super().__init__()
+# 		self.setWindowTitle('QSS-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+# 		pass
+#
+# 	def setup_ui(self) :
+# 		self.test_cao()
+# 		pass
+#
+# 	def test_cao(self) :
+# 		print('test')
+# 		label = QLabel('标签测试', self)
+# 		label.resize(300, 300)
+# 		label.move(100, 100)
+# 		self.label_border(label)
+# 		pass
+#
+# 	def label_border(self, label) :
+# 		label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
+# 			QLabel {
+# 				background-color: qconicalgradient(cx:0.5, cy:0.5, angle:30, stop:0 red, stop:0.5 green, stop:1 orange); /* 设置背景颜色 角度渐变色 起点 角度 中断点*/
+# 				/*background-color: qradialgradient(cx:0.7, cy:0.7, radius:0.5, fx:0.5, fy:0.5, stop:0 red, stop:0.5 green, stop:1 orange); /* 设置背景颜色 俯视渐变色 中心点 半径 交点 中断点*/
+# 				/*background-color: qlineargradient(x1:0,y1:0, x2:1,y2:1, stop:0 red, stop:0.4 gray, stop:1 green);  /* 设置背景颜色 线性渐变色 */
+# 				border-width: 26px;  /* 设置边框宽度 单个参数同时设置四条线，两个参数代表上下，左右，四个参数代表上右下左*/
+# 				border-style: dotted dashed solid double;    /* 设置边框样式 单个参数同时设置四条线 四个参数为上右下左 点虚线 长虚线 实线 双线 */
+# 				border-top-style: groove;   /* 单独设置上边框 3D效果 类似实线 */
+# 				border-color: red;  /* 设置边框颜色 单个参数同时设置四条线，两个参数代表上下，左右，三个参数代表上右下，四个参数代表上右下左*/
+# 				border-left-color: rgb(255, 0, 255);
+# 				border-right-color: #00ff00;
+# 			}
+# 		""")
+# 		pass
+#
+#
+# if __name__ == '__main__' :
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	# QSSTool.setQssToObj('test.qss', app)
+# 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# # from Tool import QSSTool
+#
+#
+# class Window(QWidget) :
+# 	def __init__(self) :
+# 		super().__init__()
+# 		self.setWindowTitle('QSS-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+# 		pass
+#
+# 	def setup_ui(self) :
+# 		self.test_cao()
+# 		pass
+#
+# 	def test_cao(self) :
+# 		print('test')
+# 		label = QLabel('标签测试', self)
+# 		label.resize(300, 300)
+# 		label.move(0, 0)
+# 		self.label_border(label)
+# 		pass
+#
+# 	def label_border(self, label) :
+# 		label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
+# 			QLabel {
+# 				/*background-color: qconicalgradient(cx:0.5, cy:0.7, angle:30, stop:0 red, stop:0.5 green, stop:1 orange); /* 设置背景颜色 角度渐变色 起点 角度 中断点*/
+# 				background-color: red; /* 设置背景颜色 角度渐变色 起点 角度 中断点*/
+# 				/*background-image: url(E:/Pictures/015.jpg); /* 设置背景图片  */
+# 				image: url(E:/Pictures/015.jpg); /* 设置背景图片  */
+# 				background-repeat:no-repeat; /*  设置重复  */
+# 				background-position: right bottom;  /* 设置背景图片位置 对齐方式*/
+# 				background-origin: border; /* 设置原始参照点为border  */
+# 				background-clip: border; /*   设置裁剪方式  */
+# 				/*color: orange; /* 设置边距颜色*/
+# 				/*border:10px solid red;
+# 				/*padding:20px; /*设置内边距*/
+# 				/*padding-top:150px; /*设置上部内边距*/
+# 				/*border-image: url(E:/Pictures/015.jpg) 30px 30px 30px 30+px repeat;    /* 设置边框图片 url为图片源 四个像素为切割图片 stretch为拉伸 round为平铺 repeat为重复 */
+# 				/*border-width: 30px;     /* 确定边框宽度 */
+# 				/*margin: 20px 40px 80px 160px; /*  设置外边距  */
+# 				/*margin-left: 20px; /*  设置左外边距  */
+# 			}
+# 		""")
+# 		pass
+#
+#
+# if __name__ == '__main__' :
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	# QSSTool.setQssToObj('test.qss', app)
+# 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget) :
+# 	def __init__(self) :
+# 		super().__init__()
+# 		self.setWindowTitle('QSS-学习')
+# 		# self.resize(640, 480)
+# 		self.resize(1200, 936)
+# 		self.setup_ui()
+# 		pass
+#
+# 	def setup_ui(self) :
+# 		self.test_cao()
+# 		pass
+#
+# 	def test_cao(self) :
+# 		print('test')
+# 		self.setStyleSheet("""
+# 			QPushButton {
+# 				background-image: url(C:/Users/asus/Downloads/Image/puke1.jpg); /* 设置图片 */
+# 				background-origin: content; /* 设置参考原点为内容区域 */
+# 				background-clip: padding;   /* 设置裁剪边框为内边框 */
+# 			}
+# 		""")
+# 		v_layout =QVBoxLayout(self)
+# 		h_layout1 = QHBoxLayout()
+# 		for i in range(0, 4) :
+# 			btn = QPushButton()
+# 			btn.setFixedSize(300, 468)
+# 			btn.setStyleSheet("""
+# 				QPushButton {
+# 					padding-left: -%d px; /*  负值代表图片向右移动 正值代表图片向左移动  */
+# 					padding-top: -%d px; /* 负值代表图片向下移动 正值代表图片向上移动  */
+# 				}
+# 			""" % (i * 300, 0))  # 字符串的拼接方式 format函数使用花括号拼接，%d使用%号拼接
+# 			h_layout1.addWidget(btn)
+# 		h_layout2 = QHBoxLayout()
+# 		for i in range(0, 4) :
+# 			btn = QPushButton()
+# 			btn.setFixedSize(300, 468)
+# 			btn.setStyleSheet("""
+# 				QPushButton {
+# 					padding-left: -%d px; /*  负值代表图片向右移动 正值代表图片向左移动  */
+# 					padding-top: -%d px; /* 负值代表图片向下移动 正值代表图片向上移动  */
+# 				}
+# 			""" % (i * 300, 468))  # 字符串的拼接方式 format函数使用花括号拼接，%d使用%号拼接
+# 			h_layout2.addWidget(btn)
+# 		v_layout.addLayout(h_layout1)
+# 		v_layout.addLayout(h_layout2)
+# 		# self.label_border(label)
+# 		pass
+#
+# 	def label_border(self, label) :
+# 		label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
+# 			QLabel {
+#
+# 			}
+# 		""")
+# 		pass
+#
+#
+# if __name__ == '__main__' :
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
-from Tool import QSSTool
 
 
 class Window(QWidget) :
@@ -3853,6 +4025,7 @@ class Window(QWidget) :
 		super().__init__()
 		self.setWindowTitle('QSS-学习')
 		self.resize(640, 480)
+		# self.resize(1200, 936)
 		self.setup_ui()
 		pass
 
@@ -3862,24 +4035,54 @@ class Window(QWidget) :
 
 	def test_cao(self) :
 		print('test')
-		label = QLabel('标签测试', self)
+		label = QSpinBox(self)
+		# layout = QVBoxLayout(self)
+		# layout.addWidget(label)
 		label.resize(300, 300)
-		label.move(100, 100)
+		label.move(0, 0)
 		self.label_border(label)
 		pass
 
 	def label_border(self, label) :
 		label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
-			QLabel {
-				background-color: qlineargradient(x1:0,y1:0, x2:1,y2:1, stop:0 red, stop:0.4 gray, stop:1 green);  /* 设置背景颜色 渐变色 */
-				border-width: 26px;  /* 设置边框宽度 单个参数同时设置四条线，两个参数代表上下，左右，四个参数代表上右下左*/
-				border-style: dotted dashed solid double;    /* 设置边框样式 单个参数同时设置四条线 四个参数为上右下左 点虚线 长虚线 实线 双线 */
-				border-top-style: groove;   /* 单独设置上边框 3D效果 类似实线 */
-				border-color: red;  /* 设置边框颜色 单个参数同时设置四条线，两个参数代表上下，左右，三个参数代表上右下，四个参数代表上右下左*/
-				border-left-color: rgb(255, 0, 255);
-				border-right-color: #00ff00;
+			QSpinBox {
+				font-size: 26px;
+				color: orange;
+				border: 10px double red;
+				border-radius: 10px; /* 边框圆角 */
+				background-color: gray;
 			}
 		""")
+		# label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
+		# 	QSpinBox {
+		# 		font-size: 26px;
+		# 		color: orange;
+		# 		border: 10px double red;
+		# 		border-radius: 10px; /* 边框圆角 */
+		# 		background-color: gray;
+		# 		/*font-family: 隶书;    /* 设置字体家族 */
+		# 		/*font-size: 30px;     /*  设置字体大小 */
+		# 		/*font-style: italic;  /*  设置字体样式 italic 斜体 */
+		# 		/*font-weight: bold;    /*    设置字体粗细 也可写数值*/
+		# 		/*color: orange;      /*  设置字体颜色 */
+		# 		/*min-width: 200px;   /* 设置最小宽度 */
+		# 		/*min-height: 200px;   /* 设置最小高度 */
+		# 		/*max-width: 600px;   /* 设置最大宽度 */
+		# 		/*max-height: 600px;   /* 设置最大高度 */
+		# 		/*background-color: red; */
+		# 	}
+		# """)
+		# label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
+		# 	QTextEdit {
+		# 		background-color: red; /* 设置背景颜色 角度渐变色 起点 角度 中断点*/
+		# 		background-image: url(E:/Pictures/015.jpg); /* 设置背景图片  */
+		# 		background-repeat:no-repeat; /*  设置重复  */
+		# 		background-position: left top;  /* 设置背景图片位置 对齐方式*/
+		# 		background-origin: border; /* 设置原始参照点为border  */
+		# 		background-clip: content; /*   设置裁剪方式  */
+		# 		background-attachment: fixed; /*  禁止背景跟随滚动  */
+		# 	}
+		# """)
 		pass
 
 
@@ -3887,5 +4090,4 @@ if __name__ == '__main__' :
 	app = QApplication(sys.argv)
 	window = Window()
 	window.show()
-	# QSSTool.setQssToObj('test.qss', app)
 	sys.exit(app.exec_())
