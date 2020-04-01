@@ -43,15 +43,15 @@ QCheckBox::indicator { /*  父控件::子控件 */
     /*background-color:red;*/
 }
 QCheckBox::indicator:checked { /*  父控件::子控件:伪状态 点击*/
-    image: url(E:/Pictures/041.jpg); /*  文件路径只能使用/,不能使用\\   */
+    image: url(); /*  文件路径只能使用/,不能使用\\   */
     /*background-color:red;*/
 }
 QCheckBox::indicator:indeterminate { /*  父控件::子控件:伪状态 三态*/
-    image: url(E:/Pictures/沐若昕1.jpg); /*  文件路径只能使用/,不能使用\\   */
+    image: url(); /*  文件路径只能使用/,不能使用\\   */
     /*background-color:red;*/
 }
 QCheckBox::indicator:unchecked { /*  父控件::子控件 松开*/
-    image: url(E:/Pictures/015.jpg); /*  文件路径只能使用/,不能使用\\   */
+    image: url(); /*  文件路径只能使用/,不能使用\\   */
     /*background-color:red;*/
 }
 

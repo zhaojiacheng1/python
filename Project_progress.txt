@@ -40,3 +40,5 @@
 学习了QFormLayout、QGridLayout、QStackedLayout和布局管理器的尺寸策略,掌握其基本用法
 2020.3.30
 学习了QSS的组成部分、选择器、伪状态，掌握其基本用法，并确定项目使用Fanuc 18iMB数控系统
+2020.4.1
+学习了QTDesigner工具的使用、pyuic5、pyrcc5工具的使用

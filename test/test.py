@@ -4016,78 +4016,234 @@
 # 	window = Window()
 # 	window.show()
 # 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget) :
+# 	def __init__(self) :
+# 		super().__init__()
+# 		self.setWindowTitle('QSS-学习')
+# 		self.resize(640, 480)
+# 		# self.resize(1200, 936)
+# 		self.setup_ui()
+# 		pass
+#
+# 	def setup_ui(self) :
+# 		self.test_cao()
+# 		pass
+#
+# 	def test_cao(self) :
+# 		print('test')
+# 		label = QCheckBox(self)
+# 		# layout = QVBoxLayout(self)
+# 		# layout.addWidget(label)
+# 		label.resize(300, 300)
+# 		label.move(0, 0)
+# 		self.label_border(label)
+# 		pass
+#
+# 	def label_border(self, label) :
+# 		label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
+# 			QCheckBox {
+# 				color: gray;
+# 				border: 10px double rgb(76,76,76);
+# 				padding: 5px;
+# 			}
+# 			QCheckBox::indicator {
+# 				subcontrol-origin: border;
+# 				subcontrol-position: left center;
+# 				background: white;
+# 				border: 2px solid gray;
+# 			}
+# 			QCheckBox::indicator:checked {
+# 				background-color: rgb(76,76,76);
+# 			}
+# 		""")
+# 		# label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
+# 		# 	QSpinBox {
+# 		# 		font-size: 26px;
+# 		# 		color: orange;
+# 		# 		border: 10px double red;
+# 		# 		border-radius: 10px; /* 边框圆角 */
+# 		# 		/*background-color: gray;*/
+# 		# 	}
+# 		# 	QSpinBox::up-button, QSpinBox::down-button {
+# 		# 		width: 50px;
+# 		# 		height: 50px;
+# 		# 	}
+# 		# 	QSpinBox::up-button {
+# 		# 		subcontrol-origin: padding;
+# 		# 		subcontrol-position: left center; /* 设置对齐方式 水平对齐方式 垂直对齐方式 */
+# 		# 		image: url(E:/Pictures/041.jpg);
+# 		# 	}
+# 		# 	QSpinBox::up-button:hover {
+# 		# 		bottom: 10px;
+# 		# 	}
+# 		# 	QSpinBox::down-button {
+# 		# 		subcontrol-origin: padding;
+# 		# 		subcontrol-position: right center;
+# 		# 		image: url(E:/Pictures/015.jpg);
+# 		# 	}
+# 		# 	QSpinBox::down-button:hover {
+# 		# 		position: absolute; /*  */
+# 		# 		top: 10px;
+# 		# 	}
+# 		# """)
+# 		# label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
+# 		# 	QSpinBox {
+# 		# 		font-size: 26px;
+# 		# 		color: orange;
+# 		# 		border: 10px double red;
+# 		# 		border-radius: 10px; /* 边框圆角 */
+# 		# 		background-color: gray;
+# 		# 		/*font-family: 隶书;    /* 设置字体家族 */
+# 		# 		/*font-size: 30px;     /*  设置字体大小 */
+# 		# 		/*font-style: italic;  /*  设置字体样式 italic 斜体 */
+# 		# 		/*font-weight: bold;    /*    设置字体粗细 也可写数值*/
+# 		# 		/*color: orange;      /*  设置字体颜色 */
+# 		# 		/*min-width: 200px;   /* 设置最小宽度 */
+# 		# 		/*min-height: 200px;   /* 设置最小高度 */
+# 		# 		/*max-width: 600px;   /* 设置最大宽度 */
+# 		# 		/*max-height: 600px;   /* 设置最大高度 */
+# 		# 		/*background-color: red; */
+# 		# 	}
+# 		# """)
+# 		# label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
+# 		# 	QTextEdit {
+# 		# 		background-color: red; /* 设置背景颜色 角度渐变色 起点 角度 中断点*/
+# 		# 		background-image: url(E:/Pictures/015.jpg); /* 设置背景图片  */
+# 		# 		background-repeat:no-repeat; /*  设置重复  */
+# 		# 		background-position: left top;  /* 设置背景图片位置 对齐方式*/
+# 		# 		background-origin: border; /* 设置原始参照点为border  */
+# 		# 		background-clip: content; /*   设置裁剪方式  */
+# 		# 		background-attachment: fixed; /*  禁止背景跟随滚动  */
+# 		# 	}
+# 		# """)
+# 		pass
+#
+#
+# if __name__ == '__main__' :
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+# 	def __init__(self):
+# 		super().__init__()
+# 		self.setWindowTitle('级联与冲突-学习')
+# 		self.resize(640, 480)
+# 		# self.resize(1200, 936)
+# 		self.setup_ui()
+# 		pass
+#
+# 	def setup_ui(self):
+# 		self.test_cao()
+# 		pass
+#
+# 	def test_cao(self):
+# 		print('test')
+# 		btn1 = QPushButton('b1', self)
+# 		btn2 = QPushButton('b2', self)
+# 		btn1.setObjectName('b1')
+# 		btn2.setObjectName('b2')
+# 		btn1.move(100, 100)
+# 		btn2.move(200, 200)
+# 		self.setStyleSheet("""
+# 			QPushButton {
+# 				color: red;
+# 			}
+# 			QAbstractButton {
+# 				color: blue;
+# 			}
+# 		""")
+# 		# self.setStyleSheet("""
+# 		# 	QPushButton:enabled:hover {
+# 		# 		color: blue;
+# 		# 	}
+# 		# 	QPushButton:hover {
+# 		# 		color: red;
+# 		# 	}
+# 		# """)
+# 		pass
+#
+# 	def label_border(self, label):
+# 		pass
+#
+#
+# if __name__ == '__main__':
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# import qdarkgraystyle
+
+# class Window(QWidget):
+# 	def __init__(self):
+# 		super().__init__()
+# 		self.setWindowTitle('样式表-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+# 		pass
+
+# 	def setup_ui(self):
+# 		layout = QVBoxLayout(self)
+# 		label = QLabel('xxx')
+# 		layout.addWidget(label)
+# 		btn = QPushButton('xx2')
+# 		layout.addWidget(btn)
+# 		cb = QComboBox()
+# 		cb.addItems([ '1', '2', '3' ])
+# 		layout.addWidget(cb)
+# 		sb = QSpinBox()
+# 		layout.addWidget(sb)
+# 		self.test_cao()
+# 		pass
+
+# 	def test_cao(self):
+# 		print('test')
+
+# if __name__ == '__main__':
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	style_sheet = qdarkgraystyle.load_stylesheet_pyqt5()
+# 	print(style_sheet)
+# 	app.setStyleSheet(style_sheet)
+# 	sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
+import qdarkgraystyle
+from Tool import QSSTool
 
 
-class Window(QWidget) :
-	def __init__(self) :
+class Window(QWidget):
+	def __init__(self):
 		super().__init__()
-		self.setWindowTitle('QSS-学习')
+		self.setWindowTitle('案例-学习')
 		self.resize(640, 480)
-		# self.resize(1200, 936)
 		self.setup_ui()
 		pass
 
-	def setup_ui(self) :
-		self.test_cao()
+	def setup_ui(self):
+		w = QSlider(Qt.Horizontal, self)
+		w.resize(200, 200)
+		w.move(100, 100)
 		pass
 
-	def test_cao(self) :
+	def test_cao(self):
 		print('test')
-		label = QSpinBox(self)
-		# layout = QVBoxLayout(self)
-		# layout.addWidget(label)
-		label.resize(300, 300)
-		label.move(0, 0)
-		self.label_border(label)
-		pass
-
-	def label_border(self, label) :
-		label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
-			QSpinBox {
-				font-size: 26px;
-				color: orange;
-				border: 10px double red;
-				border-radius: 10px; /* 边框圆角 */
-				background-color: gray;
-			}
-		""")
-		# label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
-		# 	QSpinBox {
-		# 		font-size: 26px;
-		# 		color: orange;
-		# 		border: 10px double red;
-		# 		border-radius: 10px; /* 边框圆角 */
-		# 		background-color: gray;
-		# 		/*font-family: 隶书;    /* 设置字体家族 */
-		# 		/*font-size: 30px;     /*  设置字体大小 */
-		# 		/*font-style: italic;  /*  设置字体样式 italic 斜体 */
-		# 		/*font-weight: bold;    /*    设置字体粗细 也可写数值*/
-		# 		/*color: orange;      /*  设置字体颜色 */
-		# 		/*min-width: 200px;   /* 设置最小宽度 */
-		# 		/*min-height: 200px;   /* 设置最小高度 */
-		# 		/*max-width: 600px;   /* 设置最大宽度 */
-		# 		/*max-height: 600px;   /* 设置最大高度 */
-		# 		/*background-color: red; */
-		# 	}
-		# """)
-		# label.setStyleSheet("""       /* 三个双引号对定义多行字符串 */
-		# 	QTextEdit {
-		# 		background-color: red; /* 设置背景颜色 角度渐变色 起点 角度 中断点*/
-		# 		background-image: url(E:/Pictures/015.jpg); /* 设置背景图片  */
-		# 		background-repeat:no-repeat; /*  设置重复  */
-		# 		background-position: left top;  /* 设置背景图片位置 对齐方式*/
-		# 		background-origin: border; /* 设置原始参照点为border  */
-		# 		background-clip: content; /*   设置裁剪方式  */
-		# 		background-attachment: fixed; /*  禁止背景跟随滚动  */
-		# 	}
-		# """)
-		pass
 
 
-if __name__ == '__main__' :
+if __name__ == '__main__':
 	app = QApplication(sys.argv)
+	QSSTool.setQssToObj('demo.qss', app)
 	window = Window()
 	window.show()
 	sys.exit(app.exec_())
