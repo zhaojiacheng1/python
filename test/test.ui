@@ -184,5 +184,25 @@ border-radius: 10px;</string>
  <resources>
   <include location="test2.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>btn_click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>480</x>
+     <y>293</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>611</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>btn_click()</slot>
+ </slots>
 </ui>

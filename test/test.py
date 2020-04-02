@@ -4217,33 +4217,210 @@
 # 	print(style_sheet)
 # 	app.setStyleSheet(style_sheet)
 # 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# import qdarkgraystyle
+# from Tool import QSSTool
+# 
+# 
+# class Window(QWidget):
+# 	def __init__(self):
+# 		super().__init__()
+# 		self.setWindowTitle('案例-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+# 		pass
+# 
+# 	def setup_ui(self):
+# 		w = QSlider(Qt.Horizontal, self)
+# 		w.resize(200, 200)
+# 		w.move(100, 100)
+# 		pass
+# 
+# 	def test_cao(self):
+# 		print('test')
+# 
+# 
+# if __name__ == '__main__':
+# 	app = QApplication(sys.argv)
+# 	QSSTool.setQssToObj('demo.qss', app)
+# 	window = Window()
+# 	window.show()
+# 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Btn(QPushButton):
+# 	# rightClicked = pyqtSignal(str)  # 自定义信号，必须定义为类属性 向外发射的数据类型
+# 	rightClicked = pyqtSignal([ str ], [ int, str ])  # 自定义信号，必须定义为类属性 向外发射的数据类型 只发送一个数据但是数据格式有可能是str也有可能是int
+#
+# 	def mousePressEvent(self, evt):
+# 		super().mousePressEvent(evt)
+# 		if evt.button() == Qt.RightButton:
+# 			# print('右击信号')
+# 			self.rightClicked[ str ].emit(self.text())  # 发射信号
+# 			self.rightClicked[ int, str ].emit(888, 'itlike')  # 发射信号
+# 		pass
+#
+#
+# class Window(QWidget):
+# 	def __init__(self):
+# 		super().__init__()
+# 		self.setWindowTitle('信号-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+# 		pass
+#
+# 	def setup_ui(self):
+# 		btn = Btn('xx', self)
+# 		# btn.clicked.connect(lambda: print('按钮被点击了'))
+# 		btn.rightClicked[ int, str ].connect(lambda content, p_str: print('按钮右键被点击了', content, p_str))
+# 		btn.pressed.connect(lambda: print('按钮被按下'))
+# 		pass
+#
+#
+# if __name__ == '__main__':
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+# 	def __init__(self):
+# 		super().__init__()
+# 		self.setWindowTitle('动画-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+# 		pass
+#
+# 	def setup_ui(self):
+# 		btn = QPushButton('测试按钮', self)
+# 		btn.resize(100, 100)
+# 		btn.move(100, 100)
+# 		btn.setStyleSheet('background-color:cyan;')
+# 		animation = QPropertyAnimation(self)  # 创建动画对象 设置父控件
+# 		animation.setTargetObject(btn)  # 设置目标对象
+# 		animation.setPropertyName(b'pos')  # 设置属性windowOpacity,不透明度
+# 		# animation.setStartValue(1)  # 设置开始不透明度
+# 		# animation.setKeyValueAt(0.5, 0.5)
+# 		# animation.setKeyValueAt(1, 1)
+# 		# animation.setEndValue(1)  # 设置结束不透明度
+# 		# animation.setTargetObject(btn)  # 设置目标对象
+# 		# animation.setPropertyName(b'geometry')  # 设置属性geometry
+# 		# animation.setStartValue(QRect(0, 0, 100, 100))  # 设置动画的起始位置
+# 		# animation.setEndValue(QRect(200, 200, 300, 300))  # 设置动画的结束位置
+# 		# animation.setPropertyName(b'size')  # 设置属性size
+# 		# animation.setStartValue(QSize(0, 0))  # 设置动画的起始位置
+# 		# animation.setEndValue(QSize(300, 300))  # 设置动画的结束位置
+# 		# animation.setDuration(3000)  # 设置动画的持续市场
+# 		# animation.setEasingCurve(QEasingCurve.InQuad)
+# 		# animation.start()
+# 		# animation.setPropertyName(b'pos')  # 设置属性pos
+# 		# animation = QPropertyAnimation(btn, b'pos', self)  # 创建动画对象 设置父控件
+# 		animation.setStartValue(QPoint(0, 0))  # 设置动画的起始位置
+# 		animation.setEndValue(QPoint(300, 300))  # 设置动画的结束位置
+# 		animation.setDuration(3000)  # 设置动画的持续市场
+# 		# animation.setEasingCurve(QEasingCurve.OutQuad)
+# 		animation.setLoopCount(3)  # 设置循环的次数
+# 		animation.setEasingCurve(QEasingCurve.OutBounce)  # 设置动画的运动过程
+# 		animation.setDirection(QAbstractAnimation.Backward)  # 设置动画额运动方向
+# 		animation.start()
+#
+# 		# print(animation.totalDuration(), animation.duration())
+# 		# btn.clicked.connect(lambda: print(animation.loopCount(), animation.currentLoop()))  # 循环次数 当前循环次数
+# 		# btn.clicked.connect(lambda: print(animation.currentTime(), animation.currentLoopTime()))  # 循环时间
+# 		# self.flag = True
+# 		#
+# 		# def animation_operation():
+# 		# 	if self.flag:
+# 		# 		animation.pause()  # 设置动画暂停
+# 		# 		self.flag = False
+# 		# 	else:
+# 		# 		animation.resume()  # 设置动画继续运行
+# 		# 		self.flag = True
+# 		# 	pass
+#
+# 		def animation_operation():
+# 			if animation.state() == QAbstractAnimation.Running:
+# 				animation.pause()  # 设置动画暂停
+# 			elif animation.state() == QAbstractAnimation.Paused:
+# 				animation.resume()  # 设置动画继续运行
+# 			pass
+#
+# 		btn.clicked.connect(animation_operation)
+# 		animation.currentLoopChanged.connect(lambda val: print('当前循环次数发生改变', val))
+# 		animation.finished.connect(lambda: print('动画执行完毕'))
+# 		animation.stateChanged.connect(lambda ns, os: print('状态改变', ns, os))
+# 		pass
+#
+#
+# if __name__ == '__main__':
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	sys.exit(app.exec_())
 import sys
 from PyQt5.Qt import *
-import qdarkgraystyle
-from Tool import QSSTool
 
 
 class Window(QWidget):
 	def __init__(self):
 		super().__init__()
-		self.setWindowTitle('案例-学习')
+		self.setWindowTitle('动画组-学习')
 		self.resize(640, 480)
 		self.setup_ui()
 		pass
 
 	def setup_ui(self):
-		w = QSlider(Qt.Horizontal, self)
-		w.resize(200, 200)
-		w.move(100, 100)
+		red_btn = QPushButton('红色按钮', self)
+		green_btn = QPushButton('绿色按钮', self)
+		red_btn.resize(100, 100)
+		green_btn.resize(100, 100)
+		green_btn.move(150, 150)
+		red_btn.setStyleSheet("""
+			background-color:red;
+		""")
+		green_btn.setStyleSheet("""
+			background-color:green;
+		""")
+		animation = QPropertyAnimation(green_btn, b'pos', self)
+		animation.setKeyValueAt(0, QPoint(150, 150))
+		animation.setKeyValueAt(0.25, QPoint(320, 150))  # 前一个参数指的是时间点，总时间的0.25处
+		animation.setKeyValueAt(0.5, QPoint(320, 240))
+		animation.setKeyValueAt(0.75, QPoint(150, 240))
+		animation.setKeyValueAt(1, QPoint(150, 150))
+		animation.setDuration(5000)
+		# animation.setLoopCount(3)
+		# animation.start()
+		animation2 = QPropertyAnimation(red_btn, b'pos', self)
+		animation2.setKeyValueAt(0, QPoint(0, 0))
+		animation2.setKeyValueAt(0.25, QPoint(0, 380))  # 前一个参数指的是时间点，总时间的0.25处
+		animation2.setKeyValueAt(0.5, QPoint(540, 380))
+		animation2.setKeyValueAt(0.75, QPoint(540, 0))
+		animation2.setKeyValueAt(1, QPoint(0, 0))
+		animation2.setDuration(5000)
+		# animation2.setLoopCount(3)
+		# animation2.start()
+		# animation_group1 = QParallelAnimationGroup(self)  # 设置并行动画组
+		animation_group1 = QSequentialAnimationGroup(self)  # 设置串行动画组
+		animation_group1.addAnimation(animation)
+		# animation_group1.addPause(5000)  # 设置暂停时间 只有串行动画才有
+		pause_animation = QPauseAnimation()
+		pause_animation.setPaused(5000)
+		animation_group1.addAnimation(pause_animation)
+		animation_group1.addAnimation(animation2)
+		animation_group1.start()
+		red_btn.clicked.connect(animation_group1.pause)
+		green_btn.clicked.connect(animation_group1.resume)
 		pass
-
-	def test_cao(self):
-		print('test')
 
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
-	QSSTool.setQssToObj('demo.qss', app)
 	window = Window()
 	window.show()
 	sys.exit(app.exec_())

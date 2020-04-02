@@ -66,6 +66,7 @@ class Ui_Form(object):
 		self.verticalLayout.addItem(spacerItem5)
 
 		self.retranslateUi(Form)
+		self.pushButton.clicked.connect(Form.btn_click)
 		QtCore.QMetaObject.connectSlotsByName(Form)
 
 	def retranslateUi(self, Form):
@@ -76,7 +77,7 @@ class Ui_Form(object):
 		self.pushButton.setText(_translate("Form", "登录"))
 
 
-# import test2_rc
+import test2_rc
 
 if __name__ == "__main__":
 	import sys
