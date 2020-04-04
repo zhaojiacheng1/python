@@ -9,8 +9,8 @@ class RegisterPane(QWidget, Ui_Form):
 	exit_signal = pyqtSignal()
 	register_account_pwd_signal = pyqtSignal(str, str)
 
-	def __init__(self):
-		super().__init__()
+	def __init__(self, parent=None, *args, **kwargs):
+		super().__init__(parent, *args, **kwargs)
 		self.setAttribute(Qt.WA_StyledBackground, True)  # 设置属性，使资源文件可以加载
 		self.setupUi(self)
 		self.animation_targets = [ self.about_menu_btn, self.reset_menu_btn, self.exit_menu_btn ]

@@ -4,7 +4,7 @@
 
 Git is free software  
 Git is a test!  
-Git 在ubuntu上的实验   
+Git在ubuntu上的实验  
 Creating a new branch is quick!  
 git pull test  
 branch merge test
@@ -58,7 +58,7 @@ branch merge test
 
 ## 2020.3.22
 
-学习了QAbstractSpinBox,掌握其基本用法
+学习了QAbstractSpinBox, 掌握其基本用法
 
 ## 2020.3.23
 
@@ -86,7 +86,7 @@ branch merge test
 
 ## 2020.3.29
 
-学习了QFormLayout、QGridLayout、QStackedLayout和布局管理器的尺寸策略,掌握其基本用法
+学习了QFormLayout、QGridLayout、QStackedLayout和布局管理器的尺寸策略, 掌握其基本用法
 
 ## 2020.3.30
 
@@ -103,3 +103,8 @@ branch merge test
 ## 2020.4.3
 
 学习综合案例，了解项目整体设计流程以及文件夹结构
+
+## 2020.4.4
+
+学习动画、页面跳转、UI文件产生的类封装
+
