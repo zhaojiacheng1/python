@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="framework">
+    <file>images/left_btn.jpg</file>
+  </qresource>
+</RCC>
