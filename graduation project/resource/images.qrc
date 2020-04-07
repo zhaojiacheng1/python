@@ -1,5 +1,43 @@
 <RCC>
   <qresource prefix="framework">
-    <file>images/left_btn.jpg</file>
+    <file>images/1_Btn.png</file>
+    <file>images/2_Btn.png</file>
+    <file>images/3_Btn.png</file>
+    <file>images/4_Btn.png</file>
+    <file>images/5_Btn.png</file>
+    <file>images/6_Btn.png</file>
+    <file>images/7_Btn.png</file>
+    <file>images/8_Btn.png</file>
+    <file>images/9_Btn.png</file>
+    <file>images/B_Btn.png</file>
+    <file>images/D_Btn.png</file>
+    <file>images/down_btn.png</file>
+    <file>images/F_Btn.png</file>
+    <file>images/G_Btn.png</file>
+    <file>images/H_Btn.png</file>
+    <file>images/I_Btn.png</file>
+    <file>images/J_Btn.png</file>
+    <file>images/K_Btn.png</file>
+    <file>images/L_Btn.png</file>
+    <file>images/left_btn.png</file>
+    <file>images/left_btn1.png</file>
+    <file>images/M_Btn.png</file>
+    <file>images/N_Btn.png</file>
+    <file>images/O_Btn.png</file>
+    <file>images/P_Btn.png</file>
+    <file>images/Q_Btn.png</file>
+    <file>images/R_Btn.png</file>
+    <file>images/right_btn.png</file>
+    <file>images/S_Btn.png</file>
+    <file>images/T_Btn.png</file>
+    <file>images/up_btn.png</file>
+    <file>images/X_Btn.png</file>
+    <file>images/Y_Btn.png</file>
+    <file>images/Z_Btn.png</file>
+    <file>images/down_btn.png</file>
+    <file>images/left_btn.png</file>
+    <file>images/left_btn1.png</file>
+    <file>images/right_btn.png</file>
+    <file>images/right_btn1.png</file>
   </qresource>
 </RCC>

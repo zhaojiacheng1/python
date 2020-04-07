@@ -26,6 +26,9 @@
    <string>FANUC Series 18i MB</string>
   </property>
   <layout class="QGridLayout" name="gridLayout" rowstretch="10,1,8" columnstretch="2,1">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetDefaultConstraint</enum>
+   </property>
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -41,18 +44,3798 @@
    <property name="spacing">
     <number>0</number>
    </property>
-   <item row="0" column="0">
-    <widget class="QWidget" name="widget" native="true">
+   <item row="2" column="0">
+    <widget class="QWidget" name="widget_2" native="true">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(85, 33, 255);</string>
+      <string notr="true">background-color: rgb(67, 67, 67);</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2" rowstretch="5,2" columnstretch="2,9,3">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <property name="spacing">
+       <number>1</number>
+      </property>
+      <item row="0" column="2" rowspan="2">
+       <widget class="QWidget" name="widget_8" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(128, 128, 128);</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" rowspan="2">
+       <widget class="QWidget" name="widget_7" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(128, 128, 128);</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QWidget" name="widget_5" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(128, 128, 128);</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <property name="leftMargin">
+          <number>2</number>
+         </property>
+         <property name="topMargin">
+          <number>2</number>
+         </property>
+         <property name="rightMargin">
+          <number>2</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="Btn_RESET">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>RESET</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="Btn_O">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/O_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QPushButton" name="Btn_N">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/N_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QPushButton" name="Btn_G">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/G_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QPushButton" name="Btn_P">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/P_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="5">
+          <widget class="QPushButton" name="Btn_7">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/7_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="6">
+          <widget class="QPushButton" name="Btn_8">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/8_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="7">
+          <widget class="QPushButton" name="Btn_9">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/9_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="8">
+          <widget class="QPushButton" name="Btn_ALTER">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>ALTER</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="pushButton_22">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="Btn_X">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/X_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QPushButton" name="Btn_Y">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/Y_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QPushButton" name="Btn_Z">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/Z_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QPushButton" name="Btn_Q">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/Q_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="5">
+          <widget class="QPushButton" name="Btn_4">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/4_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="6">
+          <widget class="QPushButton" name="Btn_5">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/5_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="7">
+          <widget class="QPushButton" name="Btn_6">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/6_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="8">
+          <widget class="QPushButton" name="Btn_INSERT">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>INSERT</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="Btn_I">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/I_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QPushButton" name="Btn_J">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/J_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QPushButton" name="Btn_K">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/K_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="QPushButton" name="Btn_R">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/R_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="5">
+          <widget class="QPushButton" name="Btn_1">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/1_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="6">
+          <widget class="QPushButton" name="Btn_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/2_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="7">
+          <widget class="QPushButton" name="Btn_3">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/3_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="8">
+          <widget class="QPushButton" name="Btn_DELETE">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>DELETE</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="pushButton_24">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QPushButton" name="Btn_M">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/M_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QPushButton" name="Btn_S">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/S_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QPushButton" name="Btn_T">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/T_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="4">
+          <widget class="QPushButton" name="Btn_L">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/L_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="5">
+          <widget class="QPushButton" name="Btn_Minus">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>28</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);</string>
+           </property>
+           <property name="text">
+            <string>-</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="6">
+          <widget class="QPushButton" name="Btn_0">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>17</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);</string>
+           </property>
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="7">
+          <widget class="QPushButton" name="Btn_Dot">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);</string>
+           </property>
+           <property name="text">
+            <string>.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="8">
+          <widget class="QPushButton" name="pushButton_49">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QPushButton" name="Btn_SHIFT">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>SHIFT</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QPushButton" name="Btn_F">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/F_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="QPushButton" name="Btn_D">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/D_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QPushButton" name="Btn_H">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/H_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="4">
+          <widget class="QPushButton" name="Btn_B">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);
+image: url(:/framework/images/B_Btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="5">
+          <widget class="QPushButton" name="Btn_Slash">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>17</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);</string>
+           </property>
+           <property name="text">
+            <string>/</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="6">
+          <widget class="QPushButton" name="Btn_EOB">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);</string>
+           </property>
+           <property name="text">
+            <string>EOB</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="7">
+          <widget class="QPushButton" name="Btn_CAN">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>CAN</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="8">
+          <widget class="QPushButton" name="Btn_INPUT">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>INPUT</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="Btn_HELP">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>HELP</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QWidget" name="widget_6" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(128, 128, 128);</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <property name="leftMargin">
+          <number>2</number>
+         </property>
+         <property name="topMargin">
+          <number>2</number>
+         </property>
+         <property name="rightMargin">
+          <number>2</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="Btn_DOWN">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="Btn_PAGE_UP">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>UP</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2" rowspan="2">
+          <widget class="QPushButton" name="Btn_LEFT">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+image: url(:/framework/images/left_btn1.png);
+</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QPushButton" name="Btn_UP">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+image: url(:/framework/images/up_btn.png);
+</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4" rowspan="2">
+          <widget class="QPushButton" name="Btn_RIGHT">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+image: url(:/framework/images/right_btn1.png);
+</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="5">
+          <widget class="QPushButton" name="Btn_POS">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>POS</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="6">
+          <widget class="QPushButton" name="Btn_PROG">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>PROG</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="7">
+          <widget class="QPushButton" name="Btn_SETTING">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>6</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>SETTING</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="8">
+          <widget class="QPushButton" name="Btn_CUSTCM">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>7</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>CUSTCM</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="pushButton_71">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(167, 167, 167);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="Btn_PAGE_DOWN">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>DOWN</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QPushButton" name="Btn_DOWN_2">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+image: url(:/framework/images/down_btn.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="5">
+          <widget class="QPushButton" name="Btn_SYSTEM">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>SYSTEM</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="6">
+          <widget class="QPushButton" name="Btn_MESSAGE">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>7</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>MESSAGE</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="7">
+          <widget class="QPushButton" name="Btn_GRAPH">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>GRAPH</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="8">
+          <widget class="QPushButton" name="pushButton_67">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QWidget" name="main_window" native="true">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(64, 64, 64);</string>
      </property>
     </widget>
    </item>
    <item row="0" column="1" rowspan="3">
     <widget class="QWidget" name="widget_3" native="true">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 0, 0);</string>
+      <string notr="true"/>
      </property>
+     <layout class="QGridLayout" name="gridLayout_3" rowstretch="15,3" columnstretch="7,9">
+      <property name="leftMargin">
+       <number>2</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>1</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>0</number>
+      </property>
+      <item row="0" column="0" rowspan="2">
+       <widget class="QWidget" name="widget_9" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(127, 255, 107);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <property name="leftMargin">
+          <number>3</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QDial" name="dial_5">
+           <property name="minimumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="notchesVisible">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_4">
+           <property name="minimumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="minimum">
+            <number>50</number>
+           </property>
+           <property name="maximum">
+            <number>120</number>
+           </property>
+           <property name="singleStep">
+            <number>10</number>
+           </property>
+           <property name="invertedAppearance">
+            <bool>false</bool>
+           </property>
+           <property name="invertedControls">
+            <bool>false</bool>
+           </property>
+           <property name="wrapping">
+            <bool>false</bool>
+           </property>
+           <property name="notchTarget">
+            <double>10.000000000000000</double>
+           </property>
+           <property name="notchesVisible">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_3">
+           <property name="minimumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Btn_Emergency_STOP">
+           <property name="minimumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>30</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(217, 0, 0);</string>
+           </property>
+           <property name="text">
+            <string>STOP</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QWidget" name="widget_11" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(127, 255, 107);</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_6">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>2</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>A+</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_2">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>Z+</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_3">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>Y-</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="Btn_A_Positive">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="Btn_Z_Positive">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QPushButton" name="Btn_Y_Negative">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>X+</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="label_5">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>RAPID</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="label_4">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>X-</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="Btn_X_Positive">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QPushButton" name="Btn_RAPID">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QPushButton" name="Btn_X_Negative">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_9">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>Y+</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLabel" name="label_8">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>Z-</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="label_7">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>A-</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QPushButton" name="Btn_Y_Positive">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QPushButton" name="Btn_Z_Negative">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="2">
+          <widget class="QPushButton" name="Btn_A_Negative">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_12">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>ON</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLabel" name="label_11">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>STOP</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2">
+          <widget class="QLabel" name="label_10">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>COW</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QPushButton" name="Btn_ON">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QPushButton" name="Btn_STOP">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(217, 0, 0);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="2">
+          <widget class="QPushButton" name="Btn_COW">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_15">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>DRN</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLabel" name="label_14">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>SRN</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="2">
+          <widget class="QLabel" name="label_13">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>TOOL</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="0">
+          <widget class="QPushButton" name="Btn_DRN">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QPushButton" name="Btn_SRN">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="2">
+          <widget class="QPushButton" name="Btn_TOOL">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="label_18">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>DNC</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1">
+          <widget class="QLabel" name="label_17">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>MSTLOCK</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="2">
+          <widget class="QLabel" name="label_16">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>COOL</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="0">
+          <widget class="QPushButton" name="Btn_DNC">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="1">
+          <widget class="QPushButton" name="Btn_MSTLOCK">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="2">
+          <widget class="QPushButton" name="Btn_COOL">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="0">
+          <widget class="QLabel" name="label_21">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>SBK</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="1">
+          <widget class="QLabel" name="label_20">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>SKIP</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="2">
+          <widget class="QLabel" name="label_19">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>DRIVE</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="0">
+          <widget class="QPushButton" name="Btn_SBK">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="1">
+          <widget class="QPushButton" name="Btn_SKIP">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="2">
+          <widget class="QPushButton" name="Btn_DRIVE">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="0">
+          <widget class="QLabel" name="label_24">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>MPG</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="1">
+          <widget class="QLabel" name="label_23">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>MO1</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="2">
+          <widget class="QLabel" name="label_22">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>PROTECT</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="15" column="0">
+          <widget class="QPushButton" name="Btn_MPG">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="15" column="1">
+          <widget class="QPushButton" name="Btn_M01">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="15" column="2">
+          <widget class="QPushButton" name="Btn_PROTECT">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="0">
+          <widget class="QLabel" name="label_27">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="1">
+          <widget class="QLabel" name="label_26">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="16" column="2">
+          <widget class="QLabel" name="label_25">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="17" column="0">
+          <widget class="QPushButton" name="pushButton_100">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="17" column="1">
+          <widget class="QPushButton" name="pushButton_98">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(217, 0, 0);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="17" column="2">
+          <widget class="QPushButton" name="pushButton_99">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(217, 0, 0);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="18" column="0">
+          <widget class="QLabel" name="label_30">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>OFF</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="18" column="1">
+          <widget class="QLabel" name="label_29">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="18" column="2">
+          <widget class="QLabel" name="label_28">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32, 32, 32);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>ON</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="19" column="0">
+          <widget class="QPushButton" name="Btn_Power_OFF">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(217, 0, 0);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="19" column="1">
+          <widget class="QPushButton" name="pushButton_101">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="19" column="2">
+          <widget class="QPushButton" name="Btn_Power_ON">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(26, 181, 152);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QWidget" name="widget_10" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(40, 40, 40);</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item row="1" column="0">
@@ -68,7 +3851,7 @@
        <number>2</number>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="Btn_BACK">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -84,10 +3867,17 @@
         <property name="styleSheet">
          <string notr="true">QPushButton {
 	background-color: rgb(222, 222, 222);
+	image: url(:/framework/images/left_btn.png);
 }</string>
         </property>
         <property name="text">
-         <string>&lt;--</string>
+         <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
         </property>
         <property name="flat">
          <bool>false</bool>
@@ -335,7 +4125,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_12">
+       <widget class="QPushButton" name="Btn_GO">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -351,6 +4141,7 @@
         <property name="styleSheet">
          <string notr="true">QPushButton {
 	background-color: rgb(222, 222, 222);
+	image: url(:/framework/images/right_btn.png);
 }</string>
         </property>
         <property name="text">
@@ -359,13 +4150,6 @@
        </widget>
       </item>
      </layout>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QWidget" name="widget_2" native="true">
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(67, 67, 67);</string>
-     </property>
     </widget>
    </item>
   </layout>
