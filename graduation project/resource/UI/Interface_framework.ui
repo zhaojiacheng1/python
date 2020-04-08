@@ -1419,6 +1419,7 @@ image: url(:/framework/images/B_Btn.png);</string>
            </property>
            <property name="font">
             <font>
+             <pointsize>11</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -2014,143 +2015,133 @@ image: url(:/framework/images/down_btn.png);</string>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(127, 255, 107);</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <property name="spacing">
-          <number>2</number>
+        <widget class="QPushButton" name="Btn_Emergency_STOP">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>615</y>
+           <width>145</width>
+           <height>145</height>
+          </rect>
          </property>
-         <property name="leftMargin">
-          <number>3</number>
+         <property name="minimumSize">
+          <size>
+           <width>145</width>
+           <height>145</height>
+          </size>
          </property>
-         <property name="topMargin">
-          <number>0</number>
+         <property name="maximumSize">
+          <size>
+           <width>145</width>
+           <height>145</height>
+          </size>
          </property>
-         <property name="rightMargin">
-          <number>0</number>
+         <property name="font">
+          <font>
+           <pointsize>30</pointsize>
+          </font>
          </property>
-         <property name="bottomMargin">
-          <number>0</number>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#Btn_Emergency_STOP {
+	background-color: rgb(217, 0, 0);
+	image: url(:/framework/images/Emergency_STOP_Close.png);
+}
+QPushButton#Btn_Emergency_STOP:checked {
+	background-color: rgb(217, 0, 0);
+	image: url(:/framework/images/Emergency_STOP_Open.png);
+}</string>
          </property>
-         <item>
-          <widget class="QDial" name="dial_5">
-           <property name="minimumSize">
-            <size>
-             <width>145</width>
-             <height>145</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>145</width>
-             <height>145</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="notchesVisible">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDial" name="dial_4">
-           <property name="minimumSize">
-            <size>
-             <width>145</width>
-             <height>145</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>145</width>
-             <height>145</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="minimum">
-            <number>50</number>
-           </property>
-           <property name="maximum">
-            <number>120</number>
-           </property>
-           <property name="singleStep">
-            <number>10</number>
-           </property>
-           <property name="invertedAppearance">
-            <bool>false</bool>
-           </property>
-           <property name="invertedControls">
-            <bool>false</bool>
-           </property>
-           <property name="wrapping">
-            <bool>false</bool>
-           </property>
-           <property name="notchTarget">
-            <double>10.000000000000000</double>
-           </property>
-           <property name="notchesVisible">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDial" name="dial_3">
-           <property name="minimumSize">
-            <size>
-             <width>145</width>
-             <height>145</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>145</width>
-             <height>145</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="Btn_Emergency_STOP">
-           <property name="minimumSize">
-            <size>
-             <width>145</width>
-             <height>145</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>145</width>
-             <height>145</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>30</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(217, 0, 0);</string>
-           </property>
-           <property name="text">
-            <string>STOP</string>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QSlider" name="verticalSlider">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>30</y>
+           <width>20</width>
+           <height>145</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>20</width>
+           <height>145</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>20</width>
+           <height>145</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="maximum">
+          <number>12</number>
+         </property>
+         <property name="pageStep">
+          <number>1</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="tickPosition">
+          <enum>QSlider::TicksAbove</enum>
+         </property>
+         <property name="tickInterval">
+          <number>1</number>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>71</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QDial" name="dial">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>250</y>
+           <width>140</width>
+           <height>140</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>140</width>
+           <height>140</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>140</width>
+           <height>140</height>
+          </size>
+         </property>
+         <property name="maximum">
+          <number>120</number>
+         </property>
+         <property name="singleStep">
+          <number>10</number>
+         </property>
+         <property name="notchesVisible">
+          <bool>true</bool>
+         </property>
+        </widget>
        </widget>
       </item>
       <item row="0" column="1">
@@ -3335,13 +3326,21 @@ color: rgb(255, 255, 255);</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(26, 181, 152);</string>
+            <string notr="true">QPushButton#Btn_DRIVE {
+	background-color: rgb(26, 181, 152);
+	image: url(:/framework/images/DRIVE_Close.png);
+}
+QPushButton#Btn_DRIVE:checked {
+	background-color: rgb(26, 181, 152);
+	image: url(:/framework/images/DRIVE_Open.png);
+}
+</string>
            </property>
            <property name="text">
             <string/>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -3503,13 +3502,21 @@ color: rgb(255, 255, 255);</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(26, 181, 152);</string>
+            <string notr="true">QPushButton#Btn_PROTECT {
+	background-color: rgb(26, 181, 152);
+	image: url(:/framework/images/DRIVE_Close.png);
+}
+QPushButton#Btn_PROTECT:checked {
+	background-color: rgb(26, 181, 152);
+	image: url(:/framework/images/DRIVE_Open.png);
+}
+</string>
            </property>
            <property name="text">
             <string/>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -3528,7 +3535,7 @@ color: rgb(255, 255, 255);</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(32, 32, 32);
+            <string notr="true">image: url(:/framework/images/Diamond_icon.png);
 color: rgb(255, 255, 255);</string>
            </property>
            <property name="text">
@@ -3551,7 +3558,7 @@ color: rgb(255, 255, 255);</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(32, 32, 32);
+            <string notr="true">image: url(:/framework/images/Triangle_icon.png);
 color: rgb(255, 255, 255);</string>
            </property>
            <property name="text">
@@ -3574,7 +3581,7 @@ color: rgb(255, 255, 255);</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(32, 32, 32);
+            <string notr="true">image: url(:/framework/images/Slash_icon.png);
 color: rgb(255, 255, 255);</string>
            </property>
            <property name="text">

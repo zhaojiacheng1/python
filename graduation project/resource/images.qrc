@@ -1,5 +1,12 @@
 <RCC>
   <qresource prefix="framework">
+    <file>images/Emergency_STOP_Close.png</file>
+    <file>images/Emergency_STOP_Open.png</file>
+    <file>images/DRIVE_Close.png</file>
+    <file>images/DRIVE_Open.png</file>
+    <file>images/Slash_icon.png</file>
+    <file>images/Triangle_icon.png</file>
+    <file>images/Diamond_icon.png</file>
     <file>images/1_Btn.png</file>
     <file>images/2_Btn.png</file>
     <file>images/3_Btn.png</file>

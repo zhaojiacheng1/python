@@ -2418,65 +2418,65 @@
 #
 #     window.show()
 #     sys.exit(app.exec_())
-# import sys
-# from PyQt5.Qt import *
-#
-#
-# class Slider(QSlider):
-#     def __init__(self, parent=None, *args, **kwargs):
-#         super().__init__(parent, *args, **kwargs)
-#         self.setTickPosition(QSlider.TicksBothSides)  # 添加控件刻度线
-#         self.setup_ui()
-#
-#     def setup_ui(self):
-#         self.label = QLabel(self)
-#         self.label.setText('0')
-#         self.label.setStyleSheet('background-color:red;')
-#         self.label.hide()
-#
-#     def mousePressEvent(self, evt):
-#         super().mousePressEvent(evt)  # 继续向外界发射信号，保证父类方法完整性
-#         x = (self.width() - self.label.width()) / 2
-#         y = (1 - self.value() / (self.maximum() - self.minimum())) * self.height() - self.label.height()
-#         self.label.show()
-#         self.label.move(int(x), int(y))
-#
-#     def mouseMoveEvent(self, evt):
-#         super().mouseMoveEvent(evt)
-#         self.label.setText(str(self.value()))
-#         self.label.adjustSize()
-#         x = (self.width() - self.label.width()) / 2
-#         y = (1 - self.value() / (self.maximum() - self.minimum())) * (self.height()-self.label.height())
-#         self.label.show()
-#         self.label.move(int(x), int(y))
-#
-#     def mouseReleaseEvent(self, evt):
-#         super().mouseReleaseEvent(evt)
-#         self.label.hide()
-#
-#
-# class Window(QWidget):
-#     def __init__(self):
-#         super().__init__()
-#         self.setWindowTitle('QSlider-学习')
-#         self.resize(640, 480)
-#         self.setup_ui()
-#
-#     def setup_ui(self):
-#         slider = Slider(self)
-#         slider.move(200, 200)
-#         slider.resize(30, 200)
-#
-#         # sd.valueChanged.connect(lambda val: print(val))
-#         # sd.setTickInterval(5)
-#
-#
-# if __name__ == '__main__':
-#     app = QApplication(sys.argv)
-#     window = Window()
-#
-#     window.show()
-#     sys.exit(app.exec_())
+import sys
+from PyQt5.Qt import *
+
+
+class Slider(QSlider):
+    def __init__(self, parent=None, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
+        self.setTickPosition(QSlider.TicksBothSides)  # 添加控件刻度线
+        self.setup_ui()
+
+    def setup_ui(self):
+        self.label = QLabel(self)
+        self.label.setText('0')
+        self.label.setStyleSheet('background-color:red;')
+        self.label.hide()
+
+    def mousePressEvent(self, evt):
+        super().mousePressEvent(evt)  # 继续向外界发射信号，保证父类方法完整性
+        x = (self.width() - self.label.width()) / 2
+        y = (1 - self.value() / (self.maximum() - self.minimum())) * self.height() - self.label.height()
+        self.label.show()
+        self.label.move(int(x), int(y))
+
+    def mouseMoveEvent(self, evt):
+        super().mouseMoveEvent(evt)
+        self.label.setText(str(self.value()))
+        self.label.adjustSize()
+        x = (self.width() - self.label.width()) / 2
+        y = (1 - self.value() / (self.maximum() - self.minimum())) * (self.height()-self.label.height())
+        self.label.show()
+        self.label.move(int(x), int(y))
+
+    def mouseReleaseEvent(self, evt):
+        super().mouseReleaseEvent(evt)
+        self.label.hide()
+
+
+class Window(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle('QSlider-学习')
+        self.resize(640, 480)
+        self.setup_ui()
+
+    def setup_ui(self):
+        slider = Slider(self)
+        slider.move(200, 200)
+        slider.resize(30, 200)
+
+        # sd.valueChanged.connect(lambda val: print(val))
+        # sd.setTickInterval(5)
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = Window()
+
+    window.show()
+    sys.exit(app.exec_())
 # import sys
 # from PyQt5.Qt import *
 #
@@ -4363,64 +4363,64 @@
 # 	window = Window()
 # 	window.show()
 # 	sys.exit(app.exec_())
-import sys
-from PyQt5.Qt import *
-
-
-class Window(QWidget):
-	def __init__(self):
-		super().__init__()
-		self.setWindowTitle('动画组-学习')
-		self.resize(640, 480)
-		self.setup_ui()
-		pass
-
-	def setup_ui(self):
-		red_btn = QPushButton('红色按钮', self)
-		green_btn = QPushButton('绿色按钮', self)
-		red_btn.resize(100, 100)
-		green_btn.resize(100, 100)
-		green_btn.move(150, 150)
-		red_btn.setStyleSheet("""
-			background-color:red;
-		""")
-		green_btn.setStyleSheet("""
-			background-color:green;
-		""")
-		animation = QPropertyAnimation(green_btn, b'pos', self)
-		animation.setKeyValueAt(0, QPoint(150, 150))
-		animation.setKeyValueAt(0.25, QPoint(320, 150))  # 前一个参数指的是时间点，总时间的0.25处
-		animation.setKeyValueAt(0.5, QPoint(320, 240))
-		animation.setKeyValueAt(0.75, QPoint(150, 240))
-		animation.setKeyValueAt(1, QPoint(150, 150))
-		animation.setDuration(5000)
-		# animation.setLoopCount(3)
-		# animation.start()
-		animation2 = QPropertyAnimation(red_btn, b'pos', self)
-		animation2.setKeyValueAt(0, QPoint(0, 0))
-		animation2.setKeyValueAt(0.25, QPoint(0, 380))  # 前一个参数指的是时间点，总时间的0.25处
-		animation2.setKeyValueAt(0.5, QPoint(540, 380))
-		animation2.setKeyValueAt(0.75, QPoint(540, 0))
-		animation2.setKeyValueAt(1, QPoint(0, 0))
-		animation2.setDuration(5000)
-		# animation2.setLoopCount(3)
-		# animation2.start()
-		# animation_group1 = QParallelAnimationGroup(self)  # 设置并行动画组
-		animation_group1 = QSequentialAnimationGroup(self)  # 设置串行动画组
-		animation_group1.addAnimation(animation)
-		# animation_group1.addPause(5000)  # 设置暂停时间 只有串行动画才有
-		pause_animation = QPauseAnimation()
-		pause_animation.setPaused(5000)
-		animation_group1.addAnimation(pause_animation)
-		animation_group1.addAnimation(animation2)
-		animation_group1.start()
-		red_btn.clicked.connect(animation_group1.pause)
-		green_btn.clicked.connect(animation_group1.resume)
-		pass
-
-
-if __name__ == '__main__':
-	app = QApplication(sys.argv)
-	window = Window()
-	window.show()
-	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Window(QWidget):
+# 	def __init__(self):
+# 		super().__init__()
+# 		self.setWindowTitle('动画组-学习')
+# 		self.resize(640, 480)
+# 		self.setup_ui()
+# 		pass
+#
+# 	def setup_ui(self):
+# 		red_btn = QPushButton('红色按钮', self)
+# 		green_btn = QPushButton('绿色按钮', self)
+# 		red_btn.resize(100, 100)
+# 		green_btn.resize(100, 100)
+# 		green_btn.move(150, 150)
+# 		red_btn.setStyleSheet("""
+# 			background-color:red;
+# 		""")
+# 		green_btn.setStyleSheet("""
+# 			background-color:green;
+# 		""")
+# 		animation = QPropertyAnimation(green_btn, b'pos', self)
+# 		animation.setKeyValueAt(0, QPoint(150, 150))
+# 		animation.setKeyValueAt(0.25, QPoint(320, 150))  # 前一个参数指的是时间点，总时间的0.25处
+# 		animation.setKeyValueAt(0.5, QPoint(320, 240))
+# 		animation.setKeyValueAt(0.75, QPoint(150, 240))
+# 		animation.setKeyValueAt(1, QPoint(150, 150))
+# 		animation.setDuration(5000)
+# 		# animation.setLoopCount(3)
+# 		# animation.start()
+# 		animation2 = QPropertyAnimation(red_btn, b'pos', self)
+# 		animation2.setKeyValueAt(0, QPoint(0, 0))
+# 		animation2.setKeyValueAt(0.25, QPoint(0, 380))  # 前一个参数指的是时间点，总时间的0.25处
+# 		animation2.setKeyValueAt(0.5, QPoint(540, 380))
+# 		animation2.setKeyValueAt(0.75, QPoint(540, 0))
+# 		animation2.setKeyValueAt(1, QPoint(0, 0))
+# 		animation2.setDuration(5000)
+# 		# animation2.setLoopCount(3)
+# 		# animation2.start()
+# 		# animation_group1 = QParallelAnimationGroup(self)  # 设置并行动画组
+# 		animation_group1 = QSequentialAnimationGroup(self)  # 设置串行动画组
+# 		animation_group1.addAnimation(animation)
+# 		# animation_group1.addPause(5000)  # 设置暂停时间 只有串行动画才有
+# 		pause_animation = QPauseAnimation()
+# 		pause_animation.setPaused(5000)
+# 		animation_group1.addAnimation(pause_animation)
+# 		animation_group1.addAnimation(animation2)
+# 		animation_group1.start()
+# 		red_btn.clicked.connect(animation_group1.pause)
+# 		green_btn.clicked.connect(animation_group1.resume)
+# 		pass
+#
+#
+# if __name__ == '__main__':
+# 	app = QApplication(sys.argv)
+# 	window = Window()
+# 	window.show()
+# 	sys.exit(app.exec_())

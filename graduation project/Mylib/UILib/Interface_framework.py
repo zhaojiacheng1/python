@@ -910,7 +910,15 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(30)
         self.Btn_Emergency_STOP.setFont(font)
-        self.Btn_Emergency_STOP.setStyleSheet("background-color: rgb(217, 0, 0);")
+        self.Btn_Emergency_STOP.setStyleSheet("QPushButton#Btn_Emergency_STOP {\n"
+"    background-color: rgb(217, 0, 0);\n"
+"    image: url(:/framework/images/Emergency_STOP_Close.png);\n"
+"}\n"
+"QPushButton#Btn_Emergency_STOP:checked {\n"
+"    background-color: rgb(217, 0, 0);\n"
+"    image: url(:/framework/images/Emergency_STOP_Open.png);\n"
+"}")
+        self.Btn_Emergency_STOP.setText("")
         self.Btn_Emergency_STOP.setCheckable(True)
         self.Btn_Emergency_STOP.setObjectName("Btn_Emergency_STOP")
         self.verticalLayout.addWidget(self.Btn_Emergency_STOP)
@@ -1313,9 +1321,17 @@ class Ui_Form(object):
         self.Btn_DRIVE = QtWidgets.QPushButton(self.widget_11)
         self.Btn_DRIVE.setMinimumSize(QtCore.QSize(50, 35))
         self.Btn_DRIVE.setMaximumSize(QtCore.QSize(50, 35))
-        self.Btn_DRIVE.setStyleSheet("background-color: rgb(26, 181, 152);")
+        self.Btn_DRIVE.setStyleSheet("QPushButton#Btn_DRIVE {\n"
+"    background-color: rgb(26, 181, 152);\n"
+"    image: url(:/framework/images/DRIVE_Close.png);\n"
+"}\n"
+"QPushButton#Btn_DRIVE:checked {\n"
+"    background-color: rgb(26, 181, 152);\n"
+"    image: url(:/framework/images/DRIVE_Open.png);\n"
+"}\n"
+"")
         self.Btn_DRIVE.setText("")
-        self.Btn_DRIVE.setCheckable(False)
+        self.Btn_DRIVE.setCheckable(True)
         self.Btn_DRIVE.setObjectName("Btn_DRIVE")
         self.gridLayout_6.addWidget(self.Btn_DRIVE, 13, 2, 1, 1)
         self.label_24 = QtWidgets.QLabel(self.widget_11)
@@ -1370,15 +1386,23 @@ class Ui_Form(object):
         self.Btn_PROTECT = QtWidgets.QPushButton(self.widget_11)
         self.Btn_PROTECT.setMinimumSize(QtCore.QSize(50, 35))
         self.Btn_PROTECT.setMaximumSize(QtCore.QSize(50, 35))
-        self.Btn_PROTECT.setStyleSheet("background-color: rgb(26, 181, 152);")
+        self.Btn_PROTECT.setStyleSheet("QPushButton#Btn_PROTECT {\n"
+"    background-color: rgb(26, 181, 152);\n"
+"    image: url(:/framework/images/DRIVE_Close.png);\n"
+"}\n"
+"QPushButton#Btn_PROTECT:checked {\n"
+"    background-color: rgb(26, 181, 152);\n"
+"    image: url(:/framework/images/DRIVE_Open.png);\n"
+"}\n"
+"")
         self.Btn_PROTECT.setText("")
-        self.Btn_PROTECT.setCheckable(False)
+        self.Btn_PROTECT.setCheckable(True)
         self.Btn_PROTECT.setObjectName("Btn_PROTECT")
         self.gridLayout_6.addWidget(self.Btn_PROTECT, 15, 2, 1, 1)
         self.label_27 = QtWidgets.QLabel(self.widget_11)
         self.label_27.setMinimumSize(QtCore.QSize(50, 25))
         self.label_27.setMaximumSize(QtCore.QSize(50, 25))
-        self.label_27.setStyleSheet("background-color: rgb(32, 32, 32);\n"
+        self.label_27.setStyleSheet("image: url(:/framework/images/Diamond_icon.png);\n"
 "color: rgb(255, 255, 255);")
         self.label_27.setText("")
         self.label_27.setObjectName("label_27")
@@ -1386,7 +1410,7 @@ class Ui_Form(object):
         self.label_26 = QtWidgets.QLabel(self.widget_11)
         self.label_26.setMinimumSize(QtCore.QSize(50, 25))
         self.label_26.setMaximumSize(QtCore.QSize(50, 25))
-        self.label_26.setStyleSheet("background-color: rgb(32, 32, 32);\n"
+        self.label_26.setStyleSheet("image: url(:/framework/images/Triangle_icon.png);\n"
 "color: rgb(255, 255, 255);")
         self.label_26.setText("")
         self.label_26.setObjectName("label_26")
@@ -1394,7 +1418,7 @@ class Ui_Form(object):
         self.label_25 = QtWidgets.QLabel(self.widget_11)
         self.label_25.setMinimumSize(QtCore.QSize(50, 25))
         self.label_25.setMaximumSize(QtCore.QSize(50, 25))
-        self.label_25.setStyleSheet("background-color: rgb(32, 32, 32);\n"
+        self.label_25.setStyleSheet("image: url(:/framework/images/Slash_icon.png);\n"
 "color: rgb(255, 255, 255);")
         self.label_25.setText("")
         self.label_25.setObjectName("label_25")
@@ -1641,7 +1665,6 @@ class Ui_Form(object):
         self.Btn_SYSTEM.setText(_translate("Form", "SYSTEM"))
         self.Btn_MESSAGE.setText(_translate("Form", "MESSAGE"))
         self.Btn_GRAPH.setText(_translate("Form", "GRAPH"))
-        self.Btn_Emergency_STOP.setText(_translate("Form", "STOP"))
         self.label.setText(_translate("Form", "A+"))
         self.label_2.setText(_translate("Form", "Z+"))
         self.label_3.setText(_translate("Form", "Y-"))
