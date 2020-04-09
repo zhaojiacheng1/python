@@ -12,6 +12,18 @@ class InterfaceFrameworkPane(QWidget, Ui_Form):
 		self.setupUi(self)
 		pass
 
+	def get_keys(self, role, name):
+		print(role, name)
+		pass
+
+	def get_check_keys(self, role, name, state):
+		print(role, name, state)
+		pass
+
+	def get_dial_value(self, role, name, value):
+		print(role, name, value)
+		pass
+
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)

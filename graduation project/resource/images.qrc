@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="framework">
+    <file>images/Btn_shift.png</file>
+    <file>images/Btn_CheckedShift.png</file>
     <file>images/Emergency_STOP_Close.png</file>
     <file>images/Emergency_STOP_Open.png</file>
     <file>images/DRIVE_Close.png</file>

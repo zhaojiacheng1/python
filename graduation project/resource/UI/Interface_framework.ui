@@ -66,7 +66,7 @@
        <number>0</number>
       </property>
       <property name="spacing">
-       <number>1</number>
+       <number>0</number>
       </property>
       <item row="0" column="2" rowspan="2">
        <widget class="QWidget" name="widget_8" native="true">
@@ -104,7 +104,7 @@
           <number>2</number>
          </property>
          <item row="0" column="0">
-          <widget class="QPushButton" name="Btn_RESET">
+          <widget class="InterfaceBtn" name="Btn_Reset">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -125,6 +125,7 @@
            </property>
            <property name="font">
             <font>
+             <pointsize>8</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -135,10 +136,13 @@
            <property name="text">
             <string>RESET</string>
            </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QPushButton" name="Btn_O">
+          <widget class="InterfaceBtn" name="Btn_O">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -164,10 +168,13 @@ image: url(:/framework/images/O_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="2">
-          <widget class="QPushButton" name="Btn_N">
+          <widget class="InterfaceBtn" name="Btn_N">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -193,10 +200,13 @@ image: url(:/framework/images/N_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="3">
-          <widget class="QPushButton" name="Btn_G">
+          <widget class="InterfaceBtn" name="Btn_G">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -222,10 +232,13 @@ image: url(:/framework/images/G_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="4">
-          <widget class="QPushButton" name="Btn_P">
+          <widget class="InterfaceBtn" name="Btn_P">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -251,10 +264,13 @@ image: url(:/framework/images/P_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="5">
-          <widget class="QPushButton" name="Btn_7">
+          <widget class="InterfaceBtn" name="Btn_7">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -280,10 +296,13 @@ image: url(:/framework/images/7_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="6">
-          <widget class="QPushButton" name="Btn_8">
+          <widget class="InterfaceBtn" name="Btn_8">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -309,10 +328,13 @@ image: url(:/framework/images/8_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="7">
-          <widget class="QPushButton" name="Btn_9">
+          <widget class="InterfaceBtn" name="Btn_9">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -338,10 +360,13 @@ image: url(:/framework/images/9_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="8">
-          <widget class="QPushButton" name="Btn_ALTER">
+          <widget class="InterfaceBtn" name="Btn_ALTER">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -362,6 +387,7 @@ image: url(:/framework/images/9_Btn.png);</string>
            </property>
            <property name="font">
             <font>
+             <pointsize>8</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -372,6 +398,9 @@ image: url(:/framework/images/9_Btn.png);</string>
            </property>
            <property name="text">
             <string>ALTER</string>
+           </property>
+           <property name="role" stdset="0">
+            <string>input</string>
            </property>
           </widget>
          </item>
@@ -410,7 +439,7 @@ image: url(:/framework/images/9_Btn.png);</string>
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QPushButton" name="Btn_X">
+          <widget class="InterfaceBtn" name="Btn_X">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -436,10 +465,13 @@ image: url(:/framework/images/X_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="1" column="2">
-          <widget class="QPushButton" name="Btn_Y">
+          <widget class="InterfaceBtn" name="Btn_Y">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -465,10 +497,13 @@ image: url(:/framework/images/Y_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="1" column="3">
-          <widget class="QPushButton" name="Btn_Z">
+          <widget class="InterfaceBtn" name="Btn_Z">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -494,10 +529,13 @@ image: url(:/framework/images/Z_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="1" column="4">
-          <widget class="QPushButton" name="Btn_Q">
+          <widget class="InterfaceBtn" name="Btn_Q">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -523,10 +561,13 @@ image: url(:/framework/images/Q_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="1" column="5">
-          <widget class="QPushButton" name="Btn_4">
+          <widget class="InterfaceBtn" name="Btn_4">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -552,10 +593,13 @@ image: url(:/framework/images/4_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="1" column="6">
-          <widget class="QPushButton" name="Btn_5">
+          <widget class="InterfaceBtn" name="Btn_5">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -581,10 +625,13 @@ image: url(:/framework/images/5_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="1" column="7">
-          <widget class="QPushButton" name="Btn_6">
+          <widget class="InterfaceBtn" name="Btn_6">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -610,10 +657,13 @@ image: url(:/framework/images/6_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="1" column="8">
-          <widget class="QPushButton" name="Btn_INSERT">
+          <widget class="InterfaceBtn" name="Btn_INSERT">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -634,7 +684,7 @@ image: url(:/framework/images/6_Btn.png);</string>
            </property>
            <property name="font">
             <font>
-             <pointsize>8</pointsize>
+             <pointsize>6</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -646,10 +696,13 @@ image: url(:/framework/images/6_Btn.png);</string>
            <property name="text">
             <string>INSERT</string>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QPushButton" name="Btn_I">
+          <widget class="InterfaceBtn" name="Btn_I">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -675,10 +728,13 @@ image: url(:/framework/images/I_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="2" column="2">
-          <widget class="QPushButton" name="Btn_J">
+          <widget class="InterfaceBtn" name="Btn_J">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -704,10 +760,13 @@ image: url(:/framework/images/J_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="2" column="3">
-          <widget class="QPushButton" name="Btn_K">
+          <widget class="InterfaceBtn" name="Btn_K">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -733,10 +792,13 @@ image: url(:/framework/images/K_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="2" column="4">
-          <widget class="QPushButton" name="Btn_R">
+          <widget class="InterfaceBtn" name="Btn_R">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -762,10 +824,13 @@ image: url(:/framework/images/R_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="2" column="5">
-          <widget class="QPushButton" name="Btn_1">
+          <widget class="InterfaceBtn" name="Btn_1">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -791,10 +856,13 @@ image: url(:/framework/images/1_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="2" column="6">
-          <widget class="QPushButton" name="Btn_2">
+          <widget class="InterfaceBtn" name="Btn_2">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -820,10 +888,13 @@ image: url(:/framework/images/2_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="2" column="7">
-          <widget class="QPushButton" name="Btn_3">
+          <widget class="InterfaceBtn" name="Btn_3">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -849,10 +920,13 @@ image: url(:/framework/images/3_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="2" column="8">
-          <widget class="QPushButton" name="Btn_DELETE">
+          <widget class="InterfaceBtn" name="Btn_DELETE">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -873,7 +947,7 @@ image: url(:/framework/images/3_Btn.png);</string>
            </property>
            <property name="font">
             <font>
-             <pointsize>8</pointsize>
+             <pointsize>6</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -884,6 +958,9 @@ image: url(:/framework/images/3_Btn.png);</string>
            </property>
            <property name="text">
             <string>DELETE</string>
+           </property>
+           <property name="role" stdset="0">
+            <string>input</string>
            </property>
           </widget>
          </item>
@@ -922,7 +999,7 @@ image: url(:/framework/images/3_Btn.png);</string>
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="QPushButton" name="Btn_M">
+          <widget class="InterfaceBtn" name="Btn_M">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -948,10 +1025,13 @@ image: url(:/framework/images/M_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="3" column="2">
-          <widget class="QPushButton" name="Btn_S">
+          <widget class="InterfaceBtn" name="Btn_S">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -977,10 +1057,13 @@ image: url(:/framework/images/S_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="3" column="3">
-          <widget class="QPushButton" name="Btn_T">
+          <widget class="InterfaceBtn" name="Btn_T">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1006,10 +1089,13 @@ image: url(:/framework/images/T_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="3" column="4">
-          <widget class="QPushButton" name="Btn_L">
+          <widget class="InterfaceBtn" name="Btn_L">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1035,10 +1121,13 @@ image: url(:/framework/images/L_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="3" column="5">
-          <widget class="QPushButton" name="Btn_Minus">
+          <widget class="InterfaceBtn" name="Btn_Minus">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1070,10 +1159,13 @@ image: url(:/framework/images/L_Btn.png);</string>
            <property name="text">
             <string>-</string>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="3" column="6">
-          <widget class="QPushButton" name="Btn_0">
+          <widget class="InterfaceBtn" name="Btn_0">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1105,10 +1197,13 @@ image: url(:/framework/images/L_Btn.png);</string>
            <property name="text">
             <string>0</string>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="3" column="7">
-          <widget class="QPushButton" name="Btn_Dot">
+          <widget class="InterfaceBtn" name="Btn_Dot">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1139,6 +1234,9 @@ image: url(:/framework/images/L_Btn.png);</string>
            </property>
            <property name="text">
             <string>.</string>
+           </property>
+           <property name="role" stdset="0">
+            <string>input</string>
            </property>
           </widget>
          </item>
@@ -1177,7 +1275,7 @@ image: url(:/framework/images/L_Btn.png);</string>
           </widget>
          </item>
          <item row="4" column="0">
-          <widget class="QPushButton" name="Btn_SHIFT">
+          <widget class="InterfaceCheckBtn" name="Btn_SHIFT">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1203,16 +1301,29 @@ image: url(:/framework/images/L_Btn.png);</string>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(160, 130, 90);
+            <string notr="true">QPushButton {
+	background-color: rgb(160, 130, 90);
+	image: url(:/framework/images/Btn_shift.png);
+}
+QPushButton:checked {
+	background-color: rgb(160, 130, 90);
+	image: url(:/framework/images/Btn_CheckedShift.png);
+}
 </string>
            </property>
            <property name="text">
-            <string>SHIFT</string>
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>input</string>
            </property>
           </widget>
          </item>
          <item row="4" column="1">
-          <widget class="QPushButton" name="Btn_F">
+          <widget class="InterfaceBtn" name="Btn_F">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1238,10 +1349,13 @@ image: url(:/framework/images/F_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="4" column="2">
-          <widget class="QPushButton" name="Btn_D">
+          <widget class="InterfaceBtn" name="Btn_D">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1267,10 +1381,13 @@ image: url(:/framework/images/D_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="4" column="3">
-          <widget class="QPushButton" name="Btn_H">
+          <widget class="InterfaceBtn" name="Btn_H">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1296,10 +1413,13 @@ image: url(:/framework/images/H_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="4" column="4">
-          <widget class="QPushButton" name="Btn_B">
+          <widget class="InterfaceBtn" name="Btn_B">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1325,10 +1445,13 @@ image: url(:/framework/images/B_Btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="4" column="5">
-          <widget class="QPushButton" name="Btn_Slash">
+          <widget class="InterfaceBtn" name="Btn_Slash">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1360,10 +1483,13 @@ image: url(:/framework/images/B_Btn.png);</string>
            <property name="text">
             <string>/</string>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="4" column="6">
-          <widget class="QPushButton" name="Btn_EOB">
+          <widget class="InterfaceBtn" name="Btn_EOB">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1384,7 +1510,7 @@ image: url(:/framework/images/B_Btn.png);</string>
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <pointsize>10</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -1395,10 +1521,13 @@ image: url(:/framework/images/B_Btn.png);</string>
            <property name="text">
             <string>EOB</string>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="4" column="7">
-          <widget class="QPushButton" name="Btn_CAN">
+          <widget class="InterfaceBtn" name="Btn_CAN">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1419,7 +1548,7 @@ image: url(:/framework/images/B_Btn.png);</string>
            </property>
            <property name="font">
             <font>
-             <pointsize>11</pointsize>
+             <pointsize>10</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -1431,10 +1560,13 @@ image: url(:/framework/images/B_Btn.png);</string>
            <property name="text">
             <string>CAN</string>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="4" column="8">
-          <widget class="QPushButton" name="Btn_INPUT">
+          <widget class="InterfaceBtn" name="Btn_INPUT">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1455,6 +1587,7 @@ image: url(:/framework/images/B_Btn.png);</string>
            </property>
            <property name="font">
             <font>
+             <pointsize>8</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -1466,10 +1599,13 @@ image: url(:/framework/images/B_Btn.png);</string>
            <property name="text">
             <string>INPUT</string>
            </property>
+           <property name="role" stdset="0">
+            <string>input</string>
+           </property>
           </widget>
          </item>
          <item row="2" column="0">
-          <widget class="QPushButton" name="Btn_HELP">
+          <widget class="InterfaceBtn" name="Btn_HELP">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -1501,6 +1637,9 @@ image: url(:/framework/images/B_Btn.png);</string>
            <property name="text">
             <string>HELP</string>
            </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
           </widget>
          </item>
         </layout>
@@ -1528,7 +1667,7 @@ image: url(:/framework/images/B_Btn.png);</string>
           <number>2</number>
          </property>
          <item row="0" column="0">
-          <widget class="QPushButton" name="Btn_DOWN">
+          <widget class="QPushButton" name="pushButton">
            <property name="enabled">
             <bool>false</bool>
            </property>
@@ -1556,7 +1695,7 @@ image: url(:/framework/images/B_Btn.png);</string>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QPushButton" name="Btn_PAGE_UP">
+          <widget class="InterfaceBtn" name="Btn_PAGE_UP">
            <property name="minimumSize">
             <size>
              <width>40</width>
@@ -1583,10 +1722,13 @@ image: url(:/framework/images/B_Btn.png);</string>
            <property name="text">
             <string>UP</string>
            </property>
+           <property name="role" stdset="0">
+            <string>view</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="2" rowspan="2">
-          <widget class="QPushButton" name="Btn_LEFT">
+          <widget class="InterfaceBtn" name="Btn_LEFT">
            <property name="minimumSize">
             <size>
              <width>40</width>
@@ -1607,10 +1749,13 @@ image: url(:/framework/images/left_btn1.png);
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>view</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="3">
-          <widget class="QPushButton" name="Btn_UP">
+          <widget class="InterfaceBtn" name="Btn_UP">
            <property name="minimumSize">
             <size>
              <width>40</width>
@@ -1631,10 +1776,13 @@ image: url(:/framework/images/up_btn.png);
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>view</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="4" rowspan="2">
-          <widget class="QPushButton" name="Btn_RIGHT">
+          <widget class="InterfaceBtn" name="Btn_RIGHT">
            <property name="minimumSize">
             <size>
              <width>40</width>
@@ -1655,10 +1803,13 @@ image: url(:/framework/images/right_btn1.png);
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>view</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="5">
-          <widget class="QPushButton" name="Btn_POS">
+          <widget class="InterfaceBtn" name="Btn_POS">
            <property name="minimumSize">
             <size>
              <width>40</width>
@@ -1684,10 +1835,13 @@ image: url(:/framework/images/right_btn1.png);
            <property name="text">
             <string>POS</string>
            </property>
+           <property name="role" stdset="0">
+            <string>view</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="6">
-          <widget class="QPushButton" name="Btn_PROG">
+          <widget class="InterfaceBtn" name="Btn_PROG">
            <property name="minimumSize">
             <size>
              <width>40</width>
@@ -1702,6 +1856,7 @@ image: url(:/framework/images/right_btn1.png);
            </property>
            <property name="font">
             <font>
+             <pointsize>8</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -1711,12 +1866,15 @@ image: url(:/framework/images/right_btn1.png);
 </string>
            </property>
            <property name="text">
-            <string>PROG</string>
+            <string>PROGM</string>
+           </property>
+           <property name="role" stdset="0">
+            <string>view</string>
            </property>
           </widget>
          </item>
          <item row="0" column="7">
-          <widget class="QPushButton" name="Btn_SETTING">
+          <widget class="InterfaceBtn" name="Btn_SETTING">
            <property name="minimumSize">
             <size>
              <width>40</width>
@@ -1743,10 +1901,13 @@ image: url(:/framework/images/right_btn1.png);
            <property name="text">
             <string>SETTING</string>
            </property>
+           <property name="role" stdset="0">
+            <string>view</string>
+           </property>
           </widget>
          </item>
          <item row="0" column="8">
-          <widget class="QPushButton" name="Btn_CUSTCM">
+          <widget class="InterfaceBtn" name="Btn_CUSTCM">
            <property name="minimumSize">
             <size>
              <width>40</width>
@@ -1761,7 +1922,7 @@ image: url(:/framework/images/right_btn1.png);
            </property>
            <property name="font">
             <font>
-             <pointsize>7</pointsize>
+             <pointsize>6</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>
@@ -1772,6 +1933,9 @@ image: url(:/framework/images/right_btn1.png);
            </property>
            <property name="text">
             <string>CUSTCM</string>
+           </property>
+           <property name="role" stdset="0">
+            <string>view</string>
            </property>
           </widget>
          </item>
@@ -1804,7 +1968,7 @@ image: url(:/framework/images/right_btn1.png);
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QPushButton" name="Btn_PAGE_DOWN">
+          <widget class="InterfaceBtn" name="Btn_PAGE_DOWN">
            <property name="minimumSize">
             <size>
              <width>40</width>
@@ -1830,10 +1994,13 @@ image: url(:/framework/images/right_btn1.png);
            <property name="text">
             <string>DOWN</string>
            </property>
+           <property name="role" stdset="0">
+            <string>view</string>
+           </property>
           </widget>
          </item>
          <item row="1" column="3">
-          <widget class="QPushButton" name="Btn_DOWN_2">
+          <widget class="InterfaceBtn" name="Btn_DOWN">
            <property name="minimumSize">
             <size>
              <width>40</width>
@@ -1853,10 +2020,79 @@ image: url(:/framework/images/down_btn.png);</string>
            <property name="text">
             <string/>
            </property>
+           <property name="role" stdset="0">
+            <string>view</string>
+           </property>
           </widget>
          </item>
          <item row="1" column="5">
-          <widget class="QPushButton" name="Btn_SYSTEM">
+          <widget class="InterfaceBtn" name="Btn_SYSTEM">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>6</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>SYSTEM</string>
+           </property>
+           <property name="role" stdset="0">
+            <string>view</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="6">
+          <widget class="InterfaceBtn" name="Btn_MESSAGE">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>6</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(160, 130, 90);
+</string>
+           </property>
+           <property name="text">
+            <string>MESSAGE</string>
+           </property>
+           <property name="role" stdset="0">
+            <string>view</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="7">
+          <widget class="InterfaceBtn" name="Btn_GRAPH">
            <property name="minimumSize">
             <size>
              <width>40</width>
@@ -1881,66 +2117,10 @@ image: url(:/framework/images/down_btn.png);</string>
 </string>
            </property>
            <property name="text">
-            <string>SYSTEM</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="6">
-          <widget class="QPushButton" name="Btn_MESSAGE">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>7</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(160, 130, 90);
-</string>
-           </property>
-           <property name="text">
-            <string>MESSAGE</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="7">
-          <widget class="QPushButton" name="Btn_GRAPH">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(160, 130, 90);
-</string>
-           </property>
-           <property name="text">
             <string>GRAPH</string>
+           </property>
+           <property name="role" stdset="0">
+            <string>view</string>
            </property>
           </widget>
          </item>
@@ -1993,7 +2173,7 @@ image: url(:/framework/images/down_btn.png);</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_3" rowstretch="15,3" columnstretch="7,9">
       <property name="leftMargin">
-       <number>2</number>
+       <number>0</number>
       </property>
       <property name="topMargin">
        <number>0</number>
@@ -2004,45 +2184,282 @@ image: url(:/framework/images/down_btn.png);</string>
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <property name="horizontalSpacing">
-       <number>1</number>
-      </property>
-      <property name="verticalSpacing">
+      <property name="spacing">
        <number>0</number>
       </property>
       <item row="0" column="0" rowspan="2">
        <widget class="QWidget" name="widget_9" native="true">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(127, 255, 107);</string>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
         </property>
-        <widget class="QPushButton" name="Btn_Emergency_STOP">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>615</y>
-           <width>145</width>
-           <height>145</height>
-          </rect>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(40, 40, 40);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>0</number>
          </property>
-         <property name="minimumSize">
-          <size>
-           <width>145</width>
-           <height>145</height>
-          </size>
+         <property name="leftMargin">
+          <number>5</number>
          </property>
-         <property name="maximumSize">
-          <size>
-           <width>145</width>
-           <height>145</height>
-          </size>
+         <property name="topMargin">
+          <number>0</number>
          </property>
-         <property name="font">
-          <font>
-           <pointsize>30</pointsize>
-          </font>
+         <property name="rightMargin">
+          <number>0</number>
          </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton#Btn_Emergency_STOP {
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="InterfaceDial" name="Btn_Speed">
+           <property name="minimumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="maximum">
+            <number>12</number>
+           </property>
+           <property name="singleStep">
+            <number>1</number>
+           </property>
+           <property name="pageStep">
+            <number>1</number>
+           </property>
+           <property name="value">
+            <number>10</number>
+           </property>
+           <property name="notchTarget">
+            <double>1.000000000000000</double>
+           </property>
+           <property name="notchesVisible">
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_31">
+           <property name="minimumSize">
+            <size>
+             <width>145</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="sizeIncrement">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="baseSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>进给速度</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="InterfaceDial" name="Btn_Spindle_Speed">
+           <property name="minimumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="minimum">
+            <number>5</number>
+           </property>
+           <property name="maximum">
+            <number>12</number>
+           </property>
+           <property name="singleStep">
+            <number>1</number>
+           </property>
+           <property name="pageStep">
+            <number>1</number>
+           </property>
+           <property name="value">
+            <number>10</number>
+           </property>
+           <property name="notchTarget">
+            <double>1.000000000000000</double>
+           </property>
+           <property name="notchesVisible">
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_32">
+           <property name="minimumSize">
+            <size>
+             <width>145</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>主轴转速</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="InterfaceDial" name="Btn_Mode">
+           <property name="minimumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="maximum">
+            <number>12</number>
+           </property>
+           <property name="singleStep">
+            <number>1</number>
+           </property>
+           <property name="pageStep">
+            <number>1</number>
+           </property>
+           <property name="value">
+            <number>12</number>
+           </property>
+           <property name="wrapping">
+            <bool>false</bool>
+           </property>
+           <property name="notchTarget">
+            <double>1.000000000000000</double>
+           </property>
+           <property name="notchesVisible">
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_33">
+           <property name="minimumSize">
+            <size>
+             <width>145</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>模式选择</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="InterfaceCheckBtn" name="Btn_Emergency_STOP">
+           <property name="minimumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>145</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>30</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#Btn_Emergency_STOP {
 	background-color: rgb(217, 0, 0);
 	image: url(:/framework/images/Emergency_STOP_Close.png);
 }
@@ -2050,104 +2467,25 @@ QPushButton#Btn_Emergency_STOP:checked {
 	background-color: rgb(217, 0, 0);
 	image: url(:/framework/images/Emergency_STOP_Open.png);
 }</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <widget class="QSlider" name="verticalSlider">
-         <property name="geometry">
-          <rect>
-           <x>100</x>
-           <y>30</y>
-           <width>20</width>
-           <height>145</height>
-          </rect>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>20</width>
-           <height>145</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>20</width>
-           <height>145</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="maximum">
-          <number>12</number>
-         </property>
-         <property name="pageStep">
-          <number>1</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="tickPosition">
-          <enum>QSlider::TicksAbove</enum>
-         </property>
-         <property name="tickInterval">
-          <number>1</number>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>30</y>
-           <width>71</width>
-           <height>20</height>
-          </rect>
-         </property>
-        </widget>
-        <widget class="QDial" name="dial">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>250</y>
-           <width>140</width>
-           <height>140</height>
-          </rect>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>140</width>
-           <height>140</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>140</width>
-           <height>140</height>
-          </size>
-         </property>
-         <property name="maximum">
-          <number>120</number>
-         </property>
-         <property name="singleStep">
-          <number>10</number>
-         </property>
-         <property name="notchesVisible">
-          <bool>true</bool>
-         </property>
-        </widget>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
       <item row="0" column="1">
        <widget class="QWidget" name="widget_11" native="true">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(127, 255, 107);</string>
+         <string notr="true">background-color: rgb(40, 40, 40);</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_6">
          <property name="leftMargin">
@@ -2259,7 +2597,7 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item row="1" column="0">
-          <widget class="QPushButton" name="Btn_A_Positive">
+          <widget class="InterfaceBtn" name="Btn_A_Positive">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2280,11 +2618,14 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QPushButton" name="Btn_Z_Positive">
+          <widget class="InterfaceBtn" name="Btn_Z_Positive">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2305,11 +2646,14 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
          <item row="1" column="2">
-          <widget class="QPushButton" name="Btn_Y_Negative">
+          <widget class="InterfaceBtn" name="Btn_Y_Negative">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2330,6 +2674,9 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
@@ -2427,7 +2774,7 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item row="3" column="0">
-          <widget class="QPushButton" name="Btn_X_Positive">
+          <widget class="InterfaceBtn" name="Btn_X_Positive">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2448,11 +2795,14 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="QPushButton" name="Btn_RAPID">
+          <widget class="InterfaceCheckBtn" name="Btn_RAPID">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2472,12 +2822,15 @@ color: rgb(255, 255, 255);</string>
             <string/>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
          <item row="3" column="2">
-          <widget class="QPushButton" name="Btn_X_Negative">
+          <widget class="InterfaceBtn" name="Btn_X_Negative">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2498,6 +2851,9 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
@@ -2595,7 +2951,7 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item row="5" column="0">
-          <widget class="QPushButton" name="Btn_Y_Positive">
+          <widget class="InterfaceBtn" name="Btn_Y_Positive">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2616,11 +2972,14 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
          <item row="5" column="1">
-          <widget class="QPushButton" name="Btn_Z_Negative">
+          <widget class="InterfaceBtn" name="Btn_Z_Negative">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2641,11 +3000,14 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
          <item row="5" column="2">
-          <widget class="QPushButton" name="Btn_A_Negative">
+          <widget class="InterfaceBtn" name="Btn_A_Negative">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2666,6 +3028,9 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
@@ -2763,7 +3128,7 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item row="7" column="0">
-          <widget class="QPushButton" name="Btn_ON">
+          <widget class="InterfaceCheckBtn" name="Btn_ON">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2783,12 +3148,21 @@ color: rgb(255, 255, 255);</string>
             <string/>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
            </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup</string>
+           </attribute>
           </widget>
          </item>
          <item row="7" column="1">
-          <widget class="QPushButton" name="Btn_STOP">
+          <widget class="InterfaceCheckBtn" name="Btn_STOP">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2808,12 +3182,21 @@ color: rgb(255, 255, 255);</string>
             <string/>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
            </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup</string>
+           </attribute>
           </widget>
          </item>
          <item row="7" column="2">
-          <widget class="QPushButton" name="Btn_COW">
+          <widget class="InterfaceCheckBtn" name="Btn_COW">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2833,8 +3216,17 @@ color: rgb(255, 255, 255);</string>
             <string/>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
            </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup</string>
+           </attribute>
           </widget>
          </item>
          <item row="8" column="0">
@@ -2931,7 +3323,7 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item row="9" column="0">
-          <widget class="QPushButton" name="Btn_DRN">
+          <widget class="InterfaceCheckBtn" name="Btn_DRN">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -2951,7 +3343,10 @@ color: rgb(255, 255, 255);</string>
             <string/>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
@@ -2978,10 +3373,13 @@ color: rgb(255, 255, 255);</string>
            <property name="checkable">
             <bool>false</bool>
            </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
           </widget>
          </item>
          <item row="9" column="2">
-          <widget class="QPushButton" name="Btn_TOOL">
+          <widget class="InterfaceBtn" name="Btn_TOOL">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3002,6 +3400,9 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
@@ -3116,10 +3517,13 @@ color: rgb(255, 255, 255);</string>
            <property name="checkable">
             <bool>false</bool>
            </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
           </widget>
          </item>
          <item row="11" column="1">
-          <widget class="QPushButton" name="Btn_MSTLOCK">
+          <widget class="InterfaceCheckBtn" name="Btn_MSTLOCK">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3139,12 +3543,15 @@ color: rgb(255, 255, 255);</string>
             <string/>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
          <item row="11" column="2">
-          <widget class="QPushButton" name="Btn_COOL">
+          <widget class="InterfaceCheckBtn" name="Btn_COOL">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3164,7 +3571,10 @@ color: rgb(255, 255, 255);</string>
             <string/>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
@@ -3262,7 +3672,7 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item row="13" column="0">
-          <widget class="QPushButton" name="Btn_SBK">
+          <widget class="InterfaceCheckBtn" name="Btn_SBK">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3282,12 +3692,18 @@ color: rgb(255, 255, 255);</string>
             <string/>
            </property>
            <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
          <item row="13" column="1">
-          <widget class="QPushButton" name="Btn_SKIP">
+          <widget class="InterfaceCheckBtn" name="Btn_SKIP">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3307,12 +3723,21 @@ color: rgb(255, 255, 255);</string>
             <string/>
            </property>
            <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
             <bool>false</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
          <item row="13" column="2">
-          <widget class="QPushButton" name="Btn_DRIVE">
+          <widget class="InterfaceCheckBtn" name="Btn_DRIVE">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3341,6 +3766,9 @@ QPushButton#Btn_DRIVE:checked {
            </property>
            <property name="checkable">
             <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
@@ -3460,10 +3888,13 @@ color: rgb(255, 255, 255);</string>
            <property name="checkable">
             <bool>false</bool>
            </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
           </widget>
          </item>
          <item row="15" column="1">
-          <widget class="QPushButton" name="Btn_M01">
+          <widget class="InterfaceCheckBtn" name="Btn_M01">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3483,12 +3914,15 @@ color: rgb(255, 255, 255);</string>
             <string/>
            </property>
            <property name="checkable">
-            <bool>false</bool>
+            <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
          <item row="15" column="2">
-          <widget class="QPushButton" name="Btn_PROTECT">
+          <widget class="InterfaceCheckBtn" name="Btn_PROTECT">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3517,6 +3951,9 @@ QPushButton#Btn_PROTECT:checked {
            </property>
            <property name="checkable">
             <bool>true</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
@@ -3590,7 +4027,7 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item row="17" column="0">
-          <widget class="QPushButton" name="pushButton_100">
+          <widget class="InterfaceBtn" name="Btn_Auto_Start">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3612,10 +4049,13 @@ color: rgb(255, 255, 255);</string>
            <property name="checkable">
             <bool>false</bool>
            </property>
+           <property name="role" stdset="0">
+            <string>control</string>
+           </property>
           </widget>
          </item>
          <item row="17" column="1">
-          <widget class="QPushButton" name="pushButton_98">
+          <widget class="InterfaceBtn" name="Btn_Auto_Pause">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3636,11 +4076,14 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
          <item row="17" column="2">
-          <widget class="QPushButton" name="pushButton_99">
+          <widget class="InterfaceBtn" name="Btn_RESET">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3661,6 +4104,9 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
@@ -3752,7 +4198,7 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item row="19" column="0">
-          <widget class="QPushButton" name="Btn_Power_OFF">
+          <widget class="InterfaceBtn" name="Btn_Power_OFF">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3773,6 +4219,9 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
@@ -3808,7 +4257,7 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item row="19" column="2">
-          <widget class="QPushButton" name="Btn_Power_ON">
+          <widget class="InterfaceBtn" name="Btn_Power_ON">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -3829,6 +4278,9 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="checkable">
             <bool>false</bool>
+           </property>
+           <property name="role" stdset="0">
+            <string>control</string>
            </property>
           </widget>
          </item>
@@ -3858,7 +4310,7 @@ color: rgb(255, 255, 255);</string>
        <number>2</number>
       </property>
       <item>
-       <widget class="QPushButton" name="Btn_BACK">
+       <widget class="InterfaceBtn" name="Btn_BACK">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -3889,10 +4341,13 @@ color: rgb(255, 255, 255);</string>
         <property name="flat">
          <bool>false</bool>
         </property>
+        <property name="role" stdset="0">
+         <string>back</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="InterfaceBtn" name="Btn_One">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -3913,10 +4368,13 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="role" stdset="0">
+         <string>position</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="InterfaceBtn" name="Btn_Two">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -3937,10 +4395,13 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="role" stdset="0">
+         <string>position</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="InterfaceBtn" name="Btn_Three">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -3961,10 +4422,13 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="role" stdset="0">
+         <string>position</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="InterfaceBtn" name="Btn_Four">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -3985,10 +4449,13 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="role" stdset="0">
+         <string>position</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="InterfaceBtn" name="Btn_Five">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -4009,10 +4476,13 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="role" stdset="0">
+         <string>position</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_7">
+       <widget class="InterfaceBtn" name="Btn_Six">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -4033,10 +4503,13 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="role" stdset="0">
+         <string>position</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_8">
+       <widget class="InterfaceBtn" name="Btn_Seven">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -4057,10 +4530,13 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="role" stdset="0">
+         <string>position</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_9">
+       <widget class="InterfaceBtn" name="Btn_Eight">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -4081,10 +4557,13 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="role" stdset="0">
+         <string>position</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_10">
+       <widget class="InterfaceBtn" name="Btn_Nine">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -4105,10 +4584,13 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="role" stdset="0">
+         <string>position</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_11">
+       <widget class="InterfaceBtn" name="Btn_Ten">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -4129,10 +4611,13 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="role" stdset="0">
+         <string>position</string>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Btn_GO">
+       <widget class="InterfaceBtn" name="Btn_GO">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -4154,6 +4639,9 @@ color: rgb(255, 255, 255);</string>
         <property name="text">
          <string>--&gt;</string>
         </property>
+        <property name="role" stdset="0">
+         <string>go</string>
+        </property>
        </widget>
       </item>
      </layout>
@@ -4161,8 +4649,1595 @@ color: rgb(255, 255, 255);</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>InterfaceBtn</class>
+   <extends>QPushButton</extends>
+   <header>Interface_btn</header>
+   <slots>
+    <signal>key_pressed()</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>InterfaceCheckBtn</class>
+   <extends>QPushButton</extends>
+   <header>Interface_Check_Btn</header>
+   <slots>
+    <signal>key_checked()</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>InterfaceDial</class>
+   <extends>QDial</extends>
+   <header>Interface_Dial</header>
+   <slots>
+    <signal>value_change()</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../images.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>Btn_Reset</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>491</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-98</x>
+     <y>484</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_RAPID</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>956</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1130</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Speed</sender>
+   <signal>value_change()</signal>
+   <receiver>Form</receiver>
+   <slot>get_dial_value()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>762</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>741</x>
+     <y>-92</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Mode</sender>
+   <signal>value_change()</signal>
+   <receiver>Form</receiver>
+   <slot>get_dial_value()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>787</x>
+     <y>490</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1272</x>
+     <y>507</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_BACK</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>18</x>
+     <y>443</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-81</x>
+     <y>438</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_One</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>92</x>
+     <y>450</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-66</x>
+     <y>477</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Two</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>140</x>
+     <y>444</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-102</x>
+     <y>357</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Three</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>193</x>
+     <y>440</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-65</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Four</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>261</x>
+     <y>439</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-77</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Five</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>439</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-64</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Six</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>374</x>
+     <y>437</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-65</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Seven</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>434</x>
+     <y>435</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-59</x>
+     <y>185</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Eight</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>485</x>
+     <y>445</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-154</x>
+     <y>142</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Nine</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>543</x>
+     <y>445</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-116</x>
+     <y>95</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Ten</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>601</x>
+     <y>436</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-73</x>
+     <y>61</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_GO</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>657</x>
+     <y>444</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-125</x>
+     <y>-32</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Spindle_Speed</sender>
+   <signal>value_change()</signal>
+   <receiver>Form</receiver>
+   <slot>get_dial_value()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>786</x>
+     <y>293</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>682</x>
+     <y>-127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_SHIFT</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>670</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-99</x>
+     <y>658</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_HELP</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>131</x>
+     <y>583</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-106</x>
+     <y>569</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_O</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>502</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-187</x>
+     <y>498</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_N</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>221</x>
+     <y>480</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-169</x>
+     <y>343</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_G</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>281</x>
+     <y>493</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-110</x>
+     <y>323</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_P</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>324</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-88</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_7</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>362</x>
+     <y>490</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-78</x>
+     <y>251</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_8</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>413</x>
+     <y>493</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-75</x>
+     <y>209</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_9</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>462</x>
+     <y>490</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-201</x>
+     <y>185</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_ALTER</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>511</x>
+     <y>491</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-276</x>
+     <y>141</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_X</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>536</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-118</x>
+     <y>531</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Y</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>216</x>
+     <y>538</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-177</x>
+     <y>546</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Z</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>272</x>
+     <y>531</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-348</x>
+     <y>262</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Q</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>320</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-343</x>
+     <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_5</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>425</x>
+     <y>532</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-239</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_6</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>466</x>
+     <y>527</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-204</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_INSERT</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>507</x>
+     <y>532</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-173</x>
+     <y>77</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_I</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>175</x>
+     <y>582</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-177</x>
+     <y>580</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_J</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>221</x>
+     <y>589</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-173</x>
+     <y>610</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_K</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>277</x>
+     <y>585</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-147</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_R</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>322</x>
+     <y>586</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-125</x>
+     <y>160</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_1</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>366</x>
+     <y>585</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-82</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_2</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>407</x>
+     <y>585</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-45</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_3</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>471</x>
+     <y>585</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-63</x>
+     <y>46</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_DELETE</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>516</x>
+     <y>585</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-56</x>
+     <y>33</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_M</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>179</x>
+     <y>625</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-135</x>
+     <y>630</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_S</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>217</x>
+     <y>618</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-74</x>
+     <y>618</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_T</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>268</x>
+     <y>636</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-61</x>
+     <y>640</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_L</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>324</x>
+     <y>619</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-164</x>
+     <y>603</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Minus</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>375</x>
+     <y>625</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-63</x>
+     <y>18</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_0</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>426</x>
+     <y>635</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>488</x>
+     <y>-119</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Dot</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>466</x>
+     <y>624</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>487</x>
+     <y>-81</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_F</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>177</x>
+     <y>678</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-170</x>
+     <y>672</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_D</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>220</x>
+     <y>684</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-137</x>
+     <y>706</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_H</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>274</x>
+     <y>677</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>379</x>
+     <y>-126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_B</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>668</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>-142</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Slash</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>374</x>
+     <y>678</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>389</x>
+     <y>-161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_EOB</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>409</x>
+     <y>675</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>-103</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_CAN</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>480</x>
+     <y>673</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>582</x>
+     <y>-165</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_INPUT</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>515</x>
+     <y>676</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>544</x>
+     <y>-129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_PAGE_UP</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>173</x>
+     <y>731</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-196</x>
+     <y>725</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_PAGE_DOWN</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>782</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-246</x>
+     <y>775</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_LEFT</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>232</x>
+     <y>753</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-315</x>
+     <y>739</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_UP</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>719</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-299</x>
+     <y>713</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_DOWN</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>268</x>
+     <y>778</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-106</x>
+     <y>786</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_RIGHT</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>318</x>
+     <y>763</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>318</x>
+     <y>869</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_POS</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>362</x>
+     <y>734</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>403</x>
+     <y>-100</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_PROG</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>419</x>
+     <y>733</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>604</x>
+     <y>-141</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_SETTING</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>453</x>
+     <y>739</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>454</x>
+     <y>-136</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_CUSTCM</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>498</x>
+     <y>736</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-96</x>
+     <y>397</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_SYSTEM</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>368</x>
+     <y>784</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>368</x>
+     <y>848</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_MESSAGE</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>413</x>
+     <y>775</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>425</x>
+     <y>851</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_GRAPH</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>471</x>
+     <y>776</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>472</x>
+     <y>870</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Emergency_STOP</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>736</x>
+     <y>685</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>529</x>
+     <y>846</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Power_ON</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1008</x>
+     <y>635</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1117</x>
+     <y>635</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Power_OFF</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>643</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1146</x>
+     <y>759</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_A_Positive</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>889</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>888</x>
+     <y>-105</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Z_Positive</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>946</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>946</x>
+     <y>-90</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Y_Negative</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1003</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1019</x>
+     <y>-121</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_X_Positive</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>885</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>771</x>
+     <y>-115</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_X_Negative</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1023</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1171</x>
+     <y>139</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Y_Positive</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>902</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>837</x>
+     <y>-69</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Z_Negative</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>960</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>967</x>
+     <y>-84</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_A_Negative</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1022</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1352</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_COW</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1014</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1270</x>
+     <y>260</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_STOP</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>959</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1214</x>
+     <y>247</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_ON</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>882</x>
+     <y>233</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1210</x>
+     <y>241</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_TOOL</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1014</x>
+     <y>308</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1244</x>
+     <y>313</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_DRN</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>898</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1143</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_COOL</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1017</x>
+     <y>379</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1193</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_MSTLOCK</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>942</x>
+     <y>370</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1212</x>
+     <y>382</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_DRIVE</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1019</x>
+     <y>445</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1238</x>
+     <y>450</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_SKIP</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>943</x>
+     <y>431</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1219</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_SBK</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>886</x>
+     <y>448</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1345</x>
+     <y>476</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_PROTECT</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1023</x>
+     <y>503</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1225</x>
+     <y>489</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_M01</sender>
+   <signal>key_checked()</signal>
+   <receiver>Form</receiver>
+   <slot>get_check_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>954</x>
+     <y>504</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1308</x>
+     <y>526</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_RESET</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1003</x>
+     <y>575</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1237</x>
+     <y>577</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Auto_Pause</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>941</x>
+     <y>561</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1279</x>
+     <y>561</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_Auto_Start</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>907</x>
+     <y>586</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1420</x>
+     <y>627</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_4</sender>
+   <signal>key_pressed()</signal>
+   <receiver>Form</receiver>
+   <slot>get_keys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>378</x>
+     <y>544</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-79</x>
+     <y>513</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>get_keys()</slot>
+  <slot>get_check_keys()</slot>
+  <slot>get_dial_value()</slot>
+ </slots>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
 </ui>
