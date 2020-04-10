@@ -182,8 +182,6 @@ class Ui_Form(object):
         self.login_btn.setText(_translate("Form", "安全登录"))
 
 
-import images_rc
-
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

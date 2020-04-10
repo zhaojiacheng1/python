@@ -4,16 +4,17 @@ from PyQt5.Qt import *
 import sys
 
 
-class InterfaceBtn(QPushButton):
-	key_pressed = pyqtSignal(str, str)
+class InterfaceDial(QDial):
+	value_change = pyqtSignal(str, str, int)
 
 	def __init__(self, parent=None, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
-		self.clicked.connect(self.btn_cao)
+		self.valueChanged.connect(self.dial_cao)
 		pass
 
-	def btn_cao(self):
-		self.key_pressed.emit(self.property('role'), self.objectName())
+	def dial_cao(self):
+		self.value_change.emit(self.property('role'), self.objectName(), self.value())
+		# print(type(self.value()))
 		pass
 
 	pass
@@ -21,6 +22,6 @@ class InterfaceBtn(QPushButton):
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
-	window = QWidget()
+	window = InterfaceDial()
 	window.show()
 	sys.exit(app.exec_())

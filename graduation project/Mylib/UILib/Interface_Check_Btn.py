@@ -4,16 +4,16 @@ from PyQt5.Qt import *
 import sys
 
 
-class InterfaceDial(QDial):
-	value_change = pyqtSignal(str, str, int)
+class InterfaceCheckBtn(QPushButton):
+	key_checked = pyqtSignal(str, str, bool)
 
 	def __init__(self, parent=None, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
-		self.valueChanged.connect(self.dial_cao)
+		self.toggled.connect(self.check_btn_cao)
 		pass
 
-	def dial_cao(self):
-		self.value_change.emit(self.property('role'), self.objectName(), self.value())
+	def check_btn_cao(self):
+		self.key_checked.emit(self.property('role'), self.objectName(), self.isChecked())
 		pass
 
 	pass
@@ -21,6 +21,6 @@ class InterfaceDial(QDial):
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
-	window = QWidget()
+	window = InterfaceCheckBtn()
 	window.show()
 	sys.exit(app.exec_())

@@ -2311,10 +2311,10 @@ image: url(:/framework/images/down_btn.png);</string>
             <string notr="true">background-color: rgb(255, 255, 255);</string>
            </property>
            <property name="minimum">
-            <number>5</number>
+            <number>0</number>
            </property>
            <property name="maximum">
-            <number>12</number>
+            <number>7</number>
            </property>
            <property name="singleStep">
             <number>1</number>
@@ -2323,7 +2323,7 @@ image: url(:/framework/images/down_btn.png);</string>
             <number>1</number>
            </property>
            <property name="value">
-            <number>10</number>
+            <number>5</number>
            </property>
            <property name="notchTarget">
             <double>1.000000000000000</double>

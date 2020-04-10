@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 
 class Ui_Form(object):
@@ -188,8 +188,6 @@ class Ui_Form(object):
 		self.label_3.setText(_translate("Form", "确认密码："))
 		self.register_btn.setText(_translate("Form", "注册"))
 
-
-import images_rc
 
 if __name__ == "__main__":
 	import sys
