@@ -9,10 +9,10 @@ class InterfaceBtn(QPushButton):
 
 	def __init__(self, parent=None, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
-		self.clicked.connect(self.btn_cao)
+		self.clicked.connect(self.btn_clicked)  # 按钮松开时发送信号
 		pass
 
-	def btn_cao(self):
+	def btn_clicked(self):
 		self.key_pressed.emit(self.property('role'), self.objectName())
 		pass
 
