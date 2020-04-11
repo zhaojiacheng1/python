@@ -126,7 +126,7 @@ branch merge test
 
 ### 界面框架如图
 
-![界面框架](Doc/images_2020-4-7.png)
+![界面框架](Graduation_Project/Doc/images_2020-4-7.png)
 
 1、界面基本的框架雏形已经出来了：左上角的CRT界面以及CRT下侧的软按键；左下角的输入面板部分；右侧的操作面板；
 
@@ -172,7 +172,7 @@ PLAN：
 
 ### 界面效果
 
-![未加优化的界面效果图](graduation&#32;project/Doc/images_2020-04-09_23-19-31.png)
+![未加优化的界面效果图](Graduation_Project/Doc/images_2020-04-09_23-19-31.png)
 
 问题：
 
@@ -182,7 +182,7 @@ PLAN：
 
 ### 信号测试
 
-![信号测试图](graduation&#32;project/Doc/images_2020-04-09_23-28-37.png)
+![信号测试图](Graduation_Project/Doc/images_2020-04-09_23-28-37.png)
 
 经过测试，所有信号都已经正常运行；
 
@@ -204,5 +204,5 @@ NOTES:
 
 1> 发现8个轴选按钮长按是不合逻辑的问题，即当这八个按钮长按时不能正常地发送对应信号，打算单独取出来处理; 
 
-![QPushButton的信号说明](graduation&#32;project/Doc/images_2020-04-10_21-56-17.png)
+![QPushButton的信号说明](Graduation_Project/Doc/images_2020-04-10_21-56-17.png)
 
