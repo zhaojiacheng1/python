@@ -1206,6 +1206,7 @@ class Ui_Form(object):
         self.Btn_STOP.setStyleSheet("background-color: rgb(217, 0, 0);")
         self.Btn_STOP.setText("")
         self.Btn_STOP.setCheckable(True)
+        self.Btn_STOP.setChecked(False)
         self.Btn_STOP.setAutoExclusive(True)
         self.Btn_STOP.setObjectName("Btn_STOP")
         self.buttonGroup.addButton(self.Btn_STOP)
@@ -1696,6 +1697,7 @@ class Ui_Form(object):
 "    background-color: rgb(222, 222, 222);\n"
 "    image: url(:/framework/images/right_btn.png);\n"
 "}")
+        self.Btn_GO.setText("")
         self.Btn_GO.setObjectName("Btn_GO")
         self.horizontalLayout.addWidget(self.Btn_GO)
         self.gridLayout.addWidget(self.widget_4, 1, 0, 1, 1)
@@ -1957,7 +1959,6 @@ class Ui_Form(object):
         self.Btn_Eight.setProperty("role", _translate("Form", "position"))
         self.Btn_Nine.setProperty("role", _translate("Form", "position"))
         self.Btn_Ten.setProperty("role", _translate("Form", "position"))
-        self.Btn_GO.setText(_translate("Form", "-->"))
         self.Btn_GO.setProperty("role", _translate("Form", "go"))
 from Interface_Check_Btn import InterfaceCheckBtn
 from Interface_Dial import InterfaceDial

@@ -2418,65 +2418,65 @@
 #
 #     window.show()
 #     sys.exit(app.exec_())
-import sys
-from PyQt5.Qt import *
-
-
-class Slider(QSlider):
-    def __init__(self, parent=None, *args, **kwargs):
-        super().__init__(parent, *args, **kwargs)
-        self.setTickPosition(QSlider.TicksBothSides)  # 添加控件刻度线
-        self.setup_ui()
-
-    def setup_ui(self):
-        self.label = QLabel(self)
-        self.label.setText('0')
-        self.label.setStyleSheet('background-color:red;')
-        self.label.hide()
-
-    def mousePressEvent(self, evt):
-        super().mousePressEvent(evt)  # 继续向外界发射信号，保证父类方法完整性
-        x = (self.width() - self.label.width()) / 2
-        y = (1 - self.value() / (self.maximum() - self.minimum())) * self.height() - self.label.height()
-        self.label.show()
-        self.label.move(int(x), int(y))
-
-    def mouseMoveEvent(self, evt):
-        super().mouseMoveEvent(evt)
-        self.label.setText(str(self.value()))
-        self.label.adjustSize()
-        x = (self.width() - self.label.width()) / 2
-        y = (1 - self.value() / (self.maximum() - self.minimum())) * (self.height()-self.label.height())
-        self.label.show()
-        self.label.move(int(x), int(y))
-
-    def mouseReleaseEvent(self, evt):
-        super().mouseReleaseEvent(evt)
-        self.label.hide()
-
-
-class Window(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle('QSlider-学习')
-        self.resize(640, 480)
-        self.setup_ui()
-
-    def setup_ui(self):
-        slider = Slider(self)
-        slider.move(200, 200)
-        slider.resize(30, 200)
-
-        # sd.valueChanged.connect(lambda val: print(val))
-        # sd.setTickInterval(5)
-
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = Window()
-
-    window.show()
-    sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+#
+#
+# class Slider(QSlider):
+#     def __init__(self, parent=None, *args, **kwargs):
+#         super().__init__(parent, *args, **kwargs)
+#         self.setTickPosition(QSlider.TicksBothSides)  # 添加控件刻度线
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         self.label = QLabel(self)
+#         self.label.setText('0')
+#         self.label.setStyleSheet('background-color:red;')
+#         self.label.hide()
+#
+#     def mousePressEvent(self, evt):
+#         super().mousePressEvent(evt)  # 继续向外界发射信号，保证父类方法完整性
+#         x = (self.width() - self.label.width()) / 2
+#         y = (1 - self.value() / (self.maximum() - self.minimum())) * self.height() - self.label.height()
+#         self.label.show()
+#         self.label.move(int(x), int(y))
+#
+#     def mouseMoveEvent(self, evt):
+#         super().mouseMoveEvent(evt)
+#         self.label.setText(str(self.value()))
+#         self.label.adjustSize()
+#         x = (self.width() - self.label.width()) / 2
+#         y = (1 - self.value() / (self.maximum() - self.minimum())) * (self.height()-self.label.height())
+#         self.label.show()
+#         self.label.move(int(x), int(y))
+#
+#     def mouseReleaseEvent(self, evt):
+#         super().mouseReleaseEvent(evt)
+#         self.label.hide()
+#
+#
+# class Window(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle('QSlider-学习')
+#         self.resize(640, 480)
+#         self.setup_ui()
+#
+#     def setup_ui(self):
+#         slider = Slider(self)
+#         slider.move(200, 200)
+#         slider.resize(30, 200)
+#
+#         # sd.valueChanged.connect(lambda val: print(val))
+#         # sd.setTickInterval(5)
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = Window()
+#
+#     window.show()
+#     sys.exit(app.exec_())
 # import sys
 # from PyQt5.Qt import *
 #
@@ -4424,3 +4424,11 @@ if __name__ == '__main__':
 # 	window = Window()
 # 	window.show()
 # 	sys.exit(app.exec_())
+import sys
+from PyQt5.Qt import *
+from Mylib.Interface_framework_pane import InterfaceFrameworkPane
+if __name__ == '__main__':
+	app = QApplication(sys.argv)
+	window = InterfaceFrameworkPane()
+	window.show()
+	sys.exit(app.exec_())

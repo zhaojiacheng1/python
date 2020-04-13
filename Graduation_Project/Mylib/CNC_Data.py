@@ -7,6 +7,8 @@ from Mylib.Interface_framework_pane import InterfaceFrameworkPane
 
 class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	""" CNC数据类：存储CNC重要的临时数据"""
+	# CNC的电源信号传递 参数有电源状态 数据对象,界面对象(父对象)(可以不传递 应为CNCProcess类的父对象与CNCData的父对象一致)
+	CNCPowerSingal = pyqtSignal(bool, object)
 	# CNC具有的模式
 	CNCModeAll = { 0: 'EDIT', 1: 'MDI', 2: 'MDI', 3: 'JOG',
 	               4: 'INC', 5: 'INC', 6: 'INC', 7: 'INC', 8: 'INC',
@@ -80,6 +82,12 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	                       'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
 	# CRT软按键的按下造成的界面分支
 	CRTPageState = ''
+	# CNC的绝对坐标位置
+	CNCPosAbs = { 'X': 0, 'Y': 0, 'Z': 0 }
+	# CNC的相对坐标位置
+	CNCPosRelative = { 'X': 0, 'Y': 0, 'Z': 0 }
+	# CNC的机械坐标位置
+	CNCPosMechanical = { 'X': 0, 'Y': 0, 'Z': 0 }
 
 	def __init__(self, parent=None, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
@@ -115,6 +123,55 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	def PowerOnInit(self, InterfaceFrameworkPane):
 		# 设置主轴停止按钮按下
 		InterfaceFrameworkPane.Btn_STOP.setChecked(True)
+		pass
+
+	# control角色类处理,并发送信号
+	def CNCDataControl(self, *args):
+		Data = args
+		# 电源状态处理
+		if Data[ 1 ] == 'Btn_Power_ON':
+			self.CNCPowerState = True
+			self.CRTPageState = '绝对'
+			self.CNCPowerSingal.emit(self.CNCPowerState, self)
+		if Data[ 1 ] == 'Btn_Power_OFF':
+			self.CNCPowerState = False
+			self.CNCPowerSingal.emit(self.CNCPowerState, self)
+		pass
+
+	# view角色类按键处理，并发送信号
+	def CNCDataView(self, *args):
+		pass
+
+	# position back go 角色类软按键处理 多用于CRT本身界面切换，并发送信号
+	def CNCDataPosition(self, *args):
+		pass
+
+	# input 角色类按键处理 多是编辑、输入、修改之类的操作，并发送信号
+	def CNCDataInput(self, *args):
+		pass
+
+	# 该函数负责将传递的参数修改到CNCData类中
+	def CNCDataProcess(self, *args):
+		Data = args
+		# 先分角色处理 先处理 control 之后处理 view 再处理position back go 最后处理input角色
+		if Data[ 0 ] == 'control':
+			self.CNCDataControl(*args)
+		if Data[ 0 ] == 'view':
+			self.CNCDataView(*args)
+		if Data[ 0 ] == 'back' or Data[ 0 ] == 'go' or Data[ 0 ] == 'position':
+			self.CNCDataPosition(*args)
+		if Data[ 0 ] == 'input':
+			self.CNCDataInput(*args)
+		pass
+
+	# 接受信号传递过来的参数
+	def CNCDataSignalAccept(self, *args):
+		DataAccept = args
+		self.CNCDataProcess(*args)
+		pass
+
+	def SignalConnectCNCProcess(self, CNCProcess):
+		self.CNCPowerSingal.connect(CNCProcess.CNCPowerProcess)
 		pass
 
 	pass

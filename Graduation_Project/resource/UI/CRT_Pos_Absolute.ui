@@ -50,7 +50,7 @@
    <item row="0" column="0" colspan="2">
     <widget class="QWidget" name="widget" native="true">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(155, 255, 252);</string>
+      <string notr="true"/>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">
@@ -91,7 +91,7 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 103, 136);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
@@ -99,7 +99,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="Lab_File_Name">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -116,7 +116,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="Lab_LineNum">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -145,7 +145,7 @@
    <item row="2" column="0" colspan="2">
     <widget class="QWidget" name="widget_3" native="true">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(157, 178, 255);</string>
+      <string notr="true"/>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <property name="spacing">
@@ -166,14 +166,14 @@
       <item>
        <widget class="QWidget" name="widget_7" native="true">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 66, 107);</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QWidget" name="widget_8" native="true">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 66, 107);</string>
+         <string notr="true"/>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0,0">
          <property name="spacing">
@@ -201,15 +201,18 @@
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 60);</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string>F</string>
            </property>
+           <property name="indent">
+            <number>5</number>
+           </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_6">
+          <widget class="QLabel" name="Lab_Auto_FSpeed">
            <property name="font">
             <font>
              <pointsize>13</pointsize>
@@ -218,7 +221,7 @@
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 60);</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string>0</string>
@@ -233,10 +236,12 @@
            <property name="font">
             <font>
              <pointsize>13</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 60);</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string>MM/分</string>
@@ -262,8 +267,626 @@
    <item row="3" column="1">
     <widget class="QWidget" name="widget_5" native="true">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(120, 255, 99);</string>
+      <string notr="true"/>
      </property>
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="5,1">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="widget_9" native="true">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QWidget" name="widget_11" native="true">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <property name="spacing">
+             <number>1</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_8">
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>JOG F</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="Lab_FSpeed">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>0 MM/分</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+              <property name="indent">
+               <number>8</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_12">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>加工产品数</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="Lab_Num">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>1</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_12" native="true">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <property name="spacing">
+             <number>1</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_11">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>运行时间</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="Lab_Time_Run">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>00H00M</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+              <property name="indent">
+               <number>8</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_15">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>切削时间</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="Lab_Time_Cut">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>00H00M00S</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_13" native="true">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 178, 195);</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_14" native="true">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 178, 195);</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_15" native="true">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <property name="spacing">
+             <number>1</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_17">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>OS</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="Lab_OSper">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>50%</string>
+              </property>
+              <property name="indent">
+               <number>5</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_19">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>L</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="Lab_Lper">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>100%</string>
+              </property>
+              <property name="indent">
+               <number>5</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_10" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(0, 0, 0);</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0,0,0,0,0,0">
+         <property name="spacing">
+          <number>1</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="Lab_Mode">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(192, 192, 192);</string>
+           </property>
+           <property name="text">
+            <string>REF</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_9">
+           <property name="minimumSize">
+            <size>
+             <width>45</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>45</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(192, 192, 192);</string>
+           </property>
+           <property name="text">
+            <string>***</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_10">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(192, 192, 192);</string>
+           </property>
+           <property name="text">
+            <string>***</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_EMG">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(192, 192, 192);</string>
+           </property>
+           <property name="text">
+            <string>EMG</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_ALM">
+           <property name="minimumSize">
+            <size>
+             <width>45</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>45</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(192, 192, 192);</string>
+           </property>
+           <property name="text">
+            <string>ALM</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Date">
+           <property name="minimumSize">
+            <size>
+             <width>82</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>82</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(192, 192, 192);</string>
+           </property>
+           <property name="text">
+            <string>14:18:25</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_14">
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(192, 192, 192);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item row="4" column="0" colspan="2">
@@ -288,7 +911,7 @@
        <number>1</number>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="Btn_BACK">
         <property name="minimumSize">
          <size>
           <width>20</width>
@@ -322,7 +945,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="CRTSoftBtn" name="Btn_One">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -347,7 +970,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="CRTSoftBtn" name="Btn_Two">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -372,7 +995,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="CRTSoftBtn" name="Btn_Three">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -397,7 +1020,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="CRTSoftBtn" name="Btn_Four">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -422,7 +1045,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="CRTSoftBtn" name="Btn_Five">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -447,7 +1070,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_7">
+       <widget class="CRTSoftBtn" name="Btn_Six">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -472,7 +1095,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_8">
+       <widget class="CRTSoftBtn" name="Btn_Seven">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -497,7 +1120,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_9">
+       <widget class="CRTSoftBtn" name="Btn_Eight">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -522,7 +1145,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_10">
+       <widget class="CRTSoftBtn" name="Btn_Nine">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -547,7 +1170,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_11">
+       <widget class="CRTSoftBtn" name="Btn_Ten">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -572,7 +1195,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_12">
+       <widget class="QPushButton" name="Btn_GO">
         <property name="minimumSize">
          <size>
           <width>20</width>
@@ -598,6 +1221,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CRTSoftBtn</class>
+   <extends>QPushButton</extends>
+   <header>CRT_Soft_Btn</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

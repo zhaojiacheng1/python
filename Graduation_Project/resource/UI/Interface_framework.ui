@@ -3184,6 +3184,9 @@ color: rgb(255, 255, 255);</string>
            <property name="checkable">
             <bool>true</bool>
            </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
            <property name="autoExclusive">
             <bool>true</bool>
            </property>
@@ -4642,7 +4645,7 @@ color: rgb(255, 255, 255);</string>
 }</string>
         </property>
         <property name="text">
-         <string>--&gt;</string>
+         <string/>
         </property>
         <property name="role" stdset="0">
          <string>go</string>
