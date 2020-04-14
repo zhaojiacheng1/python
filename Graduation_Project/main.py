@@ -15,9 +15,9 @@ if __name__ == '__main__':
 	# 取出CRT界面容器对象 之后创建的显示界面都应当挂载在这个对象上
 	CRTWindow = Main_Pane.main_window  # 左右都是类
 	# 创建机床存储数据对象
-	CNCPaneDate = CNCData(CRTWindow)
+	CNCPaneDate = CNCData(CRTWindow, Main_Pane)
 	# 创建机床后台处理类
-	CNCPaneProcess = CNCProcess(CRTWindow)
+	CNCPaneProcess = CNCProcess(CRTWindow, Main_Pane, CNCPaneDate)
 	# 上电前控制面板初始化
 	CNCPaneDate.PowerOffInit(Main_Pane)
 

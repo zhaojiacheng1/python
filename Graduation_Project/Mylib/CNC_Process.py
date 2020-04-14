@@ -8,23 +8,30 @@ from Mylib.CRT_Pos_Abs_Pane import CRTPosAbsPane
 class CNCProcess(QObject):
 	# 信号告诉控制控制面板 用户面板的点击有效了
 	ProcessStateDone = pyqtSignal(bool)
+	# 传递软按钮按下的信息 按钮对象名 按下的内容
+	SoftBtnSignal = pyqtSignal(str, str)
 
-	def __init__(self, parent=None, *args, **kwargs):
+	def __init__(self, parent, Pane, Data, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
+		# InterfaceFrameworkPane
+		self.InterfacePane = Pane
+		self.ProcessData = Data
 		pass
 
-	def CNCSoftBtnSet(self, CNCData):
-		if CNCData.CNCCRTState == 'POS':
-			CNCData.SoftButtonTempInfo[ 'Btn_One' ] = ''
-			CNCData.SoftButtonTempInfo[ 'Btn_Two' ] = ''
-			CNCData.SoftButtonTempInfo[ 'Btn_Three' ] = ''
-			CNCData.SoftButtonTempInfo[ 'Btn_Four' ] = ''
-			CNCData.SoftButtonTempInfo[ 'Btn_Five' ] = ''
-			CNCData.SoftButtonTempInfo[ 'Btn_Six' ] = '绝对'
-			CNCData.SoftButtonTempInfo[ 'Btn_Seven' ] = '相对'
-			CNCData.SoftButtonTempInfo[ 'Btn_Eight' ] = '综合'
-			CNCData.SoftButtonTempInfo[ 'Btn_Nine' ] = 'HNDL'
-			CNCData.SoftButtonTempInfo[ 'Btn_Ten' ] = '(操作)'
+	def CNCCRTWindowList(self, childlist, CNCData):
+		window_list = ()
+		for i in range(0, len(childlist)):
+			if type(childlist[ i ]) != type(CNCData) and type(childlist[ i ]) != type(self):
+				window_list += (childlist[ i ],)
+		# print(window_list)
+		return window_list
+		pass
+
+	# 删除所有的CRT界面
+	def CRTWindowDel(self, CRTwindowList, CNCData):
+		for i in range(0, len(CRTwindowList)):
+			CRTwindowList[ i ].setParent(None)
+			CNCData.CRTWindowNum -= 1
 		pass
 
 	# 参数中有 state CNCData
@@ -32,24 +39,22 @@ class CNCProcess(QObject):
 		if state != CNCData.CNCPowerState:
 			return None
 		if state:
-			if CNCData.CNCCRTState == 'POS':
-				window = CRTPosAbsPane(self.parent())
-				self.CNCSoftBtnSet(CNCData)
-				window.CRTSoftBtnShow(CNCData)
-				window.PosPaneInit(CNCData)
-				window.show()
+			if CNCData.CNCCRTState == 'POS' and CNCData.CRTWindowNum == 0:
+				window = CRTPosAbsPane(self.parent(), CNCData, self.InterfacePane)
+				window.SignalConnectCNCProcess(self)
+				CNCData.CRTWindowNum += 1  # CRT窗口数量加1
 				self.ProcessStateDone.emit(True)
 		else:
 			window = self.parent().children()
-			# print(window)
-			window_list = ()
-			# print(type(window[ 0 ]), type(window[ 1 ]), type(window[ 2 ]))
-			for i in range(0, len(window)):
-				if type(window[ i ]) != type(CNCData) and type(window[ i ]) != CNCProcess:
-					window_list += (window[ i ],)
-			crtwindow = window_list[ 0 ]
-			crtwindow.setParent(None)
+			windowlist = ()
+			windowlist += self.CNCCRTWindowList(window, CNCData)
+			self.CRTWindowDel(windowlist, CNCData)
 			self.ProcessStateDone.emit(True)
+		pass
+
+	def CRTSoftBtnProcess(self, name, value):
+		# 将软信号传递到CRT界面中去
+		self.SoftBtnSignal.emit(name, value)
 		pass
 
 	def SignalConnectCNCPane(self, InterfaceFrameworkPane):

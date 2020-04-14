@@ -8,7 +8,9 @@ from Mylib.Interface_framework_pane import InterfaceFrameworkPane
 class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	""" CNC数据类：存储CNC重要的临时数据"""
 	# CNC的电源信号传递 参数有电源状态 数据对象,界面对象(父对象)(可以不传递 应为CNCProcess类的父对象与CNCData的父对象一致)
-	CNCPowerSingal = pyqtSignal(bool, object)
+	CNCPowerSignal = pyqtSignal(bool, object)
+	# CRT界面的软按键信号 参数为 按钮对象名 按钮内容 数据对象(可不必)
+	CRTSoftBtnSignal = pyqtSignal(str, str)
 	# CNC具有的模式
 	CNCModeAll = { 0: 'EDIT', 1: 'MDI', 2: 'MDI', 3: 'JOG',
 	               4: 'INC', 5: 'INC', 6: 'INC', 7: 'INC', 8: 'INC',
@@ -77,20 +79,31 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CNCShiftState = False
 	# CNC的CRT界面显示分支 为了简化程序 当切换完全不同的界面时将放弃原界面未保存的修改
 	CNCCRTState = 'POS'
+	# CRT界面的数量 默认为0 即无界面 但是其值最大为1
+	CRTWindowNum = 0
 	# CNC的CRT界面软按键信息
 	SoftButtonTempInfo = { 'Btn_One': '', 'Btn_Two': '', 'Btn_Three': '', 'Btn_Four': '', 'Btn_Five': '',
 	                       'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
+	# CNC的CRT界面软按键信息的back和go 方便两边操作
+	SoftButtonTempInfoBack = { 'Btn_One': '', 'Btn_Two': '', 'Btn_Three': '', 'Btn_Four': '', 'Btn_Five': '',
+	                           'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
+	SoftButtonTempInfoGo = { 'Btn_One': '', 'Btn_Two': '', 'Btn_Three': '', 'Btn_Four': '', 'Btn_Five': '',
+	                         'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
 	# CRT软按键的按下造成的界面分支
 	CRTPageState = ''
 	# CNC的绝对坐标位置
-	CNCPosAbs = { 'X': 0, 'Y': 0, 'Z': 0 }
+	CNCPosAbs = { 'X': 1.000, 'Y': 2.000, 'Z': 3.000 }
 	# CNC的相对坐标位置
-	CNCPosRelative = { 'X': 0, 'Y': 0, 'Z': 0 }
+	CNCPosRelative = { 'X': 4.000, 'Y': 5.000, 'Z': 6.000 }
 	# CNC的机械坐标位置
-	CNCPosMechanical = { 'X': 0, 'Y': 0, 'Z': 0 }
+	CNCPosMechanical = { 'X': 7.000, 'Y': 8.000, 'Z': 9.000 }
+	# CNC报警信息显示 默认False 即无报警信息
+	CNCALMState = False
 
-	def __init__(self, parent=None, *args, **kwargs):
+	def __init__(self, parent, Pane, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
+		# InterfaceFrameworkPane
+		self.InterfacePane = Pane
 		pass
 
 	# 在上电前将控制面板固定按钮 如急停按钮，模式选择，主轴、进给倍率
@@ -132,10 +145,11 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		if Data[ 1 ] == 'Btn_Power_ON':
 			self.CNCPowerState = True
 			self.CRTPageState = '绝对'
-			self.CNCPowerSingal.emit(self.CNCPowerState, self)
+			self.CNCPowerSignal.emit(self.CNCPowerState, self)
 		if Data[ 1 ] == 'Btn_Power_OFF':
 			self.CNCPowerState = False
-			self.CNCPowerSingal.emit(self.CNCPowerState, self)
+			self.CNCPowerSignal.emit(self.CNCPowerState, self)
+
 		pass
 
 	# view角色类按键处理，并发送信号
@@ -144,6 +158,9 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 
 	# position back go 角色类软按键处理 多用于CRT本身界面切换，并发送信号
 	def CNCDataPosition(self, *args):
+		value = self.SoftButtonTempInfo[ args[ 1 ] ]
+		self.CRTPageState = value
+		self.CRTSoftBtnSignal.emit(args[ 1 ], value)
 		pass
 
 	# input 角色类按键处理 多是编辑、输入、修改之类的操作，并发送信号
@@ -171,7 +188,8 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		pass
 
 	def SignalConnectCNCProcess(self, CNCProcess):
-		self.CNCPowerSingal.connect(CNCProcess.CNCPowerProcess)
+		self.CNCPowerSignal.connect(CNCProcess.CNCPowerProcess)
+		self.CRTSoftBtnSignal.connect(CNCProcess.CRTSoftBtnProcess)
 		pass
 
 	pass
