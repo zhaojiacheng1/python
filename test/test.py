@@ -4424,11 +4424,11 @@
 # 	window = Window()
 # 	window.show()
 # 	sys.exit(app.exec_())
-import sys
-from PyQt5.Qt import *
-from Mylib.Interface_framework_pane import InterfaceFrameworkPane
-if __name__ == '__main__':
-	app = QApplication(sys.argv)
-	window = InterfaceFrameworkPane()
-	window.show()
-	sys.exit(app.exec_())
+# import sys
+# from PyQt5.Qt import *
+# from Mylib.Interface_framework_pane import InterfaceFrameworkPane
+# if __name__ == '__main__':
+# 	app = QApplication(sys.argv)
+# 	window = InterfaceFrameworkPane()
+# 	window.show()
+# 	sys.exit(app.exec_())

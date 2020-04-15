@@ -941,8 +941,15 @@ border-right:2px solid white;</string>
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">color: rgb(3, 255, 255);</string>
         </property>
         <property name="text">
          <string/>
@@ -1213,8 +1220,15 @@ border-right:2px solid white;</string>
           <height>50</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">color: rgb(3, 255, 255);</string>
         </property>
         <property name="text">
          <string/>

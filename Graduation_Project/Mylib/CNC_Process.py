@@ -10,12 +10,20 @@ class CNCProcess(QObject):
 	ProcessStateDone = pyqtSignal(bool)
 	# 传递软按钮按下的信息 按钮对象名 按下的内容
 	SoftBtnSignal = pyqtSignal(str, str)
+	# 急停信号
+	EmergencySTOPSignal = pyqtSignal(bool)
+	# CNC模式改变信号
+	CNCModeChangeSignal = pyqtSignal(str)
 
 	def __init__(self, parent, Pane, Data, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
 		# InterfaceFrameworkPane
 		self.InterfacePane = Pane
 		self.ProcessData = Data
+		pass
+
+	def CNCModeChangeSlot(self, mode):
+		self.CNCModeChangeSignal.emit(mode)
 		pass
 
 	def CNCCRTWindowList(self, childlist, CNCData):
@@ -55,6 +63,10 @@ class CNCProcess(QObject):
 	def CRTSoftBtnProcess(self, name, value):
 		# 将软信号传递到CRT界面中去
 		self.SoftBtnSignal.emit(name, value)
+		pass
+
+	def EmergencySTOPSlot(self, state):
+		self.EmergencySTOPSignal.emit(state)
 		pass
 
 	def SignalConnectCNCPane(self, InterfaceFrameworkPane):

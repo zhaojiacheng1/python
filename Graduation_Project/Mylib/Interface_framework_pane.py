@@ -36,10 +36,9 @@ class InterfaceFrameworkPane(QWidget, Ui_Form):
 		# 信号先发送role，后发送name
 		if self.InfoTransState:
 			# 这行代码必须放在发送信号之前 信号的发送时间太久，如果放在之后会发生 置True在置False之前
-			# self.InfoTransState = False
+			self.InfoTransState = False
 			print(self.InfoTransState, '1')
 			self.InfoTransBtnClick.emit(role, name)
-
 		pass
 
 	def get_check_keys(self, role, name, state):
@@ -51,7 +50,7 @@ class InterfaceFrameworkPane(QWidget, Ui_Form):
 		"""
 		# print(role, name, state)
 		if self.InfoTransState:
-			# self.InfoTransState = False
+			self.InfoTransState = False
 			print(self.InfoTransState, '1')
 			self.InfoTransBtnCheck.emit(role, name, state)
 		pass
@@ -65,7 +64,7 @@ class InterfaceFrameworkPane(QWidget, Ui_Form):
 		"""
 		# print(role, name, value)
 		if self.InfoTransState:
-			# self.InfoTransState = False
+			self.InfoTransState = False
 			print(self.InfoTransState, '1')
 			self.InfoTransDial.emit(role, name, value)
 		pass
@@ -79,7 +78,7 @@ class InterfaceFrameworkPane(QWidget, Ui_Form):
 		"""
 		# print(role, name, state)
 		if self.InfoTransState:
-			# self.InfoTransState = False
+			self.InfoTransState = False
 			print(self.InfoTransState, '1')
 			self.InfoTransBtnKeepState.emit(role, name, state)
 		pass

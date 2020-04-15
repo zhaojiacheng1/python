@@ -7,10 +7,16 @@ from Mylib.Interface_framework_pane import InterfaceFrameworkPane
 
 class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	""" CNC数据类：存储CNC重要的临时数据"""
+	# 数据处理结束信号 主要是指无效数据
+	DataStateDone = pyqtSignal(bool)
 	# CNC的电源信号传递 参数有电源状态 数据对象,界面对象(父对象)(可以不传递 应为CNCProcess类的父对象与CNCData的父对象一致)
 	CNCPowerSignal = pyqtSignal(bool, object)
 	# CRT界面的软按键信号 参数为 按钮对象名 按钮内容 数据对象(可不必)
 	CRTSoftBtnSignal = pyqtSignal(str, str)
+	# CNC急停信号
+	CNCEmergencySTOPSignal = pyqtSignal(bool)
+	# CNC模式选择信号
+	CNCModeChangeSignal = pyqtSignal(str)
 	# CNC具有的模式
 	CNCModeAll = { 0: 'EDIT', 1: 'MDI', 2: 'MDI', 3: 'JOG',
 	               4: 'INC', 5: 'INC', 6: 'INC', 7: 'INC', 8: 'INC',
@@ -84,6 +90,13 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	# CNC的CRT界面软按键信息
 	SoftButtonTempInfo = { 'Btn_One': '', 'Btn_Two': '', 'Btn_Three': '', 'Btn_Four': '', 'Btn_Five': '',
 	                       'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
+	# CRT软按键当前按下的按键 默认没有按下的
+	SoftBtnCheckedInfo = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
+	                       'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
+	SoftBtnCheckedInfoBack = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
+	                           'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
+	SoftBtnCheckedInfoGo = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
+	                         'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
 	# CNC的CRT界面软按键信息的back和go 方便两边操作
 	SoftButtonTempInfoBack = { 'Btn_One': '', 'Btn_Two': '', 'Btn_Three': '', 'Btn_Four': '', 'Btn_Five': '',
 	                           'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
@@ -91,6 +104,8 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	                         'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
 	# CRT软按键的按下造成的界面分支
 	CRTPageState = ''
+	# CRT软按键本身的状态分支 用于back go的软按键的翻页操作 默认空白
+	CRTSoftBtnMenu = ''
 	# CNC的绝对坐标位置
 	CNCPosAbs = { 'X': 1.000, 'Y': 2.000, 'Z': 3.000 }
 	# CNC的相对坐标位置
@@ -107,35 +122,72 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		pass
 
 	# 在上电前将控制面板固定按钮 如急停按钮，模式选择，主轴、进给倍率
-	def PowerOffInit(self, InterfaceFrameworkPane):
+	def PowerOffInit(self, Pane):
 		"""	PowerOffInit(self, InterfaceFrameworkPane)-> None """
 		# 设置急停按钮
-		InterfaceFrameworkPane.Btn_Emergency_STOP.setChecked(self.CNCEmergencySTOP)
+		Pane.Btn_Emergency_STOP.blockSignals(True)
+		Pane.Btn_Emergency_STOP.setChecked(self.CNCEmergencySTOP)
+		Pane.Btn_Emergency_STOP.blockSignals(False)
 		# 设置模式值 根据默认的模式推断字典相应的键然后设置
 		value = list(self.CNCModeAll.keys())[ list(self.CNCModeAll.values()).index(self.CNCNowMode) ]
-		InterfaceFrameworkPane.Btn_Mode.setValue(value)
+		Pane.Btn_Mode.blockSignals(True)
+		Pane.Btn_Mode.setValue(value)
+		Pane.Btn_Mode.blockSignals(False)
 		# 设置进给倍率和主轴倍率
 		value = list(self.CNCFeedSpeedAll.keys())[ list(self.CNCFeedSpeedAll.values()).index(self.CNCFeedSpeed) ]
-		InterfaceFrameworkPane.Btn_Speed.setValue(value)
+		Pane.Btn_Speed.blockSignals(True)
+		Pane.Btn_Speed.setValue(value)
+		Pane.Btn_Speed.blockSignals(False)
 		value = list(self.CNCSpindleSpeedAll.keys())[ list(self.CNCSpindleSpeedAll.values()).index(self.CNCSpindleSpeed) ]
-		InterfaceFrameworkPane.Btn_Spindle_Speed.setValue(value)
+		Pane.Btn_Spindle_Speed.blockSignals(True)
+		Pane.Btn_Spindle_Speed.setValue(value)
+		Pane.Btn_Spindle_Speed.blockSignals(False)
 
-		InterfaceFrameworkPane.Btn_SHIFT.setChecked(self.CNCShiftState)
-		InterfaceFrameworkPane.Btn_RAPID.setChecked(self.CNCRAPIDState)
-		InterfaceFrameworkPane.Btn_COOL.setChecked(self.CNCCOOLState)
-		InterfaceFrameworkPane.Btn_DRIVE.setChecked(self.CNCDRIVEState)
-		InterfaceFrameworkPane.Btn_PROTECT.setChecked(self.CNCPROTECTState)
-		InterfaceFrameworkPane.Btn_DRN.setChecked(self.CNCDRNState)
-		InterfaceFrameworkPane.Btn_MSTLOCK.setChecked(self.CNCMSTLOCKState)
-		InterfaceFrameworkPane.Btn_SBK.setChecked(self.CNCSBKState)
-		InterfaceFrameworkPane.Btn_SKIP.setChecked(self.CNCSKIPState)
-		InterfaceFrameworkPane.Btn_M01.setChecked(self.CNCM01State)
+		Pane.Btn_SHIFT.blockSignals(True)
+		Pane.Btn_SHIFT.setChecked(self.CNCShiftState)
+		Pane.Btn_SHIFT.blockSignals(False)
+
+		Pane.Btn_RAPID.blockSignals(True)
+		Pane.Btn_RAPID.setChecked(self.CNCRAPIDState)
+		Pane.Btn_RAPID.blockSignals(False)
+
+		Pane.Btn_COOL.blockSignals(True)
+		Pane.Btn_COOL.setChecked(self.CNCCOOLState)
+		Pane.Btn_COOL.blockSignals(False)
+
+		Pane.Btn_DRIVE.blockSignals(True)
+		Pane.Btn_DRIVE.setChecked(self.CNCDRIVEState)
+		Pane.Btn_DRIVE.blockSignals(False)
+
+		Pane.Btn_PROTECT.blockSignals(True)
+		Pane.Btn_PROTECT.setChecked(self.CNCPROTECTState)
+		Pane.Btn_PROTECT.blockSignals(False)
+
+		Pane.Btn_DRN.blockSignals(True)
+		Pane.Btn_DRN.setChecked(self.CNCDRNState)
+		Pane.Btn_DRN.blockSignals(False)
+
+		Pane.Btn_MSTLOCK.blockSignals(True)
+		Pane.Btn_MSTLOCK.setChecked(self.CNCMSTLOCKState)
+		Pane.Btn_MSTLOCK.blockSignals(False)
+
+		Pane.Btn_SBK.blockSignals(True)
+		Pane.Btn_SBK.setChecked(self.CNCSBKState)
+		Pane.Btn_SBK.blockSignals(False)
+
+		Pane.Btn_SKIP.blockSignals(True)
+		Pane.Btn_SKIP.setChecked(self.CNCSKIPState)
+		Pane.Btn_SKIP.blockSignals(False)
+
+		Pane.Btn_M01.blockSignals(True)
+		Pane.Btn_M01.setChecked(self.CNCM01State)
+		Pane.Btn_M01.blockSignals(False)
 		pass
 
 	# 在上电后将控制面板的部分按键初始化
-	def PowerOnInit(self, InterfaceFrameworkPane):
+	def PowerOnInit(self, Pane):
 		# 设置主轴停止按钮按下
-		InterfaceFrameworkPane.Btn_STOP.setChecked(True)
+		Pane.Btn_STOP.setChecked(True)
 		pass
 
 	# control角色类处理,并发送信号
@@ -149,47 +201,86 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		if Data[ 1 ] == 'Btn_Power_OFF':
 			self.CNCPowerState = False
 			self.CNCPowerSignal.emit(self.CNCPowerState, self)
-
+		# 急停按钮处理
+		if Data[ 1 ] == 'Btn_Emergency_STOP':
+			self.CNCEmergencySTOP = Data[ 2 ]
+			self.CNCEmergencySTOPSignal.emit(Data[ 2 ])
+		# 模式选择处理
+		if Data[ 1 ] == 'Btn_Mode':
+			self.CNCNowMode = self.CNCModeAll[ Data[ 2 ] ]
+			if self.CNCNowMode == 'INC':
+				self.CNCINCSpeed = self.CNCINCSpeedAll[ Data[ 2 ] ]
+			else:
+				self.CNCINCSpeed = '0'
+			self.CNCModeChangeSignal.emit(self.CNCNowMode)
 		pass
 
 	# view角色类按键处理，并发送信号
 	def CNCDataView(self, *args):
 		pass
 
-	# position back go 角色类软按键处理 多用于CRT本身界面切换，并发送信号
+	# position back go 角色类软按键处理 多用于CRT本身界面切换，并发送信号 role name
 	def CNCDataPosition(self, *args):
-		value = self.SoftButtonTempInfo[ args[ 1 ] ]
-		self.CRTPageState = value
-		self.CRTSoftBtnSignal.emit(args[ 1 ], value)
+		if self.CNCCRTState == 'POS':
+			if args[ 1 ] != 'Btn_BACK' and args[ 1 ] != 'Btn_GO':
+				value = self.SoftButtonTempInfo[ args[ 1 ] ]
+				if value == '绝对' or value == '相对' or value == '综合':
+					self.CRTPageState = value
+				self.CRTSoftBtnSignal.emit(args[ 1 ], value)
+			if args[ 1 ] == 'Btn_BACK':
+				self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
+			if args[ 1 ] == 'Btn_GO':
+				self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
 		pass
 
 	# input 角色类按键处理 多是编辑、输入、修改之类的操作，并发送信号
 	def CNCDataInput(self, *args):
 		pass
 
-	# 该函数负责将传递的参数修改到CNCData类中
+	# 该函数负责将传递的参数修改到CNCData类中 如果电源未开 所有信号均不处理
 	def CNCDataProcess(self, *args):
 		Data = args
-		# 先分角色处理 先处理 control 之后处理 view 再处理position back go 最后处理input角色
-		if Data[ 0 ] == 'control':
-			self.CNCDataControl(*args)
-		if Data[ 0 ] == 'view':
-			self.CNCDataView(*args)
-		if Data[ 0 ] == 'back' or Data[ 0 ] == 'go' or Data[ 0 ] == 'position':
-			self.CNCDataPosition(*args)
-		if Data[ 0 ] == 'input':
-			self.CNCDataInput(*args)
+		if self.CNCPowerState:
+			# 先分角色处理 先处理 control 之后处理 view 再处理position back go 最后处理input角色
+			if Data[ 0 ] == 'control':
+				self.CNCDataControl(*args)
+			if Data[ 0 ] == 'view':
+				self.CNCDataView(*args)
+			if Data[ 0 ] == 'back' or Data[ 0 ] == 'go' or Data[ 0 ] == 'position':
+				self.CNCDataPosition(*args)
+			if Data[ 0 ] == 'input':
+				self.CNCDataInput(*args)
+		elif Data[ 1 ] == 'Btn_Power_ON':
+			# 先分角色处理 先处理 control 之后处理 view 再处理position back go 最后处理input角色
+			if Data[ 0 ] == 'control':
+				self.CNCDataControl(*args)
+			if Data[ 0 ] == 'view':
+				self.CNCDataView(*args)
+			if Data[ 0 ] == 'back' or Data[ 0 ] == 'go' or Data[ 0 ] == 'position':
+				self.CNCDataPosition(*args)
+			if Data[ 0 ] == 'input':
+				self.CNCDataInput(*args)
+		else:
+			if Data[1] == 'Btn_Emergency_STOP':
+				self.CNCEmergencySTOP = Data[ 2 ]
+			self.DataStateDone.emit(True)
 		pass
 
 	# 接受信号传递过来的参数
 	def CNCDataSignalAccept(self, *args):
-		DataAccept = args
+		# DataAccept = args
 		self.CNCDataProcess(*args)
 		pass
 
 	def SignalConnectCNCProcess(self, CNCProcess):
 		self.CNCPowerSignal.connect(CNCProcess.CNCPowerProcess)
 		self.CRTSoftBtnSignal.connect(CNCProcess.CRTSoftBtnProcess)
+		self.CNCEmergencySTOPSignal.connect(CNCProcess.EmergencySTOPSlot)
+		self.CNCModeChangeSignal.connect(CNCProcess.CNCModeChangeSlot)
+		pass
+
+	def SignalConnectCNCPane(self, CNCPane):
+		self.DataStateDone.connect(CNCPane.InfoTransStateSlot)
 		pass
 
 	pass
