@@ -2620,7 +2620,7 @@ color: rgb(255, 255, 255);</string>
             <bool>false</bool>
            </property>
            <property name="role" stdset="0">
-            <string>control</string>
+            <string>axis</string>
            </property>
           </widget>
          </item>
@@ -2648,7 +2648,7 @@ color: rgb(255, 255, 255);</string>
             <bool>false</bool>
            </property>
            <property name="role" stdset="0">
-            <string>control</string>
+            <string>axis</string>
            </property>
           </widget>
          </item>
@@ -2676,7 +2676,7 @@ color: rgb(255, 255, 255);</string>
             <bool>false</bool>
            </property>
            <property name="role" stdset="0">
-            <string>control</string>
+            <string>axis</string>
            </property>
           </widget>
          </item>
@@ -2797,7 +2797,7 @@ color: rgb(255, 255, 255);</string>
             <bool>false</bool>
            </property>
            <property name="role" stdset="0">
-            <string>control</string>
+            <string>axis</string>
            </property>
           </widget>
          </item>
@@ -2853,7 +2853,7 @@ color: rgb(255, 255, 255);</string>
             <bool>false</bool>
            </property>
            <property name="role" stdset="0">
-            <string>control</string>
+            <string>axis</string>
            </property>
           </widget>
          </item>
@@ -2974,7 +2974,7 @@ color: rgb(255, 255, 255);</string>
             <bool>false</bool>
            </property>
            <property name="role" stdset="0">
-            <string>control</string>
+            <string>axis</string>
            </property>
           </widget>
          </item>
@@ -3002,7 +3002,7 @@ color: rgb(255, 255, 255);</string>
             <bool>false</bool>
            </property>
            <property name="role" stdset="0">
-            <string>control</string>
+            <string>axis</string>
            </property>
           </widget>
          </item>
@@ -3030,7 +3030,7 @@ color: rgb(255, 255, 255);</string>
             <bool>false</bool>
            </property>
            <property name="role" stdset="0">
-            <string>control</string>
+            <string>axis</string>
            </property>
           </widget>
          </item>

@@ -13,6 +13,16 @@ from Mylib.Window_Pos_Comp import WindowPosComp
 class CRTPosAbsPane(QWidget, Ui_Form):
 	# 信号告诉控制控制面板 用户面板的点击有效了
 	CRTProcessStateDone = pyqtSignal(bool)
+	# CRT界面软件back 和 go的点击情况
+	SoftBtnCheckedInfoBack = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
+	                           'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
+	SoftBtnCheckedInfoGo = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
+	                         'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
+	# CNC的CRT界面软按键信息的back和go 方便两边操作
+	SoftButtonTempInfoBack = { 'Btn_One': '', 'Btn_Two': '', 'Btn_Three': '', 'Btn_Four': '', 'Btn_Five': '',
+	                           'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
+	SoftButtonTempInfoGo = { 'Btn_One': '', 'Btn_Two': '', 'Btn_Three': '', 'Btn_Four': '', 'Btn_Five': '',
+	                         'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
 
 	def __init__(self, parent, PaneData, Pane, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
@@ -60,15 +70,35 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 			if self.timernum == 1:
 				self.Lab_EMG.setStyleSheet("""
 					background-color: red;
+					border-top: 2px solid white;
+					border-left: 2px solid white;
+					border-right: 2px solid black;
+					border-bottom: 2px solid rgb(140,140,140);
 				""")
 			if self.timernum == 2:
 				self.Lab_EMG.setStyleSheet("""
 					background-color: rgb(192,192,192);
+					border-top: 2px solid white;
+					border-left: 2px solid white;
+					border-right: 2px solid black;
+					border-bottom: 2px solid rgb(140,140,140);
 				""")
 		if self.timernum == 2:
 			self.timernum = 0
 		self.Lab_Date.setText(datetime.now().strftime('%H:%M:%S'))
 		# print(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+		pass
+
+	def CRTSpindleSpeedSlot(self, value):
+		if value == self.PaneData.CNCSpindleSpeed:
+			# print(value)
+			self.CRTProcessStateDone.emit(True)
+		pass
+
+	def CRTFeedSpeedSlot(self, value):
+		if value == self.PaneData.CNCFeedSpeed:
+			# print(value)
+			self.CRTProcessStateDone.emit(True)
 		pass
 
 	def CRTBtnCheckDel(self, PaneData):
@@ -95,6 +125,8 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		CNCProcess.SoftBtnSignal.connect(self.SoftBtnProcess)
 		CNCProcess.EmergencySTOPSignal.connect(self.CRTEmergencySTOPSlot)
 		CNCProcess.CNCModeChangeSignal.connect(self.CNCModeChangeSlot)
+		CNCProcess.CNCFeedSpeedSignal.connect(self.CRTFeedSpeedSlot)
+		CNCProcess.CNCSpindleSpeedSignal.connect(self.CRTSpindleSpeedSlot)
 		pass
 
 	def CNCModeChangeSlot(self, state):
@@ -110,6 +142,10 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 				self.Lab_EMG.setText('***')
 				self.Lab_EMG.setStyleSheet("""
 					background-color: rgb(192,192,192);
+					border-top: 2px solid white;
+					border-left: 2px solid white;
+					border-right: 2px solid black;
+					border-bottom: 2px solid rgb(140,140,140);
 				""")
 		self.CRTProcessStateDone.emit(True)
 		pass
@@ -190,27 +226,27 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		# 将当前值赋值保存
 		self.CRTSoftBtnGo(Data)
 		# 将过去软按钮信息赋值到当前
-		Data.SoftButtonTempInfo[ 'Btn_One' ] = Data.SoftButtonTempInfoBack[ 'Btn_One' ]
-		Data.SoftButtonTempInfo[ 'Btn_Two' ] = Data.SoftButtonTempInfoBack[ 'Btn_Two' ]
-		Data.SoftButtonTempInfo[ 'Btn_Three' ] = Data.SoftButtonTempInfoBack[ 'Btn_Three' ]
-		Data.SoftButtonTempInfo[ 'Btn_Four' ] = Data.SoftButtonTempInfoBack[ 'Btn_Four' ]
-		Data.SoftButtonTempInfo[ 'Btn_Five' ] = Data.SoftButtonTempInfoBack[ 'Btn_Five' ]
-		Data.SoftButtonTempInfo[ 'Btn_Six' ] = Data.SoftButtonTempInfoBack[ 'Btn_Six' ]
-		Data.SoftButtonTempInfo[ 'Btn_Seven' ] = Data.SoftButtonTempInfoBack[ 'Btn_Seven' ]
-		Data.SoftButtonTempInfo[ 'Btn_Eight' ] = Data.SoftButtonTempInfoBack[ 'Btn_Eight' ]
-		Data.SoftButtonTempInfo[ 'Btn_Nine' ] = Data.SoftButtonTempInfoBack[ 'Btn_Nine' ]
-		Data.SoftButtonTempInfo[ 'Btn_Ten' ] = Data.SoftButtonTempInfoBack[ 'Btn_Ten' ]
+		Data.SoftButtonTempInfo[ 'Btn_One' ] = self.SoftButtonTempInfoBack[ 'Btn_One' ]
+		Data.SoftButtonTempInfo[ 'Btn_Two' ] = self.SoftButtonTempInfoBack[ 'Btn_Two' ]
+		Data.SoftButtonTempInfo[ 'Btn_Three' ] = self.SoftButtonTempInfoBack[ 'Btn_Three' ]
+		Data.SoftButtonTempInfo[ 'Btn_Four' ] = self.SoftButtonTempInfoBack[ 'Btn_Four' ]
+		Data.SoftButtonTempInfo[ 'Btn_Five' ] = self.SoftButtonTempInfoBack[ 'Btn_Five' ]
+		Data.SoftButtonTempInfo[ 'Btn_Six' ] = self.SoftButtonTempInfoBack[ 'Btn_Six' ]
+		Data.SoftButtonTempInfo[ 'Btn_Seven' ] = self.SoftButtonTempInfoBack[ 'Btn_Seven' ]
+		Data.SoftButtonTempInfo[ 'Btn_Eight' ] = self.SoftButtonTempInfoBack[ 'Btn_Eight' ]
+		Data.SoftButtonTempInfo[ 'Btn_Nine' ] = self.SoftButtonTempInfoBack[ 'Btn_Nine' ]
+		Data.SoftButtonTempInfo[ 'Btn_Ten' ] = self.SoftButtonTempInfoBack[ 'Btn_Ten' ]
 		# 恢复按键点击状况
-		Data.SoftBtnCheckedInfo[ 'Btn_One' ] = Data.SoftBtnCheckedInfoBack[ 'Btn_One' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Two' ] = Data.SoftBtnCheckedInfoBack[ 'Btn_Two' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Three' ] = Data.SoftBtnCheckedInfoBack[ 'Btn_Three' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Four' ] = Data.SoftBtnCheckedInfoBack[ 'Btn_Four' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Five' ] = Data.SoftBtnCheckedInfoBack[ 'Btn_Five' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Six' ] = Data.SoftBtnCheckedInfoBack[ 'Btn_Six' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Seven' ] = Data.SoftBtnCheckedInfoBack[ 'Btn_Seven' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Eight' ] = Data.SoftBtnCheckedInfoBack[ 'Btn_Eight' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Nine' ] = Data.SoftBtnCheckedInfoBack[ 'Btn_Nine' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Ten' ] = Data.SoftBtnCheckedInfoBack[ 'Btn_Ten' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_One' ] = self.SoftBtnCheckedInfoBack[ 'Btn_One' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Two' ] = self.SoftBtnCheckedInfoBack[ 'Btn_Two' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Three' ] = self.SoftBtnCheckedInfoBack[ 'Btn_Three' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Four' ] = self.SoftBtnCheckedInfoBack[ 'Btn_Four' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Five' ] = self.SoftBtnCheckedInfoBack[ 'Btn_Five' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Six' ] = self.SoftBtnCheckedInfoBack[ 'Btn_Six' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Seven' ] = self.SoftBtnCheckedInfoBack[ 'Btn_Seven' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Eight' ] = self.SoftBtnCheckedInfoBack[ 'Btn_Eight' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Nine' ] = self.SoftBtnCheckedInfoBack[ 'Btn_Nine' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Ten' ] = self.SoftBtnCheckedInfoBack[ 'Btn_Ten' ]
 		self.CRTSoftBtnCheckFromData(Data)
 		pass
 
@@ -218,27 +254,27 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		# 将当前值赋值保存
 		self.CRTSoftBtnBack(Data)
 		# 将前进软按钮信息赋值到当前
-		Data.SoftButtonTempInfo[ 'Btn_One' ] = Data.SoftButtonTempInfoGo[ 'Btn_One' ]
-		Data.SoftButtonTempInfo[ 'Btn_Two' ] = Data.SoftButtonTempInfoGo[ 'Btn_Two' ]
-		Data.SoftButtonTempInfo[ 'Btn_Three' ] = Data.SoftButtonTempInfoGo[ 'Btn_Three' ]
-		Data.SoftButtonTempInfo[ 'Btn_Four' ] = Data.SoftButtonTempInfoGo[ 'Btn_Four' ]
-		Data.SoftButtonTempInfo[ 'Btn_Five' ] = Data.SoftButtonTempInfoGo[ 'Btn_Five' ]
-		Data.SoftButtonTempInfo[ 'Btn_Six' ] = Data.SoftButtonTempInfoGo[ 'Btn_Six' ]
-		Data.SoftButtonTempInfo[ 'Btn_Seven' ] = Data.SoftButtonTempInfoGo[ 'Btn_Seven' ]
-		Data.SoftButtonTempInfo[ 'Btn_Eight' ] = Data.SoftButtonTempInfoGo[ 'Btn_Eight' ]
-		Data.SoftButtonTempInfo[ 'Btn_Nine' ] = Data.SoftButtonTempInfoGo[ 'Btn_Nine' ]
-		Data.SoftButtonTempInfo[ 'Btn_Ten' ] = Data.SoftButtonTempInfoGo[ 'Btn_Ten' ]
+		Data.SoftButtonTempInfo[ 'Btn_One' ] = self.SoftButtonTempInfoGo[ 'Btn_One' ]
+		Data.SoftButtonTempInfo[ 'Btn_Two' ] = self.SoftButtonTempInfoGo[ 'Btn_Two' ]
+		Data.SoftButtonTempInfo[ 'Btn_Three' ] = self.SoftButtonTempInfoGo[ 'Btn_Three' ]
+		Data.SoftButtonTempInfo[ 'Btn_Four' ] = self.SoftButtonTempInfoGo[ 'Btn_Four' ]
+		Data.SoftButtonTempInfo[ 'Btn_Five' ] = self.SoftButtonTempInfoGo[ 'Btn_Five' ]
+		Data.SoftButtonTempInfo[ 'Btn_Six' ] = self.SoftButtonTempInfoGo[ 'Btn_Six' ]
+		Data.SoftButtonTempInfo[ 'Btn_Seven' ] = self.SoftButtonTempInfoGo[ 'Btn_Seven' ]
+		Data.SoftButtonTempInfo[ 'Btn_Eight' ] = self.SoftButtonTempInfoGo[ 'Btn_Eight' ]
+		Data.SoftButtonTempInfo[ 'Btn_Nine' ] = self.SoftButtonTempInfoGo[ 'Btn_Nine' ]
+		Data.SoftButtonTempInfo[ 'Btn_Ten' ] = self.SoftButtonTempInfoGo[ 'Btn_Ten' ]
 		# 恢复按键点击状况
-		Data.SoftBtnCheckedInfo[ 'Btn_One' ] = Data.SoftButtonTempInfoGo[ 'Btn_One' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Two' ] = Data.SoftButtonTempInfoGo[ 'Btn_Two' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Three' ] = Data.SoftButtonTempInfoGo[ 'Btn_Three' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Four' ] = Data.SoftButtonTempInfoGo[ 'Btn_Four' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Five' ] = Data.SoftButtonTempInfoGo[ 'Btn_Five' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Six' ] = Data.SoftButtonTempInfoGo[ 'Btn_Six' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Seven' ] = Data.SoftButtonTempInfoGo[ 'Btn_Seven' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Eight' ] = Data.SoftButtonTempInfoGo[ 'Btn_Eight' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Nine' ] = Data.SoftButtonTempInfoGo[ 'Btn_Nine' ]
-		Data.SoftBtnCheckedInfo[ 'Btn_Ten' ] = Data.SoftButtonTempInfoGo[ 'Btn_Ten' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_One' ] = self.SoftButtonTempInfoGo[ 'Btn_One' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Two' ] = self.SoftButtonTempInfoGo[ 'Btn_Two' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Three' ] = self.SoftButtonTempInfoGo[ 'Btn_Three' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Four' ] = self.SoftButtonTempInfoGo[ 'Btn_Four' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Five' ] = self.SoftButtonTempInfoGo[ 'Btn_Five' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Six' ] = self.SoftButtonTempInfoGo[ 'Btn_Six' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Seven' ] = self.SoftButtonTempInfoGo[ 'Btn_Seven' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Eight' ] = self.SoftButtonTempInfoGo[ 'Btn_Eight' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Nine' ] = self.SoftButtonTempInfoGo[ 'Btn_Nine' ]
+		Data.SoftBtnCheckedInfo[ 'Btn_Ten' ] = self.SoftButtonTempInfoGo[ 'Btn_Ten' ]
 		self.CRTSoftBtnCheckFromData(Data)
 		pass
 
@@ -325,27 +361,27 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 	# 软按键后退时记录
 	def CRTSoftBtnGo(self, Data):
 		# 保存按键显示信息
-		Data.SoftButtonTempInfoGo[ 'Btn_One' ] = Data.SoftButtonTempInfo[ 'Btn_One' ]
-		Data.SoftButtonTempInfoGo[ 'Btn_Two' ] = Data.SoftButtonTempInfo[ 'Btn_Two' ]
-		Data.SoftButtonTempInfoGo[ 'Btn_Three' ] = Data.SoftButtonTempInfo[ 'Btn_Three' ]
-		Data.SoftButtonTempInfoGo[ 'Btn_Four' ] = Data.SoftButtonTempInfo[ 'Btn_Four' ]
-		Data.SoftButtonTempInfoGo[ 'Btn_Five' ] = Data.SoftButtonTempInfo[ 'Btn_Five' ]
-		Data.SoftButtonTempInfoGo[ 'Btn_Six' ] = Data.SoftButtonTempInfo[ 'Btn_Six' ]
-		Data.SoftButtonTempInfoGo[ 'Btn_Seven' ] = Data.SoftButtonTempInfo[ 'Btn_Seven' ]
-		Data.SoftButtonTempInfoGo[ 'Btn_Eight' ] = Data.SoftButtonTempInfo[ 'Btn_Eight' ]
-		Data.SoftButtonTempInfoGo[ 'Btn_Nine' ] = Data.SoftButtonTempInfo[ 'Btn_Nine' ]
-		Data.SoftButtonTempInfoGo[ 'Btn_Ten' ] = Data.SoftButtonTempInfo[ 'Btn_Ten' ]
+		self.SoftButtonTempInfoGo[ 'Btn_One' ] = Data.SoftButtonTempInfo[ 'Btn_One' ]
+		self.SoftButtonTempInfoGo[ 'Btn_Two' ] = Data.SoftButtonTempInfo[ 'Btn_Two' ]
+		self.SoftButtonTempInfoGo[ 'Btn_Three' ] = Data.SoftButtonTempInfo[ 'Btn_Three' ]
+		self.SoftButtonTempInfoGo[ 'Btn_Four' ] = Data.SoftButtonTempInfo[ 'Btn_Four' ]
+		self.SoftButtonTempInfoGo[ 'Btn_Five' ] = Data.SoftButtonTempInfo[ 'Btn_Five' ]
+		self.SoftButtonTempInfoGo[ 'Btn_Six' ] = Data.SoftButtonTempInfo[ 'Btn_Six' ]
+		self.SoftButtonTempInfoGo[ 'Btn_Seven' ] = Data.SoftButtonTempInfo[ 'Btn_Seven' ]
+		self.SoftButtonTempInfoGo[ 'Btn_Eight' ] = Data.SoftButtonTempInfo[ 'Btn_Eight' ]
+		self.SoftButtonTempInfoGo[ 'Btn_Nine' ] = Data.SoftButtonTempInfo[ 'Btn_Nine' ]
+		self.SoftButtonTempInfoGo[ 'Btn_Ten' ] = Data.SoftButtonTempInfo[ 'Btn_Ten' ]
 		# 保存按键点击状况
-		Data.SoftBtnCheckedInfoGo[ 'Btn_One' ] = Data.SoftBtnCheckedInfo[ 'Btn_One' ]
-		Data.SoftBtnCheckedInfoGo[ 'Btn_Two' ] = Data.SoftBtnCheckedInfo[ 'Btn_Two' ]
-		Data.SoftBtnCheckedInfoGo[ 'Btn_Three' ] = Data.SoftBtnCheckedInfo[ 'Btn_Three' ]
-		Data.SoftBtnCheckedInfoGo[ 'Btn_Four' ] = Data.SoftBtnCheckedInfo[ 'Btn_Four' ]
-		Data.SoftBtnCheckedInfoGo[ 'Btn_Five' ] = Data.SoftBtnCheckedInfo[ 'Btn_Five' ]
-		Data.SoftBtnCheckedInfoGo[ 'Btn_Six' ] = Data.SoftBtnCheckedInfo[ 'Btn_Six' ]
-		Data.SoftBtnCheckedInfoGo[ 'Btn_Seven' ] = Data.SoftBtnCheckedInfo[ 'Btn_Seven' ]
-		Data.SoftBtnCheckedInfoGo[ 'Btn_Eight' ] = Data.SoftBtnCheckedInfo[ 'Btn_Eight' ]
-		Data.SoftBtnCheckedInfoGo[ 'Btn_Nine' ] = Data.SoftBtnCheckedInfo[ 'Btn_Nine' ]
-		Data.SoftBtnCheckedInfoGo[ 'Btn_Ten' ] = Data.SoftBtnCheckedInfo[ 'Btn_Ten' ]
+		self.SoftBtnCheckedInfoGo[ 'Btn_One' ] = Data.SoftBtnCheckedInfo[ 'Btn_One' ]
+		self.SoftBtnCheckedInfoGo[ 'Btn_Two' ] = Data.SoftBtnCheckedInfo[ 'Btn_Two' ]
+		self.SoftBtnCheckedInfoGo[ 'Btn_Three' ] = Data.SoftBtnCheckedInfo[ 'Btn_Three' ]
+		self.SoftBtnCheckedInfoGo[ 'Btn_Four' ] = Data.SoftBtnCheckedInfo[ 'Btn_Four' ]
+		self.SoftBtnCheckedInfoGo[ 'Btn_Five' ] = Data.SoftBtnCheckedInfo[ 'Btn_Five' ]
+		self.SoftBtnCheckedInfoGo[ 'Btn_Six' ] = Data.SoftBtnCheckedInfo[ 'Btn_Six' ]
+		self.SoftBtnCheckedInfoGo[ 'Btn_Seven' ] = Data.SoftBtnCheckedInfo[ 'Btn_Seven' ]
+		self.SoftBtnCheckedInfoGo[ 'Btn_Eight' ] = Data.SoftBtnCheckedInfo[ 'Btn_Eight' ]
+		self.SoftBtnCheckedInfoGo[ 'Btn_Nine' ] = Data.SoftBtnCheckedInfo[ 'Btn_Nine' ]
+		self.SoftBtnCheckedInfoGo[ 'Btn_Ten' ] = Data.SoftBtnCheckedInfo[ 'Btn_Ten' ]
 		# 清空当前的软按钮点击状态
 		Data.SoftBtnCheckedInfo[ 'Btn_One' ] = False
 		Data.SoftBtnCheckedInfo[ 'Btn_Two' ] = False
@@ -364,27 +400,27 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 	# 软按键前进时记录
 	def CRTSoftBtnBack(self, Data):
 		# 保存按键显示信息
-		Data.SoftButtonTempInfoBack[ 'Btn_One' ] = Data.SoftButtonTempInfo[ 'Btn_One' ]
-		Data.SoftButtonTempInfoBack[ 'Btn_Two' ] = Data.SoftButtonTempInfo[ 'Btn_Two' ]
-		Data.SoftButtonTempInfoBack[ 'Btn_Three' ] = Data.SoftButtonTempInfo[ 'Btn_Three' ]
-		Data.SoftButtonTempInfoBack[ 'Btn_Four' ] = Data.SoftButtonTempInfo[ 'Btn_Four' ]
-		Data.SoftButtonTempInfoBack[ 'Btn_Five' ] = Data.SoftButtonTempInfo[ 'Btn_Five' ]
-		Data.SoftButtonTempInfoBack[ 'Btn_Six' ] = Data.SoftButtonTempInfo[ 'Btn_Six' ]
-		Data.SoftButtonTempInfoBack[ 'Btn_Seven' ] = Data.SoftButtonTempInfo[ 'Btn_Seven' ]
-		Data.SoftButtonTempInfoBack[ 'Btn_Eight' ] = Data.SoftButtonTempInfo[ 'Btn_Eight' ]
-		Data.SoftButtonTempInfoBack[ 'Btn_Nine' ] = Data.SoftButtonTempInfo[ 'Btn_Nine' ]
-		Data.SoftButtonTempInfoBack[ 'Btn_Ten' ] = Data.SoftButtonTempInfo[ 'Btn_Ten' ]
+		self.SoftButtonTempInfoBack[ 'Btn_One' ] = Data.SoftButtonTempInfo[ 'Btn_One' ]
+		self.SoftButtonTempInfoBack[ 'Btn_Two' ] = Data.SoftButtonTempInfo[ 'Btn_Two' ]
+		self.SoftButtonTempInfoBack[ 'Btn_Three' ] = Data.SoftButtonTempInfo[ 'Btn_Three' ]
+		self.SoftButtonTempInfoBack[ 'Btn_Four' ] = Data.SoftButtonTempInfo[ 'Btn_Four' ]
+		self.SoftButtonTempInfoBack[ 'Btn_Five' ] = Data.SoftButtonTempInfo[ 'Btn_Five' ]
+		self.SoftButtonTempInfoBack[ 'Btn_Six' ] = Data.SoftButtonTempInfo[ 'Btn_Six' ]
+		self.SoftButtonTempInfoBack[ 'Btn_Seven' ] = Data.SoftButtonTempInfo[ 'Btn_Seven' ]
+		self.SoftButtonTempInfoBack[ 'Btn_Eight' ] = Data.SoftButtonTempInfo[ 'Btn_Eight' ]
+		self.SoftButtonTempInfoBack[ 'Btn_Nine' ] = Data.SoftButtonTempInfo[ 'Btn_Nine' ]
+		self.SoftButtonTempInfoBack[ 'Btn_Ten' ] = Data.SoftButtonTempInfo[ 'Btn_Ten' ]
 		# 保存按键点击状况
-		Data.SoftBtnCheckedInfoBack[ 'Btn_One' ] = Data.SoftBtnCheckedInfo[ 'Btn_One' ]
-		Data.SoftBtnCheckedInfoBack[ 'Btn_Two' ] = Data.SoftBtnCheckedInfo[ 'Btn_Two' ]
-		Data.SoftBtnCheckedInfoBack[ 'Btn_Three' ] = Data.SoftBtnCheckedInfo[ 'Btn_Three' ]
-		Data.SoftBtnCheckedInfoBack[ 'Btn_Four' ] = Data.SoftBtnCheckedInfo[ 'Btn_Four' ]
-		Data.SoftBtnCheckedInfoBack[ 'Btn_Five' ] = Data.SoftBtnCheckedInfo[ 'Btn_Five' ]
-		Data.SoftBtnCheckedInfoBack[ 'Btn_Six' ] = Data.SoftBtnCheckedInfo[ 'Btn_Six' ]
-		Data.SoftBtnCheckedInfoBack[ 'Btn_Seven' ] = Data.SoftBtnCheckedInfo[ 'Btn_Seven' ]
-		Data.SoftBtnCheckedInfoBack[ 'Btn_Eight' ] = Data.SoftBtnCheckedInfo[ 'Btn_Eight' ]
-		Data.SoftBtnCheckedInfoBack[ 'Btn_Nine' ] = Data.SoftBtnCheckedInfo[ 'Btn_Nine' ]
-		Data.SoftBtnCheckedInfoBack[ 'Btn_Ten' ] = Data.SoftBtnCheckedInfo[ 'Btn_Ten' ]
+		self.SoftBtnCheckedInfoBack[ 'Btn_One' ] = Data.SoftBtnCheckedInfo[ 'Btn_One' ]
+		self.SoftBtnCheckedInfoBack[ 'Btn_Two' ] = Data.SoftBtnCheckedInfo[ 'Btn_Two' ]
+		self.SoftBtnCheckedInfoBack[ 'Btn_Three' ] = Data.SoftBtnCheckedInfo[ 'Btn_Three' ]
+		self.SoftBtnCheckedInfoBack[ 'Btn_Four' ] = Data.SoftBtnCheckedInfo[ 'Btn_Four' ]
+		self.SoftBtnCheckedInfoBack[ 'Btn_Five' ] = Data.SoftBtnCheckedInfo[ 'Btn_Five' ]
+		self.SoftBtnCheckedInfoBack[ 'Btn_Six' ] = Data.SoftBtnCheckedInfo[ 'Btn_Six' ]
+		self.SoftBtnCheckedInfoBack[ 'Btn_Seven' ] = Data.SoftBtnCheckedInfo[ 'Btn_Seven' ]
+		self.SoftBtnCheckedInfoBack[ 'Btn_Eight' ] = Data.SoftBtnCheckedInfo[ 'Btn_Eight' ]
+		self.SoftBtnCheckedInfoBack[ 'Btn_Nine' ] = Data.SoftBtnCheckedInfo[ 'Btn_Nine' ]
+		self.SoftBtnCheckedInfoBack[ 'Btn_Ten' ] = Data.SoftBtnCheckedInfo[ 'Btn_Ten' ]
 		# 清空当前的软按钮点击状态
 		Data.SoftBtnCheckedInfo[ 'Btn_One' ] = False
 		Data.SoftBtnCheckedInfo[ 'Btn_Two' ] = False
@@ -422,11 +458,19 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 			self.Lab_ALM.setText('ALM')
 			self.Lab_ALM.setStyleSheet("""
 				background-color:red;
+				border-left: 2px solid white;
+				border-top: 2px solid white;
+				border-right: 2px solid black;
+				border-bottom: 2px solid rgb(140,140,140);
 			""")
 		else:
 			self.Lab_ALM.setText('***')
 			self.Lab_ALM.setStyleSheet("""
 				background-color:rgb(192,192,192);
+				border-left: 2px solid white;
+				border-top: 2px solid white;
+				border-right: 2px solid black;
+				border-bottom: 2px solid rgb(140,140,140);
 			""")
 		pass
 

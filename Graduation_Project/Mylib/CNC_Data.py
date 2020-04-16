@@ -15,8 +15,14 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CRTSoftBtnSignal = pyqtSignal(str, str)
 	# CNC急停信号
 	CNCEmergencySTOPSignal = pyqtSignal(bool)
-	# CNC模式选择信号
+	# CNC模式选择信号 参数为模式值
 	CNCModeChangeSignal = pyqtSignal(str)
+	# CNC进给速度信号 参数为进给倍率值
+	CNCFeedSpeedSignal = pyqtSignal(str)
+	# CNC主轴倍率信号 参数为主轴倍率值
+	CNCSpindleSpeedSignal = pyqtSignal(str)
+	# CNC轴选信号 参数为轴对象名 状态
+	CNCAxisSignal = pyqtSignal(str, bool)
 	# CNC具有的模式
 	CNCModeAll = { 0: 'EDIT', 1: 'MDI', 2: 'MDI', 3: 'JOG',
 	               4: 'INC', 5: 'INC', 6: 'INC', 7: 'INC', 8: 'INC',
@@ -93,15 +99,6 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	# CRT软按键当前按下的按键 默认没有按下的
 	SoftBtnCheckedInfo = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
 	                       'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
-	SoftBtnCheckedInfoBack = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
-	                           'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
-	SoftBtnCheckedInfoGo = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
-	                         'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
-	# CNC的CRT界面软按键信息的back和go 方便两边操作
-	SoftButtonTempInfoBack = { 'Btn_One': '', 'Btn_Two': '', 'Btn_Three': '', 'Btn_Four': '', 'Btn_Five': '',
-	                           'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
-	SoftButtonTempInfoGo = { 'Btn_One': '', 'Btn_Two': '', 'Btn_Three': '', 'Btn_Four': '', 'Btn_Five': '',
-	                         'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
 	# CRT软按键的按下造成的界面分支
 	CRTPageState = ''
 	# CRT软按键本身的状态分支 用于back go的软按键的翻页操作 默认空白
@@ -213,6 +210,14 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 			else:
 				self.CNCINCSpeed = '0'
 			self.CNCModeChangeSignal.emit(self.CNCNowMode)
+		# 进给倍率处理
+		if Data[ 1 ] == 'Btn_Speed':
+			self.CNCFeedSpeed = self.CNCFeedSpeedAll[ Data[ 2 ] ]
+			self.CNCFeedSpeedSignal.emit(self.CNCFeedSpeed)
+		# 主轴倍率处理
+		if Data[ 1 ] == 'Btn_Spindle_Speed':
+			self.CNCSpindleSpeed = self.CNCSpindleSpeedAll[ Data[ 2 ] ]
+			self.CNCSpindleSpeedSignal.emit(self.CNCSpindleSpeed)
 		pass
 
 	# view角色类按键处理，并发送信号
@@ -237,6 +242,27 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	def CNCDataInput(self, *args):
 		pass
 
+	# axis 角色类按键的处理 为轴选信号
+	def CNCDataAxis(self, *args):
+		if args[ 1 ] == 'Btn_X_Positive':
+			self.CNCAxisXPState = args[ 2 ]
+		if args[ 1 ] == 'Btn_X_Negative':
+			self.CNCAxisXNState = args[ 2 ]
+		if args[ 1 ] == 'Btn_Y_Positive':
+			self.CNCAxisYPState = args[ 2 ]
+		if args[ 1 ] == 'Btn_Y_Negative':
+			self.CNCAxisYNState = args[ 2 ]
+		if args[ 1 ] == 'Btn_Z_Positive':
+			self.CNCAxisZPState = args[ 2 ]
+		if args[ 1 ] == 'Btn_Z_Negative':
+			self.CNCAxisZNState = args[ 2 ]
+		if args[ 1 ] == 'Btn_A_Positive':
+			self.CNCAxisAPState = args[ 2 ]
+		if args[ 1 ] == 'Btn_A_Negative':
+			self.CNCAxisANState = args[ 2 ]
+		self.CNCAxisSignal.emit(args[ 1 ], args[ 2 ])
+		pass
+
 	# 该函数负责将传递的参数修改到CNCData类中 如果电源未开 所有信号均不处理
 	def CNCDataProcess(self, *args):
 		Data = args
@@ -250,6 +276,8 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 				self.CNCDataPosition(*args)
 			if Data[ 0 ] == 'input':
 				self.CNCDataInput(*args)
+			if Data[ 0 ] == 'axis':
+				self.CNCDataAxis(*args)
 		elif Data[ 1 ] == 'Btn_Power_ON':
 			# 先分角色处理 先处理 control 之后处理 view 再处理position back go 最后处理input角色
 			if Data[ 0 ] == 'control':
@@ -260,8 +288,10 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 				self.CNCDataPosition(*args)
 			if Data[ 0 ] == 'input':
 				self.CNCDataInput(*args)
+			if Data[ 0 ] == 'axis':
+				self.CNCDataAxis(*args)
 		else:
-			if Data[1] == 'Btn_Emergency_STOP':
+			if Data[ 1 ] == 'Btn_Emergency_STOP':
 				self.CNCEmergencySTOP = Data[ 2 ]
 			self.DataStateDone.emit(True)
 		pass
@@ -277,6 +307,9 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		self.CRTSoftBtnSignal.connect(CNCProcess.CRTSoftBtnProcess)
 		self.CNCEmergencySTOPSignal.connect(CNCProcess.EmergencySTOPSlot)
 		self.CNCModeChangeSignal.connect(CNCProcess.CNCModeChangeSlot)
+		self.CNCFeedSpeedSignal.connect(CNCProcess.CNCFeedSpeedSlot)
+		self.CNCSpindleSpeedSignal.connect(CNCProcess.CNCSpindleSpeedSlot)
+		self.CNCAxisSignal.connect(CNCProcess.CNCAxisSlot)
 		pass
 
 	def SignalConnectCNCPane(self, CNCPane):

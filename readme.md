@@ -238,4 +238,11 @@ NOTES:
 
 ![界面图04-15](Graduation_Project/Doc/images_2020-04-15_23-27-25.png)
 
+8> 调整back和go对应的软按键信息的存储位置 将其存储到具体的CRT界面下，不存储在CNCData中，CNCData中只保留当前界面的显示信息和点击信息；进给倍率和主轴倍率的设计完毕;
+
+9> 新增**role**角色为axis，为轴选信号，轴选信号的传递设计完毕,轴选信号不传递到CRT界面，CNCProcess处理轴选信号；
+
+10> 设计CRT的PROG界面 这个界面分为普通界面和程序界面，我认为应当拆分处理；发现加工产品数、运行时间和切削时间未处理；
+
+![CRT的PROG界面未完成设计图](Graduation_Project/Doc/images_2020-04-16_23-37-23.png)
 

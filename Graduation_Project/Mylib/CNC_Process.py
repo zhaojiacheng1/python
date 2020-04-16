@@ -14,12 +14,30 @@ class CNCProcess(QObject):
 	EmergencySTOPSignal = pyqtSignal(bool)
 	# CNC模式改变信号
 	CNCModeChangeSignal = pyqtSignal(str)
+	# 进给倍率设置
+	CNCFeedSpeedSignal = pyqtSignal(str)
+	# 主轴倍率信号
+	CNCSpindleSpeedSignal = pyqtSignal(str)
 
 	def __init__(self, parent, Pane, Data, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
 		# InterfaceFrameworkPane
 		self.InterfacePane = Pane
 		self.ProcessData = Data
+		pass
+
+	# 轴选信号处理
+	def CNCAxisSlot(self, name, state):
+		print(name, state)
+		self.ProcessStateDone.emit(True)
+		pass
+
+	def CNCSpindleSpeedSlot(self, value):
+		self.CNCSpindleSpeedSignal.emit(value)
+		pass
+
+	def CNCFeedSpeedSlot(self, value):
+		self.CNCFeedSpeedSignal.emit(value)
 		pass
 
 	def CNCModeChangeSlot(self, mode):
@@ -51,6 +69,9 @@ class CNCProcess(QObject):
 				window = CRTPosAbsPane(self.parent(), CNCData, self.InterfacePane)
 				window.SignalConnectCNCProcess(self)
 				CNCData.CRTWindowNum += 1  # CRT窗口数量加1
+				self.ProcessStateDone.emit(True)
+			else:
+				# 重复点击电源开不处理
 				self.ProcessStateDone.emit(True)
 		else:
 			window = self.parent().children()
