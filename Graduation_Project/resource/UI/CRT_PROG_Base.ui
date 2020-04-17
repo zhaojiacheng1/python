@@ -47,11 +47,11 @@
    <item>
     <widget class="QWidget" name="widget" native="true">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(171, 173, 255);</string>
+      <string notr="true">background-color: rgb(96, 224, 224);</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,1,1">
       <property name="spacing">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="leftMargin">
        <number>0</number>
@@ -75,7 +75,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(153, 255, 244);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>程式</string>
@@ -88,7 +88,7 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(153, 255, 244);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
@@ -96,7 +96,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="Lab_File_Name">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -105,7 +105,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(153, 255, 244);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>O0001</string>
@@ -116,7 +116,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="Lab_LineNum">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -125,7 +125,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(153, 255, 244);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>N00000</string>
@@ -160,9 +160,9 @@
        <number>1</number>
       </property>
       <item row="0" column="0">
-       <widget class="QWidget" name="widget_5" native="true">
+       <widget class="QWidget" name="window_position" native="true">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(144, 255, 144);</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -472,7 +472,7 @@ border-bottom: 2px solid rgb(140,140,140);</string>
          <item>
           <widget class="QWidget" name="widget_9" native="true">
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 242, 138);</string>
+            <string notr="true"/>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,9">
             <property name="spacing">
@@ -511,9 +511,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
              </widget>
             </item>
             <item>
-             <widget class="QPlainTextEdit" name="plainTextEdit">
+             <widget class="QPlainTextEdit" name="Lab_programwindow">
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 204, 204);</string>
+               <string notr="true">background-color: rgb(255, 204, 204);
+border-left: 2px solid white;
+border-top: 2px solid white;
+border-bottom: 2px solid rgb(140,140,140);
+border-right: 2px solid rgb(140,140,140);</string>
               </property>
              </widget>
             </item>
@@ -900,9 +904,9 @@ border-bottom: 2px solid rgb(140,140,140);</string>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QWidget" name="widget_6" native="true">
+       <widget class="QWidget" name="Lab_Modal" native="true">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(144, 255, 144);</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>
@@ -944,8 +948,15 @@ border-bottom: 2px solid rgb(140,140,140);</string>
           <height>50</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">color: rgb(3, 255, 255);</string>
         </property>
         <property name="text">
          <string/>
@@ -953,7 +964,7 @@ border-bottom: 2px solid rgb(140,140,140);</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Btn_One">
+       <widget class="CRTSoftBtn" name="Btn_One">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -972,10 +983,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Btn_Two">
+       <widget class="CRTSoftBtn" name="Btn_Two">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -994,10 +1008,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Btn_Three">
+       <widget class="CRTSoftBtn" name="Btn_Three">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -1016,10 +1033,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Btn_Four">
+       <widget class="CRTSoftBtn" name="Btn_Four">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -1038,10 +1058,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Btn_Five">
+       <widget class="CRTSoftBtn" name="Btn_Five">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -1060,10 +1083,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Btn_Six">
+       <widget class="CRTSoftBtn" name="Btn_Six">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -1082,10 +1108,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Btn_Seven">
+       <widget class="CRTSoftBtn" name="Btn_Seven">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -1104,10 +1133,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Btn_Eight">
+       <widget class="CRTSoftBtn" name="Btn_Eight">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -1126,10 +1158,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Btn_Nine">
+       <widget class="CRTSoftBtn" name="Btn_Nine">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -1148,10 +1183,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
         <property name="text">
          <string/>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Btn_Ten">
+       <widget class="CRTSoftBtn" name="Btn_Ten">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -1169,6 +1207,9 @@ border-bottom: 2px solid rgb(140,140,140);</string>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -1186,8 +1227,15 @@ border-bottom: 2px solid rgb(140,140,140);</string>
           <height>50</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">color: rgb(3, 255, 255);</string>
         </property>
         <property name="text">
          <string/>
@@ -1199,6 +1247,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CRTSoftBtn</class>
+   <extends>QPushButton</extends>
+   <header>CRT_Soft_Btn</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

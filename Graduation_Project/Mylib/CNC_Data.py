@@ -23,6 +23,8 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CNCSpindleSpeedSignal = pyqtSignal(str)
 	# CNC轴选信号 参数为轴对象名 状态
 	CNCAxisSignal = pyqtSignal(str, bool)
+	# CNC界面切换信号 参数为界面缩写如POS PROG等
+	CNCCRTChangeSignal = pyqtSignal(str)
 	# CNC具有的模式
 	CNCModeAll = { 0: 'EDIT', 1: 'MDI', 2: 'MDI', 3: 'JOG',
 	               4: 'INC', 5: 'INC', 6: 'INC', 7: 'INC', 8: 'INC',
@@ -89,7 +91,7 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CNCMPGState = False
 	# CNC的shift状态 默认False 即并未按下shift键
 	CNCShiftState = False
-	# CNC的CRT界面显示分支 为了简化程序 当切换完全不同的界面时将放弃原界面未保存的修改
+	# CNC的CRT界面显示分支 为了简化程序 当切换完全不同的界面时将放弃原界面未保存的修改 指的是CRT界面完全变化 其值为POS、PROG、PROG_Program
 	CNCCRTState = 'POS'
 	# CRT界面的数量 默认为0 即无界面 但是其值最大为1
 	CRTWindowNum = 0
@@ -99,7 +101,7 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	# CRT软按键当前按下的按键 默认没有按下的
 	SoftBtnCheckedInfo = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
 	                       'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
-	# CRT软按键的按下造成的界面分支
+	# CRT软按键的按下造成的界面分支 主要指的是坐标的界面显示 其值为绝对、相对、综合
 	CRTPageState = ''
 	# CRT软按键本身的状态分支 用于back go的软按键的翻页操作 默认空白
 	CRTSoftBtnMenu = ''
@@ -197,7 +199,8 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 			self.CNCPowerSignal.emit(self.CNCPowerState, self)
 		if Data[ 1 ] == 'Btn_Power_OFF':
 			self.CNCPowerState = False
-			self.CNCPowerSignal.emit(self.CNCPowerState, self)
+			self.CNCCRTState = 'POS'
+		self.CNCPowerSignal.emit(self.CNCPowerState, self)
 		# 急停按钮处理
 		if Data[ 1 ] == 'Btn_Emergency_STOP':
 			self.CNCEmergencySTOP = Data[ 2 ]
@@ -222,6 +225,20 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 
 	# view角色类按键处理，并发送信号
 	def CNCDataView(self, *args):
+		# 切换至坐标显示界面
+		if args[ 1 ] == 'Btn_POS':
+			if self.CNCCRTState == 'POS':  # 界面没有发生变化
+				self.DataStateDone.emit(True)
+			else:
+				self.CNCCRTState = 'POS'
+				self.CNCCRTChangeSignal.emit('POS')
+		# 切换至程式显示界面
+		if args[ 1 ] == 'Btn_PROG':
+			if self.CNCCRTState == 'PROG':  # 界面没有发生变化
+				self.DataStateDone.emit(True)
+			else:
+				self.CNCCRTState = 'PROG'
+				self.CNCCRTChangeSignal.emit('PROG')
 		pass
 
 	# position back go 角色类软按键处理 多用于CRT本身界面切换，并发送信号 role name
@@ -232,10 +249,40 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 				if value == '绝对' or value == '相对' or value == '综合':
 					self.CRTPageState = value
 				self.CRTSoftBtnSignal.emit(args[ 1 ], value)
-			if args[ 1 ] == 'Btn_BACK':
+			else:
 				self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
-			if args[ 1 ] == 'Btn_GO':
+		if self.CNCCRTState == 'PROG':
+			if args[ 1 ] != 'Btn_BACK' and args[ 1 ] != 'Btn_GO':
+				value = self.SoftButtonTempInfo[ args[ 1 ] ]
+				if value == '程序':
+					if self.CNCCRTState == 'PROG_Program':  # 界面没有发生变化
+						self.DataStateDone.emit(True)
+					else:
+						self.CNCCRTState = 'PROG_Program'
+						self.CNCCRTChangeSignal.emit('PROG_Program')
+					return None  # 发送界面改变信号 不能视为单纯的软按键处理 应当截断信号传输
+				if value == '绝对' or value == '相对' or value == '综合':
+					self.CRTPageState = value
+				self.CRTSoftBtnSignal.emit(args[ 1 ], value)
+			else:
 				self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
+		if self.CNCCRTState == 'PROG_Program':
+			if args[ 1 ] != 'Btn_BACK' and args[ 1 ] != 'Btn_GO':
+				value = self.SoftButtonTempInfo[ args[ 1 ] ]
+				if value == '程序':
+					if self.CNCCRTState == 'PROG':  # 界面没有发生变化
+						self.DataStateDone.emit(True)
+					else:
+						self.CNCCRTState = 'PROG'
+						self.CNCCRTChangeSignal.emit('PROG')
+					return None  # 发送界面改变信号 不能视为单纯的软按键处理 应当截断信号传输
+				self.CRTSoftBtnSignal.emit(args[ 1 ], value)
+			else:
+				self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
+			# if args[ 1 ] == 'Btn_BACK':
+			# 	self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
+			# if args[ 1 ] == 'Btn_GO':
+			# 	self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
 		pass
 
 	# input 角色类按键处理 多是编辑、输入、修改之类的操作，并发送信号
@@ -310,6 +357,7 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		self.CNCFeedSpeedSignal.connect(CNCProcess.CNCFeedSpeedSlot)
 		self.CNCSpindleSpeedSignal.connect(CNCProcess.CNCSpindleSpeedSlot)
 		self.CNCAxisSignal.connect(CNCProcess.CNCAxisSlot)
+		self.CNCCRTChangeSignal.connect(CNCProcess.CNCCRTChangeSlot)
 		pass
 
 	def SignalConnectCNCPane(self, CNCPane):

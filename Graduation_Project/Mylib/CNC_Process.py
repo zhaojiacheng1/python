@@ -3,7 +3,8 @@
 import sys
 from PyQt5.Qt import *
 from Mylib.CRT_Pos_Abs_Pane import CRTPosAbsPane
-
+from Mylib.CRT_Prog_Base_Pane import CRTProgBasePane
+from Mylib.CRT_Prog_Program_Pane import CRTProgProgramPane
 
 class CNCProcess(QObject):
 	# 信号告诉控制控制面板 用户面板的点击有效了
@@ -44,6 +45,7 @@ class CNCProcess(QObject):
 		self.CNCModeChangeSignal.emit(mode)
 		pass
 
+	# 筛选出所有的CRT界面 严格说是非CNCData和CNCProcess类
 	def CNCCRTWindowList(self, childlist, CNCData):
 		window_list = ()
 		for i in range(0, len(childlist)):
@@ -79,6 +81,34 @@ class CNCProcess(QObject):
 			windowlist += self.CNCCRTWindowList(window, CNCData)
 			self.CRTWindowDel(windowlist, CNCData)
 			self.ProcessStateDone.emit(True)
+		pass
+
+	def CNCCRTChangeSlot(self, value):
+		if self.ProcessData.CNCPowerState:
+			# 首先清空所有的CRT界面
+			window = self.parent().children()
+			windowlist = ()
+			windowlist += self.CNCCRTWindowList(window, self.ProcessData)
+			self.CRTWindowDel(windowlist, self.ProcessData)
+			if value == self.ProcessData.CNCCRTState and value == 'POS' and self.ProcessData.CRTWindowNum == 0:
+				window = CRTPosAbsPane(self.parent(), self.ProcessData, self.InterfacePane)
+				# 连接CNCProcess类的信号
+				window.SignalConnectCNCProcess(self)
+				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
+				self.ProcessStateDone.emit(True)
+			if value == self.ProcessData.CNCCRTState and value == 'PROG' and self.ProcessData.CRTWindowNum == 0:
+				window = CRTProgBasePane(self.parent(), self.ProcessData, self.InterfacePane)
+				# 连接CNCProcess类的信号
+				window.SignalConnectCNCProcess(self)
+				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
+				self.ProcessStateDone.emit(True)
+				# print(window.window_position.width(), window.window_position.height())
+			if value == self.ProcessData.CNCCRTState and value == 'PROG_Program' and self.ProcessData.CRTWindowNum == 0:
+				window = CRTProgProgramPane(self.parent(), self.ProcessData, self.InterfacePane)
+				# 连接CNCProcess类的信号
+				window.SignalConnectCNCProcess(self)
+				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
+				self.ProcessStateDone.emit(True)
 		pass
 
 	def CRTSoftBtnProcess(self, name, value):

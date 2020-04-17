@@ -3,14 +3,11 @@
 import sys
 from datetime import datetime
 from PyQt5.Qt import *
-from UILib.CRT_Pos_Absolute import Ui_Form
+from UILib.CRT_PROG_Program import Ui_Form
 from Mylib.CNC_Data import CNCData
-from Mylib.Window_Pos_Abs import WindowPosAbs
-from Mylib.Window_Pos_Rel import WindowPosRel
-from Mylib.Window_Pos_Comp import WindowPosComp
 
 
-class CRTPosAbsPane(QWidget, Ui_Form):
+class CRTProgProgramPane(QWidget, Ui_Form):
 	# 信号告诉控制控制面板 用户面板的点击有效了
 	CRTProcessStateDone = pyqtSignal(bool)
 	# CRT界面软件back 和 go的点击情况
@@ -41,31 +38,20 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		# 设置1s定时器
 		self.timerinit()
 		# 软按钮初始化
-		self.CNCSoftBtnSet(PaneData, '坐标')
+		self.CNCSoftBtnSet(PaneData, '程序')
 		# 显示软按钮内容
-		self.CRTSoftBtnShow(PaneData, '坐标')
+		self.CRTSoftBtnShow(PaneData, '程序')
 		# 初始化软按键点击信息
 		self.CRTBtnCheckDel(PaneData)
-		value = list(PaneData.SoftButtonTempInfo.keys())[ list(PaneData.SoftButtonTempInfo.values()).index(PaneData.CRTPageState) ]
-		if value == 'Btn_Six' or value == 'Btn_Seven' or value == 'Btn_Eight':
+		value = list(PaneData.SoftButtonTempInfo.keys())[ list(PaneData.SoftButtonTempInfo.values()).index('程序') ]
+		if value == 'Btn_Six':
+			self.Btn_Six.setChecked(True)
 			PaneData.SoftBtnCheckedInfo[ value ] = True
-			self.CRTSoftBtnCheckFromData(PaneData)
 		# 连接到控制面板的信号
 		self.CRTSignalConnectCNCPane(self.InterfacePane)
 		# 报警显示初始化
 		self.CRTALMshow(self.PaneData)
-		self.PaneData.CRTSoftBtnMenu = '坐标'
-		# 在创建界面前清空界面
-		self.CRTPosWindowDel(self.window_position.children())
-		if PaneData.CRTPageState == '绝对':
-			windowposition = WindowPosAbs(self.window_position, PaneData)
-			windowposition.show()
-		if PaneData.CRTPageState == '相对':
-			windowposition = WindowPosRel(self.window_position, PaneData)
-			windowposition.show()
-		if PaneData.CRTPageState == '综合':
-			windowposition = WindowPosComp(self.window_position, self.PaneData)
-			windowposition.show()
+		self.PaneData.CRTSoftBtnMenu = '程序'
 		# 初始化模式选择信息
 		self.Lab_Mode.setText(PaneData.CNCNowMode)
 		pass
@@ -163,36 +149,8 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 
 	def SoftBtnProcess(self, name, value):
 		print(name, value)
-		if self.PaneData.CRTSoftBtnMenu == '坐标':
-			if value == self.PaneData.CRTPageState:
-				if value == '绝对':
-					self.SoftBtnSetCheck(self.PaneData, value, True)
-					self.SoftBtnSetCheck(self.PaneData, '相对', False)
-					self.SoftBtnSetCheck(self.PaneData, '综合', False)
-					self.CRTPosWindowDel(self.window_position.children())
-					windowposition = WindowPosAbs(self.window_position, self.PaneData)
-					windowposition.show()
-					self.CRTProcessStateDone.emit(True)
-				if value == '相对':
-					self.SoftBtnSetCheck(self.PaneData, value, True)
-					self.SoftBtnSetCheck(self.PaneData, '绝对', False)
-					self.SoftBtnSetCheck(self.PaneData, '综合', False)
-					self.CRTPosWindowDel(self.window_position.children())
-					windowposition = WindowPosRel(self.window_position, self.PaneData)
-					windowposition.show()
-					self.CRTProcessStateDone.emit(True)
-				if value == '综合':
-					self.SoftBtnSetCheck(self.PaneData, value, True)
-					self.SoftBtnSetCheck(self.PaneData, '相对', False)
-					self.SoftBtnSetCheck(self.PaneData, '绝对', False)
-					self.CRTPosWindowDel(self.window_position.children())
-					windowposition = WindowPosComp(self.window_position, self.PaneData)
-					windowposition.show()
-					self.CRTProcessStateDone.emit(True)
-			if value == 'HNDL':
-				# 不处理
-				self.CRTProcessStateDone.emit(True)
-			if value == '(操作)':
+		if self.PaneData.CRTSoftBtnMenu == '程序':
+			if value == '操作':
 				# 软按钮界面切换 菜单向下进了一级 记录软件状态
 				self.PaneData.CRTSoftBtnMenu = '操作'
 				# 保存软按键信息 包括显示信息和点击信息
@@ -202,6 +160,8 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 				self.CRTProcessStateDone.emit(True)
 			if value == '':
 				self.CRTProcessStateDone.emit(True)
+			if value == '次单节':
+				self.CRTProcessStateDone.emit(True)
 			if value == 'Btn_GO':
 				self.CRTProcessStateDone.emit(True)
 			if value == 'Btn_BACK':
@@ -209,18 +169,16 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		if self.PaneData.CRTSoftBtnMenu == '操作':
 			if value == '':
 				self.CRTProcessStateDone.emit(True)
-			if value == '预定':
+			if value == 'BG-EDT':
 				self.CRTProcessStateDone.emit(True)
-			if value == '起源':
+			if value == 'O检索':
 				self.CRTProcessStateDone.emit(True)
-			if value == '元件:0':
-				self.CRTProcessStateDone.emit(True)
-			if value == '运行:0':
+			if value == 'REWND':
 				self.CRTProcessStateDone.emit(True)
 			if value == 'Btn_BACK':
-				self.PaneData.CRTSoftBtnMenu = '坐标'
+				self.PaneData.CRTSoftBtnMenu = '程序'
 				self.CRTSoftBtnFromBack(self.PaneData)
-				self.CRTSoftBtnShow(self.PaneData, '坐标')
+				self.CRTSoftBtnShow(self.PaneData, '程序')
 				self.CRTProcessStateDone.emit(True)
 			if value == 'Btn_GO':
 				self.CRTProcessStateDone.emit(True)
@@ -318,29 +276,29 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		pass
 
 	def CNCSoftBtnSet(self, CNCData, p_str):
-		if CNCData.CNCCRTState == 'POS':
-			if p_str == '坐标':
+		if CNCData.CNCCRTState == 'PROG_Program':
+			if p_str == '程序':
 				CNCData.SoftButtonTempInfo[ 'Btn_One' ] = ''
 				CNCData.SoftButtonTempInfo[ 'Btn_Two' ] = ''
 				CNCData.SoftButtonTempInfo[ 'Btn_Three' ] = ''
 				CNCData.SoftButtonTempInfo[ 'Btn_Four' ] = ''
 				CNCData.SoftButtonTempInfo[ 'Btn_Five' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Six' ] = '绝对'
-				CNCData.SoftButtonTempInfo[ 'Btn_Seven' ] = '相对'
-				CNCData.SoftButtonTempInfo[ 'Btn_Eight' ] = '综合'
-				CNCData.SoftButtonTempInfo[ 'Btn_Nine' ] = 'HNDL'
-				CNCData.SoftButtonTempInfo[ 'Btn_Ten' ] = '(操作)'
-			if p_str == '(操作)':
-				CNCData.SoftButtonTempInfo[ 'Btn_One' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Two' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Three' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Four' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Five' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Six' ] = '预定'
-				CNCData.SoftButtonTempInfo[ 'Btn_Seven' ] = '起源'
+				CNCData.SoftButtonTempInfo[ 'Btn_Six' ] = '程序'
+				CNCData.SoftButtonTempInfo[ 'Btn_Seven' ] = ''
 				CNCData.SoftButtonTempInfo[ 'Btn_Eight' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Nine' ] = '元件:0'
-				CNCData.SoftButtonTempInfo[ 'Btn_Ten' ] = '运行:0'
+				CNCData.SoftButtonTempInfo[ 'Btn_Nine' ] = '次单节'
+				CNCData.SoftButtonTempInfo[ 'Btn_Ten' ] = '操作'
+			if p_str == '操作':
+				CNCData.SoftButtonTempInfo[ 'Btn_One' ] = ''
+				CNCData.SoftButtonTempInfo[ 'Btn_Two' ] = ''
+				CNCData.SoftButtonTempInfo[ 'Btn_Three' ] = ''
+				CNCData.SoftButtonTempInfo[ 'Btn_Four' ] = ''
+				CNCData.SoftButtonTempInfo[ 'Btn_Five' ] = ''
+				CNCData.SoftButtonTempInfo[ 'Btn_Six' ] = 'BG-EDT'
+				CNCData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'O检索'
+				CNCData.SoftButtonTempInfo[ 'Btn_Eight' ] = ''
+				CNCData.SoftButtonTempInfo[ 'Btn_Nine' ] = ''
+				CNCData.SoftButtonTempInfo[ 'Btn_Ten' ] = 'REWND'
 		pass
 
 	def CRTSoftBtnShow(self, CNCData, p_str):
@@ -354,10 +312,10 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		self.Btn_Eight.setText(CNCData.SoftButtonTempInfo[ 'Btn_Eight' ])
 		self.Btn_Nine.setText(CNCData.SoftButtonTempInfo[ 'Btn_Nine' ])
 		self.Btn_Ten.setText(CNCData.SoftButtonTempInfo[ 'Btn_Ten' ])
-		if p_str == '坐标':
+		if p_str == '程序':
 			self.Btn_BACK.setText('')
 			self.Btn_GO.setText('')
-		if p_str == '(操作)':
+		if p_str == '操作':
 			self.Btn_BACK.setText('<')
 			self.Btn_GO.setText('>')
 		pass

@@ -987,6 +987,13 @@ border-bottom: 2px solid rgb(140,140,140);</string>
           <height>50</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true"/>
         </property>
