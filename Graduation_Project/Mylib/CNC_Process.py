@@ -5,6 +5,8 @@ from PyQt5.Qt import *
 from Mylib.CRT_Pos_Abs_Pane import CRTPosAbsPane
 from Mylib.CRT_Prog_Base_Pane import CRTProgBasePane
 from Mylib.CRT_Prog_Program_Pane import CRTProgProgramPane
+from Mylib.CRT_Message_Pane import CRTMessagePane
+
 
 class CNCProcess(QObject):
 	# 信号告诉控制控制面板 用户面板的点击有效了
@@ -102,13 +104,20 @@ class CNCProcess(QObject):
 				window.SignalConnectCNCProcess(self)
 				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
 				self.ProcessStateDone.emit(True)
-				# print(window.window_position.width(), window.window_position.height())
+			# print(window.window_position.width(), window.window_position.height())
 			if value == self.ProcessData.CNCCRTState and value == 'PROG_Program' and self.ProcessData.CRTWindowNum == 0:
 				window = CRTProgProgramPane(self.parent(), self.ProcessData, self.InterfacePane)
 				# 连接CNCProcess类的信号
 				window.SignalConnectCNCProcess(self)
 				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
 				self.ProcessStateDone.emit(True)
+			if value == self.ProcessData.CNCCRTState and value == 'Message' and self.ProcessData.CRTWindowNum == 0:
+				window = CRTMessagePane(self.parent(), self.ProcessData, self.InterfacePane)
+				# 连接CNCProcess类的信号
+				window.SignalConnectCNCProcess(self)
+				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
+				self.ProcessStateDone.emit(True)
+				# print(window.window_message.width(), window.window_message.height())
 		pass
 
 	def CRTSoftBtnProcess(self, name, value):

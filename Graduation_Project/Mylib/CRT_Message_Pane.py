@@ -3,16 +3,19 @@
 import sys
 from datetime import datetime
 from PyQt5.Qt import *
-from UILib.CRT_PROG_Base import Ui_Form
+from UILib.CRT_Message import Ui_Form
 from Mylib.CNC_Data import CNCData
-from Mylib.Window_Prog_Abs import WindowProgAbs
-from Mylib.Window_Prog_Rel import WindowProgRel
-from Mylib.Window_Prog_Comp import WindowProgComp
+from Mylib.Window_Message_Abs import WindowMessageAbs
+from Mylib.Window_Message_Rel import WindowMessageRel
+from Mylib.Window_Message_Comp import WindowMessageComp
+from Mylib.Window_Message_Alarm import WindowMessageAlarm
 
 
-class CRTProgBasePane(QWidget, Ui_Form):
+class CRTMessagePane(QWidget, Ui_Form):
 	# 信号告诉控制控制面板 用户面板的点击有效了
 	CRTProcessStateDone = pyqtSignal(bool)
+	# 传递信号到报警信息显示面板 按钮点击名称
+	CRTtoWindowSignal = pyqtSignal(str)
 	# CRT界面软件back 和 go的点击情况
 	SoftBtnCheckedInfoBack = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
 	                           'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
@@ -23,6 +26,8 @@ class CRTProgBasePane(QWidget, Ui_Form):
 	                           'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
 	SoftButtonTempInfoGo = { 'Btn_One': '', 'Btn_Two': '', 'Btn_Three': '', 'Btn_Four': '', 'Btn_Five': '',
 	                         'Btn_Six': '', 'Btn_Seven': '', 'Btn_Eight': '', 'Btn_Nine': '', 'Btn_Ten': '' }
+	# 设置Message显示界面状态 其值为 ALARM MSG HISTRY 默认为ALARM界面
+	CRTMessageState = 'ALARM'
 
 	def __init__(self, parent, PaneData, Pane, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
@@ -40,34 +45,49 @@ class CRTProgBasePane(QWidget, Ui_Form):
 		self.Lab_Date.setText(datetime.now().strftime('%H:%M:%S'))
 		# 设置1s定时器
 		self.timerinit()
-		self.PaneData.CRTSoftBtnMenu = '坐标'
 		# 软按钮初始化
 		self.CNCSoftBtnSet(PaneData, '坐标')
 		# 显示软按钮内容
 		self.CRTSoftBtnShow(PaneData, '坐标')
 		# 初始化软按键点击信息
 		self.CRTBtnCheckDel(PaneData)
+		# 确定坐标显示的点击状态
 		value = list(PaneData.SoftButtonTempInfo.keys())[ list(PaneData.SoftButtonTempInfo.values()).index(PaneData.CRTPageState) ]
-		# print(value)
 		if value == 'Btn_One' or value == 'Btn_Two' or value == 'Btn_Three':
 			PaneData.SoftBtnCheckedInfo[ value ] = True
-			self.CRTSoftBtnCheckFromData(PaneData)
+		# 确定Message的点击状态
+		value = list(PaneData.SoftButtonTempInfo.keys())[ list(PaneData.SoftButtonTempInfo.values()).index(self.CRTMessageState) ]
+		# 如果显示为HISTRY将其重置为ALARM
+		if value == 'Btn_Eight':
+			self.CRTMessageState = 'ALARM'
+			value = 'Btn_Six'
+		# 设置点击状态
+		if value == 'Btn_Six' or value == 'Btn_Seven':
+			PaneData.SoftBtnCheckedInfo[ value ] = True
+		self.CRTSoftBtnCheckFromData(PaneData)
 		# 连接到控制面板的信号
 		self.CRTSignalConnectCNCPane(self.InterfacePane)
 		# 报警显示初始化
 		self.CRTALMshow(self.PaneData)
+		self.PaneData.CRTSoftBtnMenu = '坐标'
 		# 在创建界面前清空界面
 		self.CRTPosWindowDel(self.window_position.children())
-		# print(PaneData.CRTPageState)
+		# 创建坐标界面
 		if PaneData.CRTPageState == '绝对':
-			windowposition = WindowProgAbs(self.window_position, PaneData)
+			windowposition = WindowMessageAbs(self.window_position, PaneData)
 			windowposition.show()
 		if PaneData.CRTPageState == '相对':
-			windowposition = WindowProgRel(self.window_position, PaneData)
+			windowposition = WindowMessageRel(self.window_position, PaneData)
 			windowposition.show()
 		if PaneData.CRTPageState == '综合':
-			windowposition = WindowProgComp(self.window_position, self.PaneData)
+			windowposition = WindowMessageComp(self.window_position, PaneData)
 			windowposition.show()
+		# 创建报警信息显示界面
+		if self.CRTMessageState == 'ALARM' or self.CRTMessageState == 'MSG' or self.CRTMessageState == 'HISTORY':
+			windowmessage = WindowMessageAlarm(self.window_message, PaneData, self)
+			windowmessage.show()
+			# 发送报警信息显示初始化信号
+			self.CRTtoWindowSignal.emit(self.CRTMessageState)
 		# 初始化模式选择信息
 		self.Lab_Mode.setText(PaneData.CNCNowMode)
 		pass
@@ -172,7 +192,7 @@ class CRTProgBasePane(QWidget, Ui_Form):
 					self.SoftBtnSetCheck(self.PaneData, '相对', False)
 					self.SoftBtnSetCheck(self.PaneData, '综合', False)
 					self.CRTPosWindowDel(self.window_position.children())
-					windowposition = WindowProgAbs(self.window_position, self.PaneData)
+					windowposition = WindowMessageAbs(self.window_position, self.PaneData)
 					windowposition.show()
 					self.CRTProcessStateDone.emit(True)
 				if value == '相对':
@@ -180,7 +200,7 @@ class CRTProgBasePane(QWidget, Ui_Form):
 					self.SoftBtnSetCheck(self.PaneData, '绝对', False)
 					self.SoftBtnSetCheck(self.PaneData, '综合', False)
 					self.CRTPosWindowDel(self.window_position.children())
-					windowposition = WindowProgRel(self.window_position, self.PaneData)
+					windowposition = WindowMessageRel(self.window_position, self.PaneData)
 					windowposition.show()
 					self.CRTProcessStateDone.emit(True)
 				if value == '综合':
@@ -188,14 +208,35 @@ class CRTProgBasePane(QWidget, Ui_Form):
 					self.SoftBtnSetCheck(self.PaneData, '相对', False)
 					self.SoftBtnSetCheck(self.PaneData, '绝对', False)
 					self.CRTPosWindowDel(self.window_position.children())
-					windowposition = WindowProgComp(self.window_position, self.PaneData)
+					windowposition = WindowMessageComp(self.window_position, self.PaneData)
 					windowposition.show()
 					self.CRTProcessStateDone.emit(True)
-			if value == 'HNDL':
-				# 不处理
+			if value == 'ALARM':
+				self.CRTMessageState = 'ALARM'
+				self.SoftBtnSetCheck(self.PaneData, value, True)
+				self.SoftBtnSetCheck(self.PaneData, 'MSG', False)
+				self.SoftBtnSetCheck(self.PaneData, 'HISTORY', False)
+				self.PaneData.SoftButtonTempInfo[ 'Btn_Ten' ] = ''
+				self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
+				self.CRTtoWindowSignal.emit(value)
 				self.CRTProcessStateDone.emit(True)
-			if value == '次单节':
-				# 不处理
+			if value == 'MSG':
+				self.CRTMessageState = 'MSG'
+				self.SoftBtnSetCheck(self.PaneData, value, True)
+				self.SoftBtnSetCheck(self.PaneData, 'ALARM', False)
+				self.SoftBtnSetCheck(self.PaneData, 'HISTORY', False)
+				self.PaneData.SoftButtonTempInfo[ 'Btn_Ten' ] = ''
+				self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
+				self.CRTtoWindowSignal.emit(value)
+				self.CRTProcessStateDone.emit(True)
+			if value == 'HISTORY':
+				self.CRTMessageState = 'HISTORY'
+				self.SoftBtnSetCheck(self.PaneData, value, True)
+				self.SoftBtnSetCheck(self.PaneData, 'ALARM', False)
+				self.SoftBtnSetCheck(self.PaneData, 'MSG', False)
+				self.PaneData.SoftButtonTempInfo[ 'Btn_Ten' ] = '操作'
+				self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
+				self.CRTtoWindowSignal.emit(value)
 				self.CRTProcessStateDone.emit(True)
 			if value == '操作':
 				# 软按钮界面切换 菜单向下进了一级 记录软件状态
@@ -204,7 +245,6 @@ class CRTProgBasePane(QWidget, Ui_Form):
 				self.CRTSoftBtnBack(self.PaneData)
 				self.CNCSoftBtnSet(self.PaneData, value)
 				self.CRTSoftBtnShow(self.PaneData, value)
-				# 将原先的软按钮关于坐标方面的点击显示在此处处理
 				self.CRTProcessStateDone.emit(True)
 			if value == '':
 				self.CRTProcessStateDone.emit(True)
@@ -219,7 +259,7 @@ class CRTProgBasePane(QWidget, Ui_Form):
 					self.SoftBtnSetCheck(self.PaneData, '相对', False)
 					self.SoftBtnSetCheck(self.PaneData, '综合', False)
 					self.CRTPosWindowDel(self.window_position.children())
-					windowposition = WindowProgAbs(self.window_position, self.PaneData)
+					windowposition = WindowMessageAbs(self.window_position, self.PaneData)
 					windowposition.show()
 					self.CRTProcessStateDone.emit(True)
 				if value == '相对':
@@ -227,7 +267,7 @@ class CRTProgBasePane(QWidget, Ui_Form):
 					self.SoftBtnSetCheck(self.PaneData, '绝对', False)
 					self.SoftBtnSetCheck(self.PaneData, '综合', False)
 					self.CRTPosWindowDel(self.window_position.children())
-					windowposition = WindowProgRel(self.window_position, self.PaneData)
+					windowposition = WindowMessageRel(self.window_position, self.PaneData)
 					windowposition.show()
 					self.CRTProcessStateDone.emit(True)
 				if value == '综合':
@@ -235,21 +275,18 @@ class CRTProgBasePane(QWidget, Ui_Form):
 					self.SoftBtnSetCheck(self.PaneData, '相对', False)
 					self.SoftBtnSetCheck(self.PaneData, '绝对', False)
 					self.CRTPosWindowDel(self.window_position.children())
-					windowposition = WindowProgComp(self.window_position, self.PaneData)
+					windowposition = WindowMessageComp(self.window_position, self.PaneData)
 					windowposition.show()
 					self.CRTProcessStateDone.emit(True)
-			if value == 'HNDL':
-				# 不处理
-				self.CRTProcessStateDone.emit(True)
 			if value == '':
 				self.CRTProcessStateDone.emit(True)
-			if value == 'BG-EDT':
+			if value == 'SELECT':
+				self.CRTtoWindowSignal.emit(value)
 				self.CRTProcessStateDone.emit(True)
-			if value == 'O检索':
+			if value == 'CLEAR':
+				self.CRTtoWindowSignal.emit(value)
 				self.CRTProcessStateDone.emit(True)
-			if value == 'REWND':
-				self.CRTProcessStateDone.emit(True)
-			if value == 'Btn_BACK':
+			if value == 'Btn_BACK' or value == 'RETURN':
 				self.PaneData.CRTSoftBtnMenu = '坐标'
 				self.CRTSoftBtnFromBack(self.PaneData)
 				self.CRTSoftBtnShow(self.PaneData, '坐标')
@@ -350,29 +387,29 @@ class CRTProgBasePane(QWidget, Ui_Form):
 		pass
 
 	def CNCSoftBtnSet(self, CNCData, p_str):
-		if CNCData.CNCCRTState == 'PROG':
+		if CNCData.CNCCRTState == 'Message':
 			if p_str == '坐标':
 				CNCData.SoftButtonTempInfo[ 'Btn_One' ] = '绝对'
 				CNCData.SoftButtonTempInfo[ 'Btn_Two' ] = '相对'
 				CNCData.SoftButtonTempInfo[ 'Btn_Three' ] = '综合'
-				CNCData.SoftButtonTempInfo[ 'Btn_Four' ] = 'HNDL'
+				CNCData.SoftButtonTempInfo[ 'Btn_Four' ] = ''
 				CNCData.SoftButtonTempInfo[ 'Btn_Five' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Six' ] = '程序'
-				CNCData.SoftButtonTempInfo[ 'Btn_Seven' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Eight' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Nine' ] = '次单节'
-				CNCData.SoftButtonTempInfo[ 'Btn_Ten' ] = '操作'
+				CNCData.SoftButtonTempInfo[ 'Btn_Six' ] = 'ALARM'
+				CNCData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'MSG'
+				CNCData.SoftButtonTempInfo[ 'Btn_Eight' ] = 'HISTORY'
+				CNCData.SoftButtonTempInfo[ 'Btn_Nine' ] = ''
+				CNCData.SoftButtonTempInfo[ 'Btn_Ten' ] = ''
 			if p_str == '操作':
 				CNCData.SoftButtonTempInfo[ 'Btn_One' ] = '绝对'
 				CNCData.SoftButtonTempInfo[ 'Btn_Two' ] = '相对'
 				CNCData.SoftButtonTempInfo[ 'Btn_Three' ] = '综合'
-				CNCData.SoftButtonTempInfo[ 'Btn_Four' ] = 'HNDL'
+				CNCData.SoftButtonTempInfo[ 'Btn_Four' ] = ''
 				CNCData.SoftButtonTempInfo[ 'Btn_Five' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Six' ] = 'BG-EDT'
-				CNCData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'O检索'
-				CNCData.SoftButtonTempInfo[ 'Btn_Eight' ] = ''
+				CNCData.SoftButtonTempInfo[ 'Btn_Six' ] = 'SELECT'
+				CNCData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'RETURN'
+				CNCData.SoftButtonTempInfo[ 'Btn_Eight' ] = 'CLEAR'
 				CNCData.SoftButtonTempInfo[ 'Btn_Nine' ] = ''
-				CNCData.SoftButtonTempInfo[ 'Btn_Ten' ] = 'REWND'
+				CNCData.SoftButtonTempInfo[ 'Btn_Ten' ] = ''
 		pass
 
 	def CRTSoftBtnShow(self, CNCData, p_str):
@@ -418,7 +455,7 @@ class CRTProgBasePane(QWidget, Ui_Form):
 		self.SoftBtnCheckedInfoGo[ 'Btn_Eight' ] = Data.SoftBtnCheckedInfo[ 'Btn_Eight' ]
 		self.SoftBtnCheckedInfoGo[ 'Btn_Nine' ] = Data.SoftBtnCheckedInfo[ 'Btn_Nine' ]
 		self.SoftBtnCheckedInfoGo[ 'Btn_Ten' ] = Data.SoftBtnCheckedInfo[ 'Btn_Ten' ]
-		# 清空当前的软按钮点击状态 关于坐标的三个点击软按钮不清空状态
+		# 清空当前的软按钮点击状态
 		# Data.SoftBtnCheckedInfo[ 'Btn_One' ] = False
 		# Data.SoftBtnCheckedInfo[ 'Btn_Two' ] = False
 		# Data.SoftBtnCheckedInfo[ 'Btn_Three' ] = False
@@ -457,7 +494,7 @@ class CRTProgBasePane(QWidget, Ui_Form):
 		self.SoftBtnCheckedInfoBack[ 'Btn_Eight' ] = Data.SoftBtnCheckedInfo[ 'Btn_Eight' ]
 		self.SoftBtnCheckedInfoBack[ 'Btn_Nine' ] = Data.SoftBtnCheckedInfo[ 'Btn_Nine' ]
 		self.SoftBtnCheckedInfoBack[ 'Btn_Ten' ] = Data.SoftBtnCheckedInfo[ 'Btn_Ten' ]
-		# 清空当前的软按钮点击状态 由于关于坐标的三个软按钮点击状态不清空 保留原样
+		# 清空当前的软按钮点击状态
 		# Data.SoftBtnCheckedInfo[ 'Btn_One' ] = False
 		# Data.SoftBtnCheckedInfo[ 'Btn_Two' ] = False
 		# Data.SoftBtnCheckedInfo[ 'Btn_Three' ] = False
@@ -513,6 +550,7 @@ class CRTProgBasePane(QWidget, Ui_Form):
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
-	window = CRTProgBasePane()
+	window = CRTMessagePane()
 	window.show()
+	# window.Btn_One.setChecked(True)
 	sys.exit(app.exec_())

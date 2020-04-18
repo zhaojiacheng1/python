@@ -113,6 +113,10 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CNCPosMechanical = { 'X': 7.000, 'Y': 8.000, 'Z': 9.000 }
 	# CNC报警信息显示 默认False 即无报警信息
 	CNCALMState = False
+	# 报警信息存储
+	CNCAlarmMessage = ''
+	CNCMSGMessage = ''
+	CNCHistoryMessage = ''
 
 	def __init__(self, parent, Pane, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
@@ -200,7 +204,7 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		if Data[ 1 ] == 'Btn_Power_OFF':
 			self.CNCPowerState = False
 			self.CNCCRTState = 'POS'
-		self.CNCPowerSignal.emit(self.CNCPowerState, self)
+			self.CNCPowerSignal.emit(self.CNCPowerState, self)
 		# 急停按钮处理
 		if Data[ 1 ] == 'Btn_Emergency_STOP':
 			self.CNCEmergencySTOP = Data[ 2 ]
@@ -239,6 +243,12 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 			else:
 				self.CNCCRTState = 'PROG'
 				self.CNCCRTChangeSignal.emit('PROG')
+		if args[ 1 ] == 'Btn_MESSAGE':
+			if self.CNCCRTState == 'Message':  # 界面没有发生变化
+				self.DataStateDone.emit(True)
+			else:
+				self.CNCCRTState = 'Message'
+				self.CNCCRTChangeSignal.emit('Message')
 		pass
 
 	# position back go 角色类软按键处理 多用于CRT本身界面切换，并发送信号 role name
@@ -279,10 +289,14 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 				self.CRTSoftBtnSignal.emit(args[ 1 ], value)
 			else:
 				self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
-			# if args[ 1 ] == 'Btn_BACK':
-			# 	self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
-			# if args[ 1 ] == 'Btn_GO':
-			# 	self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
+		if self.CNCCRTState == 'Message':
+			if args[ 1 ] != 'Btn_BACK' and args[ 1 ] != 'Btn_GO':
+				value = self.SoftButtonTempInfo[ args[ 1 ] ]
+				if value == '绝对' or value == '相对' or value == '综合':
+					self.CRTPageState = value
+				self.CRTSoftBtnSignal.emit(args[ 1 ], value)
+			else:
+				self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
 		pass
 
 	# input 角色类按键处理 多是编辑、输入、修改之类的操作，并发送信号

@@ -192,7 +192,7 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 			if value == 'HNDL':
 				# 不处理
 				self.CRTProcessStateDone.emit(True)
-			if value == '(操作)':
+			if value == '操作':
 				# 软按钮界面切换 菜单向下进了一级 记录软件状态
 				self.PaneData.CRTSoftBtnMenu = '操作'
 				# 保存软按键信息 包括显示信息和点击信息
@@ -329,8 +329,8 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 				CNCData.SoftButtonTempInfo[ 'Btn_Seven' ] = '相对'
 				CNCData.SoftButtonTempInfo[ 'Btn_Eight' ] = '综合'
 				CNCData.SoftButtonTempInfo[ 'Btn_Nine' ] = 'HNDL'
-				CNCData.SoftButtonTempInfo[ 'Btn_Ten' ] = '(操作)'
-			if p_str == '(操作)':
+				CNCData.SoftButtonTempInfo[ 'Btn_Ten' ] = '操作'
+			if p_str == '操作':
 				CNCData.SoftButtonTempInfo[ 'Btn_One' ] = ''
 				CNCData.SoftButtonTempInfo[ 'Btn_Two' ] = ''
 				CNCData.SoftButtonTempInfo[ 'Btn_Three' ] = ''
@@ -357,7 +357,7 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		if p_str == '坐标':
 			self.Btn_BACK.setText('')
 			self.Btn_GO.setText('')
-		if p_str == '(操作)':
+		if p_str == '操作':
 			self.Btn_BACK.setText('<')
 			self.Btn_GO.setText('>')
 		pass

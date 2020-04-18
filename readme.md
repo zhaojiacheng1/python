@@ -250,3 +250,7 @@ NOTES:
 
 ![CRT的PROG界面](Graduation_Project/Doc/images_2020-04-18_00-10-24.png)
 
+12> 设计CRT的Message界面，用于显示报警信息；该界面我认为不用拆分处理，界面变化较小; 遇到QPlainText使用问题，设置光标所在行的反白效果不顺利；该部分的界面操作基本完成；
+
+![Message界面](Graduation_Project/Doc/images_2020-04-18_23-46-47.png)
+
