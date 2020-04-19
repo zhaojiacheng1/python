@@ -102,6 +102,7 @@ class CNCProcess(QObject):
 				window = CRTProgBasePane(self.parent(), self.ProcessData, self.InterfacePane)
 				# 连接CNCProcess类的信号
 				window.SignalConnectCNCProcess(self)
+				# print(window.programwindow.width(), window.programwindow.height())
 				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
 				self.ProcessStateDone.emit(True)
 			# print(window.window_position.width(), window.window_position.height())
@@ -117,7 +118,7 @@ class CNCProcess(QObject):
 				window.SignalConnectCNCProcess(self)
 				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
 				self.ProcessStateDone.emit(True)
-				# print(window.window_message.width(), window.window_message.height())
+			# print(window.window_message.width(), window.window_message.height())
 		pass
 
 	def CRTSoftBtnProcess(self, name, value):

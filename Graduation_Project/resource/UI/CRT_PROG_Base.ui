@@ -491,33 +491,53 @@ border-bottom: 2px solid rgb(140,140,140);</string>
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="label_14">
-              <property name="font">
-               <font>
-                <pointsize>10</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
+             <widget class="QWidget" name="widget_5" native="true">
               <property name="styleSheet">
                <string notr="true">background-color: rgb(96, 224, 224);</string>
               </property>
-              <property name="text">
-               <string>程序</string>
-              </property>
-              <property name="indent">
-               <number>5</number>
-              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_4">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_3">
+                 <property name="font">
+                  <font>
+                   <pointsize>10</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(96, 224, 224);</string>
+                 </property>
+                 <property name="text">
+                  <string>程序</string>
+                 </property>
+                 <property name="indent">
+                  <number>5</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item>
-             <widget class="QPlainTextEdit" name="Lab_programwindow">
+             <widget class="QWidget" name="programwindow" native="true">
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 204, 204);
-border-left: 2px solid white;
-border-top: 2px solid white;
-border-bottom: 2px solid rgb(140,140,140);
-border-right: 2px solid rgb(140,140,140);</string>
+               <string notr="true"/>
               </property>
              </widget>
             </item>

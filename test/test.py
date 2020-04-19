@@ -4432,3 +4432,44 @@
 # 	window = InterfaceFrameworkPane()
 # 	window.show()
 # 	sys.exit(app.exec_())
+# !/usr/bin/python3
+# -*- coding: utf-8 -*-
+import sys
+from PyQt5.Qt import *
+
+
+class Window(QWidget):
+	def __init__(self, parent=None, *args, **kwargs):
+		super().__init__(parent, *args, **kwargs)
+		self.setWindowTitle('文本编辑')
+		self.resize(640, 480)
+		self.setup_ui()
+
+	def setup_ui(self):
+		self.plaintext = QPlainTextEdit(self)
+		self.plaintext.move(100, 100)
+		self.plaintext.setStyleSheet("""
+			background-color: rgb(192,192,192);
+			color: black;
+		""")
+		pass
+
+	pass
+
+
+if __name__ == '__main__':
+	app = QApplication(sys.argv)
+	window = Window()
+	window.show()
+	with open('E:/python/test/test.txt', 'r', encoding='utf-8') as f:  # 可以确保关闭句柄
+		content = f.read()
+		print(content[ 11 ])  # 回车换行算一个字符
+		# window.plaintext.setPlainText(content)
+		window.plaintext.insertPlainText(content)
+
+	window.plaintext.setFocus(True)
+	cursor = window.plaintext.textCursor()  # 获取文本光标
+	print("在第几列", cursor.columnNumber())
+	print("光标位置", cursor.position())
+	print('块数量', cursor.blockNumber())
+	sys.exit(app.exec_())

@@ -26,28 +26,49 @@ class WindowMessageAlarm(QWidget, Ui_Form):
 		value = args[ 0 ]
 		if value == 'ALARM':
 			# 设置alarm信息界面
-			Messagestr = datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '  Alarm\r\n'
-			fmt = QTextCharFormat()  # 文本字符格式
-			fmt.setForeground(QColor(204, self.colorint, 204))  # 前景色(即字体色)设为color色
-			cursor = self.Lab_alarmwindow.textCursor()  # 获取文本光标
-			print(cursor.blockNumber())
+			Messagestr = datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '  Alarm'
+			# fmt = QTextCharFormat()  # 文本字符格式
+			# fmt.setForeground(QColor(204, self.colorint, 204))  # 前景色(即字体色)设为color色
 			# cursor.mergeCharFormat(fmt)  # 光标后的文字就用该格式显示
 			# self.Lab_alarmwindow.mergeCurrentCharFormat(fmt)  # textEdit使用当前的字符格式
 			# self.Lab_alarmwindow.setFocus(True)
 			# QTextCursor
+			self.Lab_alarmwindow.clear()
 			self.Lab_alarmwindow.insertPlainText(Messagestr)
-			self.MessageData.CNCAlarmMessage += Messagestr
+			cursor = self.Lab_alarmwindow.textCursor()  # 获取文本光标
+			print("在第几列", cursor.columnNumber())
+			print("光标位置", cursor.position())
+			print('块数量', cursor.blockNumber())
+			if len(self.MessageData.CNCAlarmMessage) == 0:
+				self.MessageData.CNCAlarmMessage += Messagestr
+			else:
+				self.MessageData.CNCAlarmMessage += '\r\n' + Messagestr
 			self.colorint += 10
 			if self.colorint > 250:
 				self.colorint = 0
 		if value == 'MSG':
 			# 设置msg信息界面
-			self.Lab_alarmwindow.appendPlainText('msg!')
+			self.Lab_alarmwindow.clear()
+			Messagestr = datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '  Msg'
+			self.Lab_alarmwindow.appendPlainText(Messagestr)
+			if len(self.MessageData.CNCAlarmMessage) == 0:
+				self.MessageData.CNCAlarmMessage += Messagestr
+			else:
+				self.MessageData.CNCAlarmMessage += '\r\n' + Messagestr
 			self.Lab_alarmwindow.setFocus(True)
+			cursor = self.Lab_alarmwindow.textCursor()  # 获取文本光标
+			print("在第几列", cursor.columnNumber())
+			print("光标位置", cursor.position())
+			print('块数量', cursor.blockNumber())
 		if value == 'HISTORY':
 			# 设置 history 信息界面
-			self.Lab_alarmwindow.appendPlainText('history!')
+			self.Lab_alarmwindow.clear()
+			self.Lab_alarmwindow.insertPlainText(self.MessageData.CNCAlarmMessage)
 			self.Lab_alarmwindow.setFocus(True)
+			cursor = self.Lab_alarmwindow.textCursor()  # 获取文本光标
+			print("在第几列", cursor.columnNumber())
+			print("光标位置", cursor.position())
+			print('块数量', cursor.blockNumber())
 		if value == 'CLEAR':
 			# 清除当前界面的信息
 			self.MessageData.CNCAlarmMessage = ''

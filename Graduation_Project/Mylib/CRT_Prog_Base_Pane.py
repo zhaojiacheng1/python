@@ -8,6 +8,7 @@ from Mylib.CNC_Data import CNCData
 from Mylib.Window_Prog_Abs import WindowProgAbs
 from Mylib.Window_Prog_Rel import WindowProgRel
 from Mylib.Window_Prog_Comp import WindowProgComp
+from Mylib.Window_Prog_ProgramBase import WindowProgProgramBase
 
 
 class CRTProgBasePane(QWidget, Ui_Form):
@@ -70,6 +71,9 @@ class CRTProgBasePane(QWidget, Ui_Form):
 			windowposition.show()
 		# 初始化模式选择信息
 		self.Lab_Mode.setText(PaneData.CNCNowMode)
+		# 挂在程序编辑窗口
+		windowprogram = WindowProgProgramBase(self.programwindow, self.PaneData, self)
+		windowprogram.show()
 		pass
 
 	def timerinit(self):
