@@ -4447,11 +4447,12 @@ class Window(QWidget):
 
 	def setup_ui(self):
 		self.plaintext = QPlainTextEdit(self)
+		# self.plaintext = QTextDocument(self)
 		self.plaintext.move(100, 100)
 		self.plaintext.setStyleSheet("""
 			background-color: rgb(192,192,192);
-			color: black;
-		""")
+		# 	color: black;
+		# """)
 		pass
 
 	pass
@@ -4463,9 +4464,9 @@ if __name__ == '__main__':
 	window.show()
 	with open('E:/python/test/test.txt', 'r', encoding='utf-8') as f:  # 可以确保关闭句柄
 		content = f.read()
-		print(content[ 11 ])  # 回车换行算一个字符
+		# print(content[ 11 ])  # 回车换行算一个字符
 		# window.plaintext.setPlainText(content)
-		window.plaintext.insertPlainText(content)
+		window.plaintext.setPlainText(content)
 
 	window.plaintext.setFocus(True)
 	cursor = window.plaintext.textCursor()  # 获取文本光标
