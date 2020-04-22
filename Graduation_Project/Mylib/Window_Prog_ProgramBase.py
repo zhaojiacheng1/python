@@ -13,6 +13,8 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 	ProgramLineNum = 0
 	# 存储光标的末尾位置值 默认值为0
 	ProgramCursorEndPosition = 0
+	# 存储当前控件显示的内容 以文件存储的格式 去除\ 和;
+	ProgramFileStr = ''
 
 	def __init__(self, parent, PaneData, Pane, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
@@ -20,10 +22,14 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 		self.setupUi(self)
 		self.ProgData = PaneData
 		self.Pane = Pane
-		self.test()
+		# 取消软换行，采取硬换行
+		self.Lab_ProgramEdit.setLineWrapMode(QPlainTextEdit.NoWrap)
+		self.ProgWindowEditInit()
+		self.ChangeDictToFile()
 		pass
 
-	def test(self):
+	# 程序编辑窗口的初始化函数
+	def ProgWindowEditInit(self):
 		with open('E:/python/Graduation_Project/resource/src/O0002.txt', 'r', encoding='utf-8') as f:  # 可以确保关闭句柄 相对路径相对的是最开始文件运行的路径
 			content = f.read()
 			# print(content[ 11 ])  # 回车换行算一个字符
@@ -42,6 +48,8 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 		print(cursor.position())
 		print('行号和内容的字典：\n', self.ProgramDict)
 		print('行号和光标位置的字典：\n', self.ProgramLineNumDict)
+		# 当前控件的所有文本
+		print(self.Lab_ProgramEdit.toPlainText())
 		self.Lab_ProgramEdit.cursorPositionChanged.connect(self.CursorChangeSlot)
 		pass
 
@@ -52,19 +60,22 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 		print(cursor.position())
 		pass
 
-	# 这段代码比较重要
+	# 这段代码比较重要 用于代码的高亮显示
 	def highligtCurrentLine(self):
 		# 设置当前块的反白效果 临时有效 光标移动后自动解除相关的效果
-		lineColor = QColor(Qt.yellow).lighter(160)
+		# lineColor = QColor(Qt.yellow).lighter(160)
+		lineColor = QColor(255, 255, 0)
 		hi_selection = QTextEdit.ExtraSelection()
 		hi_selection.format.setBackground(lineColor)
-		hi_selection.format.setForeground(QColor(Qt.red))
+		# hi_selection.format.setForeground(QColor(Qt.red))
 		hi_selection.format.setProperty(QTextFormat.FullWidthSelection, True)
 		hi_selection.cursor = self.Lab_ProgramEdit.textCursor()
+		print('块的个数:', hi_selection.cursor.blockNumber())
 		hi_selection.cursor.clearSelection()
 		self.Lab_ProgramEdit.setExtraSelections([ hi_selection ])
 		pass
 
+	# 将不包含; \ 、的程序代码转换为显示的模式
 	def ChangeFileToDict(self, p_str):
 		p_strsaveonline = ''
 		p_strlinenum = 0  # 行号从1开始
@@ -96,6 +107,17 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 				self.ProgramLineNumDict[ p_strlinenum ] = p_strcursorpositionstart
 				self.ProgramLineNum = p_strlinenum
 				self.ProgramCursorEndPosition = p_strcursorpositionend
+		pass
+
+	def ChangeDictToFile(self):
+		p_str = self.Lab_ProgramEdit.toPlainText()
+		print(len(p_str))
+		for i in range(0, len(p_str)):
+			# 判断当前字符是否是空格 或是分号 并且剔除字符串中的空格和分号
+			if p_str[ i ] != ' ' and p_str[ i ] != ';':
+				self.ProgramFileStr += p_str[ i ]
+		with open('E:/python/Graduation_Project/resource/src/O0003.txt', 'w', encoding='utf-8') as f:  # 可以确保关闭句柄 相对路径相对的是最开始文件运行的路径
+			f.write(self.ProgramFileStr)
 		pass
 
 	pass
