@@ -85,6 +85,10 @@ class CNCProcess(QObject):
 			self.ProcessStateDone.emit(True)
 		pass
 
+	def CNCInputSlot(self, value):
+
+		pass
+
 	def CNCCRTChangeSlot(self, value):
 		if self.ProcessData.CNCPowerState:
 			# 首先清空所有的CRT界面
@@ -118,7 +122,7 @@ class CNCProcess(QObject):
 				window.SignalConnectCNCProcess(self)
 				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
 				self.ProcessStateDone.emit(True)
-			# print(window.window_message.width(), window.window_message.height())
+		# print(window.window_message.width(), window.window_message.height())
 		pass
 
 	def CRTSoftBtnProcess(self, name, value):

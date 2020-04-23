@@ -40,7 +40,7 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 		# print(cursor.blockNumber())
 		for i in range(1, self.ProgramLineNum + 1):
 			self.Lab_ProgramEdit.insertPlainText(self.ProgramDict[ i ])
-		self.Lab_ProgramEdit.setFocus(True)
+		# self.Lab_ProgramEdit.setFocus(True)
 		cursor = self.Lab_ProgramEdit.textCursor()
 		cursor.setPosition(self.ProgramLineNumDict[ self.ProgramLineNum ])
 		self.Lab_ProgramEdit.setTextCursor(cursor)
@@ -51,26 +51,27 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 		# 当前控件的所有文本
 		print(self.Lab_ProgramEdit.toPlainText())
 		self.Lab_ProgramEdit.cursorPositionChanged.connect(self.CursorChangeSlot)
+		# 设置当前行高亮
+		self.highlightCurrentLine()
 		pass
 
 	def CursorChangeSlot(self):
 		cursor = self.Lab_ProgramEdit.textCursor()
 		# self.Lab_ProgramEdit.setViewportMargins(40, 0, 0, 0)
-		self.highligtCurrentLine()
+		self.highlightCurrentLine()
 		print(cursor.position())
 		pass
 
 	# 这段代码比较重要 用于代码的高亮显示
-	def highligtCurrentLine(self):
+	def highlightCurrentLine(self):
 		# 设置当前块的反白效果 临时有效 光标移动后自动解除相关的效果
-		# lineColor = QColor(Qt.yellow).lighter(160)
 		lineColor = QColor(255, 255, 0)
 		hi_selection = QTextEdit.ExtraSelection()
 		hi_selection.format.setBackground(lineColor)
 		# hi_selection.format.setForeground(QColor(Qt.red))
 		hi_selection.format.setProperty(QTextFormat.FullWidthSelection, True)
 		hi_selection.cursor = self.Lab_ProgramEdit.textCursor()
-		print('块的个数:', hi_selection.cursor.blockNumber())
+		print('块的个数:', hi_selection.cursor.blockNumber())  # 返回当前
 		hi_selection.cursor.clearSelection()
 		self.Lab_ProgramEdit.setExtraSelections([ hi_selection ])
 		pass
@@ -113,7 +114,7 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 		p_str = self.Lab_ProgramEdit.toPlainText()
 		print(len(p_str))
 		for i in range(0, len(p_str)):
-			# 判断当前字符是否是空格 或是分号 并且剔除字符串中的空格和分号
+			# 判断当前字符是否是空格 或是分号 并且剔除字符串中的空格和分号 尽量避免使用break语句,python的支持不太好
 			if p_str[ i ] != ' ' and p_str[ i ] != ';':
 				self.ProgramFileStr += p_str[ i ]
 		with open('E:/python/Graduation_Project/resource/src/O0003.txt', 'w', encoding='utf-8') as f:  # 可以确保关闭句柄 相对路径相对的是最开始文件运行的路径

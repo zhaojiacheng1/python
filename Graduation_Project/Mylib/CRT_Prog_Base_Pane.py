@@ -9,6 +9,7 @@ from Mylib.Window_Prog_Abs import WindowProgAbs
 from Mylib.Window_Prog_Rel import WindowProgRel
 from Mylib.Window_Prog_Comp import WindowProgComp
 from Mylib.Window_Prog_ProgramBase import WindowProgProgramBase
+from Mylib.Window_ProgramTextEdit import WindowProgramTextEdit
 
 
 class CRTProgBasePane(QWidget, Ui_Form):
@@ -34,6 +35,7 @@ class CRTProgBasePane(QWidget, Ui_Form):
 		self.InterfacePane = Pane
 		self.PosPaneInit(PaneData)
 		self.show()
+		# print(self.Lab_ProgramEdit.width(), self.Lab_ProgramEdit.height())
 		pass
 
 	def PosPaneInit(self, PaneData):
@@ -74,6 +76,10 @@ class CRTProgBasePane(QWidget, Ui_Form):
 		# 挂在程序编辑窗口
 		windowprogram = WindowProgProgramBase(self.programwindow, self.PaneData, self)
 		windowprogram.show()
+		# 判断当前机床所处的模式 然后创建编辑框
+		if self.PaneData.CNCNowMode == 'EDIT':
+			windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
+			windowprogramedit.show()
 		pass
 
 	def timerinit(self):
@@ -137,6 +143,12 @@ class CRTProgBasePane(QWidget, Ui_Form):
 			CRTPoswindowList[ i ].setParent(None)
 		pass
 
+	# 删除所有的CRTProgramEdit界面
+	def CRTProgEditWindowDel(self, CRTProgWindowList):
+		for i in range(0, len(CRTProgWindowList)):
+			CRTProgWindowList[ i ].setParent(None)
+		pass
+
 	# 将CNCProcess中的信号传递到CRT界面中
 	def SignalConnectCNCProcess(self, CNCProcess):
 		CNCProcess.SoftBtnSignal.connect(self.SoftBtnProcess)
@@ -149,6 +161,12 @@ class CRTProgBasePane(QWidget, Ui_Form):
 	def CNCModeChangeSlot(self, state):
 		self.Lab_Mode.setText(state)
 		self.CRTProcessStateDone.emit(True)
+		if state == 'EDIT':
+			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
+			windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
+			windowprogramedit.show()
+		else:
+			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
 		pass
 
 	def CRTEmergencySTOPSlot(self, state):

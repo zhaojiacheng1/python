@@ -26,6 +26,7 @@ class InterfaceFrameworkPane(QWidget, Ui_Form):
 		self.InfoTransState = True
 		pass
 
+	# 普通按钮的点击信号
 	def get_keys(self, role, name):
 		"""
 		:param role: str
@@ -41,6 +42,7 @@ class InterfaceFrameworkPane(QWidget, Ui_Form):
 			self.InfoTransBtnClick.emit(role, name)
 		pass
 
+	# 点击状态保存的按钮
 	def get_check_keys(self, role, name, state):
 		"""
 		:param role: str
@@ -55,6 +57,7 @@ class InterfaceFrameworkPane(QWidget, Ui_Form):
 			self.InfoTransBtnCheck.emit(role, name, state)
 		pass
 
+	# 表盘控件的信号
 	def get_dial_value(self, role, name, value):
 		"""
 		:param role: str
@@ -69,6 +72,7 @@ class InterfaceFrameworkPane(QWidget, Ui_Form):
 			self.InfoTransDial.emit(role, name, value)
 		pass
 
+	# 支持长按的按钮
 	def get_keep_keys(self, role, name, state):
 		"""
 		:param role: str

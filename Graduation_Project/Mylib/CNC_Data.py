@@ -25,6 +25,8 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CNCAxisSignal = pyqtSignal(str, bool)
 	# CNC界面切换信号 参数为界面缩写如POS PROG等
 	CNCCRTChangeSignal = pyqtSignal(str)
+	# CNC输入信号 比如G S 等英文字符或是1 2 3 等阿拉伯数字
+	CNCInputSignal = pyqtSignal(str)
 	# CNC具有的模式
 	CNCModeAll = { 0: 'EDIT', 1: 'MDI', 2: 'MDI', 3: 'JOG',
 	               4: 'INC', 5: 'INC', 6: 'INC', 7: 'INC', 8: 'INC',
@@ -40,7 +42,11 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CNCSpindleStateAll = { 'Btn_STOP': 'STOP', 'Btn_ON': 'SpindleOn', 'Btn_COW': 'SpindleCOW' }
 	# CNC自动加工的所有状态
 	CNCAutoProcessStateAll = { 'Btn_Auto_Start': 'Start', 'Btn_Auto_End': 'STOP' }
-
+	# CNC控制面板的输入键值表 此处键值均采用英文字符
+	CNCDataKeysList = { False: { 'Btn_O': 'O', 'Btn_N': 'N', 'Btn_G': 'G', 'Btn_P': 'P', 'Btn_X': 'X', 'Btn_Y': 'Y',
+	                             'Btn_Z': 'Z', 'Btn_Q': 'Q' },
+	                    True: { 'Btn_O': '(', 'Btn_N': ')', 'Btn_G': 'E', 'Btn_P': 'C', 'Btn_X': 'X', 'Btn_Y': 'V',
+	                            'Btn_Z': 'W', 'Btn_Q': '?' } }
 	# CNC当前的电源按钮状态 默认为False 即电源关闭
 	CNCPowerState = False
 	# CNC当前的急停按钮状态 默认为True 即急停打开
@@ -225,6 +231,9 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		if Data[ 1 ] == 'Btn_Spindle_Speed':
 			self.CNCSpindleSpeed = self.CNCSpindleSpeedAll[ Data[ 2 ] ]
 			self.CNCSpindleSpeedSignal.emit(self.CNCSpindleSpeed)
+		# 帮助信息显示
+		if Data[ 1 ] == 'Btn_HELP':
+			self.DataStateDone.emit(True)
 		pass
 
 	# view角色类按键处理，并发送信号
@@ -301,6 +310,11 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 
 	# input 角色类按键处理 多是编辑、输入、修改之类的操作，并发送信号
 	def CNCDataInput(self, *args):
+		if args[ 1 ] == 'Btn_SHIFT':
+			self.CNCShiftState = args[ 2 ]
+			self.DataStateDone.emit(True)
+		else:
+			self.CNCInputSignal.emit(args[ 1 ])
 		pass
 
 	# axis 角色类按键的处理 为轴选信号
@@ -372,6 +386,7 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		self.CNCSpindleSpeedSignal.connect(CNCProcess.CNCSpindleSpeedSlot)
 		self.CNCAxisSignal.connect(CNCProcess.CNCAxisSlot)
 		self.CNCCRTChangeSignal.connect(CNCProcess.CNCCRTChangeSlot)
+		self.CNCInputSignal.connect(CNCProcess.CNCInputSlot)
 		pass
 
 	def SignalConnectCNCPane(self, CNCPane):
