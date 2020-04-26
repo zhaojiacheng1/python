@@ -26,6 +26,31 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 		self.Lab_ProgramEdit.setLineWrapMode(QPlainTextEdit.NoWrap)
 		self.ProgWindowEditInit()
 		self.ChangeDictToFile()
+		self.SignalConnectSelf(self.Pane)
+		pass
+
+	# 将CRT界面的信号连接到该类中
+	def SignalConnectSelf(self, Pane):
+		Pane.CRTProgramTextChange.connect(self.CRTProgramTextSlot)
+		pass
+
+	# 程序内容改变处理函数函数
+	def CRTProgramTextSlot(self, value):
+		print('界面中', value)
+		# PROG状态下的特殊按键信息
+		if self.ProgData.CNCCRTState == 'PROG' or self.ProgData.CNCCRTState == 'PROG_Program':
+			# 暂时不处理
+			if value == 'INPUT':
+				pass
+			# 删除光标所在的整行数据
+			if value == 'DELETE':
+				pass
+			# 将单行输入文本框的内容插入到程序光标所在行的下一行
+			if value == 'INSERT':
+				pass
+			# 将文本输入框的内容替换程序光标所在行
+			if value == 'ALTER':
+				pass
 		pass
 
 	# 程序编辑窗口的初始化函数
@@ -123,8 +148,9 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 
 	pass
 
-	if __name__ == '__main__':
-		app = QApplication(sys.argv)
-		window = WindowProgProgramBase()
-		window.show()
-		sys.exit(app.exec_())
+
+if __name__ == '__main__':
+	app = QApplication(sys.argv)
+	window = WindowProgProgramBase()
+	window.show()
+	sys.exit(app.exec_())

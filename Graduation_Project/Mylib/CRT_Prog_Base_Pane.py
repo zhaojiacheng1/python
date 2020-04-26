@@ -15,6 +15,10 @@ from Mylib.Window_ProgramTextEdit import WindowProgramTextEdit
 class CRTProgBasePane(QWidget, Ui_Form):
 	# 信号告诉控制控制面板 用户面板的点击有效了
 	CRTProcessStateDone = pyqtSignal(bool)
+	# 输入文本框文本变换信号 参数为bool型数据 True时表示数据发生改变
+	CRTTemporaryInputDataSignal = pyqtSignal(bool)
+	# 程序数据变化信号 参数为str型数据 表示是具体的操作
+	CRTProgramTextChange = pyqtSignal(str)
 	# CRT界面软件back 和 go的点击情况
 	SoftBtnCheckedInfoBack = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
 	                           'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
@@ -156,6 +160,21 @@ class CRTProgBasePane(QWidget, Ui_Form):
 		CNCProcess.CNCModeChangeSignal.connect(self.CNCModeChangeSlot)
 		CNCProcess.CNCFeedSpeedSignal.connect(self.CRTFeedSpeedSlot)
 		CNCProcess.CNCSpindleSpeedSignal.connect(self.CRTSpindleSpeedSlot)
+		CNCProcess.CRTInputSignal.connect(self.CRTInputSlot)
+		CNCProcess.CRTTemporaryInputDataChange.connect(self.CRTTemporaryInputDataSlot)
+		pass
+
+	# 当行输入文本框的数据发生改变 相应的界面应该调整文本显示
+	def CRTTemporaryInputDataSlot(self, state):
+		if state:
+			self.CRTTemporaryInputDataSignal.emit(True)
+			pass
+		pass
+
+	# 关于程序界面的操作
+	def CRTInputSlot(self, value):
+		# print('1', value)
+		self.CRTProgramTextChange.emit(value)
 		pass
 
 	def CNCModeChangeSlot(self, state):

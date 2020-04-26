@@ -42,11 +42,21 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CNCSpindleStateAll = { 'Btn_STOP': 'STOP', 'Btn_ON': 'SpindleOn', 'Btn_COW': 'SpindleCOW' }
 	# CNC自动加工的所有状态
 	CNCAutoProcessStateAll = { 'Btn_Auto_Start': 'Start', 'Btn_Auto_End': 'STOP' }
-	# CNC控制面板的输入键值表 此处键值均采用英文字符
+	# CNC控制面板的输入键值表 此处键值均采用英文字符 双字典
 	CNCDataKeysList = { False: { 'Btn_O': 'O', 'Btn_N': 'N', 'Btn_G': 'G', 'Btn_P': 'P', 'Btn_X': 'X', 'Btn_Y': 'Y',
-	                             'Btn_Z': 'Z', 'Btn_Q': 'Q' },
-	                    True: { 'Btn_O': '(', 'Btn_N': ')', 'Btn_G': 'E', 'Btn_P': 'C', 'Btn_X': 'X', 'Btn_Y': 'V',
-	                            'Btn_Z': 'W', 'Btn_Q': '?' } }
+	                             'Btn_Z': 'Z', 'Btn_Q': 'Q', 'Btn_I': 'I', 'Btn_J': 'J', 'Btn_K': 'K', 'Btn_R': 'R',
+	                             'Btn_M': 'M', 'Btn_S': 'S', 'Btn_T': 'T', 'Btn_L': 'L', 'Btn_F': 'F', 'Btn_D': 'D',
+	                             'Btn_H': 'H', 'Btn_B': 'B', 'Btn_0': '0', 'Btn_1': '1', 'Btn_2': '2', 'Btn_3': '3',
+	                             'Btn_4': '4', 'Btn_5': '5', 'Btn_6': '6', 'Btn_7': '7', 'Btn_8': '8', 'Btn_9': '9',
+	                             'Btn_Minus': '-', 'Btn_Dot': '.', 'Btn_Slash': '/', 'Btn_EOB': ';', 'Btn_CAN': 'CAN',
+	                             'Btn_ALTER': 'ALTER', 'Btn_INSERT': 'INSERT', 'Btn_DELETE': 'DELETE', 'Btn_INPUT': 'INPUT' },
+	                    True: { 'Btn_O': '(', 'Btn_N': ')', 'Btn_G': 'E', 'Btn_P': 'C', 'Btn_X': 'U', 'Btn_Y': 'V',
+	                            'Btn_Z': 'W', 'Btn_Q': '?', 'Btn_I': ',', 'Btn_J': 'A', 'Btn_K': '@', 'Btn_R': 'R',
+	                            'Btn_M': '#', 'Btn_S': '=', 'Btn_T': '*', 'Btn_L': '+', 'Btn_F': '[', 'Btn_D': ']',
+	                            'Btn_H': '&', 'Btn_B': ' ', 'Btn_0': '0', 'Btn_1': '1', 'Btn_2': '2', 'Btn_3': '3',
+	                            'Btn_4': '4', 'Btn_5': '5', 'Btn_6': '6', 'Btn_7': '7', 'Btn_8': '8', 'Btn_9': '9',
+	                            'Btn_Minus': '-', 'Btn_Dot': '.', 'Btn_Slash': '/', 'Btn_EOB': ';', 'Btn_CAN': 'CAN',
+	                            'Btn_ALTER': 'ALTER', 'Btn_INSERT': 'INSERT', 'Btn_DELETE': 'DELETE', 'Btn_INPUT': 'INPUT' } }
 	# CNC当前的电源按钮状态 默认为False 即电源关闭
 	CNCPowerState = False
 	# CNC当前的急停按钮状态 默认为True 即急停打开
@@ -123,6 +133,8 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CNCAlarmMessage = ''
 	CNCMSGMessage = ''
 	CNCHistoryMessage = ''
+	# CNC在编辑模式下 单行输入文本框的内容临时存储在此处 字符格式
+	CRTTemporaryInputData = '123456'
 
 	def __init__(self, parent, Pane, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
@@ -234,6 +246,13 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		# 帮助信息显示
 		if Data[ 1 ] == 'Btn_HELP':
 			self.DataStateDone.emit(True)
+		# 复位键按下
+		if Data[ 1 ] == 'Btn_Reset' or Data[ 1 ] == 'Btn_RESET':
+			self.DataStateDone.emit(True)
+		# 数据锁操作
+		if Data[ 1 ] == 'Btn_PROTECT':
+			self.CNCPROTECTState = Data[ 2 ]
+			self.DataStateDone.emit(True)
 		pass
 
 	# view角色类按键处理，并发送信号
@@ -312,9 +331,17 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	def CNCDataInput(self, *args):
 		if args[ 1 ] == 'Btn_SHIFT':
 			self.CNCShiftState = args[ 2 ]
+			print('shift状态', self.CNCShiftState)
 			self.DataStateDone.emit(True)
 		else:
-			self.CNCInputSignal.emit(args[ 1 ])
+			value = self.CNCDataKeysList[ self.CNCShiftState ][ args[ 1 ] ]
+			if not self.CNCPROTECTState:
+				if self.CNCNowMode == 'EDIT':
+					self.CNCInputSignal.emit(value)
+					print('当前输入键值：', value)
+			else:
+				QMessageBox.information(self.parent(), '提醒', '程序已经打开！', QMessageBox.Yes | QMessageBox.No)
+			self.DataStateDone.emit(True)
 		pass
 
 	# axis 角色类按键的处理 为轴选信号

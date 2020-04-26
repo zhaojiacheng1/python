@@ -21,6 +21,10 @@ class CNCProcess(QObject):
 	CNCFeedSpeedSignal = pyqtSignal(str)
 	# 主轴倍率信号
 	CNCSpindleSpeedSignal = pyqtSignal(str)
+	# input输入信号 参数为按下的键值 主要是指几个操作的值 ALTER INSERT DELETE INPUT
+	CRTInputSignal = pyqtSignal(str)
+	# 输入的临时数据发生变化的信号 包括CAN 和 其他的输入键值 用于显示 参数为bool值 True表示为发生更改
+	CRTTemporaryInputDataChange = pyqtSignal(bool)
 
 	def __init__(self, parent, Pane, Data, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
@@ -86,7 +90,18 @@ class CNCProcess(QObject):
 		pass
 
 	def CNCInputSlot(self, value):
-
+		if self.ProcessData.CNCNowMode == 'EDIT':
+			if value == 'INPUT' or value == 'DELETE' or value == 'ALTER' or value == 'INSERT':
+				self.CRTInputSignal.emit(value)
+			else:  # 关于单行文本输入框的操作
+				# 删除单行输入文本框最后一个字符
+				if value == 'CAN':
+					p_str = self.ProcessData.CRTTemporaryInputData
+					if len(p_str):
+						p_str = p_str[ :-1 ]
+						self.ProcessData.CRTTemporaryInputData = p_str
+					pass
+				self.CRTTemporaryInputDataChange.emit(True)
 		pass
 
 	def CNCCRTChangeSlot(self, value):
@@ -97,12 +112,14 @@ class CNCProcess(QObject):
 			windowlist += self.CNCCRTWindowList(window, self.ProcessData)
 			self.CRTWindowDel(windowlist, self.ProcessData)
 			if value == self.ProcessData.CNCCRTState and value == 'POS' and self.ProcessData.CRTWindowNum == 0:
+				# 创建POS位置界面
 				window = CRTPosAbsPane(self.parent(), self.ProcessData, self.InterfacePane)
 				# 连接CNCProcess类的信号
 				window.SignalConnectCNCProcess(self)
 				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
 				self.ProcessStateDone.emit(True)
 			if value == self.ProcessData.CNCCRTState and value == 'PROG' and self.ProcessData.CRTWindowNum == 0:
+				# 创建PROG G代码编辑器界面
 				window = CRTProgBasePane(self.parent(), self.ProcessData, self.InterfacePane)
 				# 连接CNCProcess类的信号
 				window.SignalConnectCNCProcess(self)
@@ -111,12 +128,14 @@ class CNCProcess(QObject):
 				self.ProcessStateDone.emit(True)
 			# print(window.window_position.width(), window.window_position.height())
 			if value == self.ProcessData.CNCCRTState and value == 'PROG_Program' and self.ProcessData.CRTWindowNum == 0:
+				# 创建PROG Program G代码编辑器界面
 				window = CRTProgProgramPane(self.parent(), self.ProcessData, self.InterfacePane)
 				# 连接CNCProcess类的信号
 				window.SignalConnectCNCProcess(self)
 				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
 				self.ProcessStateDone.emit(True)
 			if value == self.ProcessData.CNCCRTState and value == 'Message' and self.ProcessData.CRTWindowNum == 0:
+				# 创建Message 消息显示界面
 				window = CRTMessagePane(self.parent(), self.ProcessData, self.InterfacePane)
 				# 连接CNCProcess类的信号
 				window.SignalConnectCNCProcess(self)

@@ -11,6 +11,26 @@ class WindowProgramTextEdit(QWidget, Ui_Form):
 		self.ProgData = PaneData
 		# 设置该控件所属的基本盘
 		self.ProgPane = Pane
+		self.ProgramTextEditInit()
+		self.SignalConnectSlot(self.ProgPane)
+		pass
+
+	# 将CRT界面的信号连接到该类中
+	def SignalConnectSlot(self, Pane):
+		Pane.CRTTemporaryInputDataSignal.connect(self.ShowLineText)
+		pass
+
+	# 单行文本框的显示操作
+	def ShowLineText(self, state):
+		if state:
+			print('刷新显示')
+			self.ProgramTextEdit.clear()
+			self.ProgramTextEdit.setText(self.ProgData.CRTTemporaryInputData)
+			pass
+
+	def ProgramTextEditInit(self):
+		self.ProgramTextEdit.clear()
+		self.ProgramTextEdit.setText(self.ProgData.CRTTemporaryInputData)
 		pass
 
 	pass
