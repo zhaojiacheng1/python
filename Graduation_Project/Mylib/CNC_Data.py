@@ -27,6 +27,8 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CNCCRTChangeSignal = pyqtSignal(str)
 	# CNC输入信号 比如G S 等英文字符或是1 2 3 等阿拉伯数字
 	CNCInputSignal = pyqtSignal(str)
+	# CNC光标移动信号 参数为键的id名称
+	CNCCursorMoveSignal = pyqtSignal(str)
 	# CNC具有的模式
 	CNCModeAll = { 0: 'EDIT', 1: 'MDI', 2: 'MDI', 3: 'JOG',
 	               4: 'INC', 5: 'INC', 6: 'INC', 7: 'INC', 8: 'INC',
@@ -107,7 +109,7 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CNCMPGState = False
 	# CNC的shift状态 默认False 即并未按下shift键
 	CNCShiftState = False
-	# CNC的CRT界面显示分支 为了简化程序 当切换完全不同的界面时将放弃原界面未保存的修改 指的是CRT界面完全变化 其值为POS、PROG、PROG_Program
+	# CNC的CRT界面显示分支 为了简化程序 当切换完全不同的界面时将放弃原界面未保存的修改 指的是CRT界面完全变化 其值为POS、PROG、PROG_Program、Message
 	CNCCRTState = 'POS'
 	# CRT界面的数量 默认为0 即无界面 但是其值最大为1
 	CRTWindowNum = 0
@@ -271,12 +273,16 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 			else:
 				self.CNCCRTState = 'PROG'
 				self.CNCCRTChangeSignal.emit('PROG')
+		# 切换至信息显示界面 Message
 		if args[ 1 ] == 'Btn_MESSAGE':
 			if self.CNCCRTState == 'Message':  # 界面没有发生变化
 				self.DataStateDone.emit(True)
 			else:
 				self.CNCCRTState = 'Message'
 				self.CNCCRTChangeSignal.emit('Message')
+		# 按下了上下左右键 光标移动操作
+		if args[ 1 ] == 'Btn_UP' or args[ 1 ] == 'Btn_LEFT' or args[ 1 ] == 'Btn_RIGHT' or args[ 1 ] == 'Btn_DOWN':
+			self.CNCCursorMoveSignal.emit(args[ 1 ])
 		pass
 
 	# position back go 角色类软按键处理 多用于CRT本身界面切换，并发送信号 role name
@@ -337,32 +343,37 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 			value = self.CNCDataKeysList[ self.CNCShiftState ][ args[ 1 ] ]
 			if not self.CNCPROTECTState:
 				if self.CNCNowMode == 'EDIT':
+					# 程序编辑处理
 					self.CNCInputSignal.emit(value)
 					print('当前输入键值：', value)
+				else:
+					QMessageBox.warning(None, 'CNC提醒', '当前模式不可编辑，请打开到EDIT模式', QMessageBox.Yes | QMessageBox.No)
 			else:
-				QMessageBox.information(self.parent(), '提醒', '程序已经打开！', QMessageBox.Yes | QMessageBox.No)
+				QMessageBox.warning(None, 'CNC提醒', '程序保护已经打开!', QMessageBox.Yes | QMessageBox.No)  # 阻塞运行，结束自动杀死
 			self.DataStateDone.emit(True)
 		pass
 
 	# axis 角色类按键的处理 为轴选信号
 	def CNCDataAxis(self, *args):
-		if args[ 1 ] == 'Btn_X_Positive':
-			self.CNCAxisXPState = args[ 2 ]
-		if args[ 1 ] == 'Btn_X_Negative':
-			self.CNCAxisXNState = args[ 2 ]
-		if args[ 1 ] == 'Btn_Y_Positive':
-			self.CNCAxisYPState = args[ 2 ]
-		if args[ 1 ] == 'Btn_Y_Negative':
-			self.CNCAxisYNState = args[ 2 ]
-		if args[ 1 ] == 'Btn_Z_Positive':
-			self.CNCAxisZPState = args[ 2 ]
-		if args[ 1 ] == 'Btn_Z_Negative':
-			self.CNCAxisZNState = args[ 2 ]
-		if args[ 1 ] == 'Btn_A_Positive':
-			self.CNCAxisAPState = args[ 2 ]
-		if args[ 1 ] == 'Btn_A_Negative':
-			self.CNCAxisANState = args[ 2 ]
-		self.CNCAxisSignal.emit(args[ 1 ], args[ 2 ])
+		if self.CNCNowMode == 'REF' or self.CNCNowMode == 'JOG' or self.CNCNowMode == 'INC':
+			if args[ 1 ] == 'Btn_X_Positive':
+				self.CNCAxisXPState = args[ 2 ]
+			if args[ 1 ] == 'Btn_X_Negative':
+				self.CNCAxisXNState = args[ 2 ]
+			if args[ 1 ] == 'Btn_Y_Positive':
+				self.CNCAxisYPState = args[ 2 ]
+			if args[ 1 ] == 'Btn_Y_Negative':
+				self.CNCAxisYNState = args[ 2 ]
+			if args[ 1 ] == 'Btn_Z_Positive':
+				self.CNCAxisZPState = args[ 2 ]
+			if args[ 1 ] == 'Btn_Z_Negative':
+				self.CNCAxisZNState = args[ 2 ]
+			if args[ 1 ] == 'Btn_A_Positive':
+				self.CNCAxisAPState = args[ 2 ]
+			if args[ 1 ] == 'Btn_A_Negative':
+				self.CNCAxisANState = args[ 2 ]
+			self.CNCAxisSignal.emit(args[ 1 ], args[ 2 ])
+		self.DataStateDone.emit(True)
 		pass
 
 	# 该函数负责将传递的参数修改到CNCData类中 如果电源未开 所有信号均不处理
@@ -414,6 +425,7 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		self.CNCAxisSignal.connect(CNCProcess.CNCAxisSlot)
 		self.CNCCRTChangeSignal.connect(CNCProcess.CNCCRTChangeSlot)
 		self.CNCInputSignal.connect(CNCProcess.CNCInputSlot)
+		self.CNCCursorMoveSignal.connect(CNCProcess.CNCCRTCursorMoveSlot)
 		pass
 
 	def SignalConnectCNCPane(self, CNCPane):

@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>FANUC Series 18i MB</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <layout class="QGridLayout" name="gridLayout" rowstretch="10,1,8" columnstretch="2,1">
    <property name="sizeConstraint">
     <enum>QLayout::SetDefaultConstraint</enum>

@@ -16,6 +16,7 @@ class Ui_Form(object):
         Form.resize(1050, 805)
         Form.setMinimumSize(QtCore.QSize(1050, 805))
         Form.setMaximumSize(QtCore.QSize(1050, 805))
+        Form.setStyleSheet("")
         self.gridLayout = QtWidgets.QGridLayout(Form)
         self.gridLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)

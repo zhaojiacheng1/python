@@ -25,6 +25,8 @@ class CNCProcess(QObject):
 	CRTInputSignal = pyqtSignal(str)
 	# 输入的临时数据发生变化的信号 包括CAN 和 其他的输入键值 用于显示 参数为bool值 True表示为发生更改
 	CRTTemporaryInputDataChange = pyqtSignal(bool)
+	# 光标操作信号 参数为对象id名称
+	CRTCursorMoveSignal = pyqtSignal(str)
 
 	def __init__(self, parent, Pane, Data, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
@@ -92,16 +94,29 @@ class CNCProcess(QObject):
 	def CNCInputSlot(self, value):
 		if self.ProcessData.CNCNowMode == 'EDIT':
 			if value == 'INPUT' or value == 'DELETE' or value == 'ALTER' or value == 'INSERT':
+				# 程序内容改变操作 只负责信号传递 具体操作在对应的程序显示类中
 				self.CRTInputSignal.emit(value)
-			else:  # 关于单行文本输入框的操作
+			else:  # 关于单行文本输入框的操作 在CNCProcess中操作，和具体的类分离
+				p_str = self.ProcessData.CRTTemporaryInputData
 				# 删除单行输入文本框最后一个字符
 				if value == 'CAN':
-					p_str = self.ProcessData.CRTTemporaryInputData
 					if len(p_str):
 						p_str = p_str[ :-1 ]
-						self.ProcessData.CRTTemporaryInputData = p_str
-					pass
+				else:
+					p_str += value  # 将输入的字符保存在临时字符串中
+				# 将临时数据的改变添加到临时字符串中
+				self.ProcessData.CRTTemporaryInputData = p_str
+				# 临时文本改变信号 用于刷新显示
 				self.CRTTemporaryInputDataChange.emit(True)
+		pass
+
+	# 处理光标的操作
+	def CNCCRTCursorMoveSlot(self, name):
+		# 判断当前所处的CRT界面是否有光标可以操作
+		if self.ProcessData.CNCCRTState == 'PROG' or self.ProcessData.CNCCRTState == 'PROG_Program':
+			self.CRTCursorMoveSignal.emit(name)
+		else:
+			self.ProcessStateDone.emit(True)
 		pass
 
 	def CNCCRTChangeSlot(self, value):

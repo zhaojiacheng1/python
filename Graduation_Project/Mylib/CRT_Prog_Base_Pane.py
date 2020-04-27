@@ -19,6 +19,8 @@ class CRTProgBasePane(QWidget, Ui_Form):
 	CRTTemporaryInputDataSignal = pyqtSignal(bool)
 	# 程序数据变化信号 参数为str型数据 表示是具体的操作
 	CRTProgramTextChange = pyqtSignal(str)
+	# 程序界面的光标移动操作信号 参数为对象的id名称
+	CRTProgramCursorMoveSignal = pyqtSignal(str)
 	# CRT界面软件back 和 go的点击情况
 	SoftBtnCheckedInfoBack = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
 	                           'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
@@ -162,6 +164,13 @@ class CRTProgBasePane(QWidget, Ui_Form):
 		CNCProcess.CNCSpindleSpeedSignal.connect(self.CRTSpindleSpeedSlot)
 		CNCProcess.CRTInputSignal.connect(self.CRTInputSlot)
 		CNCProcess.CRTTemporaryInputDataChange.connect(self.CRTTemporaryInputDataSlot)
+		CNCProcess.CRTCursorMoveSignal.connect(self.CRTCursorMoveSlot)
+		pass
+
+	# 界面光标信号处理
+	def CRTCursorMoveSlot(self, name):
+		self.CRTProgramCursorMoveSignal.emit(name)
+		self.CRTProcessStateDone.emit(True)
 		pass
 
 	# 当行输入文本框的数据发生改变 相应的界面应该调整文本显示

@@ -32,6 +32,18 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 	# 将CRT界面的信号连接到该类中
 	def SignalConnectSelf(self, Pane):
 		Pane.CRTProgramTextChange.connect(self.CRTProgramTextSlot)
+		Pane.CRTProgramCursorMoveSignal.connect(self.ProgramCursorMoveSlot)
+		pass
+
+	# 光标移动处理函数
+	def ProgramCursorMoveSlot(self, name):
+		print(name)
+		# 在该界面中光标的上移操作和左移操作的作用相同
+		if name == 'Btn_UP' or name == 'Btn_LEFT':
+			pass
+		# 在该界面中光标的下移操作和右移操作的作用相同
+		if name == 'Btn_DOWN' or name == 'Btn_RIGHT':
+			pass
 		pass
 
 	# 程序内容改变处理函数函数
