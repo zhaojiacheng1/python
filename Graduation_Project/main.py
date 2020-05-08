@@ -12,6 +12,7 @@ if __name__ == '__main__':
 	# CNC控制面板创建
 	Main_Pane = InterfaceFrameworkPane()
 	Main_Pane.show()
+
 	# 取出CRT界面容器对象 之后创建的显示界面都应当挂载在这个对象上
 	CRTWindow = Main_Pane.main_window  # 左右都是类
 	# 创建机床存储数据对象

@@ -1,9 +1,9 @@
 import sys
 from PyQt5.Qt import *
-from UILib.Prog_window_probase import Ui_Form
+from UILib.Prog_window_pro import Ui_Form
 
 
-class WindowProgProgramBase(QWidget, Ui_Form):
+class WindowProgProgramPro(QWidget, Ui_Form):
 	# 另需设定时器 保证绝对坐标1秒钟(暂定)更新一次
 	# 程序界面内部不同的界面之间传递信息的信号 参数为str数据
 	WindowMessageExchangeSignal = pyqtSignal(str)

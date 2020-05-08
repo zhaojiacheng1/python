@@ -5,6 +5,8 @@ from datetime import datetime
 from PyQt5.Qt import *
 from UILib.CRT_PROG_Program import Ui_Form
 from Mylib.CNC_Data import CNCData
+from Mylib.Window_ProgramTextEdit import WindowProgramTextEdit
+from Mylib.Window_Prog_ProgramPro import WindowProgProgramPro
 
 
 class CRTProgProgramPane(QWidget, Ui_Form):
@@ -54,6 +56,19 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 		self.PaneData.CRTSoftBtnMenu = '程序'
 		# 初始化模式选择信息
 		self.Lab_Mode.setText(PaneData.CNCNowMode)
+		# 挂在程序编辑窗口
+		windowprogram = WindowProgProgramPro(self.programwindow, self.PaneData, self)
+		windowprogram.show()
+		# 判断当前机床所处的模式 然后创建编辑框 创建对应的软软按键值
+		if self.PaneData.CNCNowMode == 'EDIT':
+			# windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
+			# windowprogramedit.show()
+			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'DIR'
+			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
+		# 判断当前机床所处的模式 然后创建对应的软按键值
+		if self.PaneData.CNCNowMode == 'MDI':
+			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'MDI'
+			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
 		pass
 
 	def timerinit(self):
@@ -129,7 +144,26 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 	def CNCModeChangeSlot(self, state):
 		self.Lab_Mode.setText(state)
 		self.CRTProcessStateDone.emit(True)
+		if state == 'EDIT':
+			# self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
+			# windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
+			# windowprogramedit.show()
+			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'DIR'
+			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
+		elif state == 'MDI':
+			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
+			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'MDI'
+			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
+		else:
+			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
+			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = ''
+			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
 		pass
+
+	# 删除所有的CRTProgramEdit界面
+	def CRTProgEditWindowDel(self, CRTProgWindowList):
+		for i in range(0, len(CRTProgWindowList)):
+			CRTProgWindowList[ i ].setParent(None)
 
 	def CRTEmergencySTOPSlot(self, state):
 		if state == self.PaneData.CNCEmergencySTOP:

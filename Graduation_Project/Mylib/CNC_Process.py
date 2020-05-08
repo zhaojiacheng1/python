@@ -149,6 +149,7 @@ class CNCProcess(QObject):
 				window.SignalConnectCNCProcess(self)
 				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
 				self.ProcessStateDone.emit(True)
+				print(window.programwindow.width(), window.programwindow.height())
 			if value == self.ProcessData.CNCCRTState and value == 'Message' and self.ProcessData.CRTWindowNum == 0:
 				# 创建Message 消息显示界面
 				window = CRTMessagePane(self.parent(), self.ProcessData, self.InterfacePane)

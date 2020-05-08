@@ -21,6 +21,8 @@ class CRTProgBasePane(QWidget, Ui_Form):
 	CRTProgramTextChange = pyqtSignal(str)
 	# 程序界面的光标移动操作信号 参数为对象的id名称
 	CRTProgramCursorMoveSignal = pyqtSignal(str)
+	# 程序界面内部不同的界面之间传递信息的信号 该信号用于界面之间的信息回环 参数为str数据
+	CRTWindowMessageExchangeSignal = pyqtSignal(str)
 	# CRT界面软件back 和 go的点击情况
 	SoftBtnCheckedInfoBack = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
 	                           'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
@@ -82,10 +84,16 @@ class CRTProgBasePane(QWidget, Ui_Form):
 		# 挂在程序编辑窗口
 		windowprogram = WindowProgProgramBase(self.programwindow, self.PaneData, self)
 		windowprogram.show()
-		# 判断当前机床所处的模式 然后创建编辑框
+		# 判断当前机床所处的模式 然后创建编辑框 创建对应的软软按键值
 		if self.PaneData.CNCNowMode == 'EDIT':
 			windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
 			windowprogramedit.show()
+			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'DIR'
+			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
+		# 判断当前机床所处的模式 然后创建对应的软按键值
+		if self.PaneData.CNCNowMode == 'MDI':
+			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'MDI'
+			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
 		pass
 
 	def timerinit(self):
@@ -116,6 +124,13 @@ class CRTProgBasePane(QWidget, Ui_Form):
 			self.timernum = 0
 		self.Lab_Date.setText(datetime.now().strftime('%H:%M:%S'))
 		# print(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+		pass
+
+	def WindowMessageExchangeSlot(self, value):
+		# Insert成功结束告诉单行文本框处理显示问题
+		print('信息总站接受到的数据:', value)
+		if value == 'LineTextInsert' or value == 'LineTextAlter':
+			self.CRTWindowMessageExchangeSignal.emit(value)
 		pass
 
 	def CRTSpindleSpeedSlot(self, value):
@@ -184,6 +199,7 @@ class CRTProgBasePane(QWidget, Ui_Form):
 	def CRTInputSlot(self, value):
 		# print('1', value)
 		self.CRTProgramTextChange.emit(value)
+		# self.CRTTemporaryInputDataSignal.emit(True)
 		pass
 
 	def CNCModeChangeSlot(self, state):
@@ -193,8 +209,17 @@ class CRTProgBasePane(QWidget, Ui_Form):
 			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
 			windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
 			windowprogramedit.show()
+			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'DIR'
+			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
+		elif state == 'MDI':
+			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
+			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'MDI'
+			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
 		else:
 			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
+			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = ''
+			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
+
 		pass
 
 	def CRTEmergencySTOPSlot(self, state):
