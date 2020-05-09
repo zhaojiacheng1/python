@@ -21,11 +21,15 @@ class Ui_Form(object):
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.Lab_ProgramEdit = QtWidgets.QPlainTextEdit(Form)
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        self.Lab_ProgramEdit.setFont(font)
         self.Lab_ProgramEdit.setStyleSheet("background-color: rgb(255, 204, 204);\n"
 "border-left: 2px solid white;\n"
 "border-top: 2px solid white;\n"
 "border-bottom: 2px solid rgb(140,140,140);\n"
 "border-right: 2px solid rgb(140,140,140);")
+        self.Lab_ProgramEdit.setPlainText("")
         self.Lab_ProgramEdit.setObjectName("Lab_ProgramEdit")
         self.verticalLayout.addWidget(self.Lab_ProgramEdit)
 

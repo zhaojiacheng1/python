@@ -31,11 +31,11 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		# CNCData
 		self.PaneData = PaneData
 		self.InterfacePane = Pane
-		self.PosPaneInit(PaneData)
+		self.PaneInit(PaneData)
 		self.show()
 		pass
 
-	def PosPaneInit(self, PaneData):
+	def PaneInit(self, PaneData):
 		# 初始化时间显示
 		self.Lab_Date.setText(datetime.now().strftime('%H:%M:%S'))
 		# 设置1s定时器
@@ -101,12 +101,18 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		pass
 
 	def CRTSpindleSpeedSlot(self, value):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'POS':
+			return None
 		if value == self.PaneData.CNCSpindleSpeed:
 			# print(value)
 			self.CRTProcessStateDone.emit(True)
 		pass
 
 	def CRTFeedSpeedSlot(self, value):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'POS':
+			return None
 		if value == self.PaneData.CNCFeedSpeed:
 			# print(value)
 			self.CRTProcessStateDone.emit(True)
@@ -133,19 +139,35 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 
 	# 将CNCProcess中的信号传递到CRT界面中
 	def SignalConnectCNCProcess(self, CNCProcess):
-		CNCProcess.SoftBtnSignal.connect(self.SoftBtnProcess)
+		CNCProcess.SoftBtnSignal.connect(self.SoftBtnProcessSlot)
 		CNCProcess.EmergencySTOPSignal.connect(self.CRTEmergencySTOPSlot)
 		CNCProcess.CNCModeChangeSignal.connect(self.CNCModeChangeSlot)
 		CNCProcess.CNCFeedSpeedSignal.connect(self.CRTFeedSpeedSlot)
 		CNCProcess.CNCSpindleSpeedSignal.connect(self.CRTSpindleSpeedSlot)
 		pass
 
+	# 将连接CNCProcess中与CRT界面连接的信号断开
+	def SignalDisconnectCNCProcess(self, CNCProcess):
+		CNCProcess.SoftBtnSignal.disconnect(self.SoftBtnProcessSlot)
+		CNCProcess.EmergencySTOPSignal.disconnect(self.CRTEmergencySTOPSlot)
+		CNCProcess.CNCModeChangeSignal.disconnect(self.CNCModeChangeSlot)
+		CNCProcess.CNCFeedSpeedSignal.disconnect(self.CRTFeedSpeedSlot)
+		CNCProcess.CNCSpindleSpeedSignal.disconnect(self.CRTSpindleSpeedSlot)
+		self.CRTSignalDisconnectCNCPane(self.InterfacePane)
+		pass
+
 	def CNCModeChangeSlot(self, state):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'POS':
+			return None
 		self.Lab_Mode.setText(state)
 		self.CRTProcessStateDone.emit(True)
 		pass
 
 	def CRTEmergencySTOPSlot(self, state):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'POS':
+			return None
 		if state == self.PaneData.CNCEmergencySTOP:
 			if state:
 				self.Lab_EMG.setText('EMG')
@@ -161,7 +183,10 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		self.CRTProcessStateDone.emit(True)
 		pass
 
-	def SoftBtnProcess(self, name, value):
+	def SoftBtnProcessSlot(self, name, value):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'POS':
+			return None
 		print(name, value)
 		if self.PaneData.CRTSoftBtnMenu == '坐标':
 			if value == self.PaneData.CRTPageState:
@@ -453,9 +478,14 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 		self.Btn_Ten.setChecked(Panedata.SoftBtnCheckedInfo[ 'Btn_Ten' ])
 		pass
 
+	# 连接到控制面板的信号
 	def CRTSignalConnectCNCPane(self, Pane):
 		self.CRTProcessStateDone.connect(Pane.InfoTransStateSlot)
 		pass
+
+	# 断开与控制面板之间的信号
+	def CRTSignalDisconnectCNCPane(self, Pane):
+		self.CRTProcessStateDone.disconnect(Pane.InfoTransStateSlot)
 
 	def CRTALMshow(self, PaneData):
 		if PaneData.CNCALMState:

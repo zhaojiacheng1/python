@@ -88,10 +88,10 @@ class InterfaceFrameworkPane(QWidget, Ui_Form):
 		pass
 
 	def SignalConnectCNCData(self, CNCData):
-		self.InfoTransBtnClick.connect(CNCData.CNCDataSignalAccept)
-		self.InfoTransBtnCheck.connect(CNCData.CNCDataSignalAccept)
-		self.InfoTransBtnKeepState.connect(CNCData.CNCDataSignalAccept)
-		self.InfoTransDial.connect(CNCData.CNCDataSignalAccept)
+		self.InfoTransBtnClick.connect(CNCData.CNCDataSignalAcceptSlot)
+		self.InfoTransBtnCheck.connect(CNCData.CNCDataSignalAcceptSlot)
+		self.InfoTransBtnKeepState.connect(CNCData.CNCDataSignalAcceptSlot)
+		self.InfoTransDial.connect(CNCData.CNCDataSignalAcceptSlot)
 		pass
 
 	def InfoTransStateSlot(self, state):

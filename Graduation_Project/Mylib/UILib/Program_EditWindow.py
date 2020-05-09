@@ -27,7 +27,10 @@ class Ui_Form(object):
         font.setBold(True)
         font.setWeight(75)
         self.label.setFont(font)
-        self.label.setStyleSheet("background-color: rgb(96, 224, 224);")
+        self.label.setStyleSheet("background-color: rgb(96, 224, 224);\n"
+"border-top: 2px solid white;\n"
+"border-left: 2px solid white;\n"
+"border-bottom: 2px solid rgb(140,140,140);")
         self.label.setIndent(5)
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
@@ -38,8 +41,9 @@ class Ui_Form(object):
         font.setWeight(75)
         self.ProgramTextEdit.setFont(font)
         self.ProgramTextEdit.setStyleSheet("background-color: rgb(96, 224, 224);\n"
-"border-width: 0;\n"
-"border-style:outset;")
+"border-top: 2px solid white;\n"
+"border-right: 2px solid rgb(140,140,140);\n"
+"border-bottom: 2px solid rgb(140,140,140);")
         self.ProgramTextEdit.setObjectName("ProgramTextEdit")
         self.horizontalLayout.addWidget(self.ProgramTextEdit)
         self.horizontalLayout.setStretch(0, 1)

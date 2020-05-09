@@ -6,6 +6,7 @@ from Mylib.CRT_Pos_Abs_Pane import CRTPosAbsPane
 from Mylib.CRT_Prog_Base_Pane import CRTProgBasePane
 from Mylib.CRT_Prog_Program_Pane import CRTProgProgramPane
 from Mylib.CRT_Message_Pane import CRTMessagePane
+from Mylib.CRT_Prog_DIR_Pane import CRTProgDIRPane
 
 
 class CNCProcess(QObject):
@@ -64,14 +65,27 @@ class CNCProcess(QObject):
 		pass
 
 	# 删除所有的CRT界面
-	def CRTWindowDel(self, CRTwindowList, CNCData):
-		for i in range(0, len(CRTwindowList)):
-			CRTwindowList[ i ].setParent(None)
+	def CRTWindowDel(self, CRTWindowList, CNCData):
+		for i in range(0, len(CRTWindowList)):
+			CRTWindowList[ i ].SignalDisconnectCNCProcess(self)
+			CRTWindowList[ i ].setParent(None)
 			CNCData.CRTWindowNum -= 1
 		pass
 
+	# 断开所有信号
+	# def CRTWindowSignalDel(self):
+	# 	self.SoftBtnSignal.disconnect()
+	# 	self.EmergencySTOPSignal.disconnect()
+	# 	self.CNCModeChangeSignal.disconnect()
+	# 	self.CNCFeedSpeedSignal.disconnect()
+	# 	self.CNCSpindleSpeedSignal.disconnect()
+	# 	self.CRTInputSignal.disconnect()
+	# 	self.CRTTemporaryInputDataChange.disconnect()
+	# 	self.CRTCursorMoveSignal.disconnect()
+	# 	pass
+
 	# 参数中有 state CNCData
-	def CNCPowerProcess(self, state, CNCData):
+	def CNCPowerProcessSlot(self, state, CNCData):
 		if state != CNCData.CNCPowerState:
 			return None
 		if state:
@@ -119,6 +133,7 @@ class CNCProcess(QObject):
 			self.ProcessStateDone.emit(True)
 		pass
 
+	# CRT界面变化
 	def CNCCRTChangeSlot(self, value):
 		if self.ProcessData.CNCPowerState:
 			# 首先清空所有的CRT界面
@@ -126,6 +141,8 @@ class CNCProcess(QObject):
 			windowlist = ()
 			windowlist += self.CNCCRTWindowList(window, self.ProcessData)
 			self.CRTWindowDel(windowlist, self.ProcessData)
+			# self.CRTWindowSignalDel()
+			# print('CRT界面:', self.parent().children())
 			if value == self.ProcessData.CNCCRTState and value == 'POS' and self.ProcessData.CRTWindowNum == 0:
 				# 创建POS位置界面
 				window = CRTPosAbsPane(self.parent(), self.ProcessData, self.InterfacePane)
@@ -157,10 +174,17 @@ class CNCProcess(QObject):
 				window.SignalConnectCNCProcess(self)
 				self.ProcessData.CRTWindowNum += 1  # CRT窗口数量加1
 				self.ProcessStateDone.emit(True)
-		# print(window.window_message.width(), window.window_message.height())
+			# print(window.window_message.width(), window.window_message.height())
+			if value == self.ProcessData.CNCCRTState and value == 'PROG_DIR' and self.ProcessData.CRTWindowNum == 0:
+				# 创建DIR界面 程序文件界面
+				window = CRTProgDIRPane(self.parent(), self.ProcessData, self.InterfacePane)
+				# 连接CNCProcess类的信号
+				self.ProcessData.CRTWindowNum += 1
+				self.ProcessStateDone.emit(True)
+				print(window.programdirwindow.width(), window.programdirwindow.height())
 		pass
 
-	def CRTSoftBtnProcess(self, name, value):
+	def CRTSoftBtnProcessSlot(self, name, value):
 		# 将软信号传递到CRT界面中去
 		self.SoftBtnSignal.emit(name, value)
 		pass

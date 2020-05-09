@@ -54,7 +54,10 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(96, 224, 224);</string>
+      <string notr="true">background-color: rgb(96, 224, 224);
+border-top: 2px solid white;
+border-left: 2px solid white;
+border-bottom: 2px solid rgb(140,140,140);</string>
      </property>
      <property name="text">
       <string>&gt;</string>
@@ -75,8 +78,9 @@
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(96, 224, 224);
-border-width: 0;
-border-style:outset;</string>
+border-top: 2px solid white;
+border-right: 2px solid rgb(140,140,140);
+border-bottom: 2px solid rgb(140,140,140);</string>
      </property>
     </widget>
    </item>

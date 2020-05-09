@@ -41,17 +41,23 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 	def SignalConnectSelf(self, Pane):
 		Pane.CRTProgramTextChange.connect(self.CRTProgramTextSlot)
 		Pane.CRTProgramCursorMoveSignal.connect(self.ProgramCursorMoveSlot)
-		Pane.CRTWindowMessageExchangeSignal.connect(self.LineTextToWindow)
+		Pane.CRTWindowMessageExchangeSignal.connect(self.LineTextToWindowSlot)
 		self.WindowMessageExchangeSignal.connect(Pane.WindowMessageExchangeSlot)
 		pass
 
 	# 接受单行文本框的信号
-	def LineTextToWindow(self, value):
+	def LineTextToWindowSlot(self, value):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.ProgData.CNCCRTState != 'PROG':
+			return None
 		print('信息总站的数据_Window:', value)
 		pass
 
 	# 光标移动处理函数
 	def ProgramCursorMoveSlot(self, name):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.ProgData.CNCCRTState != 'PROG':
+			return None
 		print(name)
 		self.Lab_ProgramEdit.setFocus(True)
 		cursor = self.Lab_ProgramEdit.textCursor()
@@ -73,7 +79,11 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 
 	# 程序内容改变处理函数函数
 	def CRTProgramTextSlot(self, value):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.ProgData.CNCCRTState != 'PROG':
+			return None
 		print('界面中', value)
+		print('当前处于ProgramBase界面')
 		# PROG状态下的特殊按键信息
 		if self.ProgData.CNCCRTState == 'PROG' or self.ProgData.CNCCRTState == 'PROG_Program':
 			# 暂时不处理
@@ -136,6 +146,7 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 		if reply == False:
 			print('输入的字符串为:', reply)
 			return False
+		print('reply:', reply)
 		self.WindowMessageExchangeSignal.emit('LineTextInsert')
 		# 将输入的文本插入到当前的程序文本中 从当前行开始插入
 		# 1、计算光标坐标值变化量
@@ -273,6 +284,9 @@ class WindowProgProgramBase(QWidget, Ui_Form):
 		pass
 
 	def CursorChangeSlot(self):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.ProgData.CNCCRTState != 'PROG':
+			return None
 		cursor = self.Lab_ProgramEdit.textCursor()
 		# self.Lab_ProgramEdit.setViewportMargins(40, 0, 0, 0)
 		self.highlightCurrentLine()

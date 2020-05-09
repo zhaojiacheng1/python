@@ -12,6 +12,14 @@ from Mylib.Window_Prog_ProgramPro import WindowProgProgramPro
 class CRTProgProgramPane(QWidget, Ui_Form):
 	# 信号告诉控制控制面板 用户面板的点击有效了
 	CRTProcessStateDone = pyqtSignal(bool)
+	# 输入文本框文本变换信号 参数为bool型数据 True时表示数据发生改变
+	CRTTemporaryInputDataSignal = pyqtSignal(bool)
+	# 程序数据变化信号 参数为str型数据 表示是具体的操作
+	CRTProgramTextChange = pyqtSignal(str)
+	# 程序界面的光标移动操作信号 参数为对象的id名称
+	CRTProgramCursorMoveSignal = pyqtSignal(str)
+	# 程序界面内部不同的界面之间传递信息的信号 该信号用于界面之间的信息回环 参数为str数据
+	CRTWindowMessageExchangeSignal = pyqtSignal(str)
 	# CRT界面软件back 和 go的点击情况
 	SoftBtnCheckedInfoBack = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
 	                           'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
@@ -30,11 +38,11 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 		# CNCData
 		self.PaneData = PaneData
 		self.InterfacePane = Pane
-		self.PosPaneInit(PaneData)
+		self.PaneInit(PaneData)
 		self.show()
 		pass
 
-	def PosPaneInit(self, PaneData):
+	def PaneInit(self, PaneData):
 		# 初始化时间显示
 		self.Lab_Date.setText(datetime.now().strftime('%H:%M:%S'))
 		# 设置1s定时器
@@ -61,8 +69,8 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 		windowprogram.show()
 		# 判断当前机床所处的模式 然后创建编辑框 创建对应的软软按键值
 		if self.PaneData.CNCNowMode == 'EDIT':
-			# windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
-			# windowprogramedit.show()
+			windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
+			windowprogramedit.show()
 			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'DIR'
 			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
 		# 判断当前机床所处的模式 然后创建对应的软按键值
@@ -101,13 +109,29 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 		# print(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 		pass
 
+	def WindowMessageExchangeSlot(self, value):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'PROG_Program':
+			return None
+		# Insert成功结束告诉单行文本框处理显示问题
+		print('信息总站接受到的数据:', value)
+		if value == 'LineTextInsert' or value == 'LineTextAlter':
+			self.CRTWindowMessageExchangeSignal.emit(value)
+		pass
+
 	def CRTSpindleSpeedSlot(self, value):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'PROG_Program':
+			return None
 		if value == self.PaneData.CNCSpindleSpeed:
 			# print(value)
 			self.CRTProcessStateDone.emit(True)
 		pass
 
 	def CRTFeedSpeedSlot(self, value):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'PROG_Program':
+			return None
 		if value == self.PaneData.CNCFeedSpeed:
 			# print(value)
 			self.CRTProcessStateDone.emit(True)
@@ -134,20 +158,64 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 
 	# 将CNCProcess中的信号传递到CRT界面中
 	def SignalConnectCNCProcess(self, CNCProcess):
-		CNCProcess.SoftBtnSignal.connect(self.SoftBtnProcess)
+		CNCProcess.SoftBtnSignal.connect(self.SoftBtnProcessSlot)
 		CNCProcess.EmergencySTOPSignal.connect(self.CRTEmergencySTOPSlot)
 		CNCProcess.CNCModeChangeSignal.connect(self.CNCModeChangeSlot)
 		CNCProcess.CNCFeedSpeedSignal.connect(self.CRTFeedSpeedSlot)
 		CNCProcess.CNCSpindleSpeedSignal.connect(self.CRTSpindleSpeedSlot)
+		CNCProcess.CRTInputSignal.connect(self.CRTInputSlot)
+		CNCProcess.CRTTemporaryInputDataChange.connect(self.CRTTemporaryInputDataSlot)
+		CNCProcess.CRTCursorMoveSignal.connect(self.CRTCursorMoveSlot)
+		pass
+
+	def SignalDisconnectCNCProcess(self, CNCProcess):
+		CNCProcess.SoftBtnSignal.disconnect(self.SoftBtnProcessSlot)
+		CNCProcess.EmergencySTOPSignal.disconnect(self.CRTEmergencySTOPSlot)
+		CNCProcess.CNCModeChangeSignal.disconnect(self.CNCModeChangeSlot)
+		CNCProcess.CNCFeedSpeedSignal.disconnect(self.CRTFeedSpeedSlot)
+		CNCProcess.CNCSpindleSpeedSignal.disconnect(self.CRTSpindleSpeedSlot)
+		CNCProcess.CRTInputSignal.disconnect(self.CRTInputSlot)
+		CNCProcess.CRTTemporaryInputDataChange.disconnect(self.CRTTemporaryInputDataSlot)
+		CNCProcess.CRTCursorMoveSignal.disconnect(self.CRTCursorMoveSlot)
+		self.CRTSignalDisconnectCNCPane(self.InterfacePane)
+		pass
+
+	# 界面光标信号处理
+	def CRTCursorMoveSlot(self, name):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'PROG_Program':
+			return None
+		self.CRTProgramCursorMoveSignal.emit(name)
+		self.CRTProcessStateDone.emit(True)
+		pass
+
+	# 当行输入文本框的数据发生改变 相应的界面应该调整文本显示
+	def CRTTemporaryInputDataSlot(self, state):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'PROG_Program':
+			return None
+		if state:
+			self.CRTTemporaryInputDataSignal.emit(True)
+		pass
+
+	# 关于程序界面的操作
+	def CRTInputSlot(self, value):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'PROG_Program':
+			return None
+		self.CRTProgramTextChange.emit(value)
 		pass
 
 	def CNCModeChangeSlot(self, state):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'PROG_Program':
+			return None
 		self.Lab_Mode.setText(state)
 		self.CRTProcessStateDone.emit(True)
 		if state == 'EDIT':
-			# self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
-			# windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
-			# windowprogramedit.show()
+			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
+			windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
+			windowprogramedit.show()
 			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = 'DIR'
 			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
 		elif state == 'MDI':
@@ -163,9 +231,13 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 	# 删除所有的CRTProgramEdit界面
 	def CRTProgEditWindowDel(self, CRTProgWindowList):
 		for i in range(0, len(CRTProgWindowList)):
+			CRTProgWindowList[ i ].SignalDisconnectSlot(self)
 			CRTProgWindowList[ i ].setParent(None)
 
 	def CRTEmergencySTOPSlot(self, state):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'PROG_Program':
+			return None
 		if state == self.PaneData.CNCEmergencySTOP:
 			if state:
 				self.Lab_EMG.setText('EMG')
@@ -181,7 +253,10 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 		self.CRTProcessStateDone.emit(True)
 		pass
 
-	def SoftBtnProcess(self, name, value):
+	def SoftBtnProcessSlot(self, name, value):
+		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
+		if self.PaneData.CNCCRTState != 'PROG_Program':
+			return None
 		print(name, value)
 		if self.PaneData.CRTSoftBtnMenu == '程序':
 			if value == '操作':
@@ -447,6 +522,10 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 
 	def CRTSignalConnectCNCPane(self, Pane):
 		self.CRTProcessStateDone.connect(Pane.InfoTransStateSlot)
+		pass
+
+	def CRTSignalDisconnectCNCPane(self, Pane):
+		self.CRTProcessStateDone.disconnect(Pane.InfoTransStateSlot)
 		pass
 
 	def CRTALMshow(self, PaneData):

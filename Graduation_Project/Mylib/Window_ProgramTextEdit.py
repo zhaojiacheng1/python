@@ -20,13 +20,19 @@ class WindowProgramTextEdit(QWidget, Ui_Form):
 
 	# 将CRT界面的信号连接到该类中
 	def SignalConnectSlot(self, Pane):
-		Pane.CRTTemporaryInputDataSignal.connect(self.ShowLineText)
-		Pane.CRTWindowMessageExchangeSignal.connect(self.WindowToLineText)
+		Pane.CRTTemporaryInputDataSignal.connect(self.ShowLineTextSlot)
+		Pane.CRTWindowMessageExchangeSignal.connect(self.WindowToLineTextSlot)
 		self.WindowMessageExchangeSignal.connect(Pane.WindowMessageExchangeSlot)
 		pass
 
+	def SignalDisconnectSlot(self, Pane):
+		Pane.CRTTemporaryInputDataSignal.disconnect(self.ShowLineTextSlot)
+		Pane.CRTWindowMessageExchangeSignal.disconnect(self.WindowToLineTextSlot)
+		self.WindowMessageExchangeSignal.disconnect(Pane.WindowMessageExchangeSlot)
+		pass
+
 	# 接受程序显示窗口的信号
-	def WindowToLineText(self, value):
+	def WindowToLineTextSlot(self, value):
 		print('信息总站的数据_LineText:', value)
 		if value == 'LineTextInsert':
 			self.ShowLineText(True)
@@ -35,7 +41,7 @@ class WindowProgramTextEdit(QWidget, Ui_Form):
 		pass
 
 	# 单行文本框的显示操作
-	def ShowLineText(self, state):
+	def ShowLineTextSlot(self, state):
 		if state:
 			print('刷新显示')
 			self.ProgramTextEdit.clear()

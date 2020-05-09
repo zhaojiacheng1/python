@@ -417,14 +417,14 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		pass
 
 	# 接受信号传递过来的参数
-	def CNCDataSignalAccept(self, *args):
+	def CNCDataSignalAcceptSlot(self, *args):
 		# DataAccept = args
 		self.CNCDataProcess(*args)
 		pass
 
 	def SignalConnectCNCProcess(self, CNCProcess):
-		self.CNCPowerSignal.connect(CNCProcess.CNCPowerProcess)
-		self.CRTSoftBtnSignal.connect(CNCProcess.CRTSoftBtnProcess)
+		self.CNCPowerSignal.connect(CNCProcess.CNCPowerProcessSlot)
+		self.CRTSoftBtnSignal.connect(CNCProcess.CRTSoftBtnProcessSlot)
 		self.CNCEmergencySTOPSignal.connect(CNCProcess.EmergencySTOPSlot)
 		self.CNCModeChangeSignal.connect(CNCProcess.CNCModeChangeSlot)
 		self.CNCFeedSpeedSignal.connect(CNCProcess.CNCFeedSpeedSlot)
