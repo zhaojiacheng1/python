@@ -126,7 +126,7 @@ branch merge test
 
 ### 界面框架如图
 
-![界面框架](Graduation_Project/Doc/images_2020-4-7. png)
+![界面框架](Graduation_Project/Doc/images_2020-4-7.png)
 
 1、界面基本的框架雏形已经出来了：左上角的CRT界面以及CRT下侧的软按键；左下角的输入面板部分；右侧的操作面板；
 
@@ -172,7 +172,7 @@ PLAN：
 
 ### 界面效果
 
-![未加优化的界面效果图](Graduation_Project/Doc/images_2020-04-09_23-19-31. png)
+![未加优化的界面效果图](Graduation_Project/Doc/images_2020-04-09_23-19-31.png)
 
 问题：
 
@@ -182,7 +182,7 @@ PLAN：
 
 ### 信号测试
 
-![信号测试图](Graduation_Project/Doc/images_2020-04-09_23-28-37. png)
+![信号测试图](Graduation_Project/Doc/images_2020-04-09_23-28-37.png)
 
 经过测试，所有信号都已经正常运行；
 
@@ -204,13 +204,13 @@ PLAN：
 
 3> 显示的CRT界面应当是POS界面，显示相关的坐标信息；
 
-![正在搭建的界面](Graduation_Project/Doc/images_2020-04-11_22-53-42. png)
+![正在搭建的界面](Graduation_Project/Doc/images_2020-04-11_22-53-42.png)
 
 NOTES:
 
 1> 发现8个轴选按钮长按是不合逻辑的问题，即当这八个按钮长按时不能正常地发送对应信号，打算单独取出来处理; 另添一个TOOL自动换刀长按问题； 
 
-![QPushButton的信号说明](Graduation_Project/Doc/images_2020-04-10_21-56-17. png)
+![QPushButton的信号说明](Graduation_Project/Doc/images_2020-04-10_21-56-17.png)
 
 2> 自动加工状态 循环启动、循环停止
 
@@ -230,13 +230,13 @@ NOTES:
 
 5> 系统CRT界面已经可以实现控制面板的上电和关电操作，有一个函数并未封装，明天处理；
 
-![最新的界面图](Graduation_Project/Doc/images_2020-04-13_23-30-25. png)
+![最新的界面图](Graduation_Project/Doc/images_2020-04-13_23-30-25.png)
 
 6> 当CRT界面创建之后应当将CNCProcess接受的数据转化为信号传递到界面中去；
 
 7> POS界面下已经实现了绝对、相对、综合、HNDL按键的功能，操作按钮功能实现，back和go按钮实现部分功能，EMG急停显示功能实现，模式选择按钮功能实现，可以正常的切换工作模式，日期显示正常；解决关电状态下的急停按钮使用，其余按钮无效，界面内部不处理；
 
-![界面图04-15](Graduation_Project/Doc/images_2020-04-15_23-27-25. png)
+![界面图04-15](Graduation_Project/Doc/images_2020-04-15_23-27-25.png)
 
 8> 调整back和go对应的软按键信息的存储位置 将其存储到具体的CRT界面下，不存储在CNCData中，CNCData中只保留当前界面的显示信息和点击信息；进给倍率和主轴倍率的设计完毕; 
 
@@ -244,17 +244,17 @@ NOTES:
 
 10> 设计CRT的PROG界面 这个界面分为普通界面和程序界面，我认为应当拆分处理；发现加工产品数、运行时间和切削时间未处理；
 
-![CRT的PROG界面未完成设计图](Graduation_Project/Doc/images_2020-04-16_23-37-23. png)
+![CRT的PROG界面未完成设计图](Graduation_Project/Doc/images_2020-04-16_23-37-23.png)
 
 11> CRT的PROG界面设计完成，接下来设计CRT中的程序界面；PROG界面分支设计结束，还存在程序显示框和输入框的业务逻辑没有实现；发现在不同模式下界面显示的软按钮显示不同; 
 
-![CRT的PROG界面](Graduation_Project/Doc/images_2020-04-18_00-10-24. png)
+![CRT的PROG界面](Graduation_Project/Doc/images_2020-04-18_00-10-24.png)
 
 12> 设计CRT的Message界面，用于显示报警信息；该界面我认为不用拆分处理，界面变化较小; 遇到QPlainText使用问题，设置光标所在行的反白效果不顺利；该部分的界面操作基本完成；反白效果实现：可以通过QTextCharFormat设置全文格式，然后通过blockCharFormat和blockFormat来设计当前行的格式，目前并未成功; “反白效果”初步有了眉目，基本可以实现；
 
-![Message界面](Graduation_Project/Doc/images_2020-04-18_23-46-47. png)
+![Message界面](Graduation_Project/Doc/images_2020-04-18_23-46-47.png)
 
-![反白效果图(初稿)](Graduation_Project/Doc/images_2020-04-20_23-31-19. png)
+![反白效果图(初稿)](Graduation_Project/Doc/images_2020-04-20_23-31-19.png)
 
 #### CRT界面编辑器的设计
 
@@ -267,3 +267,11 @@ NOTES:
 4> 问题2：将CRT界面和控制面板部分拆分开来，改为两个可执行程序，两者之间通过网络通信(多线程)；涉及到一个网络通信的IP地址设置的问题，应当创建相应的连接提示，输入对应的IP地址才能继续操作；其中CRT界面的分辨率应当为1024*768；
 
 5> Input输入信号，输入要输入数控CRT界面的键值，所以CNCProcess应当只是转发就可以了，对于其中的几个特殊的操作，主要是涉及到将临时的输入代码输入到程序中，包括INSERT、DELETE等操作，其余的输入操作只是涉及到临时输入框的数据操作，在CNCProcess中处理，然后发送信号告诉单行程序文本编辑器控件将改变后的数据在界面上显示; 弹出的交互窗口的背景颜色异常，通过设置父控件为None解决；
+
+6> PyQt5中信号的发送是类似于阻断式的，在一定程度上影响到程序的运行，需要注意; 
+
+7> 问题3：该释放的类没有完全释放，同时它的信号连接还在，需要断开；
+
+8> 程序文件列表显示窗口初步完成；
+
+![程序文件显示界面](Graduation_Project/Doc/images_2020-05-10_23-22-28.png)

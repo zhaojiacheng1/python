@@ -211,7 +211,6 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 		if self.PaneData.CNCCRTState != 'PROG_Program':
 			return None
 		self.Lab_Mode.setText(state)
-		self.CRTProcessStateDone.emit(True)
 		if state == 'EDIT':
 			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
 			windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
@@ -226,6 +225,7 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
 			self.PaneData.SoftButtonTempInfo[ 'Btn_Seven' ] = ''
 			self.CRTSoftBtnShow(self.PaneData, self.PaneData.CRTSoftBtnMenu)
+		self.CRTProcessStateDone.emit(True)
 		pass
 
 	# 删除所有的CRTProgramEdit界面
@@ -233,6 +233,7 @@ class CRTProgProgramPane(QWidget, Ui_Form):
 		for i in range(0, len(CRTProgWindowList)):
 			CRTProgWindowList[ i ].SignalDisconnectSlot(self)
 			CRTProgWindowList[ i ].setParent(None)
+		pass
 
 	def CRTEmergencySTOPSlot(self, state):
 		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理

@@ -7,6 +7,28 @@ class WindowProgProgramDir(QWidget, Ui_Form):
 	# 另需设定时器 保证绝对坐标1秒钟(暂定)更新一次
 	# 程序界面内部不同的界面之间传递信息的信号 参数为str数据
 	WindowMessageExchangeSignal = pyqtSignal(str)
+	# 程序文件存储的位置
+	ProgramFilePath = 'E:/python/Graduation_Project/resource/src'
+	# 显示窗口的行号 默认为0行
+	ProgramLineNum = 0
+	# 存储当前光标所在的行号 列号
+	LineNumber = 0
+	ColumnNumber = 0
+	# 设置当前文件列表的暂存分块数据映射字典 key是行号 value是文件名
+	ProgramFileNameDict = { }
+	# 设置当前文件列表的字典 key是行号 value是文件的绝对路径
+	ProgramFilePathDict = { }
+	# 设置当前文件列表显示的行号和光标坐标值的映射关系 key是行号 value是当前行首个字符的光标位置值
+	ProgramFileNameLineNumDict = { }
+	# COMMENT文件的说明内容不做处理
+	# 设置当前文件列表的大小字典 key为行号 value是文件的大小
+	ProgramFileSizeDict = { }
+	# 设置文件大小显示窗口的行号和光标坐标值的映射关系 key是行号 value是当前行首个字符的光标位置值
+	ProgramFileSizeLineNumDict = { }
+	# 设置当前文件列表的修改时间字典 key为行号 value为修改时间
+	ProgramFileUpdateTimeDict = { }
+	# 设置当前文件修改时间显示窗口的行号和光标坐标值的映射关系 key是行号 value是当前行首个字符的光标位置值
+	ProgramFileUpdateTimeLineNumDict = { }
 
 	def __init__(self, parent, PaneData, Pane, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)

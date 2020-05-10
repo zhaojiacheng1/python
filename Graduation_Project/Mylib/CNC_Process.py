@@ -179,9 +179,10 @@ class CNCProcess(QObject):
 				# 创建DIR界面 程序文件界面
 				window = CRTProgDIRPane(self.parent(), self.ProcessData, self.InterfacePane)
 				# 连接CNCProcess类的信号
+				window.SignalConnectCNCProcess(self)
 				self.ProcessData.CRTWindowNum += 1
 				self.ProcessStateDone.emit(True)
-				print(window.programdirwindow.width(), window.programdirwindow.height())
+				# print(window.programdirwindow.width(), window.programdirwindow.height())
 		pass
 
 	def CRTSoftBtnProcessSlot(self, name, value):

@@ -299,21 +299,25 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 			if args[ 1 ] != 'Btn_BACK' and args[ 1 ] != 'Btn_GO':
 				value = self.SoftButtonTempInfo[ args[ 1 ] ]
 				if value == '程序':
-					if self.CNCCRTState == 'PROG_Program':  # 界面没有发生变化
-						self.DataStateDone.emit(True)
-					else:
-						self.CNCCRTState = 'PROG_Program'
-						self.CNCCRTChangeSignal.emit('PROG_Program')
+					self.CNCCRTState = 'PROG_Program'
+					self.CNCCRTChangeSignal.emit('PROG_Program')
 					return None  # 发送界面改变信号 不能视为单纯的软按键处理 应当截断信号传输
 				if value == 'DIR':
-					if self.CNCCRTState == 'PROG_DIR':  # 界面没有发生变化
-						self.DataStateDone.emit(True)
-					else:
-						self.CNCCRTState = 'PROG_DIR'
-						self.CNCCRTChangeSignal.emit('PROG_DIR')
+					self.CNCCRTState = 'PROG_DIR'
+					self.CNCCRTChangeSignal.emit('PROG_DIR')
 					return None  # 发送界面改变信号 不能视为单纯的软按键处理 应当截断信号传输
 				if value == '绝对' or value == '相对' or value == '综合':
 					self.CRTPageState = value
+				self.CRTSoftBtnSignal.emit(args[ 1 ], value)
+			else:
+				self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
+		if self.CNCCRTState == 'PROG_DIR':
+			if args[ 1 ] != 'Btn_BACK' and args[ 1 ] != 'Btn_GO':
+				value = self.SoftButtonTempInfo[ args[ 1 ] ]
+				if value == '程序':
+					self.CNCCRTState = 'PROG'
+					self.CNCCRTChangeSignal.emit('PROG')
+					return None
 				self.CRTSoftBtnSignal.emit(args[ 1 ], value)
 			else:
 				self.CRTSoftBtnSignal.emit(args[ 0 ], args[ 1 ])
@@ -321,11 +325,8 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 			if args[ 1 ] != 'Btn_BACK' and args[ 1 ] != 'Btn_GO':
 				value = self.SoftButtonTempInfo[ args[ 1 ] ]
 				if value == '程序':
-					if self.CNCCRTState == 'PROG':  # 界面没有发生变化
-						self.DataStateDone.emit(True)
-					else:
-						self.CNCCRTState = 'PROG'
-						self.CNCCRTChangeSignal.emit('PROG')
+					self.CNCCRTState = 'PROG'
+					self.CNCCRTChangeSignal.emit('PROG')
 					return None  # 发送界面改变信号 不能视为单纯的软按键处理 应当截断信号传输
 				self.CRTSoftBtnSignal.emit(args[ 1 ], value)
 			else:

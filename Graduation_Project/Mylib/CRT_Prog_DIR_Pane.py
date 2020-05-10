@@ -65,6 +65,10 @@ class CRTProgDIRPane(QWidget, Ui_Form):
 		# 挂在文件信息显示窗口
 		windowprogramdir = WindowProgProgramDir(self.programdirwindow, self.PaneData, self)
 		windowprogramdir.show()
+		# 判断当前机床是所处的模式 然后创建编辑框
+		if self.PaneData.CNCNowMode == 'EDIT':
+			windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
+			windowprogramedit.show()
 		pass
 
 	def timerinit(self):
@@ -99,7 +103,125 @@ class CRTProgDIRPane(QWidget, Ui_Form):
 	def WindowMessageExchangeSlot(self, value):
 		if self.PaneData.CNCCRTState != 'PROG_DIR':
 			return None
-		print('信息总站接受到的数据:',value)
+		print('信息总站接受到的数据:', value)
+		pass
+
+	def CRTSpindleSpeedSlot(self, value):
+		if self.PaneData.CNCCRTState != 'PROG_DIR':
+			return None
+		if value == self.PaneData.CNCSpindSpeed:
+			self.CRTProcessStateDone.emit(True)
+		pass
+
+	def CRTFeedSpeedSlot(self, value):
+		if self.PaneData.CNCCRTState != 'PROG_DIR':
+			return None
+		if value == self.PaneData.CNCFeedSpeed:
+			self.CRTProcessStateDone.emit(True)
+		pass
+
+	# 将CNCProcess中的信号传递到CRT界面中
+	def SignalConnectCNCProcess(self, CNCProcess):
+		CNCProcess.SoftBtnSignal.connect(self.SoftBtnProcessSlot)
+		CNCProcess.EmergencySTOPSignal.connect(self.CRTEmergencySTOPSlot)
+		CNCProcess.CNCModeChangeSignal.connect(self.CNCModeChangeSlot)
+		CNCProcess.CNCFeedSpeedSignal.connect(self.CRTFeedSpeedSlot)
+		CNCProcess.CNCSpindleSpeedSignal.connect(self.CRTSpindleSpeedSlot)
+		CNCProcess.CRTInputSignal.connect(self.CRTInputSlot)
+		CNCProcess.CRTTemporaryInputDataChange.connect(self.CRTTemporaryInputDataSlot)
+		CNCProcess.CRTCursorMoveSignal.connect(self.CRTCursorMoveSlot)
+		pass
+
+	def SignalDisconnectCNCProcess(self, CNCProcess):
+		CNCProcess.SoftBtnSignal.disconnect(self.SoftBtnProcessSlot)
+		CNCProcess.EmergencySTOPSignal.disconnect(self.CRTEmergencySTOPSlot)
+		CNCProcess.CNCModeChangeSignal.disconnect(self.CNCModeChangeSlot)
+		CNCProcess.CNCFeedSpeedSignal.disconnect(self.CRTFeedSpeedSlot)
+		CNCProcess.CNCSpindleSpeedSignal.disconnect(self.CRTSpindleSpeedSlot)
+		CNCProcess.CRTInputSignal.disconnect(self.CRTInputSlot)
+		CNCProcess.CRTTemporaryInputDataChange.disconnect(self.CRTTemporaryInputDataSlot)
+		CNCProcess.CRTCursorMoveSignal.disconnect(self.CRTCursorMoveSlot)
+		self.CRTSignalDisconnectCNCPane(self.InterfacePane)
+		pass
+
+	# 界面光标信号处理
+	def CRTCursorMoveSlot(self, name):
+		if self.PaneData.CNCCRTState != 'PROG_DIR':
+			return None
+		self.CRTProgramCursorMoveSignal.emit(name)
+		self.CRTProcessStateDone.emit(True)
+		pass
+
+	# 当行输入文本框的数据发生改变 相应的界面应该调整文本显示
+	def CRTTemporaryInputDataSlot(self, state):
+		if self.PaneData.CNCCRTState != 'PROG_DIR':
+			return None
+		if state:
+			self.CRTTemporaryInputDataSignal.emit(True)
+		pass
+
+	def CRTInputSlot(self, value):
+		if self.PaneData.CNCCRTState != 'PROG_DIR':
+			return None
+		self.CRTProgramTextChange.emit(value)
+		pass
+
+	def CNCModeChangeSlot(self, state):
+		if self.PaneData.CNCCRTState != 'PROG_DIR':
+			return None
+		self.Lab_Mode.setText(state)
+		if state == 'EDIT':
+			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
+			windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
+			windowprogramedit.show()
+		elif state == 'MDI':
+			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
+		else:
+			self.CRTProgEditWindowDel(self.Lab_ProgramEdit.children())
+		self.CRTProcessStateDone.emit(True)
+		pass
+
+	# 删除所有的CRTProgramEdit界面
+	def CRTProgEditWindowDel(self, CRTProgWindowList):
+		for i in range(0, len(CRTProgWindowList)):
+			CRTProgWindowList[ i ].SignalDisconnectSlot(self)
+			CRTProgWindowList[ i ].setParent(None)
+		pass
+
+	def CRTEmergencySTOPSlot(self, state):
+		if self.PaneData.CNCCRTState != 'PROG_DIR':
+			return None
+		if state == self.PaneData.CNCEmergencySTOP:
+			if state:
+				self.Lab_EMG.setText('EMG')
+			else:
+				self.Lab_EMG.setText('***')
+				self.Lab_EMG.setStyleSheet("""
+					background-color: rgb(192,192,192);
+					border-top: 2px solid white:
+					border-left: 2px solid white;
+					border-right: 2px solid black;
+					border-bottom: 2px solid rgb(140,140,140);
+				""")
+		self.CRTProcessStateDone.emit(True)
+		pass
+
+	def SoftBtnProcessSlot(self, name, value):
+		if self.PaneData.CNCCRTState != 'PROG_DIR':
+			return None
+		print(name, value)
+		if self.PaneData.CRTSoftBtnMenu == 'DIR':
+			if value == '操作':
+				# 不处理
+				self.CRTProcessStateDone.emit(True)
+			if value == 'DIR':
+				self.CRTProcessStateDone.emit(True)
+			if value == '':
+				self.CRTProcessStateDone.emit(True)
+			if value == 'Btn_BACK':
+				self.CRTProcessStateDone.emit(True)
+			if value == 'Btn_GO':
+				self.CRTProcessStateDone.emit(True)
 		pass
 
 	def CNCSoftBtnSet(self, CNCData, p_str):
