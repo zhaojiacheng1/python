@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import sys
+import os
+import time
 from PyQt5.Qt import *
 from Mylib.Interface_framework_pane import InterfaceFrameworkPane
 
@@ -29,6 +31,20 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	CNCInputSignal = pyqtSignal(str)
 	# CNC光标移动信号 参数为键的id名称
 	CNCCursorMoveSignal = pyqtSignal(str)
+	# 当前程序文件的路径 字符串
+	FilePath = './resource/src/'
+	# 当前系统存在的程序文件列表
+	FileNameList = [ ]
+	# 文件名称和大小对应字典
+	FileSizeDict = { }
+	# 文件名称和修改时间字典
+	FileUpdateTime = { }
+	# 当前程序文件的后缀名 字符串
+	FileNamePostfix = '.txt'
+	# 当前打开程序文件的名称 不带后缀名 默认O0001
+	FileName = 'O0001'
+	# 当前光标指针在显示程序文件的行号 N + 五位数字 默认 00000 特指行号
+	FileLineNum = 'N00000'
 	# CNC具有的模式
 	CNCModeAll = { 0: 'EDIT', 1: 'MDI', 2: 'MDI', 3: 'JOG',
 	               4: 'INC', 5: 'INC', 6: 'INC', 7: 'INC', 8: 'INC',
@@ -147,6 +163,8 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	# 在上电前将控制面板固定按钮 如急停按钮，模式选择，主轴、进给倍率
 	def PowerOffInit(self, Pane):
 		"""	PowerOffInit(self, InterfaceFrameworkPane)-> None """
+		# 初始化程序文件
+		self.FileListInit()
 		# 设置急停按钮
 		Pane.Btn_Emergency_STOP.blockSignals(True)
 		Pane.Btn_Emergency_STOP.setChecked(self.CNCEmergencySTOP)
@@ -205,6 +223,20 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 		Pane.Btn_M01.blockSignals(True)
 		Pane.Btn_M01.setChecked(self.CNCM01State)
 		Pane.Btn_M01.blockSignals(False)
+		pass
+
+	# 文件列表初始化
+	def FileListInit(self):
+		# 获取对应路径下的文件列表
+		self.FileNameList = os.listdir(self.FilePath)
+		# 获取对应文件的大小
+		for i in self.FileNameList:
+			self.FileSizeDict[ i ] = round(os.path.getsize(self.FilePath + i) / float(1024), 2)  # 文件大小单位为KB
+			# self.FileUpdateTime[ i ] = time.ctime(os.path.getmtime(self.FilePath + i))
+			self.FileUpdateTime[ i ] = time.strftime('%Y/%m/%d %H:%M', time.localtime(os.path.getmtime(self.FilePath + i)))
+		print(self.FileSizeDict)
+		print(self.FileUpdateTime)
+		# print(self.FileNameList[ 0 ])
 		pass
 
 	# 在上电后将控制面板的部分按键初始化
@@ -280,6 +312,10 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 			else:
 				self.CNCCRTState = 'Message'
 				self.CNCCRTChangeSignal.emit('Message')
+		# 切换至系统信息界面 System
+		if args[ 1 ] == 'Btn_SYSTEM':
+			# 不进行任何处理
+			self.DataStateDone.emit(True)
 		# 按下了上下左右键 光标移动操作
 		if args[ 1 ] == 'Btn_UP' or args[ 1 ] == 'Btn_LEFT' or args[ 1 ] == 'Btn_RIGHT' or args[ 1 ] == 'Btn_DOWN':
 			self.CNCCursorMoveSignal.emit(args[ 1 ])
@@ -420,6 +456,7 @@ class CNCData(QObject):  # 继承QObject类 可以使用信号与槽机制
 	# 接受信号传递过来的参数
 	def CNCDataSignalAcceptSlot(self, *args):
 		# DataAccept = args
+		print(args)
 		self.CNCDataProcess(*args)
 		pass
 

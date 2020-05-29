@@ -33,6 +33,7 @@ class WindowProgProgramPro(QWidget, Ui_Form):
 		self.Lab_ProgramEdit.setLineWrapMode(QPlainTextEdit.NoWrap)
 		self.ProgWindowEditInit()
 		self.LineNumber = self.ProgramLineNum
+		self.ProgData.FileLineNum = 'N' + str(self.LineNumber).zfill(5)
 		self.ChangeDictToFile()
 		self.SignalConnectSelf(self.Pane)
 		pass
@@ -265,7 +266,7 @@ class WindowProgProgramPro(QWidget, Ui_Form):
 
 	# 程序编辑窗口的初始化函数
 	def ProgWindowEditInit(self):
-		with open('E:/python/Graduation_Project/resource/src/O0002.txt', 'r', encoding='utf-8') as f:  # 可以确保关闭句柄 相对路径相对的是最开始文件运行的路径
+		with open(self.ProgData.FilePath + self.ProgData.FileName + self.ProgData.FileNamePostfix, 'r', encoding='utf-8') as f:  # 可以确保关闭句柄 相对路径相对的是最开始文件运行的路径
 			content = f.read()
 			self.ChangeFileToDict(content)
 		for i in range(1, self.ProgramLineNum + 1):
@@ -289,6 +290,7 @@ class WindowProgProgramPro(QWidget, Ui_Form):
 		# 不同的CRT状态对应不同的界面 界面对不上的时候即使接受到了信号也不处理
 		if self.ProgData.CNCCRTState != 'PROG_Program':
 			return None
+		self.Lab_ProgramEdit.blockSignals(True)
 		cursor = self.Lab_ProgramEdit.textCursor()
 		# self.Lab_ProgramEdit.setViewportMargins(40, 0, 0, 0)
 		self.highlightCurrentLine()
@@ -302,6 +304,9 @@ class WindowProgProgramPro(QWidget, Ui_Form):
 		# print('当前行的文本内容2:', self.Lab_ProgramEdit.document().findBlockByLineNumber(self.LineNumber - 1).text())
 		# print('当前的行号:', self.LineNumber, '当前的列号:', self.ColumnNumber)
 		self.CursorSetLineEndPosition()
+		self.ProgData.FileLineNum = 'N' + str(self.LineNumber).zfill(5)
+		print(self.ProgData.FileLineNum)
+		self.Lab_ProgramEdit.blockSignals(False)
 		pass
 
 	# 设置光标坐标为当前行的最后一位
@@ -381,7 +386,7 @@ class WindowProgProgramPro(QWidget, Ui_Form):
 			# 判断当前字符是否是空格 或是分号 并且剔除字符串中的空格和分号 尽量避免使用break语句,python的支持不太好
 			if p_str[ i ] != ' ' and p_str[ i ] != ';':
 				self.ProgramFileStr += p_str[ i ]
-		with open('E:/python/Graduation_Project/resource/src/O0003.txt', 'w', encoding='utf-8') as f:  # 可以确保关闭句柄 相对路径相对的是最开始文件运行的路径
+		with open('E:/python/Graduation_Project/resource/src/O0004.txt', 'w', encoding='utf-8') as f:  # 可以确保关闭句柄 相对路径相对的是最开始文件运行的路径
 			f.write(self.ProgramFileStr)
 		pass
 

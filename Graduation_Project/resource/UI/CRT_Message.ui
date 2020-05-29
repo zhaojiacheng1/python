@@ -78,7 +78,7 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>程式</string>
+         <string>报警信息</string>
         </property>
         <property name="indent">
          <number>10</number>

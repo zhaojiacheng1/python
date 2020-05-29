@@ -35,9 +35,9 @@ class WindowProgramTextEdit(QWidget, Ui_Form):
 	def WindowToLineTextSlot(self, value):
 		print('信息总站的数据_LineText:', value)
 		if value == 'LineTextInsert':
-			self.ShowLineText(True)
+			self.ShowLineTextSlot(True)
 		if value == 'LineTextAlter':
-			self.ShowLineText(True)
+			self.ShowLineTextSlot(True)
 		pass
 
 	# 单行文本框的显示操作

@@ -38,6 +38,9 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 	def PaneInit(self, PaneData):
 		# 初始化时间显示
 		self.Lab_Date.setText(datetime.now().strftime('%H:%M:%S'))
+		# 初始化界面上方的显示横条
+		self.Lab_File_Name.setText(self.PaneData.FileName)
+		self.Lab_LineNum.setText(self.PaneData.FileLineNum)
 		# 设置1s定时器
 		self.timerinit()
 		# 软按钮初始化
@@ -77,6 +80,8 @@ class CRTPosAbsPane(QWidget, Ui_Form):
 
 	def timerEvent(self, evt):
 		self.timernum += 1
+		self.Lab_File_Name.setText(self.PaneData.FileName)
+		self.Lab_LineNum.setText(self.PaneData.FileLineNum)
 		if self.PaneData.CNCEmergencySTOP:
 			if self.timernum == 1:
 				self.Lab_EMG.setStyleSheet("""

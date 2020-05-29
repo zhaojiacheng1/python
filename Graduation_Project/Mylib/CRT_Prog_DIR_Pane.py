@@ -78,6 +78,8 @@ class CRTProgDIRPane(QWidget, Ui_Form):
 
 	def timerEvent(self, evt):
 		self.timernum += 1
+		self.Lab_File_Name.setText(self.PaneData.FileName)
+		self.Lab_LineNum.setText(self.PaneData.FileLineNum)
 		if self.PaneData.CNCEmergencySTOP:
 			if self.timernum == 1:
 				self.Lab_EMG.setStyleSheet("""

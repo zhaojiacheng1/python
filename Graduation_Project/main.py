@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import sys
+import os
 from PyQt5.Qt import *
 from Mylib.Interface_framework_pane import InterfaceFrameworkPane
 from Mylib.CNC_Data import CNCData
