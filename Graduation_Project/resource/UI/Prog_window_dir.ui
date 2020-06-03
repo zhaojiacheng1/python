@@ -100,9 +100,7 @@ border-right: 0px solid;
 border-bottom: 2px solid rgb(140,140,140);</string>
         </property>
         <property name="plainText">
-         <string>O0001
-O0002
-O0003</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -152,6 +150,11 @@ O0003</string>
       </item>
       <item>
        <widget class="QPlainTextEdit" name="Lab_ProgramComment">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">border-left: 0px solid;
 border-top: 0px solid;
@@ -206,6 +209,11 @@ border-bottom: 2px solid rgb(140,140,140);</string>
       </item>
       <item>
        <widget class="QPlainTextEdit" name="Lab_ProgramSize">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">border-left: 0px solid;
 border-top: 0px solid;
@@ -261,6 +269,11 @@ border-right: 2px solid rgb(140,140,140);</string>
       </item>
       <item>
        <widget class="QPlainTextEdit" name="Lab_ProgramUpdateTime">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">border-left: 0px solid;
 border-top: 0px solid;

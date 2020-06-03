@@ -7,6 +7,7 @@ from Mylib.CRT_Prog_Base_Pane import CRTProgBasePane
 from Mylib.CRT_Prog_Program_Pane import CRTProgProgramPane
 from Mylib.CRT_Message_Pane import CRTMessagePane
 from Mylib.CRT_Prog_DIR_Pane import CRTProgDIRPane
+from Mylib.CRT_Parameter_Tool_Pane import CRTParameterToolPane
 
 
 class CNCProcess(QObject):
@@ -28,6 +29,8 @@ class CNCProcess(QObject):
 	CRTTemporaryInputDataChange = pyqtSignal(bool)
 	# 光标操作信号 参数为对象id名称
 	CRTCursorMoveSignal = pyqtSignal(str)
+	# 翻页操作信号 参数为对象ID名称
+	CNCPageChangeSignal = pyqtSignal(str)
 
 	def __init__(self, parent, Pane, Data, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
@@ -72,18 +75,6 @@ class CNCProcess(QObject):
 			CNCData.CRTWindowNum -= 1
 		pass
 
-	# 断开所有信号
-	# def CRTWindowSignalDel(self):
-	# 	self.SoftBtnSignal.disconnect()
-	# 	self.EmergencySTOPSignal.disconnect()
-	# 	self.CNCModeChangeSignal.disconnect()
-	# 	self.CNCFeedSpeedSignal.disconnect()
-	# 	self.CNCSpindleSpeedSignal.disconnect()
-	# 	self.CRTInputSignal.disconnect()
-	# 	self.CRTTemporaryInputDataChange.disconnect()
-	# 	self.CRTCursorMoveSignal.disconnect()
-	# 	pass
-
 	# 参数中有 state CNCData
 	def CNCPowerProcessSlot(self, state, CNCData):
 		if state != CNCData.CNCPowerState:
@@ -106,7 +97,7 @@ class CNCProcess(QObject):
 		pass
 
 	def CNCInputSlot(self, value):
-		if self.ProcessData.CNCNowMode == 'EDIT':
+		if self.ProcessData.CNCNowMode == 'EDIT' or self.ProcessData.CNCCRTState == 'Parameter':
 			if value == 'INPUT' or value == 'DELETE' or value == 'ALTER' or value == 'INSERT':
 				# 程序内容改变操作 只负责信号传递 具体操作在对应的程序显示类中
 				self.CRTInputSignal.emit(value)
@@ -127,8 +118,18 @@ class CNCProcess(QObject):
 	# 处理光标的操作
 	def CNCCRTCursorMoveSlot(self, name):
 		# 判断当前所处的CRT界面是否有光标可以操作
-		if self.ProcessData.CNCCRTState == 'PROG' or self.ProcessData.CNCCRTState == 'PROG_Program':
+		if self.ProcessData.CNCCRTState == 'PROG' or self.ProcessData.CNCCRTState == 'PROG_Program' or self.ProcessData.CNCCRTState == 'PROG_DIR':
 			self.CRTCursorMoveSignal.emit(name)
+		else:
+			self.ProcessStateDone.emit(True)
+		pass
+
+	# 处理CRT界面翻页操作
+	def CNCCRTPageChangeSlot(self, name):
+		print(name)
+		# 判断当前所处的CRT界面是否有翻页操作
+		if self.ProcessData.CNCCRTState == 'Parameter':
+			self.CNCPageChangeSignal.emit(name)
 		else:
 			self.ProcessStateDone.emit(True)
 		pass
@@ -182,7 +183,14 @@ class CNCProcess(QObject):
 				window.SignalConnectCNCProcess(self)
 				self.ProcessData.CRTWindowNum += 1
 				self.ProcessStateDone.emit(True)
-				# print(window.programdirwindow.width(), window.programdirwindow.height())
+			# print(window.programdirwindow.width(), window.programdirwindow.height())
+			if value == self.ProcessData.CNCCRTState and value == 'Parameter' and self.ProcessData.CRTWindowNum == 0:
+				# 创建刀补参数设置界面
+				window = CRTParameterToolPane(self.parent(), self.ProcessData, self.InterfacePane)
+				# 连接CNCProcess类信号
+				window.SignalConnectCNCProcess(self)
+				self.ProcessData.CRTWindowNum += 1
+				self.ProcessStateDone.emit(True)
 		pass
 
 	def CRTSoftBtnProcessSlot(self, name, value):

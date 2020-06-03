@@ -14,6 +14,19 @@ class WindowPosAbs(QWidget, Ui_Form):
 		self.Lab_X_Pos.setText(str(PaneData.CNCPosAbs[ 'X' ]))
 		self.Lab_Y_Pos.setText(str(PaneData.CNCPosAbs[ 'Y' ]))
 		self.Lab_Z_Pos.setText(str(PaneData.CNCPosAbs[ 'Z' ]))
+		self.timerinit()
+		pass
+
+	def timerinit(self):
+		self.timer_id = self.startTimer(1000)  # 设置1s定时器
+		self.timernum = 0
+		pass
+
+	def timerEvent(self, evt):
+		# 刷新坐标显示
+		self.Lab_X_Pos.setText(str(self.PosData.CNCPosAbs[ 'X' ]))
+		self.Lab_Y_Pos.setText(str(self.PosData.CNCPosAbs[ 'Y' ]))
+		self.Lab_Z_Pos.setText(str(self.PosData.CNCPosAbs[ 'Z' ]))
 		pass
 
 

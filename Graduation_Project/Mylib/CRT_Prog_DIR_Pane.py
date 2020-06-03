@@ -69,6 +69,14 @@ class CRTProgDIRPane(QWidget, Ui_Form):
 		if self.PaneData.CNCNowMode == 'EDIT':
 			windowprogramedit = WindowProgramTextEdit(self.Lab_ProgramEdit, self.PaneData, self)
 			windowprogramedit.show()
+		# 初始化界面上方的显示横条
+		self.Lab_File_Name.setText(self.PaneData.FileName)
+		self.Lab_LineNum.setText(self.PaneData.FileLineNum)
+		# 显示文本初始化
+		self.Lab_ProgramUsedNum.setText(str(self.PaneData.FileTotalNum))
+		self.Lab_ProgramFreeNum.setText(str(self.PaneData.FileTotalMaxNum - self.PaneData.FileTotalNum))
+		self.Lab_MemoryUsed.setText(str(self.PaneData.FileTotalMemoryUsed))
+		self.Lab_MemoryFree.setText(str(self.PaneData.FileTotalMemoryMax - self.PaneData.FileTotalMemoryUsed))
 		pass
 
 	def timerinit(self):
@@ -78,8 +86,16 @@ class CRTProgDIRPane(QWidget, Ui_Form):
 
 	def timerEvent(self, evt):
 		self.timernum += 1
-		self.Lab_File_Name.setText(self.PaneData.FileName)
-		self.Lab_LineNum.setText(self.PaneData.FileLineNum)
+		if self.PaneData.FileNameOrLineChangeFlag:
+			self.Lab_File_Name.setText(self.PaneData.FileName)
+			self.Lab_LineNum.setText(self.PaneData.FileLineNum)
+			self.PaneData.FileNameOrLineChangeFlag = False
+		if self.PaneData.FilePropertyChangeFlag:
+			self.Lab_ProgramUsedNum.setText(str(self.PaneData.FileTotalNum))
+			self.Lab_ProgramFreeNum.setText(str(self.PaneData.FileTotalMaxNum - self.PaneData.FileTotalNum))
+			self.Lab_MemoryUsed.setText(str(self.PaneData.FileTotalMemoryUsed))
+			self.Lab_MemoryFree.setText(str(self.PaneData.FileTotalMemoryMax - self.PaneData.FileTotalMemoryUsed))
+			self.PaneData.FilePropertyChangeFlag = False
 		if self.PaneData.CNCEmergencySTOP:
 			if self.timernum == 1:
 				self.Lab_EMG.setStyleSheet("""

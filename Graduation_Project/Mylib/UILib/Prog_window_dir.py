@@ -47,6 +47,7 @@ class Ui_Form(object):
 "border-top: 0px solid;\n"
 "border-right: 0px solid;\n"
 "border-bottom: 2px solid rgb(140,140,140);")
+        self.Lab_ProgramName.setPlainText("")
         self.Lab_ProgramName.setObjectName("Lab_ProgramName")
         self.verticalLayout.addWidget(self.Lab_ProgramName)
         self.verticalLayout.setStretch(0, 2)
@@ -70,6 +71,9 @@ class Ui_Form(object):
         self.label_8.setObjectName("label_8")
         self.verticalLayout_2.addWidget(self.label_8)
         self.Lab_ProgramComment = QtWidgets.QPlainTextEdit(self.widget_2)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.Lab_ProgramComment.setFont(font)
         self.Lab_ProgramComment.setStyleSheet("border-left: 0px solid;\n"
 "border-top: 0px solid;\n"
 "border-right: 0px solid;\n"
@@ -97,6 +101,9 @@ class Ui_Form(object):
         self.label_11.setObjectName("label_11")
         self.verticalLayout_3.addWidget(self.label_11)
         self.Lab_ProgramSize = QtWidgets.QPlainTextEdit(self.widget_3)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.Lab_ProgramSize.setFont(font)
         self.Lab_ProgramSize.setStyleSheet("border-left: 0px solid;\n"
 "border-top: 0px solid;\n"
 "border-right: 0px solid;\n"
@@ -125,6 +132,9 @@ class Ui_Form(object):
         self.label_12.setObjectName("label_12")
         self.verticalLayout_4.addWidget(self.label_12)
         self.Lab_ProgramUpdateTime = QtWidgets.QPlainTextEdit(self.widget_4)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.Lab_ProgramUpdateTime.setFont(font)
         self.Lab_ProgramUpdateTime.setStyleSheet("border-left: 0px solid;\n"
 "border-top: 0px solid;\n"
 "border-right: 2px solid rgb(140,140,140);\n"
@@ -146,9 +156,6 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label_7.setText(_translate("Form", "PROGRAM"))
-        self.Lab_ProgramName.setPlainText(_translate("Form", "O0001\n"
-"O0002\n"
-"O0003"))
         self.label_8.setText(_translate("Form", "COMMENT"))
         self.label_11.setText(_translate("Form", "SIZE(CHAR.)"))
         self.label_12.setText(_translate("Form", "UPDATE TIME"))

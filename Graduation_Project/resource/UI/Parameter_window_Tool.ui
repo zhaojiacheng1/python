@@ -1,0 +1,1902 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>476</width>
+    <height>305</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>476</width>
+    <height>305</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>476</width>
+    <height>305</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(192, 192, 192);</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,13">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-left: 2px solid white;
+border-top: 2px solid white;
+border-right: 2px solid rgb(140,140,140);</string>
+        </property>
+        <property name="text">
+         <string>长度   半径</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_2" native="true">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,1,1,1">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-left: 2px solid white;</string>
+        </property>
+        <property name="text">
+         <string>番号</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+        <property name="indent">
+         <number>25</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>(形状)H</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+        <property name="indent">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>(磨耗)H</string>
+        </property>
+        <property name="indent">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>(形状)D</string>
+        </property>
+        <property name="indent">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-right: 2px solid rgb(140,140,140);</string>
+        </property>
+        <property name="text">
+         <string>(磨耗)D</string>
+        </property>
+        <property name="indent">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_3" native="true">
+     <property name="styleSheet">
+      <string notr="true">border-left: 2px solid white;
+border-right: 2px solid rgb(140,140,140);
+border-bottom: 2px solid rgb(140,140,140);</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,1,1,1">
+      <property name="spacing">
+       <number>15</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>15</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="widget_4" native="true">
+        <property name="styleSheet">
+         <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(140,140,140);
+border-top: 0px solid rgb(192,192,192);
+border-right: 0px solid rgb(192,192,192);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="Lab_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>001</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>002</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>003</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>004</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Five">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>005</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Six">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>006</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Seven">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>007</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Eight">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>008</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Nine">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>009</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Ten">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>010</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Eleven">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>011</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Twelve">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>012</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Thirteen">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>013</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Fourteen">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>014</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Fifteen">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>015</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Sixteen">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid white;
+border-bottom: 2px solid rgb(192,192,192);
+border-top: 2px solid rgb(192,192,192);
+border-right: 2px solid rgb(192,192,192);</string>
+           </property>
+           <property name="text">
+            <string>016</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_7" native="true">
+        <property name="styleSheet">
+         <string notr="true">border-left: 0px solid rgb(192,192,192);
+border-bottom: 2px solid rgb(140,140,140);
+border-top: 0px solid rgb(192,192,192);
+border-right: 0px solid rgb(192,192,192);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="Lab_One_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Two_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Three_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Four_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Five_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Six_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Seven_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Eight_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Nine_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Ten_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Eleven_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Twelve_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Thirteen_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Fourteen_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Fifteen_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Sixteen_One">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_5" native="true">
+        <property name="styleSheet">
+         <string notr="true">border-left: 0px solid rgb(192,192,192);
+border-bottom: 2px solid rgb(140,140,140);
+border-top: 0px solid rgb(192,192,192);
+border-right: 0px solid rgb(192,192,192);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="Lab_One_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Two_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Three_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Four_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Five_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Six_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Seven_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Eight_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Nine_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Ten_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Eleven_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Twelve_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Thirteen_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Fourteen_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Fifteen_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Sixteen_Two">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_8" native="true">
+        <property name="styleSheet">
+         <string notr="true">border-left: 0px solid rgb(192,192,192);
+border-bottom: 2px solid rgb(140,140,140);
+border-top: 0px solid rgb(192,192,192);
+border-right: 0px solid rgb(192,192,192);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="Lab_One_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Two_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Three_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Four_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Five_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Six_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Seven_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Eight_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Nine_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Ten_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Eleven_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Twelve_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Thirteen_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Fourteen_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Fifteen_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Sixteen_Three">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_6" native="true">
+        <property name="styleSheet">
+         <string notr="true">border-left: 0px solid rgb(192,192,192);
+border-bottom: 2px solid rgb(140,140,140);
+border-top: 0px solid rgb(192,192,192);
+border-right: 0px solid rgb(192,192,192);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_6" stretch="1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="Lab_One_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Two_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Three_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Four_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Five_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Six_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Seven_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Eight_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Nine_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Ten_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Eleven_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Twelve_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Thirteen_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Fourteen_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Fifteen_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Lab_Sixteen_Four">
+           <property name="styleSheet">
+            <string notr="true">border-left: 2px solid rgb(140,140,140);
+border-bottom: 2px solid white;
+border-top: 2px solid rgb(140,140,140);
+border-right: 2px solid white;</string>
+           </property>
+           <property name="text">
+            <string>0.000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

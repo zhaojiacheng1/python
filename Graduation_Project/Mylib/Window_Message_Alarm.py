@@ -6,7 +6,6 @@ from datetime import datetime
 
 class WindowMessageAlarm(QWidget, Ui_Form):
 	# 另需设定时器 保证绝对坐标1秒钟(暂定)更新一次
-	colorint = 0
 
 	def __init__(self, parent, PaneData, Pane, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
@@ -27,12 +26,6 @@ class WindowMessageAlarm(QWidget, Ui_Form):
 		if value == 'ALARM':
 			# 设置alarm信息界面
 			Messagestr = datetime.now().strftime('%Y-%m-%d %H:%M:%S') + '  Alarm'
-			# fmt = QTextCharFormat()  # 文本字符格式
-			# fmt.setForeground(QColor(204, self.colorint, 204))  # 前景色(即字体色)设为color色
-			# cursor.mergeCharFormat(fmt)  # 光标后的文字就用该格式显示
-			# self.Lab_alarmwindow.mergeCurrentCharFormat(fmt)  # textEdit使用当前的字符格式
-			# self.Lab_alarmwindow.setFocus(True)
-			# QTextCursor
 			self.Lab_alarmwindow.clear()
 			self.Lab_alarmwindow.insertPlainText(Messagestr)
 			cursor = self.Lab_alarmwindow.textCursor()  # 获取文本光标
@@ -43,9 +36,6 @@ class WindowMessageAlarm(QWidget, Ui_Form):
 				self.MessageData.CNCAlarmMessage += Messagestr
 			else:
 				self.MessageData.CNCAlarmMessage += '\r\n' + Messagestr
-			self.colorint += 10
-			if self.colorint > 250:
-				self.colorint = 0
 		if value == 'MSG':
 			# 设置msg信息界面
 			self.Lab_alarmwindow.clear()

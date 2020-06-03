@@ -305,6 +305,7 @@ class WindowProgProgramPro(QWidget, Ui_Form):
 		# print('当前的行号:', self.LineNumber, '当前的列号:', self.ColumnNumber)
 		self.CursorSetLineEndPosition()
 		self.ProgData.FileLineNum = 'N' + str(self.LineNumber).zfill(5)
+		self.ProgData.FileNameOrLineChangeFlag = True
 		print(self.ProgData.FileLineNum)
 		self.Lab_ProgramEdit.blockSignals(False)
 		pass
