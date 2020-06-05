@@ -16,11 +16,13 @@ class CRTParameterToolPane(QWidget, Ui_Form):
 	# 输入文本框文本变换信号 参数为bool型数据 True时表示数据发生改变
 	CRTTemporaryInputDataSignal = pyqtSignal(bool)
 	# 程序数据变化信号 参数为str型数据 表示是具体的操作
-	CRTProgramTextChange = pyqtSignal(str)
+	CRTParameterTextChange = pyqtSignal(str)
 	# 程序界面的光标移动操作信号 参数为对象的id名称
-	CRTProgramCursorMoveSignal = pyqtSignal(str)
+	CRTParameterCursorMoveSignal = pyqtSignal(str)
 	# 程序界面内部不同的界面之间传递信息的信号 该信号用于界面之间的信息回环 参数为str数据
 	CRTWindowMessageExchangeSignal = pyqtSignal(str)
+	# CRT界面的翻页操作 参数为ID名称
+	CRTPageChangeSignal = pyqtSignal(str)
 	# CRT界面软件back 和 go的点击情况
 	SoftBtnCheckedInfoBack = { 'Btn_One': False, 'Btn_Two': False, 'Btn_Three': False, 'Btn_Four': False, 'Btn_Five': False,
 	                           'Btn_Six': False, 'Btn_Seven': False, 'Btn_Eight': False, 'Btn_Nine': False, 'Btn_Ten': False }
@@ -112,10 +114,20 @@ class CRTParameterToolPane(QWidget, Ui_Form):
 		self.Lab_Date.setText(datetime.now().strftime('%H:%M:%S'))
 		pass
 
+	# CRT翻页处理
+	def CRTPageChangeSlot(self, value):
+		if self.PaneData.CNCCRTState != 'Parameter':
+			return None
+		# print('CRT', value)
+		self.CRTPageChangeSignal.emit(value)
+		self.CRTProcessStateDone.emit(True)
+		pass
+
 	def WindowMessageExchangeSlot(self, value):
 		if self.PaneData.CNCCRTState != 'Parameter':
 			return None
 		print('信息总站接受到的数据:', value)
+		self.CRTWindowMessageExchangeSignal.emit(value)
 		pass
 
 	def CRTSpindleSpeedSlot(self, value):
@@ -142,6 +154,7 @@ class CRTParameterToolPane(QWidget, Ui_Form):
 		CNCProcess.CRTInputSignal.connect(self.CRTInputSlot)
 		CNCProcess.CRTTemporaryInputDataChange.connect(self.CRTTemporaryInputDataSlot)
 		CNCProcess.CRTCursorMoveSignal.connect(self.CRTCursorMoveSlot)
+		CNCProcess.CNCPageChangeSignal.connect(self.CRTPageChangeSlot)
 		pass
 
 	def SignalDisconnectCNCProcess(self, CNCProcess):
@@ -153,6 +166,7 @@ class CRTParameterToolPane(QWidget, Ui_Form):
 		CNCProcess.CRTInputSignal.disconnect(self.CRTInputSlot)
 		CNCProcess.CRTTemporaryInputDataChange.disconnect(self.CRTTemporaryInputDataSlot)
 		CNCProcess.CRTCursorMoveSignal.disconnect(self.CRTCursorMoveSlot)
+		CNCProcess.CNCPageChangeSignal.disconnect(self.CRTPageChangeSlot)
 		self.CRTSignalDisconnectCNCPane(self.InterfacePane)
 		pass
 
@@ -160,7 +174,7 @@ class CRTParameterToolPane(QWidget, Ui_Form):
 	def CRTCursorMoveSlot(self, name):
 		if self.PaneData.CNCCRTState != 'Parameter':
 			return None
-		self.CRTProgramCursorMoveSignal.emit(name)
+		self.CRTParameterCursorMoveSignal.emit(name)
 		self.CRTProcessStateDone.emit(True)
 		pass
 
@@ -175,7 +189,7 @@ class CRTParameterToolPane(QWidget, Ui_Form):
 	def CRTInputSlot(self, value):
 		if self.PaneData.CNCCRTState != 'Parameter':
 			return None
-		self.CRTProgramTextChange.emit(value)
+		self.CRTParameterTextChange.emit(value)
 		pass
 
 	def CNCModeChangeSlot(self, state):

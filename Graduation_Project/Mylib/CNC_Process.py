@@ -118,7 +118,7 @@ class CNCProcess(QObject):
 	# 处理光标的操作
 	def CNCCRTCursorMoveSlot(self, name):
 		# 判断当前所处的CRT界面是否有光标可以操作
-		if self.ProcessData.CNCCRTState == 'PROG' or self.ProcessData.CNCCRTState == 'PROG_Program' or self.ProcessData.CNCCRTState == 'PROG_DIR':
+		if self.ProcessData.CNCCRTState == 'PROG' or self.ProcessData.CNCCRTState == 'PROG_Program' or self.ProcessData.CNCCRTState == 'PROG_DIR' or self.ProcessData.CNCCRTState == 'Parameter':
 			self.CRTCursorMoveSignal.emit(name)
 		else:
 			self.ProcessStateDone.emit(True)
@@ -126,7 +126,7 @@ class CNCProcess(QObject):
 
 	# 处理CRT界面翻页操作
 	def CNCCRTPageChangeSlot(self, name):
-		print(name)
+		# print(name)
 		# 判断当前所处的CRT界面是否有翻页操作
 		if self.ProcessData.CNCCRTState == 'Parameter':
 			self.CNCPageChangeSignal.emit(name)
