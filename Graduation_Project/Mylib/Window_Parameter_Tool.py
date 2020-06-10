@@ -10,6 +10,22 @@ class WindowParameterTool(QWidget, Ui_Form):
 	# 另需设定时器 保证绝对坐标1秒钟(暂定)更新一次
 	# 程序界面内部不同的界面之间传递信息的信号 参数为str数据
 	WindowMessageExchangeSignal = pyqtSignal(str)
+	# 高亮样式设置
+	ParameterSetHightlightStr = """
+		background-color: rgb(255,255,0);
+		border-top: 2px solid rgb(140,140,140);
+		border-left: 2px solid rgb(140,140,140);
+		border-right: 2px solid white;
+		border-bottom: 2px solid white;	
+	"""
+	# 正常显示样式设置
+	ParameterUnsetHightlightStr = """
+		background-color: rgb(192,192,192);
+		border-top: 2px solid rgb(140,140,140);
+		border-left: 2px solid rgb(140,140,140);
+		border-right: 2px solid white;
+		border-bottom: 2px solid white;
+	"""
 
 	def __init__(self, parent, PaneData, Pane, *args, **kwargs):
 		super().__init__(parent, *args, **kwargs)
@@ -133,969 +149,265 @@ class WindowParameterTool(QWidget, Ui_Form):
 	# 设置高亮显示
 	def HightlightSetShow(self):
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 1, 1 ]):
-			self.Lab_One_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_One_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 1, 2 ]):
-			self.Lab_One_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_One_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 1, 3 ]):
-			self.Lab_One_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_One_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 1, 4 ]):
-			self.Lab_One_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_One_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 2, 1 ]):
-			self.Lab_Two_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Two_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 2, 2 ]):
-			self.Lab_Two_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Two_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 2, 3 ]):
-			self.Lab_Two_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Two_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 2, 4 ]):
-			self.Lab_Two_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Two_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 3, 1 ]):
-			self.Lab_Three_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Three_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 3, 2 ]):
-			self.Lab_Three_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Three_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 3, 3 ]):
-			self.Lab_Three_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Three_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 3, 4 ]):
-			self.Lab_Three_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Three_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 4, 1 ]):
-			self.Lab_Four_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Four_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 4, 2 ]):
-			self.Lab_Four_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Four_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 4, 3 ]):
-			self.Lab_Four_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Four_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 4, 4 ]):
-			self.Lab_Four_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Four_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 5, 1 ]):
-			self.Lab_Five_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Five_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 5, 2 ]):
-			self.Lab_Five_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Five_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 5, 3 ]):
-			self.Lab_Five_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Five_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 5, 4 ]):
-			self.Lab_Five_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Five_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 6, 1 ]):
-			self.Lab_Six_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Six_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 6, 2 ]):
-			self.Lab_Six_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Six_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 6, 3 ]):
-			self.Lab_Six_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Six_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 6, 4 ]):
-			self.Lab_Six_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Six_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 7, 1 ]):
-			self.Lab_Seven_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Seven_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 7, 2 ]):
-			self.Lab_Seven_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Seven_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 7, 3 ]):
-			self.Lab_Seven_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Seven_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 7, 4 ]):
-			self.Lab_Seven_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Seven_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 8, 1 ]):
-			self.Lab_Eight_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eight_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 8, 2 ]):
-			self.Lab_Eight_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eight_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 8, 3 ]):
-			self.Lab_Eight_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eight_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 8, 4 ]):
-			self.Lab_Eight_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eight_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 9, 1 ]):
-			self.Lab_Nine_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Nine_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 9, 2 ]):
-			self.Lab_Nine_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Nine_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 9, 3 ]):
-			self.Lab_Nine_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Nine_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 9, 4 ]):
-			self.Lab_Nine_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Nine_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 10, 1 ]):
-			self.Lab_Ten_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Ten_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 10, 2 ]):
-			self.Lab_Ten_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Ten_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 10, 3 ]):
-			self.Lab_Ten_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Ten_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 10, 4 ]):
-			self.Lab_Ten_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Ten_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 11, 1 ]):
-			self.Lab_Eleven_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eleven_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 11, 2 ]):
-			self.Lab_Eleven_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eleven_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 11, 3 ]):
-			self.Lab_Eleven_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eleven_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 11, 4 ]):
-			self.Lab_Eleven_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eleven_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 12, 1 ]):
-			self.Lab_Twelve_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Twelve_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 12, 2 ]):
-			self.Lab_Twelve_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Twelve_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 12, 3 ]):
-			self.Lab_Twelve_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Twelve_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 12, 4 ]):
-			self.Lab_Twelve_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Twelve_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 13, 1 ]):
-			self.Lab_Thirteen_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Thirteen_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 13, 2 ]):
-			self.Lab_Thirteen_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Thirteen_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 13, 3 ]):
-			self.Lab_Thirteen_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Thirteen_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 13, 4 ]):
-			self.Lab_Thirteen_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Thirteen_Four.setStyleSheet(self.ParameterSetHightlightStr)
+		if operator.eq(self.ParameterData.ParameterToolShowList, [ 14, 1 ]):
+			self.Lab_Fourteen_One.setStyleSheet(self.ParameterSetHightlightStr)
+		if operator.eq(self.ParameterData.ParameterToolShowList, [ 14, 2 ]):
+			self.Lab_Fourteen_Two.setStyleSheet(self.ParameterSetHightlightStr)
+		if operator.eq(self.ParameterData.ParameterToolShowList, [ 14, 3 ]):
+			self.Lab_Fourteen_Three.setStyleSheet(self.ParameterSetHightlightStr)
+		if operator.eq(self.ParameterData.ParameterToolShowList, [ 14, 4 ]):
+			self.Lab_Fourteen_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 15, 1 ]):
-			self.Lab_Fifteen_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Fifteen_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 15, 2 ]):
-			self.Lab_Fifteen_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Fifteen_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 15, 3 ]):
-			self.Lab_Fifteen_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Fifteen_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 15, 4 ]):
-			self.Lab_Fifteen_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Fifteen_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 16, 1 ]):
-			self.Lab_Sixteen_One.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Sixteen_One.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 16, 2 ]):
-			self.Lab_Sixteen_Two.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Sixteen_Two.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 16, 3 ]):
-			self.Lab_Sixteen_Three.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Sixteen_Three.setStyleSheet(self.ParameterSetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 16, 4 ]):
-			self.Lab_Sixteen_Four.setStyleSheet("""
-					background-color: rgb(255,255,0);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Sixteen_Four.setStyleSheet(self.ParameterSetHightlightStr)
 		pass
 
 	# 设置高亮前应当将所有的高亮取消
 	def HightlightUnsetShow(self):
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 1, 1 ]):
-			self.Lab_One_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_One_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 1, 2 ]):
-			self.Lab_One_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_One_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 1, 3 ]):
-			self.Lab_One_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_One_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 1, 4 ]):
-			self.Lab_One_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_One_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 2, 1 ]):
-			self.Lab_Two_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Two_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 2, 2 ]):
-			self.Lab_Two_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Two_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 2, 3 ]):
-			self.Lab_Two_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Two_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 2, 4 ]):
-			self.Lab_Two_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Two_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 3, 1 ]):
-			self.Lab_Three_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Three_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 3, 2 ]):
-			self.Lab_Three_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Three_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 3, 3 ]):
-			self.Lab_Three_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Three_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 3, 4 ]):
-			self.Lab_Three_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Three_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 4, 1 ]):
-			self.Lab_Four_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Four_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 4, 2 ]):
-			self.Lab_Four_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Four_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 4, 3 ]):
-			self.Lab_Four_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Four_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 4, 4 ]):
-			self.Lab_Four_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Four_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 5, 1 ]):
-			self.Lab_Five_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Five_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 5, 2 ]):
-			self.Lab_Five_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Five_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 5, 3 ]):
-			self.Lab_Five_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Five_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 5, 4 ]):
-			self.Lab_Five_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Five_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 6, 1 ]):
-			self.Lab_Six_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Six_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 6, 2 ]):
-			self.Lab_Six_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Six_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 6, 3 ]):
-			self.Lab_Six_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Six_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 6, 4 ]):
-			self.Lab_Six_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Six_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 7, 1 ]):
-			self.Lab_Seven_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Seven_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 7, 2 ]):
-			self.Lab_Seven_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Seven_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 7, 3 ]):
-			self.Lab_Seven_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Seven_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 7, 4 ]):
-			self.Lab_Seven_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Seven_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 8, 1 ]):
-			self.Lab_Eight_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eight_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 8, 2 ]):
-			self.Lab_Eight_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eight_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 8, 3 ]):
-			self.Lab_Eight_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eight_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 8, 4 ]):
-			self.Lab_Eight_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eight_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 9, 1 ]):
-			self.Lab_Nine_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Nine_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 9, 2 ]):
-			self.Lab_Nine_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Nine_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 9, 3 ]):
-			self.Lab_Nine_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Nine_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 9, 4 ]):
-			self.Lab_Nine_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Nine_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 10, 1 ]):
-			self.Lab_Ten_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Ten_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 10, 2 ]):
-			self.Lab_Ten_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Ten_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 10, 3 ]):
-			self.Lab_Ten_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Ten_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 10, 4 ]):
-			self.Lab_Ten_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Ten_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 11, 1 ]):
-			self.Lab_Eleven_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eleven_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 11, 2 ]):
-			self.Lab_Eleven_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eleven_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 11, 3 ]):
-			self.Lab_Eleven_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eleven_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 11, 4 ]):
-			self.Lab_Eleven_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Eleven_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 12, 1 ]):
-			self.Lab_Twelve_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Twelve_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 12, 2 ]):
-			self.Lab_Twelve_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Twelve_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 12, 3 ]):
-			self.Lab_Twelve_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Twelve_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 12, 4 ]):
-			self.Lab_Twelve_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Twelve_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 13, 1 ]):
-			self.Lab_Thirteen_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Thirteen_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 13, 2 ]):
-			self.Lab_Thirteen_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Thirteen_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 13, 3 ]):
-			self.Lab_Thirteen_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Thirteen_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 13, 4 ]):
-			self.Lab_Thirteen_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Thirteen_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
+		if operator.eq(self.ParameterData.ParameterToolShowList, [ 14, 1 ]):
+			self.Lab_Fourteen_One.setStyleSheet(self.ParameterUnsetHightlightStr)
+		if operator.eq(self.ParameterData.ParameterToolShowList, [ 14, 2 ]):
+			self.Lab_Fourteen_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
+		if operator.eq(self.ParameterData.ParameterToolShowList, [ 14, 3 ]):
+			self.Lab_Fourteen_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
+		if operator.eq(self.ParameterData.ParameterToolShowList, [ 14, 4 ]):
+			self.Lab_Fourteen_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 15, 1 ]):
-			self.Lab_Fifteen_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Fifteen_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 15, 2 ]):
-			self.Lab_Fifteen_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Fifteen_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 15, 3 ]):
-			self.Lab_Fifteen_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Fifteen_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 15, 4 ]):
-			self.Lab_Fifteen_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Fifteen_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 16, 1 ]):
-			self.Lab_Sixteen_One.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Sixteen_One.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 16, 2 ]):
-			self.Lab_Sixteen_Two.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Sixteen_Two.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 16, 3 ]):
-			self.Lab_Sixteen_Three.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Sixteen_Three.setStyleSheet(self.ParameterUnsetHightlightStr)
 		if operator.eq(self.ParameterData.ParameterToolShowList, [ 16, 4 ]):
-			self.Lab_Sixteen_Four.setStyleSheet("""
-					background-color: rgb(192,192,192);
-					border-top: 2px solid rgb(140,140,140);
-					border-left: 2px solid rgb(140,140,140);
-					border-right: 2px solid white;
-					border-bottom: 2px solid white;
-				""")
+			self.Lab_Sixteen_Four.setStyleSheet(self.ParameterUnsetHightlightStr)
 		pass
 
 	# 翻页操作
